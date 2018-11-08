@@ -59,6 +59,60 @@ router.delete('/:id', function (req, res) {
 
 // Register
 router.post('/register', (req, res) => {
+    const superAdmin = 'superAdmin@ampx.ca';
+    const admin = 'admin@ampx.ca';
+    //
+    User.getUserByEmail(superAdmin, (err, user) => {
+        if (err) {
+            console.log(err);
+        };
+        if (!user) {
+            const newUser = new User({
+                guid: uuidv1(),
+                email: 'superAdmin@ampx.ca',
+                userName: 'superAdmin',
+                firstName: 'superadmin',
+                lastName: 'superadmin',
+                companyName: 'ampx.ca',
+                city: 'ampx',
+                phone: '0-00-000-00-00',
+                password: 'sadmin123'
+            });
+            User.addUser(newUser, (err, user) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log('Super admin was creted');
+                }
+            });
+        };
+    });
+    //
+    User.getUserByEmail(admin, (err, user) => {
+        if (err) {
+            console.log(err);
+        };
+        if (!user) {
+            let newUser = new User({
+                guid: uuidv1(),
+                email: 'admin@ampx.ca',
+                userName: 'admin',
+                firstName: 'admin',
+                lastName: 'admin',
+                companyName: 'ampx.ca',
+                city: 'ampx',
+                phone: '0-00-000-00-00',
+                password: 'admin123'
+            });
+            User.addUser(newUser, (err, user) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log('Admin was creted');
+                }
+            });
+        };
+    });
     const newUser = new User({
         guid: uuidv1(),
         email: req.body.email,
@@ -88,36 +142,14 @@ router.post('/authenticate', (req, res) => {
         if (err) {
             console.error(err);
         }
-        /*
-        if(user.email === 'superAdmin@ampx.ca' || user.email === 'admin@ampx.ca') {
-            const token = jwt.sign({ data: user }, config.secret, {
-                expiresIn: 2628000 // 1 month
-            });
-            res.json({
-                success: true,
-                token: "JWT " + token,
-                user: {
-                    guid: user.guid,
-                    email: user.email,
-                    userName: user.userName,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    companyName: user.companyName,
-                    city: user.city,
-                    phone: user.phone
-                }
-            });
-        }
-        */
         if (!user) {
             return res.json({ success: false, msg: 'User not found' });
-        };
+        }
         // const isMatch = true;
         User.comparePassword(password, user.password, (err, isMatch) => {
             if (err) {
                 console.error(err);
             }
-            // if(!err) {
             if (isMatch) {
                 const token = jwt.sign({ data: user }, config.secret, {
                     expiresIn: 2628000 // 1 month

@@ -19,6 +19,7 @@ const UserSchema = mongoose.Schema({
 
 const User = module.exports = mongoose.model('User', UserSchema);
 
+/*
 const superAdmin = new User({
   email: 'superAdmin@ampx.ca',
   guid : '00000000-0000-0000-0000-000000000000',
@@ -42,6 +43,7 @@ const admin = new User({
   phone: '1-11-111-11-11',
   password: 'admin123'
 });
+*/
 
 module.exports.getUserById = function(id, callback){
   User.findById(id, callback);

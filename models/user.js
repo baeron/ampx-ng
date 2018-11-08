@@ -75,6 +75,7 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
   });
 };
 
+/*
 User.create(superAdmin, admin, function(error){
   if(error) {
     console.log(error);
@@ -82,3 +83,4 @@ User.create(superAdmin, admin, function(error){
     console.log('admin amd super admin was created');
   }
 });
+*/

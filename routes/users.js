@@ -88,6 +88,7 @@ router.post('/authenticate', (req, res) => {
         if (err) {
             console.error(err);
         }
+        /*
         if(user.email === 'superAdmin@ampx.ca' || user.email === 'admin@ampx.ca') {
             const token = jwt.sign({ data: user }, config.secret, {
                 expiresIn: 2628000 // 1 month
@@ -107,6 +108,7 @@ router.post('/authenticate', (req, res) => {
                 }
             });
         }
+        */
         if (!user) {
             return res.json({ success: false, msg: 'User not found' });
         };

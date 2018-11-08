@@ -92,7 +92,7 @@ router.post('/authenticate', (req, res) => {
             return res.json({ success: false, msg: 'User not found' });
         };
         // const isMatch = true;
-        User.comparePassword(password, user.password, (err) => {
+        User.comparePassword(password, user.password, (err, isMatch) => {
             if (err) {
                 console.error(err);
             }

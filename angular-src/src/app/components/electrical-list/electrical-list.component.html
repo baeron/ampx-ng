@@ -1,0 +1,170 @@
+<div>
+  <div class="row" style="margin-left: 0px!important; margin-right: 0px!important">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: white!important">
+          <li *ngIf="isAdmin" class="breadcrumb-item">
+            <a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="['/superadmin']">
+              <strong>Admin panel</strong>
+            </a>
+          </li>
+          <li *ngIf="!isAdmin" class="breadcrumb-item">
+            <a 
+              class="cursor-style disable-decoration text-style" 
+              style="color: black!important " 
+              [routerLink]="['/project']"
+            >
+              <strong>Projects List</strong>
+            </a>
+          </li>
+          
+          <li class="breadcrumb-item">
+            <a
+              class="cursor-style disable-decoration text-style"
+              style="color: black!important "
+              [routerLink]="['/project', projectId]"
+            >
+              <strong>Dashboard for Project {{project?.title}}</strong>
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Electricals List</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="pt-2 text-center">
+    <h1>
+      Electricals List
+      <span *ngIf="isCanChange">
+        <button type="button" class="btn btn-primary" (click)="createNewElectrical()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+      </span>
+    </h1>
+  </div>
+  <div class="row achievements-wrapper ml-3 mr-3">
+    <table id="exportable" class="table table-sm table-bordered table-hover table-text-style">
+      <thead>
+        <tr>
+          <!--<th></th> -->
+          <th>Rev.</th>
+          <th>Equipment Tag</th>
+          <th>Equipment Description</th>
+          <th>Load Type</th>
+          <th>System Voltage</th>
+          <th>Power System</th>
+          <th>Nameplate Rating</th>
+          <th>Units</th>
+          <th>Total % PF</th>
+          <th>Total % EFF</th>
+          <th>Motor Sf</th>
+          <th>Motor Code</th>
+          <th>Load Duty</th>
+          <th>Total Connected FLA</th>
+          <th>Total Connected KW</th>
+          <th>Total Connected KVAR</th>
+          <th>Total Connected KVA</th>
+          <th>Load Factor %</th>
+          <th>Total Demand FLA</th>
+          <th>Total Demand KW</th>
+          <th>Total Demand KVAR</th>
+          <th>Total Demand KVA</th>
+          <th>Total Scenario 1 LoadFactor %</th>
+          <th>Total Scenario 1 FLA</th>
+          <th>Total Scenario 1 KW</th>
+          <th>Total Scenario 1 KVAR</th>
+          <th>Total Scenario1 KVA</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let electrical of electricals?.electricals">
+          <tr *ngIf="!electrical.selectedParentTag">
+            <!--<td></td>-->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.revision || 'N/A'}}</a></td>                 <!-- Rev -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.equipmentTag || 'N/A'}}</a></td>            <!-- Equipment Tag -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{'N/A'}}</a></td>                                        <!-- Equipment Description -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.selectedEquipmentType || 'N/A'}}</a></td>   <!-- Load Type -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.selectedVoltage.name || 'N/A'}}</a></td>    <!-- System Voltage -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.selectedPowerSystem || 'N/A'}}</a></td>     <!-- Power System -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.nameplateRating || 'N/A'}}</a></td>         <!-- Nameplate Rating -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.selectedUnits || 'N/A'}}</a></td>           <!-- Units -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalPF || 'N/A'}}</a></td>                 <!-- Total % PF -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalEFF || 'N/A'}}</a></td>                <!-- Total % EFF -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.selectedMotorSF || 'N/A'}}</a></td>         <!-- Motor Sf -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.selectedMotorCode || 'N/A'}}</a></td>       <!-- Motor Code -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.selectedLoadDuty || 'N/A'}}</a></td>        <!-- Load Duty -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalConectedFla || 'N/A'}}</a></td>        <!-- Total Connected FLA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalConectedKW || 'N/A'}}</a></td>         <!-- Total Connected KW -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalConnectedKVAR || 'N/A'}}</a></td>      <!-- Total Connected KVAR -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalConnectedKVA || 'N/A'}}</a></td>       <!-- Total Connected KVA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.loadFactor || 'N/A'}}</a></td>              <!-- Load Factor % -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalDemandFLA || 'N/A'}}</a></td>          <!-- Total Demand FLA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalDemandKW || 'N/A'}}</a></td>           <!-- Total Demand KW -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalDemandKVAR || 'N/A'}}</a></td>         <!-- Total Demand KVAR -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.totalDemandKVA || 'N/A'}}</a></td>          <!-- Total Demand KVA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.scenarioFirstLoadFactor || 'N/A'}}</a></td> <!-- Total Scenario 1 LoadFactor % -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.scenarioFirstFLA || 'N/A'}}</a></td>        <!-- Total Scenario 1 FLA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.scenarioFirstKW || 'N/A'}}</a></td>         <!-- Total Scenario 1 KW -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.scenarioFirstKVAR || 'N/A'}}</a></td>       <!-- Total Scenario 1 KVAR -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electrical._id}}"><a class="table-cursor">{{electrical?.scenarioFirstKVA || 'N/A'}}</a></td>        <!-- Total Scenario1 KVA -->
+            <td>
+              <input type="checkbox" [(ngModel)]="electrical.isChecked" (click)="puchToElectricalArray(electrical)">
+            </td>
+          </tr>
+          <tr class="childs" bgcolor="#F5F5F5" *ngFor="let electricalChilds of electrical.chiildList">
+            <!--<td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{'N/A'}}</a></td> -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds?.revision || 'N/A'}}</a></td>               <!-- Rev -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds?.equipmentTag || 'N/A'}}</a></td>          <!-- Equipment Tag -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{'N/A'}}</a></td>                                            <!-- Equipment Description -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.selectedEquipmentType || 'N/A'}}</a></td>  <!-- Load Type -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.selectedVoltage.name || 'N/A'}}</a></td>   <!-- System Voltage -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.selectedPowerSystem || 'N/A'}}</a></td>    <!-- Power System -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.nameplateRating || 'N/A'}}</a></td>        <!-- Nameplate Rating -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.selectedUnits || 'N/A'}}</a></td>          <!-- Units -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalPF || 'N/A'}}</a></td>                <!-- Total % PF -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalEFF || 'N/A'}}</a></td>               <!-- Total % EFF -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.selectedMotorSF || 'N/A'}}</a></td>        <!-- Motor Sf -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.selectedMotorCode || 'N/A'}}</a></td>      <!-- Motor Code -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.selectedLoadDuty || 'N/A'}}</a></td>       <!-- Load Duty -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalConectedFla || 'N/A'}}</a></td>       <!-- Total Connected FLA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalConectedKW || 'N/A'}}</a></td>        <!-- Total Connected KW -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalConnectedKVAR || 'N/A'}}</a></td>     <!-- Total Connected KVAR -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalConnectedKVA || 'N/A'}}</a></td>      <!-- Total Connected KVA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.loadFactor || 'N/A'}}</a></td>             <!-- Load Factor % -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalDemandFLA || 'N/A'}}</a></td>         <!-- Total Demand FLA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalDemandKW || 'N/A'}}</a></td>          <!-- Total Demand KW -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalDemandKVAR || 'N/A'}}</a></td>        <!-- Total Demand KVAR -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.totalDemandKVA || 'N/A'}}</a></td>         <!-- Total Demand KVA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.scenarioFirstLoadFactor || 'N/A'}}</a></td><!-- Total Scenario 1 LoadFactor % -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.scenarioFirstFLA || 'N/A'}}</a></td>       <!-- Total Scenario 1 FLA -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.scenarioFirstKW || 'N/A'}}</a></td>        <!-- Total Scenario 1 KW -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.scenarioFirstKVAR || 'N/A'}}</a></td>      <!-- Total Scenario 1 KVAR -->
+            <td class="table-cursor" routerLink="/project/{{projectId}}/electricals/{{electricalChilds._id}}"><a class="table-cursor">{{electricalChilds.scenarioFirstKVA || 'N/A'}}</a></td>       <!-- Total Scenario1 KVA -->
+            <td>
+              <input type="checkbox" [(ngModel)]="electricalChilds.isChecked" (click)="puchToElectricalArray(electricalChilds)">
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex">
+    <div class="mt-1 ml-auto mr-3">
+      <div class="form-group">
+        <label for="isChecked">Select All</label>
+        <input type="checkbox" [(ngModel)]="isChecked" (click)="changeFlag(isChecked)">
+      </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="ml-auto mr-3">
+      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcell()">Export Electricals</button>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="mt-1 ml-auto mr-3">
+      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcellUIData()" [disabled]="electricalArrayList == 0">Export Electricals UI Data</button>
+    </div>
+  </div>
+</div>

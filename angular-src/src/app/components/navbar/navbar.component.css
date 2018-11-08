@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../../../assets/fonts/Roboto-Light.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+a {
+  font-family: Roboto-Light;
+}
+
+.ampx-tools-button {
+  background: #ffb248;
+  color: #FFFFFF!important;
+  border-radius: 25px;
+  padding: 8px 20px;
+  width: 180px;
+  border: 0;
+}
+
+.text-center {
+  text-align:center;
+}

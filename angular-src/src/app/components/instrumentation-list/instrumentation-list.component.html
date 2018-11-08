@@ -1,0 +1,109 @@
+<div> <!--class="container"-->
+  <div class="row"  style="margin-left: 0px!important; margin-right: 0px!important">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: white!important">
+          <li *ngIf="isAdmin" class="breadcrumb-item">
+            <a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="['/superadmin']">
+              <strong>Admin panel</strong>
+            </a>
+          </li>
+          <li *ngIf="!isAdmin" class="breadcrumb-item">
+            <a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="['/project']">
+              <strong>Projects List</strong>
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="['/project', projectId]">
+              <strong>Dashboard for Project {{projectName?.title}}</strong>
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Instrumentations List</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="pt-2 text-center">
+    <h1>Instrumentation List
+      <span *ngIf="isCanChange">
+        <a class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add new instrumentation" (click)="saveInstrimentation()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </span>
+    </h1>
+  </div>
+  <div class="row achievements-wrapper ml-3 mr-3">
+    <table id="exportable" class="table table-sm table-bordered table-hover table-text-style">
+      <thead>
+        <tr>
+          <!--<th></th> -->                                   <!-- 1 -->
+          <th>Item.</th>                              <!-- 2 -->
+          <th>Instrumentation Tag</th>                <!-- 3 -->
+          <th>Instrument Description</th>             <!-- 4 -->
+          <th>PID Number</th>                         <!-- 5 -->
+          <th>Service Description</th>                <!-- 6 -->
+          <th>Instrument Type 1</th>                  <!-- 7 -->
+          <th>Instrument Type 2</th>                  <!-- 8 -->
+          <th>Manufacturer</th>                       <!-- 9 -->
+          <th>Data Sheet Number</th>                  <!-- 10 -->
+          <th>PO Number</th>                          <!-- 11 -->
+          <th>Model Number</th>                       <!-- 12 -->
+          <th>Status</th>                             <!-- 13 -->
+          <th>Location</th>                           <!-- 14 -->
+          <th>System</th>                             <!-- 15 -->
+          <th>I/O Type</th>                           <!-- 16 -->
+          <th>Signal Level</th>                       <!-- 17 -->
+          <th>Power Supply</th>                       <!-- 18 -->
+          <th>Instrument Function</th>                <!-- 19 -->
+          <th>Instrument Description</th>             <!-- 20 -->
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let instrumentationItem of instrumentation">
+          <!--<td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}"><a class="table-cursor"></a></td> -->                                                                  <!-- 1 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.itemNumber || 'N/A'}}<a class="table-cursor"></a></td>                           <!-- 2 Item -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.instrumentationTag || 'New Instrumentation'}}<a class="table-cursor"></a></td>   <!-- 3 Instrumentation Tag -->                                                                              <!-- 3 Cable Conduit Tag-->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedInstrumentDescription || 'N/A'}}<a class="table-cursor"></a></td>        <!-- 4 Instrument Description -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedPidNumber || 'N/A'}}<a class="table-cursor"></a></td>                    <!-- 5 PID Number -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedServiceDescription || 'N/A'}}<a class="table-cursor"></a></td>           <!-- 6 Service Description -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedFirstInstrumentType || 'N/A'}}<a class="table-cursor"></a></td>          <!-- 7 Instrument Type 1 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedSecondInstrumentType || 'N/A'}}<a class="table-cursor"></a></td>         <!-- 8 Instrument Type 2 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedManufacturer || 'N/A'}}<a class="table-cursor"></a></td>                 <!-- 9 Manufacturer -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedDataSheetNumber || 'N/A'}}<a class="table-cursor"></a></td>              <!-- 10 Data Sheet Number-->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedMrPoNumber || 'N/A'}}<a class="table-cursor"></a></td>                   <!-- 11 PO Number -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedModelNumber || 'N/A'}}<a class="table-cursor"></a></td>                  <!-- 12 Model Number -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedStatus || 'N/A'}}<a class="table-cursor"></a></td>                       <!-- 13 Status -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedLocation || 'N/A'}}<a class="table-cursor"></a></td>                     <!-- 14 Location -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedSystem || 'N/A'}}<a class="table-cursor"></a></td>                       <!-- 15 System -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedIOType || 'N/A'}}<a class="table-cursor"></a></td>                       <!-- 16 I/O Type -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedSignalLevel || 'N/A'}}<a class="table-cursor"></a></td>                  <!-- 17 Signal Level -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedPowerSupply || 'N/A'}}<a class="table-cursor"></a></td>                  <!-- 18 Power Supply -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedInstrumentFunction || 'N/A'}}<a class="table-cursor"></a></td>           <!-- 19 Instrument Function -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/instrumentations/{{instrumentationItem._id}}">{{instrumentationItem?.selectedInstrumentDescription || 'N/A'}}<a class="table-cursor"></a></td>        <!-- 20 Instrument Description -->
+          <td>
+            <input type="checkbox" [(ngModel)]="instrumentationItem.isChecked" (click)="puchToInstrumentationArray(instrumentationItem)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex">
+    <div class="mt-1 ml-auto mr-3">
+        <div class="form-group">
+          <label for="isChecked">Select All</label>
+          <input type="checkbox" [(ngModel)]="isChecked" (click)="changeFlag(isChecked)">
+        </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="ml-auto mr-3">
+        <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcell()">Export Instrumentation Index</button>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="mt-1 ml-auto mr-3">
+      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcellUIData()" [disabled]="instrumentationArrayList == 0">Export Instrumentation UI Data</button>
+    </div>
+  </div>
+</div>

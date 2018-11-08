@@ -1,0 +1,1547 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-src documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-src documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ControllerModalComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/modals/controller-modal/controller-modal.component.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-controller-modal</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>controller-modal.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./controller-modal.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#itenElement">itenElement</a>
+                            </li>
+                            <li>
+                                <a href="#modalFlag">modalFlag</a>
+                            </li>
+                            <li>
+                                <a href="#visible">visible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#visibleAnimate">visibleAnimate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addItem">addItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#close">close</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteItem">deleteItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hide">hide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onContainerClicked">onContainerClicked</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showAddModal">showAddModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showDropModal">showDropModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dataValue">dataValue</a>
+                            </li>
+                            <li>
+                                <a href="#selectedValue">selectedValue</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="dataValue"></a>
+                        <code>dataValue</code>
+                    </td>
+                    <td class="col-md-10">
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:9</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="selectedValue"></a>
+                        <code>selectedValue</code>
+                    </td>
+                    <td class="col-md-10">
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:10</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="title"></a>
+                        <code>title</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:11</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addItem"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            addItem
+                            </b>
+                            <a href="#addItem"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>addItem(itenEl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>itenEl</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="close"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            close
+                            </b>
+                            <a href="#close"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>close()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="560" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:560</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteItem"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deleteItem
+                            </b>
+                            <a href="#deleteItem"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>deleteItem(itenEl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="543" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:543</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>itenEl</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hide"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            hide
+                            </b>
+                            <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>hide()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onContainerClicked"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            onContainerClicked
+                            </b>
+                            <a href="#onContainerClicked"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>onContainerClicked(event: MouseEvent)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code>MouseEvent</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showAddModal"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            showAddModal
+                            </b>
+                            <a href="#showAddModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>showAddModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showDropModal"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            showDropModal
+                            </b>
+                            <a href="#showDropModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>showDropModal(flag: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>flag</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="itenElement"></a>
+                        <span class="name">
+                            <b>
+                            itenElement
+                            </b>
+                            <a href="#itenElement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>itenElement:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalFlag"></a>
+                        <span class="name">
+                            <b>
+                            modalFlag
+                            </b>
+                            <a href="#modalFlag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>modalFlag:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visible"></a>
+                        <span class="name">
+                            <b>
+                            visible
+                            </b>
+                            <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>visible:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visibleAnimate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            visibleAnimate
+                            </b>
+                            <a href="#visibleAnimate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>visibleAnimate:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/modals/controller-modal/controller-modal.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input, Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-controller-modal&#x27;,
+  templateUrl: &#x27;./controller-modal.component.html&#x27;,
+  styleUrls: [&#x27;./controller-modal.component.css&#x27;]
+})
+export class ControllerModalComponent {
+  @Input() dataValue;
+  @Input() selectedValue;
+  @Input() title: string;
+
+  itenElement: string;
+  visible &#x3D; false;
+  modalFlag: boolean;
+  public visibleAnimate &#x3D; false;
+
+  constructor() { }
+
+  public showAddModal(): void {
+    this.visible &#x3D; true;
+    setTimeout(() &#x3D;&gt; this.visibleAnimate &#x3D; true, 100);
+  }
+
+  public showDropModal(flag): void {
+    this.modalFlag &#x3D; flag;
+    this.visible &#x3D; true;
+    setTimeout(() &#x3D;&gt; this.visibleAnimate &#x3D; true, 100);
+  }
+
+  public hide(): void {
+    this.visibleAnimate &#x3D; false;
+    setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
+    this.modalFlag &#x3D; false;
+  }
+
+  public onContainerClicked(event: MouseEvent): void {
+    if ((&lt;HTMLElement&gt;event.target).classList.contains(&#x27;modal&#x27;)) {
+      this.hide();
+    }
+  }
+
+  public addItem(itenEl: string) {
+    // console.log(this.selectedValue);
+    // console.log(this.dataValue);
+    /*
+    if(typeof this.dataValue[0] &#x3D;&#x3D; &#x27;string&#x27; || typeof this.dataValue[0] &#x3D;&#x3D; &#x27;undefined&#x27; ){
+      console.log(this.title + &#x27; Simple element&#x27;);
+      console.log(this.dataValue);
+      this.dataValue.push(itenEl);
+      this.selectedValue &#x3D; itenEl;
+      console.log(this.selectedValue);
+      console.log(this.dataValue);
+      this.visible &#x3D; false;
+      setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
+      this.itenElement &#x3D; null;
+      return itenEl;
+    } else {
+      */
+    let elementArrayObject &#x3D; {};
+    //I/O TAG
+    if (this.title &#x3D;&#x3D; &quot;I/O Tag&quot;) {
+      console.log(this.title + &#x27;I/O Tag&#x27;);
+      let firstValueParentElement &#x3D; this.dataValue[0].equipmentElementType;
+      let secondValueParent &#x3D; this.dataValue[0].cloneEquipmentTag;
+      console.log(firstValueParentElement);
+      console.log(secondValueParent);
+      if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;POWER SUPPLY&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;CHASSIS&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;PROCESSOR CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;ETHERNET CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG OUTPUT CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 1&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 2&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 3&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;PRESSURE SWITCH&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;TEMPERATURE SWITCH&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;FLOW SWITCH&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;POSITION SWITCH CLOSED&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;POSITION SWITCH OPEN&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;MOTOR RUN STATUS&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INTERPOSING RELAY&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INTERPOSING RELAY 1&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INTERPOSING RELAY 2&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INTERPOSING RELAY 3&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INTERPOSING RELAY 4&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INTERPOSING RELAY 5&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INTERPOSING RELAY 6&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INTERPOSING RELAY 7&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INLET PRESSURE TRANSMITTER&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;INLET TEMPERATURE TRANSMITTER&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;FLOW TRANSMITTER&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &quot;CONTROL VALVE POSITION&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else {
+        console.log(&#x27;Я тут&#x27;);
+      }
+    } else if (
+      this.title &#x3D;&#x3D; &#x27;I/O Description&#x27;
+    ) {
+      console.log(this.title + &#x27;I/O Description&#x27;);
+      let firstValueParentElement &#x3D; this.dataValue[0].equipmentElementType;
+      let secondValueParent &#x3D; this.dataValue[0].cloneEquipmentTag;
+      console.log(firstValueParentElement);
+      console.log(secondValueParent);
+      if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &#x27;&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;POWER SUPPLY&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;CHASSIS&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;PROCESSOR CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;ETHERNET CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 1&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 2&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 3&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &#x27;&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPOSING RELAY&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPOSING RELAY 1&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPOSING RELAY 2&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPOSING RELAY 3&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPOSING RELAY 4&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPOSING RELAY 5&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPOSING RELAY 6&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPOSING RELAY 7&#x27; &amp;&amp;
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &#x27;INLET PRESSURE TRANSMITTER&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &#x27;INLET TEMPERATURE TRANSMITTER&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &#x27;FLOW TRANSMITTER&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;NALOG OUTPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &#x27;CONTROL VALVE POSITION&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentTag&#x27;] &#x3D; secondValueParent;
+      } else {
+        return;
+      }//Relay I/O Tag
+    } else if (this.title &#x3D;&#x3D; &quot;Relay I/O Tag&quot;) {
+      console.log(this.title + &#x27;Relay I/O Type&#x27;);
+      let firstValueParentElement &#x3D; this.dataValue[0].equipmentElementType;
+      let secondValueParent &#x3D; this.dataValue[0].cloneEquipmentType;
+      if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;POWER SUPPLY&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;CHASSIS&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;PROCESSOR CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;ETHERNET CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; ||
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &#x27;&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentType&#x27;] &#x3D; secondValueParent;
+      } else if (
+        secondValueParent &#x3D;&#x3D; &#x27;PRESSURE SWITCH&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;TEMPERATURE SWITCH&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;FLOW SWITCH&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;POSITION SWITCH CLOSED&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;POSITION SWITCH OPEN&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;MOTOR RUN STATUS&#x27; &amp;&amp;
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentType&#x27;] &#x3D; secondValueParent;
+      } else if (
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY 1&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY 2&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY 3&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY 4&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY 5&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY 6&#x27; ||
+        secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY 7&#x27; &amp;&amp;
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentType&#x27;] &#x3D; secondValueParent;
+      } else {
+        return;
+      }
+    } else if (this.title &#x3D;&#x3D; &#x27;Relay I/O Type&#x27;) {
+      console.log(this.title + &#x27;Relay I/O Type&#x27;);
+      let firstValueParentElement &#x3D; this.dataValue[0].equipmentElementType;
+      let secondValueParent &#x3D; this.dataValue[0].cloneEquipmentType;
+      if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &#x27;&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentType&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentType&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp; secondValueParent &#x3D;&#x3D; &#x27;INTERPROSING RELAY 1&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;cloneEquipmentType&#x27;] &#x3D; secondValueParent;
+      } else {
+        return;
+      }
+    } else if (this.title &#x3D;&#x3D; &#x27;I/O Per Card&#x27;) {
+      console.log(this.title + &#x27;I/O Per Card&#x27;);
+      let firstValueParentElement &#x3D; this.dataValue[0].equipmentElementType;
+      let secondValueParent &#x3D; this.dataValue[0].equipmentModel;
+      if (firstValueParentElement &#x3D;&#x3D; &#x27;&#x27;) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (firstValueParentElement &#x3D;&#x3D; &#x27;POWER SUPPLY&#x27;) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;CHASSIS&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;PROCESSOR CARD&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ETHERNET CARD&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;1756-IB16&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;1756-IB32&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;1756-OB16&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;1756-OB32&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;1756-IF16&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;1756-IF16H&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D; &#x27;ANALOG OUTPUT CARD&#x27; &amp;&amp;
+        secondValueParent &#x3D;&#x3D; &quot;1756-OF8&quot;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else if (
+        firstValueParentElement &#x3D;&#x3D;&#x3D; &#x27;SPARE CARD SLOT&#x27; ||
+        firstValueParentElement &#x3D;&#x3D;&#x3D; &#x27;SPARE CARD SLOT 1&#x27; ||
+        firstValueParentElement &#x3D;&#x3D;&#x3D; &#x27;SPARE CARD SLOT 2&#x27; ||
+        firstValueParentElement &#x3D;&#x3D;&#x3D; &#x27;SPARE CARD SLOT 3&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; firstValueParentElement;
+        elementArrayObject[&#x27;equipmentModel&#x27;] &#x3D; secondValueParent;
+      } else {
+        return;
+      }
+      //console.log(&#x27;I/O Per Card&#x27;);
+    } else if (this.title &#x3D;&#x3D; &#x27;Type I/O&#x27;) {
+      console.log(this.title + &#x27;Type I/O&#x27;);
+      let valueParentElement &#x3D; this.dataValue[0].equipmentElementType;
+      if (
+        valueParentElement &#x3D;&#x3D; &#x27;&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;POWER SUPPLY&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;CHASSIS&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;PROCESSOR CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;ETHERNET CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 1&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 2&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 3&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else if (valueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27;) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else if (valueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27;) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else if (valueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27;) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else if (valueParentElement &#x3D;&#x3D; &#x27;ANALOG OUTPUT CARD&#x27;) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else {
+        console.log(&#x27;Somthing was wrong&#x27;);
+      }
+    } else if (this.title &#x3D;&#x3D; &#x27;IP Address&#x27;) {
+      console.log(this.title);
+      let valueParentElement &#x3D; this.dataValue[0].equipmentElementType;
+      if (
+        valueParentElement &#x3D;&#x3D; &#x27;&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;POWER SUPPLY&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;CHASSIS&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;PROCESSOR CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;ANALOG OUTPUT CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 1&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 2&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 3&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else if (
+        valueParentElement &#x3D;&#x3D; &#x27;ETHERNET CARD&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else {
+        return;
+      }
+    } else {
+      console.log(this.title + &#x27;All other&#x27;);
+      // PART FOR CONTROLLER TYPE / CONTROLLER FUNCTION / CONTROLLER MANUFACTURE / CONTROLLERS SERIES / EQUIPMENT MODEL
+      let valueParentElement &#x3D; this.dataValue[0].equipmentElementType;
+      console.log(valueParentElement);
+      //let elementArrayObject &#x3D; {};
+      if (
+        valueParentElement &#x3D;&#x3D; &#x27;&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;POWER SUPPLY&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;CHASSIS&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;ETHERNET CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;DIGITAL INPUT CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;DIGITAL OUTPUT CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;ANALOG INPUT CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;ANALOG OUTPUT CARD&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 1&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 2&#x27; ||
+        valueParentElement &#x3D;&#x3D; &#x27;SPARE CARD SLOT 3&#x27;
+      ) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else if (valueParentElement &#x3D;&#x3D; &#x27;PROCESSOR CARD&#x27;) {
+        elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
+        elementArrayObject[&#x27;equipmentElementType&#x27;] &#x3D; valueParentElement;
+      } else {
+        console.log(&#x27;Somthing was wrong&#x27;);
+      }
+    }
+    this.dataValue.push(elementArrayObject);
+    //console.log(this.dataValue);
+    this.visible &#x3D; false;
+    setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
+    this.itenElement &#x3D; null;
+    //}
+  }
+
+  /*public deleteItem(itenEl: string){
+    let elementIndex: number;
+    for(let i&#x3D;0; i&lt;this.dataValue.length; ++i){
+      let arrayElement &#x3D; this.dataValue[i];
+      if(itenEl &#x3D;&#x3D;&#x3D; arrayElement){
+        elementIndex &#x3D; i;
+      }
+    }
+    this.dataValue.splice(elementIndex, 1);
+    this.visible &#x3D; false;
+    this.modalFlag &#x3D; false;
+  }*/
+  public deleteItem(itenEl: string) {
+    let elementIndex: number;
+    console.log(this.dataValue);
+    //for object 
+    for (let i &#x3D; 0; i &lt; this.dataValue.length; ++i) {
+      let arrayElement &#x3D; this.dataValue[i];
+      //console.log(arrayElement);
+      if (itenEl &#x3D;&#x3D;&#x3D; arrayElement.name) {
+        elementIndex &#x3D; i;
+      }
+    }
+    this.dataValue.splice(elementIndex, 1);
+    console.log(this.dataValue);
+    this.visible &#x3D; false;
+    this.modalFlag &#x3D; false;
+  }
+
+  public close() {
+    this.visible &#x3D; false;
+    setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
+    this.modalFlag &#x3D; false;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;modal-padding&quot;
+(click)&#x3D;&quot;onContainerClicked($event)&quot; class&#x3D;&quot;modal fade&quot; tabindex&#x3D;&quot;-1&quot; [ngClass]&#x3D;&quot;{&#x27;in&#x27;: visibleAnimate}&quot;
+[ngStyle]&#x3D;&quot;{&#x27;display&#x27;: visible ? &#x27;block&#x27; : &#x27;none&#x27;, &#x27;opacity&#x27;: visibleAnimate ? 1 : 0}&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h4 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;myModalLabel&quot;&gt;{{title}}&lt;/h4&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;close()&quot;&gt;
+          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;modalFlag&quot;&gt;
+          &lt;div&gt;
+            &lt;p&gt;Are you sure you want to delete &lt;strong&gt;{{selectedValue}}&lt;/strong&gt; item&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;!modalFlag&quot; class&#x3D;&quot;form-inline&quot;&gt;
+          &lt;label class&#x3D;&quot;pr-2&quot;&gt;&lt;strong&gt;Item name:&lt;/strong&gt;&lt;/label&gt;
+          &lt;input 
+            class&#x3D;&quot;form-control&quot; 
+            name&#x3D;&quot;itenElement&quot; 
+            [(ngModel)]&#x3D;&quot;itenElement&quot; 
+            placeholder&#x3D;&#x27;Input new name value&#x27;
+            onfocus&#x3D;&quot;this.placeholder &#x3D; &#x27;&#x27;&quot;
+            onblur&#x3D;&quot;this.placeholder &#x3D; &#x27;Input new name value&#x27;&quot;
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;d-flex justify-content-end&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group pr-1&quot;&gt;
+              &lt;button *ngIf&#x3D;&quot;modalFlag&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;deleteItem(selectedValue)&quot;&gt;Delete&lt;/button&gt;
+              &lt;button *ngIf&#x3D;&quot;!modalFlag&quot; class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;addItem(itenElement)&quot; [disabled]&#x3D;&quot;!itenElement&quot;&gt;Add&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;pl-1 pr-2&quot;&gt;
+              &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;close()&quot;&gt;Close&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="modal-padding"(click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{\'in\': visibleAnimate}"[ngStyle]="{\'display\': visible ? \'block\' : \'none\', \'opacity\': visibleAnimate ? 1 : 0}">  <div class="modal-dialog">    <div class="modal-content">      <div class="modal-header">        <h4 class="modal-title" id="myModalLabel">{{title}}</h4>        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">          <span aria-hidden="true">&times;</span>        </button>      </div>      <div class="modal-body">        <div *ngIf="modalFlag">          <div>            <p>Are you sure you want to delete <strong>{{selectedValue}}</strong> item</p>          </div>        </div>        <div *ngIf="!modalFlag" class="form-inline">          <label class="pr-2"><strong>Item name:</strong></label>          <input             class="form-control"             name="itenElement"             [(ngModel)]="itenElement"             placeholder=\'Input new name value\'            onfocus="this.placeholder = \'\'"            onblur="this.placeholder = \'Input new name value\'"          />        </div>      </div>      <div class="modal-footer">        <div class="row">          <div class="d-flex justify-content-end">            <div class="form-group pr-1">              <button *ngIf="modalFlag" class="btn btn-danger" (click)="deleteItem(selectedValue)">Delete</button>              <button *ngIf="!modalFlag" class="btn btn-success" (click)="addItem(itenElement)" [disabled]="!itenElement">Add</button>            </div>            <div class="pl-1 pr-2">              <button class="btn btn-primary" (click)="close()">Close</button>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ControllerModalComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ControllerModalComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

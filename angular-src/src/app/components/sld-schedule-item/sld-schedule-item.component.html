@@ -1,0 +1,1215 @@
+<div class="ml-3 mr-3" *ngIf="sldScheduleItem">
+  <div class="d-flex justify-content-center pt-3">
+    <h1>SLD Schedule <strong> {{sldScheduleItem?.majorEquipmentDeviceTag || 'New SLD Schedule'}}</strong></h1>
+  </div>
+  <form (ngSubmit)="saveSldShedule(sldScheduleItem._id, sldSheduleForm.value)" #sldSheduleForm="ngForm">
+    <div class="row">
+      <div class="col-12 col-xl-3 align-self-start">
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="row" style="border:1px solid black;border-radius:5px">
+              <div class="col-12">
+                <div class="d-flex justify-content-center">
+                  <div><span>Equipment Info</span></div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalList">
+                    <div class="form-group">
+                      <label for="selectedMajorEquipmentDevice">Major Equipment Device</label>
+                      <select [disabled]="electricalList.length == 0"
+                              id="selectedMajorEquipmentDevice"
+                              class="form-control"
+                              [(ngModel)]="sldScheduleItem.selectedMajorEquipmentDevice"
+                              (change)="sldScheduleItem.selectedEquipmentDescriptionForMajorEquipmentDevice = setEquipmentDescription(electricalList, sldScheduleItem.selectedMajorEquipmentDevice);
+                        sldScheduleItem.selectedSystemVoltage = setSystemVoltage(electricalList, sldScheduleItem.selectedMajorEquipmentDevice)"
+                              name="selectedMajorEquipmentDevice">
+                        <option *ngFor="let currentEquipmentTag of electricalList"
+                                [ngValue]="currentEquipmentTag.equipmentTag"
+                                [selected]="currentEquipmentTag.equipmentTag==sldScheduleItem.selectedMajorEquipmentDevice">
+                          {{currentEquipmentTag.equipmentTag}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 align-self-end">
+                    <div class="form-group">
+                      <label for="selectedEquipmentDescriptionForMajorEquipmentDevice">Equipment Description</label>
+                      <input id="selectedEquipmentDescriptionForMajorEquipmentDevice"
+                             type="text"
+                             class="form-control"
+                             [(ngModel)]="sldScheduleItem.selectedEquipmentDescriptionForMajorEquipmentDevice"
+                             name="selectedEquipmentDescriptionForMajorEquipmentDevice"
+                             [readonly]="true">
+                    </div>
+                  </div>
+                </div>
+                <!-- -->
+                <div class="row">
+                  <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalList">
+                    <div class="form-group">
+                      <label for="selectedMajorEquipmentTag">Major Equipment Tag</label>
+                      <select [disabled]="electricalList.length == 0"
+                              id="selectedMajorEquipmentTag"
+                              class="form-control"
+                              [(ngModel)]="sldScheduleItem.selectedMajorEquipmentTag"
+                              (change)="sldScheduleItem.selectedEquipmentDescriptionForMajorEquipmentTag = setEquipmentDescription(electricalList, sldScheduleItem.selectedMajorEquipmentTag)"
+                              name="selectedMajorEquipmentTag">
+                        <option *ngFor="let currentEquipmentTag of electricalList"
+                                [ngValue]="currentEquipmentTag.equipmentTag"
+                                [selected]="currentEquipmentTag.equipmentTag==sldScheduleItem.selectedMajorEquipmentTag">
+                          {{currentEquipmentTag.equipmentTag}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 align-self-end">
+                    <div class="form-group">
+                      <label for="selectedEquipmentDescriptionForMajorEquipmentTag">Equipment Description</label>
+                      <input type="text"
+                             class="form-control"
+                             [(ngModel)]="sldScheduleItem.selectedEquipmentDescriptionForMajorEquipmentTag"
+                             name="selectedEquipmentDescriptionForMajorEquipmentTag"
+                             [readonly]="true">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 align-self-end">
+                    <div class="form-group">
+                      <label for="majorEquipmentDeviceTag">Major Equipment Device Tag</label>
+                      <input type="text" class="form-control" [(ngModel)]="sldScheduleItem.majorEquipmentDeviceTag" name="majorEquipmentDeviceTag" placeholder="New SLD Schedule">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 align-self-end">
+                    <div class="form-group">
+                      <label for="">System Voltage</label>
+                      <input type="text"
+                             class="form-control"
+                             [(ngModel)]="sldScheduleItem.selectedSystemVoltage"
+                             name="selectedSystemVoltage"
+                             [readonly]="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="border:1px solid black;border-radius:5px">
+              <div class="col-12">
+                <div class="d-flex justify-content-center">
+                  <div><span>Incoming Section</span></div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-6 align-self-end">
+                    <div class="form-group">
+                      <label for="incomer">Incomer</label>
+                      <label class="toggle col-sm-8">
+                        <input type="checkbox" [(ngModel)]="sldScheduleItem.incomer" name="incomer" (click)="changeBooleanFlag(sldScheduleItem.incomer)">
+                        <span class="handle"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 align-self-end">
+                    <div class="form-group">
+                      <label for="lightningArrestor">Lightning Arrestor</label>
+                      <label class="toggle col-sm-8">
+                        <input type="checkbox" [(ngModel)]="sldScheduleItem.lightningArrestor" name="lightningArrestor" (click)="changeBooleanFlag(sldScheduleItem.lightningArrestor)">
+                        <span class="handle"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-6 align-self-end">
+                    <div class="form-group">
+                      <label for="selectedFeederEntry">Feeder Entry</label>
+                      <select id="selectedFeederEntry"
+                              class="form-control"
+                              [(ngModel)]="sldScheduleItem.selectedFeederEntry"
+                              name="selectedFeederEntry">
+                        <option *ngFor="let currentFeederEntry of sldScheduleItem.feederEntry"
+                                [ngValue]="currentFeederEntry"
+                                [selected]="currentFeederEntry==sldScheduleItem.selectedFeederEntry">
+                          {{currentFeederEntry}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 align-self-end">
+                    <div class="form-group">
+                      <label for="surgeProtection">Surge Protection</label>
+                      <label class="toggle col-sm-8">
+                        <input type="checkbox" [(ngModel)]="sldScheduleItem.surgeProtection" name="surgeProtection" (click)="changeBooleanFlag(sldScheduleItem.surgeProtection)">
+                        <span class="handle"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-xl-6 align-self-start" style="border:1px solid black;border-radius:5px">
+        <div class="row">
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedOCDevice">O/C Device</label>
+              <select id="selectedOCDevice"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedOCDevice"
+                      name="selectedOCDevice">
+                <option *ngFor="let currentOCDevice of sldScheduleItem.ocDevice"
+                        [ngValue]="currentOCDevice"
+                        [selected]="currentOCDevice==sldScheduleItem.selectedOCDevice">
+                  {{currentOCDevice}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedContactorType">Contactor Type</label>
+              <select id="selectedContactorType"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedContactorType"
+                      name="selectedContactorType">
+                <option *ngFor="let currentContactorType of sldScheduleItem.contactorType"
+                        [ngValue]="currentContactorType"
+                        [selected]="currentContactorType==sldScheduleItem.selectedContactorType">
+                  {{currentContactorType}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedCPTQTY">CPT QTY</label>
+              <select id="selectedCPTQTY"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedCPTQTY"
+                      name="selectedCPTQTY">
+                <option *ngFor="let currentsCPTQTY of sldScheduleItem.CPTQTY"
+                        [ngValue]="currentsCPTQTY"
+                        [selected]="currentsCPTQTY==sldScheduleItem.selectedCPTQTY">
+                  {{currentsCPTQTY}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedCTQTY">CT QTY</label>
+              <select id="selectedCTQTY"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedCTQTY"
+                      name="selectedCTQTY">
+                <option *ngFor="let currentCTQTY of sldScheduleItem.CTQTY"
+                        [ngValue]="currentCTQTY"
+                        [selected]="currentCTQTY==sldScheduleItem.selectedCTQTY">
+                  {{currentCTQTY}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="tripRating">Trip Rating</label>
+              <input id="tripRating" type="number" class="form-control" [(ngModel)]="sldScheduleItem.tripRating" name="tripRating">
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedContactorSize">Contactor Size</label>
+              <select id="selectedContactorSize"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedContactorSize"
+                      name="selectedContactorSize">
+                <option *ngFor="let currentContactorSize of sldScheduleItem.contactorSize"
+                        [ngValue]="currentContactorSize"
+                        [selected]="currentContactorSize==sldScheduleItem.selectedContactorSize">
+                  {{currentContactorSize}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedCPTVoltage">CPT Voltage</label>
+              <select id="selectedCPTVoltage"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedCPTVoltage"
+                      name="selectedCPTVoltage">
+                <option *ngFor="let currentCPTVoltage of sldScheduleItem.CPTVoltage"
+                        [ngValue]="currentCPTVoltage"
+                        [selected]="currentCPTVoltage==sldScheduleItem.selectedCPTVoltage">
+                  {{currentCPTVoltage}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedCTRatio">CT Ratio</label>
+              <select id="selectedCTRatio"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedCTRatio"
+                      name="selectedCTRatio">
+                <option *ngFor="let currentCTRatio of sldScheduleItem.CTRatio"
+                        [ngValue]="currentCTRatio"
+                        [selected]="currentCTRatio==sldScheduleItem.selectedCTRatio">
+                  {{currentCTRatio}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedFrameRating">Frame Rating</label>
+              <select id="selectedFrameRating"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedFrameRating"
+                      name="selectedFrameRating">
+                <option *ngFor="let currentFrameRating of sldScheduleItem.frameRating"
+                        [ngValue]="currentFrameRating"
+                        [selected]="currentFrameRating==sldScheduleItem.selectedFrameRating">
+                  {{currentFrameRating}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedOverloadType">Overload Type</label>
+              <select id="selectedOverloadType"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedOverloadType"
+                      name="selectedOverloadType">
+                <option *ngFor="let currentOverloadType of sldScheduleItem.overloadType"
+                        [ngValue]="currentOverloadType"
+                        [selected]="currentOverloadType==sldScheduleItem.selectedOverloadType">
+                  {{currentOverloadType}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedCPTRating">CPT Rating</label>
+              <select id="selectedCPTRating"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedCPTRating"
+                      name="selectedCPTRating">
+                <option *ngFor="let currentCPTRating of sldScheduleItem.CPTRating"
+                        [ngValue]="currentCPTRating"
+                        [selected]="currentCPTRating==sldScheduleItem.selectedCPTRating">
+                  {{currentCPTRating}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedCTAccuracy">CT Accuracy</label>
+              <select id="selectedCTAccuracy"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedCTAccuracy"
+                      name="selectedCTAccuracy">
+                <option *ngFor="let currentCTAccuracy of sldScheduleItem.CTAccuracy"
+                        [ngValue]="currentCTAccuracy"
+                        [selected]="currentCTAccuracy==sldScheduleItem.selectedCTAccuracy">
+                  {{currentCTAccuracy}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedFuseRating">Fuse Rating</label>
+              <select id="selectedFuseRating"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedFuseRating"
+                      name="selectedFuseRating">
+                <option *ngFor="let currentFuseRating of sldScheduleItem.fuseRating"
+                        [ngValue]="currentFuseRating"
+                        [selected]="currentFuseRating==sldScheduleItem.selectedFuseRating">
+                  {{currentFuseRating}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="overloadSize">Overload Size</label>
+              <input id="overloadSize" type="number" class="form-control" [(ngModel)]="sldScheduleItem.overloadSize" name="overloadSize">
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedVTQTY">VT QTY</label>
+              <select id="selectedVTQTY"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedVTQTY"
+                      name="selectedVTQTY">
+                <option *ngFor="let currentVTQTY of sldScheduleItem.VTQTY"
+                        [ngValue]="currentVTQTY"
+                        [selected]="currentVTQTY==sldScheduleItem.selectedVTQTY">
+                  {{currentVTQTY}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedGFCTRatio">GFCT Ratio</label>
+              <select id="selectedGFCTRatio"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedGFCTRatio"
+                      name="selectedGFCTRatio">
+                <option *ngFor="let currentGFCTRatio of sldScheduleItem.GFCTRatio"
+                        [ngValue]="currentGFCTRatio"
+                        [selected]="currentGFCTRatio==sldScheduleItem.selectedGFCTRatio">
+                  {{currentGFCTRatio}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedSwitchRating">Switch Rating</label>
+              <select id="selectedSwitchRating"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedSwitchRating"
+                      name="selectedSwitchRating">
+                <option *ngFor="let currentSwitchRating of sldScheduleItem.SwitchRating"
+                        [ngValue]="currentSwitchRating"
+                        [selected]="currentSwitchRating==sldScheduleItem.selectedSwitchRating">
+                  {{currentGFCTRatio}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3 offset-xl-3">
+            <div class="form-group">
+              <label for="selectedVTVoltage">VT Voltage</label>
+              <select id="selectedVTVoltage"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedVTVoltage"
+                      name="selectedVTVoltage">
+                <option *ngFor="let currentVTVoltage of sldScheduleItem.VTVoltage"
+                        [ngValue]="currentVTVoltage"
+                        [selected]="currentVTVoltage==sldScheduleItem.selectedVTVoltage">
+                  {{currentVTVoltage}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedShuntCoil">Shunt Coil</label>
+              <select id="selectedShuntCoil"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedShuntCoil"
+                      name="selectedShuntCoil">
+                <option *ngFor="let currentShuntCoil of sldScheduleItem.ShuntCoil"
+                        [ngValue]="currentShuntCoil"
+                        [selected]="currentShuntCoil==sldScheduleItem.selectedShuntCoil">
+                  {{currentShuntCoil}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-3 offset-xl-6">
+            <div class="form-group">
+              <label for="selectedVTAccuracy">VT Accuracy</label>
+              <select id="selectedVTAccuracy"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedVTAccuracy"
+                      name="selectedVTAccuracy">
+                <option *ngFor="let currentVTAccuracy of sldScheduleItem.VTAccuracy"
+                        [ngValue]="currentVTAccuracy"
+                        [selected]="currentVTAccuracy==sldScheduleItem.selectedVTAccuracy">
+                  {{currentVTAccuracy}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedKirkKey">Kirk Key</label>
+              <select id="selectedKirkKey"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedKirkKey"
+                      name="selectedKirkKey">
+                <option *ngFor="let currentKirkKey of sldScheduleItem.KirkKey"
+                        [ngValue]="currentKirkKey"
+                        [selected]="currentKirkKey==sldScheduleItem.selectedKirkKey">
+                  {{currentKirkKey}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedGroundStud">Ground Stud</label>
+              <select id="selectedGroundStud"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedGroundStud"
+                      name="selectedGroundStud">
+                <option *ngFor="let currentGroundStud of sldScheduleItem.GroundStud"
+                        [ngValue]="currentGroundStud"
+                        [selected]="currentGroundStud==sldScheduleItem.selectedGroundStud">
+                  {{currentGroundStud}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <!-- ДОПИСАТЬ ЛОГИКУ для Switch -->
+              <label for="TransformerPR">Transformer PR</label>
+              <label class="toggle col-sm-8">
+                <input type="checkbox" [(ngModel)]="sldScheduleItem.TransformerPR" name="TransformerPR" (click)="changeBooleanFlag(sldScheduleItem.TransformerPR)">
+                <span class="handle"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedIndicatingLights">Indicating Lights</label>
+              <select id="selectedIndicatingLights"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedIndicatingLights"
+                      name="selectedIndicatingLights">
+                <option *ngFor="let currentIndicatingLights of sldScheduleItem.IndicatingLights"
+                        [ngValue]="currentIndicatingLights"
+                        [selected]="currentIndicatingLights==sldScheduleItem.selectedIndicatingLights">
+                  {{currentIndicatingLights}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedNOAuxContact">N.O.Aux Contact</label>
+              <select id="selectedNOAuxContact"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedNOAuxContact"
+                      name="selectedNOAuxContact">
+                <option *ngFor="let currentNOAuxContact of sldScheduleItem.NOAuxContact"
+                        [ngValue]="currentNOAuxContact"
+                        [selected]="currentNOAuxContact==sldScheduleItem.selectedNOAuxContact">
+                  {{currentNOAuxContact}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="PQM">PQM</label>
+              <label class="toggle col-sm-8">
+                <input type="checkbox" [(ngModel)]="sldScheduleItem.PQM" name="PQM" (click)="changeBooleanFlag(sldScheduleItem.PQM)">
+                <span class="handle"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="MotorPR">Motor PR</label>
+              <label class="toggle col-sm-8">
+                <input type="checkbox" [(ngModel)]="sldScheduleItem.MotorPR" name="MotorPR" (click)="changeBooleanFlag(sldScheduleItem.MotorPR)">
+                <span class="handle"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="SpaceHeater">Space Heater</label>
+              <input id="SpaceHeater" type="number" class="form-control" [(ngModel)]="sldScheduleItem.SpaceHeater" name="SpaceHeater">
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedNCAuxContact">N.C.Aux Contact</label>
+              <select id="selectedNCAuxContact"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedNCAuxContact"
+                      name="selectedNCAuxContact">
+                <option *ngFor="let currentNCAuxContact of sldScheduleItem.NCAuxContact"
+                        [ngValue]="currentNCAuxContact"
+                        [selected]="currentNCAuxContact==sldScheduleItem.selectedNCAuxContact">
+                  {{currentNCAuxContact}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="FeederPR">Feeder PR</label>
+              <label class="toggle col-sm-8">
+                <input type="checkbox" [(ngModel)]="sldScheduleItem.FeederPR" name="FeederPR" (click)="changeBooleanFlag(sldScheduleItem.FeederPR)">
+                <span class="handle"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="NGRRelay">NGR Relay</label>
+              <label class="toggle col-sm-8">
+                <input type="checkbox" [(ngModel)]="sldScheduleItem.NGRRelay" name="NGRRelay" (click)="changeBooleanFlag(sldScheduleItem.NGRRelay)">
+                <span class="handle"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="HeaterCircuit">Heater Circuit</label>
+              <label class="toggle col-sm-8">
+                <input type="checkbox" [(ngModel)]="sldScheduleItem.HeaterCircuit" name="HeaterCircuit" (click)="changeBooleanFlag(sldScheduleItem.HeaterCircuit)">
+                <span class="handle"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-12 col-xl-3">
+            <div class="form-group">
+              <label for="selectedInterposRelay">Interpos. Relay</label>
+              <select id="selectedInterposRelay"
+                      class="form-control"
+                      [(ngModel)]="sldScheduleItem.selectedInterposRelay"
+                      name="selectedInterposRelay">
+                <option *ngFor="let currentInterposRelay of sldScheduleItem.InterposRelay"
+                        [ngValue]="currentInterposRelay"
+                        [selected]="currentInterposRelay==sldScheduleItem.selectedInterposRelay">
+                  {{currentInterposRelay}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-xl-3 align-self-start">
+        <div class="row">
+          <div class="col-12" style="border:1px solid black;border-radius:5px">
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center">
+                <span>PDP Detail</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12">
+                    <span>Panel</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-xl-6">
+                    <div class="form-group">
+                      <app-drop-down (onChanged)="onChanged($event, 'PDP Panel First Value')"
+                                     (newOnChanged)="newOnChanged($event, 'PDP Panel First Value')"
+                                     [dropDownName]="'PDP Panel First Value'"
+                                     [equipmentType]='sldScheduleItem.firstPanelValue'
+                                     [selectedEquipmentType]='sldScheduleItem.selectedFirstPanelValue'
+                                     name="selectedFirstPanelValue">
+                      </app-drop-down>
+                      <!--
+                      <div class="d-flex flex-row">
+                        <select [disabled]="sldScheduleItem.firstPanelValue.length == 0"
+                          id="selectedFirstPanelValue"
+                          class="form-control selectForOpenModal"
+                          [(ngModel)]="sldScheduleItem.selectedFirstPanelValue"
+                          name="selectedFirstPanelValue"
+                        >
+                          <option
+                            *ngFor="let currentFirstPanelValue of sldScheduleItem.firstPanelValue"
+                            [ngValue]="currentFirstPanelValue"
+                            [selected]="currentFirstPanelValue==sldScheduleItem.selectedFirstPanelValue">
+                              {{currentFirstPanelValue}}
+                          </option>
+                        </select>
+                          <button
+                            type="button"
+                            class="btn btn-outline-secondary btnPlus fa fa-plus"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Add new item"
+                            (click)="firstPanelElementModal.showAddModal()"
+                          ></button>
+                          <button
+                            type="button"
+                            class="btn btn-outline-secondary btnMinus fa fa-minus"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Drop selected item"
+                            (click)="firstPanelElementModal.showDropModal(dropElementFlag)"
+                            [disabled]="sldScheduleItem.firstPanelValue.length == 0"
+                          ></button>
+                        </div>
+                        -->
+                    </div>
+                  </div>
+                  <div class="col-12 col-xl-6">
+                    <div class="form-group">
+                      <app-drop-down (onChanged)="onChanged($event, 'PDP Panel Second Value')"
+                                     (newOnChanged)="newOnChanged($event, 'PDP Panel Second Value')"
+                                     [dropDownName]="'PDP Panel Second Value'"
+                                     [equipmentType]='sldScheduleItem.secondPanelValue'
+                                     [selectedEquipmentType]='sldScheduleItem.selectedSecondPanelValue'
+                                     name="selectedSecondPanelValue">
+                      </app-drop-down>
+                      <!--
+                      <div class="d-flex flex-row">
+                        <select [disabled]="sldScheduleItem.secondPanelValue.length == 0"
+                          id="selectedSecondPanelValue"
+                          class="form-control selectForOpenModal"
+                          [(ngModel)]="sldScheduleItem.selectedSecondPanelValue"
+                          name="selectedSecondPanelValue"
+                        >
+                          <option
+                            *ngFor="let currentSecondPanelValue of sldScheduleItem.secondPanelValue"
+                            [ngValue]="currentSecondPanelValue"
+                            [selected]="currentSecondPanelValue==sldScheduleItem.selectedSecondPanelValue">
+                              {{currentSecondPanelValue}}
+                          </option>
+                        </select>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btnPlus fa fa-plus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Add new item"
+                          (click)="secondPanelElementModal.showAddModal()"
+                        ></button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btnMinus fa fa-minus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Drop selected item"
+                          (click)="secondPanelElementModal.showDropModal(dropElementFlag)"
+                          [disabled]="sldScheduleItem.secondPanelValue.length == 0"
+                        ></button>
+                      </div>
+                      -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-xl-6">
+                    <div class="form-group">
+                      <app-drop-down (onChanged)="onChanged($event, 'PDP Panel Third Value')"
+                                     (newOnChanged)="newOnChanged($event, 'PDP Panel Third Value')"
+                                     [dropDownName]="'PDP Panel Third Value'"
+                                     [equipmentType]='sldScheduleItem.thirdPanelValue'
+                                     [selectedEquipmentType]='sldScheduleItem.selectedThirdPanelValue'
+                                     name="selectedSecondPanelValue">
+                      </app-drop-down>
+                      <!--
+                      <div class="d-flex flex-row">
+                        <select [disabled]="sldScheduleItem.thirdPanelValue.length == 0"
+                          id="selectedThirdPanelValue"
+                          class="form-control selectForOpenModal"
+                          [(ngModel)]="sldScheduleItem.selectedThirdPanelValue"
+                          name="selectedThirdPanelValue"
+                        >
+                          <option
+                            *ngFor="let currentThirdPanelValue of sldScheduleItem.thirdPanelValue"
+                            [ngValue]="currentThirdPanelValue"
+                            [selected]="currentThirdPanelValue==sldScheduleItem.selectedThirdPanelValue">
+                              {{currentThirdPanelValue}}
+                          </option>
+                        </select>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btnPlus fa fa-plus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Add new item"
+                          (click)="thirdPanelElementModal.showAddModal()"
+                        ></button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btnMinus fa fa-minus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Drop selected item"
+                          (click)="thirdPanelElementModal.showDropModal(dropElementFlag)"
+                          [disabled]="sldScheduleItem.thirdPanelValue.length == 0"
+                        ></button>
+                      </div>
+                      -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-xl-6">
+                    <div class="form-group">
+                      <label for="CircuitNumbers">Circuit Numbers</label>
+                      <input type="number" class="form-control" [(ngModel)]="sldScheduleItem.CircuitNumbers" name="CircuitNumbers">
+                    </div>
+                  </div>
+                  <div class="col-12 col-xl-6">
+                    <div class="form-group">
+                      <label for="CFG">CFG</label>
+                      <label class="toggle col-sm-8">
+                        <input type="checkbox" [(ngModel)]="sldScheduleItem.CFG" name="CFG" (click)="changeBooleanFlag(sldScheduleItem.CFG)">
+                        <span class="handle"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="border:1px solid black;border-radius:5px">
+            <div class="row">
+              <div class="col-12">
+                <span>Local Switch/PB</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-xl-6">
+                <div class="form-group">
+                  <select id="selectedFirstValueLocalSwitchPB"
+                          class="form-control"
+                          [(ngModel)]="sldScheduleItem.selectedFirstValueLocalSwitchPB"
+                          name="selectedFirstValueLocalSwitchPB">
+                    <option *ngFor="let currentFirstValueLocalSwitchPB of sldScheduleItem.firstValueLocalSwitchPB"
+                            [ngValue]="currentFirstValueLocalSwitchPB"
+                            [selected]="currentFirstValueLocalSwitchPB==sldScheduleItem.selectedFirstValueLocalSwitchPB">
+                      {{currentFirstValueLocalSwitchPB}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-xl-6">
+                <div class="form-group">
+                  <select id="selectedSecondValueLocalSwitchPB"
+                          class="form-control"
+                          [(ngModel)]="sldScheduleItem.selectedSecondValueLocalSwitchPB"
+                          name="selectedSecondValueLocalSwitchPB">
+                    <option *ngFor="let currentSecondValueLocalSwitchPB of sldScheduleItem.secondValueLocalSwitchPB"
+                            [ngValue]="currentSecondValueLocalSwitchPB"
+                            [selected]="currentSecondValueLocalSwitchPB==sldScheduleItem.selectedSecondValueLocalSwitchPB">
+                      {{currentSecondValueLocalSwitchPB}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-xl-6">
+                <div class="form-group">
+                  <select id="selectedThirdValueLocalSwitchPB"
+                          class="form-control"
+                          [(ngModel)]="sldScheduleItem.selectedThirdValueLocalSwitchPB"
+                          name="selectedThirdValueLocalSwitchPB">
+                    <option *ngFor="let currentSelectedThirdValueLocalSwitchPB of sldScheduleItem.thirdValueLocalSwitchPB"
+                            [ngValue]="currentSelectedThirdValueLocalSwitchPB"
+                            [selected]="currentSelectedThirdValueLocalSwitchPB==sldScheduleItem.selectedThirdValueLocalSwitchPB">
+                      {{currentSelectedThirdValueLocalSwitchPB}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-xl-6">
+                <div class="form-group">
+                  <select id="selectedFourthValueLocalSwitchPB"
+                          class="form-control"
+                          [(ngModel)]="sldScheduleItem.selectedFourthValueLocalSwitchPB"
+                          name="selectedFourthValueLocalSwitchPB">
+                    <option *ngFor="let currentFourthValueLocalSwitchPB of sldScheduleItem.fourthValueLocalSwitchPB"
+                            [ngValue]="currentFourthValueLocalSwitchPB"
+                            [selected]="currentFourthValueLocalSwitchPB==sldScheduleItem.selectedFourthValueLocalSwitchPB">
+                      {{currentFourthValueLocalSwitchPB}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="border:1px solid black;border-radius:5px">
+            <div class="row">
+              <div class="col-12">
+                <span>Field Switch/PB</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-xl-6">
+                <div class="form-group">
+                  <select id="selectedFirstValueFieldSwitchPB"
+                          class="form-control"
+                          [(ngModel)]="sldScheduleItem.selectedFirstValueFieldSwitchPB"
+                          name="selectedFirstValueFieldSwitchPB">
+                    <option *ngFor="let currentFirstValueFieldSwitchPB of sldScheduleItem.firstValueFieldSwitchPB"
+                            [ngValue]="currentFirstValueFieldSwitchPB"
+                            [selected]="currentFirstValueFieldSwitchPB==sldScheduleItem.selectedFirstValueFieldSwitchPB">
+                      {{currentFirstValueFieldSwitchPB}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-xl-6">
+                <div class="form-group">
+                  <select id="selectedSecondValueFieldSwitchPB"
+                          class="form-control"
+                          [(ngModel)]="sldScheduleItem.selectedSecondValueFieldSwitchPB"
+                          name="selectedSecondValueFieldSwitchPB">
+                    <option *ngFor="let currentSecondValueFieldSwitchPB of sldScheduleItem.secondValueFieldSwitchPB"
+                            [ngValue]="currentSecondValueFieldSwitchPB"
+                            [selected]="currentSecondValueFieldSwitchPB==sldScheduleItem.selectedSecondValueFieldSwitchPB">
+                      {{currentSecondValueFieldSwitchPB}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-xl-6">
+                <div class="form-group">
+                  <select id="selectedThirdValueFieldSwitchPB"
+                          class="form-control"
+                          [(ngModel)]="sldScheduleItem.selectedThirdValueFieldSwitchPB"
+                          name="selectedThirdValueFieldSwitchPB">
+                    <option *ngFor="let currentThirdValueFieldSwitchPB of sldScheduleItem.thirdValueFieldSwitchPB"
+                            [ngValue]="currentThirdValueFieldSwitchPB"
+                            [selected]="currentThirdValueFieldSwitchPB==sldScheduleItem.selectedThirdValueFieldSwitchPB">
+                      {{currentThirdValueFieldSwitchPB}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-xl-6">
+                <div class="form-group">
+                  <select id="selectedFourthValueLocalFieldSwitchPB"
+                          class="form-control"
+                          [(ngModel)]="sldScheduleItem.selectedFourthValueLocalFieldSwitchPB"
+                          name="selectedFourthValueLocalFieldSwitchPB">
+                    <option *ngFor="let currentFourthValueLocalFieldSwitchPB of sldScheduleItem.fourthValueLocalFieldSwitchPB"
+                            [ngValue]="currentFourthValueLocalFieldSwitchPB"
+                            [selected]="currentFourthValueLocalFieldSwitchPB==sldScheduleItem.fourthValueLocalFieldSwitchPB">
+                      {{currentFourthValueLocalFieldSwitchPB}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <div class="mr-auto p-2">
+        <a routerLink="/project/{{projectId}}/sldshedules/" class="btn btn-primary">Back</a>
+      </div>
+      <div class="p-2 form-group">
+        <span *ngIf="isCanChange">
+          <button type="submit" class="btn btn-success">Update/Create</button>
+        </span>
+      </div>
+    </div>
+    <div class="ml-3 mr-3" *ngIf="sizeWindow > 576; else werticalTable">
+      <div class="row achievements-wrapper">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Rev.</th>
+              <th>Major Equipment Device Tag</th>
+              <th>Equipment Description</th>
+              <th>Device Type</th>
+              <th>Frame Rating</th>
+              <th>Trip Rating</th>
+              <th>Fuse Rating</th>
+              <th>Contactor Type</th>
+              <th>Contactor Size</th>
+              <th>Overload Type</th>
+              <th>Overload Size</th>
+              <th>Cpt Qty</th>
+              <th>Cpt Voltage</th>
+              <th>Cpt Rating</th>
+              <th>Vt Qty</th>
+              <th>Vt Voltage</th>
+              <th>Vt Accuracy</th>
+              <th>Ct Qty</th>
+              <th>Ct Ratio</th>
+              <th>GF CT Ratio</th>
+              <th>Shunt Coil</th>
+              <th>Kirk key Intrlck</th>
+              <th>Ground Stud</th>
+              <th>Pqm</th>
+              <th>Fdr Pr</th>
+              <th>Tx Pr</th>
+              <th>Mtr Pr</th>
+              <th>MNgr Pr</th>
+              <th>Ind. Lts.</th>
+              <th>Spc. Htr.</th>
+              <th>Htr. Circ.</th>
+              <th>N.O. Aux.</th>
+              <th>N.C. Aux.</th>
+              <th>Ipos. Rly.</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th> 1</th>
+              <th> 2</th>
+              <th> 3</th>
+              <th> 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td> <!-- Rev. -->
+              <td>{{sldScheduleItem?.majorEquipmentDeviceTag}}</td> <!-- Major Equipment Device Tag -->
+              <td></td> <!-- Equipment Description -->
+              <td>{{sldScheduleItem?.selectedOCDevice}}</td>                      <!-- Device Type -->
+              <td>{{sldScheduleItem?.selectedFrameRating}}</td>                   <!-- Frame Rating -->
+              <td>{{sldScheduleItem?.tripRating}}</td>                            <!-- Trip Rating -->
+              <td>{{sldScheduleItem?.selectedFuseRating}}</td>                    <!-- Fuse Rating -->
+              <td>{{sldScheduleItem?.selectedContactorType}}</td>                 <!-- Contactor Type -->
+              <td>{{sldScheduleItem?.selectedContactorSize}}</td>                 <!-- Contactor Size -->
+              <td>{{sldScheduleItem?.selectedOverloadType}}</td>                  <!-- Overload Type -->
+              <td>{{sldScheduleItem?.overloadSize}}</td>                          <!-- Overload Size -->
+              <td>{{sldScheduleItem?.selectedCPTQTY}}</td>                        <!-- Cpt Qty -->
+              <td>{{sldScheduleItem?.selectedCPTVoltage}}</td>                    <!-- Cpt Voltage -->
+              <td>{{sldScheduleItem?.selectedCPTRating}}</td>                     <!-- Cpt Rating -->
+              <td></td><!-- Vt Qty -->
+              <td>{{sldScheduleItem?.selectedVTVoltage}}</td>                     <!-- Vt Voltage -->
+              <td>{{sldScheduleItem?.selectedVTAccuracy}}</td>                    <!-- Vt Accuracy -->
+              <td>{{sldScheduleItem?.selectedCTQTY}}</td>                         <!-- Ct Qty -->
+              <td>{{sldScheduleItem?.selectedCTRatio}}</td>                       <!-- Ct Ratio -->
+              <td>{{sldScheduleItem?.selectedGFCTRatio}}</td>                     <!-- GFCT Ratio  -->
+              <td>{{sldScheduleItem?.selectedShuntCoil}}</td>                     <!-- Shunt Coil -->
+              <td>{{sldScheduleItem?.selectedKirkKey}}</td>                       <!-- Kirk key Intrlck -->
+              <td>{{sldScheduleItem?.selectedGroundStud}}</td>                    <!-- Ground Stud -->
+              <td>{{sldScheduleItem?.PQM}}</td>                                   <!-- Pqm-->
+              <td>{{sldScheduleItem?.FeederPR}}</td>                              <!-- Fdr Pr -->
+              <td>{{sldScheduleItem?.TransformerPR}}</td>                         <!-- Tx Pr -->
+              <td>{{sldScheduleItem?.MotorPR}}</td>                               <!-- Mtr Pr -->
+              <td>{{sldScheduleItem?.NGRRelay}}</td>                              <!-- Ngr Pr -->
+              <td>{{sldScheduleItem?.selectedIndicatingLights}}</td>              <!-- Ind. Lts.-->
+              <td>{{sldScheduleItem?.SpaceHeater}}</td>                           <!-- Spc. Htr.-->
+              <td></td> <!-- Htr. Circ. -->
+              <td>{{sldScheduleItem?.selectedNOAuxContact}}</td>                  <!-- N.O. Aux. -->
+              <td>{{sldScheduleItem?.selectedNCAuxContact}}</td>                  <!-- N.C. Aux.-->
+              <td>{{sldScheduleItem?.selectedInterposRelay}}</td>                 <!-- Ipos. Rly.-->
+              <td>{{sldScheduleItem.selectedFirstValueLocalSwitchPB}}</td>        <!-- Local Switch / Pushbutton 1 -->
+              <td>{{sldScheduleItem?.selectedSecondValueLocalSwitchPB}}</td>      <!-- Local Switch / Pushbutton 2 -->
+              <td>{{sldScheduleItem?.selectedThirdValueLocalSwitchPB}}</td>       <!-- Local Switch / Pushbutton 3 -->
+              <td>{{sldScheduleItem?.selectedFourthValueLocalSwitchPB}}</td>      <!-- Local Switch / Pushbutton 4 -->
+              <td>{{sldScheduleItem?.selectedFirstValueFieldSwitchPB}}</td>       <!-- Field Switch / Pushbutton 1 -->
+              <td>{{sldScheduleItem?.selectedSecondValueFieldSwitchPB}}</td>      <!-- Field Switch / Pushbutton 2 -->
+              <td>{{sldScheduleItem?.selectedThirdValueFieldSwitchPB}}</td>       <!-- Field Switch / Pushbutton 3 -->
+              <td>{{sldScheduleItem?.selectedFourthValueLocalFieldSwitchPB}}</td> <!-- Field Switch / Pushbutton 4 -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template class="ml-3 mr-3" #werticalTable>
+      <div class="row">
+        <table class="table table-bordered">
+          <tr>
+            <td><strong>Rev.</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Major Equipment Device Tag</strong></td>
+            <td>{{sldScheduleItem?.majorEquipmentDeviceTag}}</td>
+          </tr>
+          <tr>
+            <td><strong>Equipment Description</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Device Type</strong></td>
+            <td>{{sldScheduleItem?.selectedOCDevice}}</td>
+          </tr>
+          <tr>
+            <td><strong>Frame Rating</strong></td>
+            <td>{{sldScheduleItem?.selectedFrameRating}}</td>
+          </tr>
+          <tr>
+            <td><strong>Trip Rating</strong></td>
+            <td>{{sldScheduleItem?.tripRating}}</td>
+          </tr>
+          <tr>
+            <td><strong>Fuse Rating</strong></td>
+            <td>{{sldScheduleItem?.selectedFuseRating}}</td>
+          </tr>
+          <tr>
+            <td><strong>Contactor Type</strong></td>
+            <td>{{sldScheduleItem?.selectedContactorType}}</td>
+          </tr>
+          <tr>
+            <td><strong>Contactor Size</strong></td>
+            <td>{{sldScheduleItem?.selectedContactorSize}}</td>
+          </tr>
+          <tr>
+            <td><strong>Overload Type</strong></td>
+            <td>{{sldScheduleItem?.selectedOverloadType}}</td>
+          </tr>
+          <tr>
+            <td><strong>Overload Size</strong></td>
+            <td>{{sldScheduleItem?.overloadSize}}</td>
+          </tr>
+          <tr>
+            <td><strong>Cpt Qty</strong></td>
+            <td>{{sldScheduleItem?.selectedCPTQTY}}</td>
+          </tr>
+          <tr>
+            <td><strong>Cpt Voltage</strong></td>
+            <td>{{sldScheduleItem?.selectedCPTVoltage}}</td>
+          </tr>
+          <tr>
+            <td><strong>Cpt Rating</strong></td>
+            <td>{{sldScheduleItem?.selectedCPTRating}}</td>
+          </tr>
+          <tr>
+            <td><strong>Vt Qty</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Vt Voltage</strong></td>
+            <td>{{sldScheduleItem?.selectedVTVoltage}}</td>
+          </tr>
+          <tr>
+            <td><strong>Vt Accuracy</strong></td>
+            <td>{{sldScheduleItem?.selectedVTAccuracy}}</td>
+          </tr>
+          <tr>
+            <td><strong>Ct Qty</strong></td>
+            <td>{{sldScheduleItem?.selectedCTQTY}}</td>
+          </tr>
+          <tr>
+            <td><strong>Ct Ratio</strong></td>
+            <td>{{sldScheduleItem?.selectedCTRatio}}</td>
+          </tr>
+          <tr>
+            <td><strong>GFCT Ratio</strong></td>
+            <td>{{sldScheduleItem?.selectedGFCTRatio}}</td>
+          </tr>
+          <tr>
+            <td><strong>Shunt Coil</strong></td>
+            <td>{{sldScheduleItem?.selectedShuntCoil}}</td>
+          </tr>
+          <tr>
+            <td><strong>Kirk key Intrlck</strong></td>
+            <td>{{sldScheduleItem?.selectedKirkKey}}</td>
+          </tr>
+          <tr>
+            <td><strong>Ground Stud</strong></td>
+            <td>{{sldScheduleItem?.selectedGroundStud}}</td>
+          </tr>
+          <tr>
+            <td><strong>Pqm</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Fdr Pr</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Tx Pr</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Mtr Pr</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>MNgr Pr</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Ind. Lts.</strong></td>
+            <td>{{sldScheduleItem?.selectedIndicatingLights}}</td>
+          </tr>
+          <tr>
+            <td><strong>Spc. Htr.</strong></td>
+            <td>{{sldScheduleItem?.SpaceHeater}}</td>
+          </tr>
+          <tr>
+            <td><strong>Htr. Circ.</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>N.O. Aux.</strong></td>
+            <td>{{sldScheduleItem?.selectedNOAuxContact}}</td>
+          </tr>
+          <tr>
+            <td><strong>N.C. Aux.</strong></td>
+            <td>{{sldScheduleItem?.selectedNCAuxContact}}</td>
+          </tr>
+          <tr>
+            <td><strong>Ipos. Rly.</strong></td>
+            <td>{{sldScheduleItem?.selectedInterposRelay}}</td>
+          </tr>
+          <tr>
+            <td><strong>Local Switch / Pushbutton 1</strong></td>
+            <td>{{sldScheduleItem.selectedFirstValueLocalSwitchPB}}</td>
+          </tr>
+          <tr>
+            <td><strong>Local Switch / Pushbutton 2</strong></td>
+            <td>{{sldScheduleItem?.selectedSecondValueLocalSwitchPB}}</td>
+          </tr>
+          <tr>
+            <td><strong>Local Switch / Pushbutton 3</strong></td>
+            <td>{{sldScheduleItem?.selectedThirdValueLocalSwitchPB}}</td>
+          </tr>
+          <tr>
+            <td><strong>Local Switch / Pushbutton 4</strong></td>
+            <td>{{sldScheduleItem?.selectedFourthValueLocalSwitchPB}}</td>
+          </tr>
+          <tr>
+            <td><strong>Field Switch / Pushbutton 1</strong></td>
+            <td>{{sldScheduleItem?.selectedFirstValueFieldSwitchPB}}</td>
+          </tr>
+          <tr>
+            <td><strong>Field Switch / Pushbutton 2</strong></td>
+            <td>{{sldScheduleItem?.selectedSecondValueFieldSwitchPB}}</td>
+          </tr>
+          <tr>
+            <td><strong>Field Switch / Pushbutton 3</strong></td>
+            <td>{{sldScheduleItem?.selectedThirdValueFieldSwitchPB}}</td>
+          </tr>
+          <tr>
+            <td><strong>Field Switch / Pushbutton 4</strong></td>
+            <td>{{sldScheduleItem?.selectedFourthValueLocalFieldSwitchPB}}</td>
+          </tr>
+        </table>
+      </div>
+    </ng-template>
+  </form>
+  <div class="row m-3">
+    <span *ngIf="isCanChange">
+      <button class="btn btn-danger" (click)="deleteSldSchedule(sldScheduleItem._id)">Delete</button>
+    </span>
+  </div>
+  <!--START MODALS -->
+  <app-electricals-modal [dataValue]="sldScheduleItem?.firstPanelValue" [selectedValue]="sldScheduleItem?.selectedFirstPanelValue" [title]="firstPanelElementDescription" #firstPanelElementModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="sldScheduleItem?.secondPanelValue" [selectedValue]="sldScheduleItem?.selectedSecondPanelValue" [title]="secondPanelElementDescription" #secondPanelElementModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="sldScheduleItem?.thirdPanelValue" [selectedValue]="sldScheduleItem?.selectedThirdPanelValue" [title]="thirdPanelElementDescription" #thirdPanelElementModal></app-electricals-modal>
+  <!-- END MODALS -->
+</div>

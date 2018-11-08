@@ -1,0 +1,242 @@
+
+<div *ngIf="ioassignments">
+  <div class="row">
+    <div class="col-12">
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form (ngSubmit)="saveIOAssignment(ioAssignmentForm.value)" #ioAssignmentForm="ngForm">
+        <div class="row">
+          <div class="col-6">
+            <label for="itemNumber">Tag</label>
+            <select
+              [disabled]="ioassignments.instrumentations.length == 0"
+              id="selectedTag"
+              class="form-control"
+              [(ngModel)]="ioassignments.selectedTag"
+              name="selectedTag"
+            >
+              <option
+                *ngFor="let currentInstrumentations of ioassignments.instrumentations" 
+                [ngValue]="currentInstrumentations.instrumentationTag"
+                [selected]="currentInstrumentations.instrumentationTag==selectedTag"
+              >
+                {{currentInstrumentations.instrumentationTag}}
+              </option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="itemNumber">Controller</label>
+            <select
+              [disabled]="ioassignments.controllers.length == 0"
+              id="selectedController"
+              class="form-control"
+              [(ngModel)]="ioassignments.selectedController"
+              name="selectedController"
+              (change)="ioassignmentsControllerChange(ioassignments.selectedTag, ioassignments.selectedController)"
+            >
+              <option
+                *ngFor="let currentController of ioassignments.controllers" 
+                [ngValue]="currentController.controlsEquipmentTagFirst"
+                [selected]="currentController.controlsEquipmentTagFirst==selectedController"
+              >
+                {{currentController.controlsEquipmentTagFirst}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th colspan="4">IoType</th>
+                  <th colspan="2">IoTag</th>
+                  <th>I/O Description</th>
+                  <th>Chassis</th>
+                  <th>Slot</th>
+                  <th>Data</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="changeIOAssigmentTableAfterChangeTagAndController">
+                <tr *ngFor="let field of changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription; let i = index">
+                  <td>
+                    <select
+                      class="form-control"
+                      [(ngModel)]="field.selectedIoTypeFirst"
+                      name="{{field.selectedIoTypeFirst}}"
+                    >
+                      <option
+                        *ngFor="let currentIoTypeFirst of field.ioTypeFirst" 
+                        [ngValue]="currentIoTypeFirst"
+                        [selected]="currentIoTypeFirst==field.selectedIoTypeFirst"
+                      >
+                        {{currentIoTypeFirst}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      class="form-control"
+                      [(ngModel)]="field.selectedIoTypeSecond"
+                      name="{{field.selectedIoTypeSecond}}"
+                    >
+                      <option
+                        *ngFor="let currentIoTypeSecond of field.ioTypeSecond" 
+                        [ngValue]="currentIoTypeSecond"
+                        [selected]="currentIoTypeSecond==field.selectedIoTypeSecon"
+                      >
+                        {{currentIoTypeSecond}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      class="form-control"
+                      [(ngModel)]="field.selectedIoTypeThird"
+                      name="{{field.selectedIoTypeThird}}"
+                    >
+                      <option
+                        *ngFor="let currentIoTypeThird of field.ioTypeThird" 
+                        [ngValue]="currentIoTypeThird"
+                        [selected]="currentIoTypeThird==field.selectedIoTypeThird"
+                      >
+                        {{currentIoTypeThird}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      class="form-control"
+                      [(ngModel)]="field.selectedIoTypeFourth"
+                      name="{{field.selectedIoTypeFourth}}"
+                    >
+                      <option
+                        *ngFor="let currentIoTypeFourth of field.ioTypeFourth" 
+                        [ngValue]="currentIoTypeFourth"
+                        [selected]="currentIoTypeThird==field.selectedIoTypeFourth"
+                      >
+                        {{currentIoTypeFourth}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <input [(ngModel)]="field.ioTagFirst" class="form-control" type="text" name="{{field.ioTagFirst}}" />
+                  </td>
+                  <td>
+                    <input [(ngModel)]="field.ioTagSecond" class="form-control" type="text" name="{{field.ioTagSecond}}" />
+                  </td>
+                  <td>
+                    <input [(ngModel)]="field.ioDescription" class="form-control" type="text" name="{{field.ioDescription}}" />
+                  </td>
+                  <td>
+                    <input [(ngModel)]="field.chassis" class="form-control" type="text" name="{{field.chassis}}" />
+                  </td>
+                  <td>
+                    <input [(ngModel)]="field.slot" class="form-control" type="text" name="{{field.slot}}" />
+                  </td>
+                  <td>
+                    <input [(ngModel)]="field.data" class="form-control" type="text" name="{{field.data}}" />
+                  </td>
+                  <td>
+                    <button class="btn btn-default"  type="button" (click)="deleteFieldValue2(i)">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <select
+                      class="form-control"
+                      [(ngModel)]="newAttribute.selectedIoTypeFirst"
+                      name="selectedIoTypeFirst"
+                    >
+                      <option
+                        *ngFor="let currentIoTypeFirst of newAttribute.ioTypeFirst" 
+                        [ngValue]="currentIoTypeFirst"
+                        [selected]="currentIoTypeFirst==selectedIoTypeFirst"
+                      >
+                        {{currentIoTypeFirst}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      class="form-control"
+                      [(ngModel)]="newAttribute.selectedIoTypeSecond"
+                      name="selectedIoTypeSecond"
+                    >
+                      <option
+                        *ngFor="let currentIoTypeSecond of newAttribute.ioTypeSecond" 
+                        [ngValue]="currentIoTypeSecond"
+                        [selected]="currentIoTypeFirst==selectedIoTypeSecond"
+                      >
+                        {{currentIoTypeSecond}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      class="form-control"
+                      [(ngModel)]="newAttribute.selectedIoTypeThird"
+                      name="selectedIoTypeThird"
+                    >
+                      <option
+                        *ngFor="let currentIoTypeThird of newAttribute.ioTypeThird" 
+                        [ngValue]="currentIoTypeThird"
+                        [selected]="currentIoTypeThird==selectedIoTypeThird"
+                      >
+                        {{currentIoTypeThird}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      class="form-control"
+                      [(ngModel)]="newAttribute.selectedIoTypeFourth"
+                      name="selectedIoTypeFourth"
+                    >
+                      <option
+                        *ngFor="let currentIoTypeFourth of newAttribute.ioTypeFourth" 
+                        [ngValue]="currentIoTypeFourth"
+                        [selected]="currentIoTypeThird==selectedIoTypeFourth"
+                      >
+                        {{currentIoTypeFourth}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <input class="form-control" type="text" id="ioTagFirst" [(ngModel)]="newAttribute.ioTagFirst" name="ioTagFirst" />
+                  </td>
+                  <td>
+                    <input class="form-control" type="text" id="ioTagSecond" [(ngModel)]="newAttribute.ioTagSecond" name="ioTagSecond" />
+                  </td>
+                  <td>
+                    <input class="form-control" type="text" id="ioDescription" [(ngModel)]="newAttribute.ioDescription" name="ioDescription" />
+                  </td>
+                  <td>
+                    <input class="form-control" type="text" id="chassis" [(ngModel)]="newAttribute.chassis" name="chassis" />
+                  </td>
+                  <td>
+                    <input class="form-control" type="text" id="slot" [(ngModel)]="newAttribute.slot" name="slot" />
+                  </td>
+                  <td>
+                    <input class="form-control" type="text" id="data" [(ngModel)]="newAttribute.data" name="data" />
+                  </td>
+                  <td>
+                    <button class="btn btn-default" type="button" (click)="addFieldValue2(i)">Add</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <div class="p-2 form-group">
+            <button type="submit" class="btn btn-success">Update/Create</button>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>

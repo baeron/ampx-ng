@@ -1,0 +1,304 @@
+
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <h1>
+      List of projects
+      <a class="btn btn-primary"
+         data-toggle="tooltip"
+         data-placement="top"
+         title="Add new project"
+         (click)="addProjectModal.showAddModal(createProject)">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </a>
+    </h1>
+  </div>
+  <div *ngIf="project.length">
+    <table class="table table-sm table-text-style">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itemProject of project">
+          <td>
+            <a 
+              class="table-link table-cursor disable-decoration table-text-style"
+              [routerLink]="['/project', itemProject._id]"
+            >
+              <strong>{{itemProject.title}}</strong>
+            </a>
+          </td>
+          <td>
+            <div class="row">
+              <div class="col-3">
+                <a class="btn btn-success"
+                   data-toggle="tooltip"
+                   data-placement="top"
+                   title="Change project"
+                   (click)="addProjectModal.showChangeProjectModal(chengeProject, itemProject)">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="col-3">
+                <a class="btn btn-danger"
+                   data-toggle="tooltip"
+                   data-placement="top"
+                   title="Delete project"
+                   (click)="addProjectModal.showDropModal(dropProject, itemProject)">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="col-3">
+                <a class="btn btn-primary"
+                   data-toggle="tooltip"
+                   data-placement="top"
+                   title="Add team user"
+                   (click)="addTeamWorkModal.addTeamUser(true, itemProject)">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="col-3">
+                <a class="btn btn-info"
+                   data-toggle="tooltip"
+                   data-placement="top"
+                   title="Add user for view"
+                   (click)="addTeamWorkModal.addViewerUser(true, itemProject)">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!---->
+  <div *ngIf="teamProjects.length">
+    <div class="d-flex justify-content-center">
+      <h1>List of projects for teamwork</h1>
+    </div>
+    <table class="table table-sm table-text-style">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Creator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teamItemProject of teamProjects">
+          <td>
+            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="['/project', teamItemProject._id]"><strong>{{teamItemProject.title}}</strong></a>
+          </td>
+          <td>
+            <strong>{{teamItemProject.creatorEmail}}</strong>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!---->
+  <div *ngIf="browsingProjects.length">
+    <div class="d-flex justify-content-center">
+      <h1>List of projects to view</h1>
+    </div>
+    <table class="table table-sm table-text-style">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Creator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let browsingItemProject of browsingProjects">
+          <td>
+            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="['/project', browsingItemProject._id]"><strong>{{browsingItemProject.title}}</strong></a>
+          </td>
+          <td>
+            <strong>{{browsingItemProject.creatorEmail}}</strong>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!---
+    <div *ngIf="teamProjects">
+      <table class="table table-sm table-text-style">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let itemTeamProject of teamProjects">
+            <td>
+              <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="['/project', itemTeamProject._id]">
+                <strong>{{itemTeamProject.title}}</strong>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+    </div>
+  -->
+  <app-projects-modal
+    [dataValue]="project"
+    [userGuid]="userGuid"
+    [creatorEmail]="creatorEmail"
+    [title]="'Project functionality'"
+    #addProjectModal
+  ></app-projects-modal>
+  <app-team-work-modal
+    [dataValue]="project"
+    [title]="'Team work functionality'"
+    #addTeamWorkModal
+  ></app-team-work-modal>
+  <app-team-work-modal
+    [dataValue]="project"
+    [title]="'Team work functionality'"
+    #addViewerUser
+  ></app-team-work-modal>
+</div>
+<!--
+<div class="container">
+  <div *ngIf="userProjectList">
+    <div class="d-flex justify-content-center">
+      <h1>Your list of projects
+        <a
+          class="btn btn-primary"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Add new project"
+        >
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </h1>
+    </div>
+  </div>
+  <div *ngIf="project">
+    <table class="table table-sm table-text-style">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itemProject of project">
+          <td>
+            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="['/project', itemProject._id]">
+            <strong>{{itemProject.title}}</strong>
+            </a>
+          </td>
+          <td>
+            <div class="row">
+              <div class="col-3">
+                <a
+                  class="btn btn-success"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Change project"
+                >
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="col-3">
+                <a
+                  class="btn btn-danger"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Delete project"
+                >
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="col-3">
+                <a
+                  class="btn btn-primary"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Add team user"
+                >
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="col-3">
+                <a
+                  class="btn btn-info"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Add user for view"
+                >
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                </a>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr/>
+  <div>
+    <div class="d-flex justify-content-center">
+      <h1>List of projects for teamwork</h1>
+    </div>
+  </div>
+  <div *ngIf="teamProjectList">
+    <table class="table table-sm table-text-style">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Creator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teamItemProject of teamProjectList">
+          <td>
+            <strong>{{teamItemProject.title}}</strong>
+          </td>
+          <td>
+            <strong>{{teamItemProject.creator}}</strong>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <div class="d-flex justify-content-center">
+      <h1>List of projects to view</h1>
+    </div>
+  </div>
+  <div *ngIf="teamViewingProjectList">
+    <table class="table table-sm table-text-style">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Creator</th>
+          <th>Team</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teamViewingItemProject of teamViewingProjectList">
+          <td>
+            <strong>{{teamViewingItemProject.title}}</strong>
+          </td>
+          <td>
+            <strong>{{teamViewingItemProject.creator}}</strong>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor="let teamUser of teamViewingItemProject.team">
+                <strong>
+                  {{teamUser.email}}
+                </strong>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+-->

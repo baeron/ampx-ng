@@ -1,0 +1,1259 @@
+<div class="ml-3 mr-3" (window:resize)="onResize($event)" *ngIf="controllerItem">
+  <div class="d-flex justify-content-center pt-3">
+    <h1>Controller <strong>{{ controllerItem.controlsEquipmentTagFirst || 'New Controller' }}</strong></h1>
+  </div>
+  <form (ngSubmit)="saveController(controllerItem._id, controllerForm.value)" #controllerForm="ngForm">
+    <div class="row">
+      <div class="col-12 col-xl-6">
+        <div class="row">
+          <div class="col-12">
+            <p class="h4 text-center">Controller info</p>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-xl-6">
+            <div class="row">
+              <div class="col-12 col-sm-4">
+                  <div class="form-group">
+                      <label for="itemNumber">Item Number</label>
+                      <input type="text" class="form-control" [(ngModel)]="controllerItem.itemNumber" name="itemNumber" disabled>
+                    </div>
+              </div>
+              <div class="col-12 col-sm-4">
+                  <div class="form-group">
+                      <label for="revision">Revision</label>
+                      <input type="text" class="form-control" [(ngModel)]="controllerItem.revision" name="revision">
+                    </div>
+              </div>
+              <div class="col-12 col-sm-4">
+                  <div class="form-group">
+                      <label for="dataAdded">Date Added</label>
+                      <input type="text" class="form-control" [(ngModel)]="date" name="dataAdded" disabled>
+                    </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="controlsEquipmentTagFirst">Controls Equipment Tag1</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.controlsEquipmentTagFirst" name="controlsEquipmentTagFirst" placeholder="New Controller">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="controlsEquipmentTagSecond">Controls Equipment Tag2</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.controlsEquipmentTagSecond" name="controlsEquipmentTagSecond">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedControlsEquipmentParentTag">Controls Equipment Parent Tag</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="controllerItem.controlsEquipmentParentTag.length == 0"
+                      id="selectedControlsEquipmentParentTag"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedControlsEquipmentParentTag"
+                      name="selectedControlsEquipmentParentTag"
+                    >
+                      <option
+                        *ngFor="let currentEquipmentParentTag of controllerItem.controlsEquipmentParentTag" 
+                        [ngValue]="currentEquipmentParentTag"
+                        [selected]="currentEquipmentParentTag==controllerItem.selectedControlsEquipmentParentTag"
+                      >
+                        {{currentEquipmentParentTag}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="equipmentParentTagModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="equipmentParentTagModal.showDropModal(dropElementFlag)"
+                      [disabled]="controllerItem.controlsEquipmentParentTag.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="equipmentTag">New Tag</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.newTag" name="newTag">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedLocation">Location</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="controllerItem.location.length == 0"
+                      id="selectedLocation"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedLocation"
+                      name="selectedLocation"
+                    >
+                      <option
+                        *ngFor="let currentLocation of controllerItem.location" 
+                        [ngValue]="currentLocation"
+                        [selected]="currentLocation==controllerItem.selectedLocation"
+                      >
+                        {{currentLocation}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="locationModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="locationModal.showDropModal(dropElementFlag)"
+                      [disabled]="controllerItem.location.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedDataSheetNumber">Data Sheet Number</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="controllerItem.dataSheetNumber.length == 0"
+                      id="selectedDataSheetNumber"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedDataSheetNumber"
+                      name="selectedDataSheetNumber"
+                    >
+                      <option
+                        *ngFor="let currentDataSheetNumber of controllerItem.dataSheetNumber" 
+                        [ngValue]="currentDataSheetNumber"
+                        [selected]="currentDataSheetNumber==controllerItem.selectedDataSheetNumber"
+                      >
+                        {{currentDataSheetNumber}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="dataSheetNumberModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="dataSheetNumberModal.showDropModal(dropElementFlag)"
+                      [disabled]="controllerItem.dataSheetNumber.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedLayoutDraving">Layout Drawing</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="controllerItem.layoutDrawing.length == 0"
+                      id="selectedLayoutDraving"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedLayoutDraving"
+                      name="selectedLayoutDraving"
+                    >
+                      <option
+                        *ngFor="let currentLayoutDrawing of controllerItem.layoutDrawing" 
+                        [ngValue]="currentLayoutDrawing"
+                        [selected]="currentLayoutDrawing==controllerItem.selectedLayoutDraving"
+                      >
+                        {{currentLayoutDrawing}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="layoutDrawingModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="layoutDrawingModal.showDropModal(dropElementFlag)"
+                      [disabled]="controllerItem.layoutDrawing.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedSchematicDraving">Schematic Drawing</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="controllerItem.schematicDrawing.length == 0"
+                      id="selectedSchematicDraving"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedSchematicDraving"
+                      name="selectedSchematicDraving"
+                    >
+                      <option
+                        *ngFor="let currentSchematicDrawing of controllerItem.schematicDrawing" 
+                        [ngValue]="currentSchematicDrawing"
+                        [selected]="currentSchematicDrawing==controllerItem.selectedSchematicDraving"
+                      >
+                        {{currentSchematicDrawing}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="schematicDravingModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="schematicDravingModal.showDropModal(dropElementFlag)"
+                      [disabled]="controllerItem.schematicDrawing.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedEquipmentType">Equipment Type</label>
+                  <select 
+                    id="selectedEquipmentType"
+                    class="form-control selectForOpenModal"
+                    [(ngModel)]="controllerItem.selectedEquipmentType"
+                    (change)="controllerTypeChanged();
+                              controllerFunctionChanged();
+                              controllerManufactureChanged();
+                              changeControllerSeries();
+                              changeCloneEquipmentType();
+                              changeEquipmentModel();
+                              changeIpAdress();
+                              changeIOTag();
+                              changeIOType();
+                              changeIODEscription();
+                              changeRelayIODescription();
+                              changeRelayIOType();
+                              changeIODescriptionRelay();
+                              changeIOPerCard()"
+                    name="selectedEquipmentType"
+                  >
+                    <option
+                      *ngFor="let currentEquipmentType of controllerItem.equipmentType" 
+                      [ngValue]="currentEquipmentType"
+                      [selected]="currentEquipmentType==controllerItem.selectedEquipmentType"
+                    >
+                        {{currentEquipmentType}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="selectedControllerType">Controller Type</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      id="selectedControllerType"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedControllerType.name"
+                      name="selectedControllerType"
+                    >
+                      <option
+                        *ngFor="let currentControllerType of changeControllerTypeAfterChangeEquipmentType"
+                        [ngValue]="currentControllerType.name"
+                        [selected]="currentControllerType.name == controllerItem.selectedControllerType.name"
+                      >
+                        {{currentControllerType.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="controllerTypeModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="controllerTypeModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeControllerTypeAfterChangeEquipmentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="selectedControllerFunction">Controller Function</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      id="selectedControllerFunction"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedControllerFunction.name"
+                      name="selectedControllerFunction"
+                    >
+                      <option
+                        *ngFor="let currentControllerFunction of changeControllerFunctionAfterChangeEquipmentType"
+                        [ngValue]="currentControllerFunction.name"
+                        [selected]="currentControllerFunction.name == controllerItem.selectedControllerFunction.name"
+                      >
+                        {{currentControllerFunction.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="controllerFunctionModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="controllerFunctionModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeControllerFunctionAfterChangeEquipmentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="selectedControllerManufacturer">Controller Manufacturer</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      id="selectedControllerManufacturer"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedControllerManufacturer.name"
+                      name="selectedControllerManufacturer"
+                    >
+                      <option
+                        *ngFor="let currentControllerManufacturer of changeControllerManufactureAfterChangeEquipmentType"
+                        [ngValue]="currentControllerManufacturer.name"
+                        [selected]="currentControllerManufacturer.name == controllerItem.selectedControllerManufacturer.name"
+                      >
+                        {{currentControllerManufacturer.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="controllerManufacturerModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="controllerManufacturerModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeControllerManufactureAfterChangeEquipmentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="selectedControllerSeries">Controller Series</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      id="selectedControllerSeries"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedControllerSeries.name"
+                      name="selectedControllerSeries"
+                    >
+                      <option
+                        *ngFor="let currentsControllerSeries of changeControllerSeriesAfterChangeEquipmentType"
+                        [ngValue]="currentsControllerSeries.name"
+                        [selected]="currentsControllerSeries.name == controllerItem.selectedControllerSeries.name"
+                      >
+                        {{currentsControllerSeries.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="controllerSeriesModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="controllerSeriesModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeControllerSeriesAfterChangeEquipmentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedCloneEquipmentType">Clone Equipment Type</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      id="selectedIOTag"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedCloneEquipmentType.name"
+                      name="selectedCloneEquipmentType"
+                      (change) = "changeIOTag(controllerItem.selectedCloneEquipmentType.name);
+                                  changeIODEscription();
+                                  changeRelayIODescription();
+                                  changeRelayIOType();
+                                  changeIODescriptionRelay()"
+                      [disabled]="changeCloneEquipmentTypeAfterChangeEquipmentType.length == 0"
+                    >
+                      <option
+                        *ngFor="let currentCloneEquipmentType of changeCloneEquipmentTypeAfterChangeEquipmentType" 
+                        [ngValue]="currentCloneEquipmentType.name"
+                        [selected]="currentCloneEquipmentType.name == controllerItem.selectedCloneEquipmentType.name"
+                      >
+                        {{currentCloneEquipmentType.name}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedEquipmentModel">Equipment Model</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="changeEquipmentModelAfterChangeEquipmentType.length == 0"
+                      id="selectedEquipmentModel"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedEquipmentModel.name"
+                      (change)="changeIOPerCard(controllerItem.selectedEquipmentModel.name)"
+                      name="selectedEquipmentModel"
+                    >
+                      <option
+                        *ngFor="let currentEquipmentModel of changeEquipmentModelAfterChangeEquipmentType" 
+                        [ngValue]="currentEquipmentModel.name"
+                        [selected]="currentEquipmentModel.name == controllerItem.selectedEquipmentModel.name"
+                      >
+                        {{currentEquipmentModel.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="equipmentModelModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="equipmentModelModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeEquipmentModelAfterChangeEquipmentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-2">
+                <div class="form-group">
+                  <label for="node">Node</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.node" name="node">
+                </div>
+              </div>
+              <div class="col-12 col-sm-2">
+                <div class="form-group">
+                  <label for="chassis">Chassis</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.chassis" name="chassis">
+                </div>
+              </div>
+              <div class="col-12 col-sm-2">
+                <div class="form-group">
+                  <label for="slot">Slot</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.slot" name="slot">
+                </div>
+              </div>
+              <div class="col-12 col-sm-2">
+                <div class="form-group">
+                  <label for="data">Data</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.data" name="data">
+                </div>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="form-group">
+                  <label for="selectedIPAdress">IP Address</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="changeIpAdressAfterChangeEquipmentType.length == 0"
+                      id="selectedIPAdress"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedIPAdress.name"
+                      name="selectedIPAdress"
+                    >
+                      <option
+                        *ngFor="let currentIpAdress of changeIpAdressAfterChangeEquipmentType" 
+                        [ngValue]="currentIpAdress.name"
+                        [selected]="currentIpAdress.name==controllerItem.selectedIPAdress.name"
+                      >
+                        {{currentIpAdress.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="ipAdressModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="ipAdressModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeIpAdressAfterChangeEquipmentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="selectedIOPerCard">I/O Per Card</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="changeIOPerCardAfterChangeEquimpentTypeAndEquipmentModel.length == 0"
+                      id="selectedIOPerCard"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedIOPerCard.name"
+                      name="selectedIOPerCard"
+                    >
+                      <option
+                        *ngFor="let currentIOPerCard of changeIOPerCardAfterChangeEquimpentTypeAndEquipmentModel" 
+                        [ngValue]="currentIOPerCard.name"
+                        [selected]="currentIOPerCard.name == controllerItem.selectedIOPerCard.name"
+                      >
+                        {{currentIOPerCard.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="ioPerCardModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="ioPerCardModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeIOPerCardAfterChangeEquimpentTypeAndEquipmentModel.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="relayQuantity">Relay Quantity</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.relayQuantity" name="relayQuantity">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="dcPower">DC Power</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.dcPower" name="dcPower">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="esdPower">ESD Power</label>
+                  <input type="text" class="form-control" [(ngModel)]="controllerItem.esdPower" name="esdPower">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-xl-6">
+        <div class="row">
+          <div class="col-12">
+            <p class="h4 text-center">I/O info</p>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label for="selectedIOTag">I/O Tag</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="changeIOtagAfterChangeEquipmentElementTypeAndEquipmentModel.length == 0"
+                      id="selectedIOTag"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedIOTag.name"
+                      name="selectedIOTag"
+                    >
+                      <option
+                        *ngFor="let currentIOTag of changeIOtagAfterChangeEquipmentElementTypeAndEquipmentModel" 
+                        [ngValue]="currentIOTag.name"
+                        [selected]="currentIOTag.name == controllerItem.selectedIOTag.name"
+                      >
+                        {{currentIOTag.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="ioTagModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="ioTagModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeIOtagAfterChangeEquipmentElementTypeAndEquipmentModel.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label for="selectedIOType">I/O Type</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="changeIOTypeAfterChangeEquipmentType.length == 0"
+                      id="selectedIOType"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedIOType.name"
+                      name="selectedIOType"
+                    >
+                      <option
+                        *ngFor="let currentIOTag of changeIOTypeAfterChangeEquipmentType" 
+                        [ngValue]="currentIOTag.name"
+                        [selected]="currentIOTag.name == controllerItem.selectedIOType.name"
+                      >
+                        {{currentIOTag.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="ioTypeModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="ioTypeModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeIOTypeAfterChangeEquipmentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>          
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedIODescription">I/O Description</label>
+                  <div class="d-flex flex-row">
+                    <select 
+                      [disabled]="changeIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
+                      id="selectedIODescription"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="controllerItem.selectedIODescription.name"
+                      name="selectedIODescription"
+                    >
+                      <option
+                        *ngFor="let currentIODescription of changeIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType" 
+                        [ngValue]="currentIODescription.name"
+                        [selected]="currentIODescription.name == controllerItem.selectedIODescription.name"
+                      >
+                          {{currentIODescription.name}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="IODescriptionModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="IODescriptionModal.showDropModal(dropElementFlag)"
+                      [disabled]="changeIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="selectedRelayIODescription">Relay I/O Tag</label>
+                    <div class="d-flex flex-row">
+                      <select 
+                        [disabled]="changeRelayIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
+                        id="selectedRelayIODescription"
+                        class="form-control selectForOpenModal"
+                        [(ngModel)]="controllerItem.selectedRelayIODescription.name"
+                        name="selectedRelayIODescription"
+                      >
+                        <option
+                          *ngFor="let currentRelayIODescription of changeRelayIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType" 
+                          [ngValue]="currentRelayIODescription.name"
+                          [selected]="currentRelayIODescription.name==controllerItem.selectedRelayIODescription.name"
+                        >
+                          {{currentRelayIODescription.name}}
+                        </option>
+                      </select>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btnPlus fa fa-plus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Add new item"
+                        (click)="RelayIODescriptionModal.showAddModal()"
+                      ></button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btnMinus fa fa-minus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Drop selected item"
+                        (click)="RelayIODescriptionModal.showDropModal(dropElementFlag)"
+                        [disabled]="changeRelayIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
+                      ></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="selectedRelayIOType">Relay I/O Type</label>
+                    <div class="d-flex flex-row">
+                      <select 
+                        [disabled]="changeRelayIOTypeAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
+                        id="selectedRelayIOType"
+                        class="form-control selectForOpenModal"
+                        [(ngModel)]="controllerItem.selectedRelayIOType.name"
+                        name="selectedRelayIOType"
+                      >
+                        <option
+                          *ngFor="let currentRelayIOType of changeRelayIOTypeAfterChangeEquimpentTypeAndCloneEquipmentType" 
+                          [ngValue]="currentRelayIOType.name"
+                          [selected]="currentRelayIOType.name == controllerItem.selectedRelayIOType.name"
+                        >
+                          {{currentRelayIOType.name}}
+                        </option>
+                      </select>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btnPlus fa fa-plus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Add new item"
+                        (click)="relayIOTypeModal.showAddModal()"
+                      ></button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btnMinus fa fa-minus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Drop selected item"
+                        (click)="relayIOTypeModal.showDropModal(dropElementFlag)"
+                        [disabled]="changeRelayIOTypeAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
+                      ></button>
+                    </div>
+                  </div>
+                </div>    
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="selectedIOTag">Relay I/O Description</label>
+                    <div class="d-flex flex-row">
+                      <select 
+                        [disabled]="changeIODescriptionRelayAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
+                        id="selectedIODescriptionRelay"
+                        class="form-control selectForOpenModal"
+                        [(ngModel)]="controllerItem.selectedIODescriptionRelay.name"
+                        name="selectedIODescriptionRelay"
+                      >
+                        <option
+                          *ngFor="let currentRelayIODescription of changeIODescriptionRelayAfterChangeEquimpentTypeAndCloneEquipmentType" 
+                          [ngValue]="currentRelayIODescription.name"
+                          [selected]="currentRelayIODescription.name == controllerItem.selectedIODescriptionRelay.name"
+                        >
+                            {{currentRelayIODescription.name}}
+                        </option>
+                      </select>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btnPlus fa fa-plus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Add new item"
+                        (click)="relayIODescriptionModal.showAddModal()"
+                      ></button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btnMinus fa fa-minus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Drop selected item"
+                        (click)="relayIODescriptionModal.showDropModal(dropElementFlag)"
+                        [disabled]="changeIODescriptionRelayAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
+                      ></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="h4 text-center">I/O Summary</p>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="selectedControllerTag">Controller Tag</label>
+              <div class="d-flex flex-row">
+                <select 
+                  disabled
+                  id="selectedControllerTag"
+                  class="form-control selectForOpenModal"
+                  [(ngModel)]="controllerItem.selectedControllerTag"
+                  name="selectedControllerTag"
+                >
+                  <option
+                    *ngFor="let currentControllerTag of controllerItem.controllerTag" 
+                    [ngValue]="currentControllerTag"
+                    [selected]="currentControllerTag==controllerItem.selectedControllerTag"
+                  >
+                    {{currentControllerTag}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="selectedRack">Rack#</label>
+              <div class="d-flex flex-row">
+                <select 
+                  disabled
+                  id="selectedRack"
+                  class="form-control selectForOpenModal"
+                  [(ngModel)]="controllerItem.selectedRack"
+                  name="selectedRack"
+                >
+                  <option
+                    *ngFor="let currentRack of controllerItem.IOTag" 
+                    [ngValue]="currentRack"
+                    [selected]="currentRack==controllerItem.selectedRack"
+                  >
+                      {{currentRack}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <!--
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">DI</th>
+                  <th scope="col">DO</th>
+                  <th scope="col">AI</th>
+                  <th scope="col">IAI</th>
+                  <th scope="col">H-AI</th>
+                  <th scope="col">AO</th>
+                  <th scope="col">H-AO</th>
+                  <th scope="col">RTD</th>
+                  <th scope="col">T/C</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Actual</th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">I/O Per Card</th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Card Count</th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Total Rack I/O</th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">% Spare I/O</th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <div class="mr-auto p-2">
+        <a routerLink="/project/{{projectId}}/controllers/" class="btn btn-primary">Back</a>
+      </div>
+      <div class="p-2 form-group">
+        <span *ngIf="isCanChange">
+          <button type="submit" class="btn btn-success" [disabled]="!controllerForm.form.valid">Update/Create</button>
+        </span>
+      </div>
+    </div>
+    <div class="ml-3 mr-3" *ngIf="sizeWindow > 576; else werticalTable">
+        <div class="row achievements-wrapper">
+          <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Rev.</th>
+              <th>Controls Equipment Tag</th>
+              <th>Controls Equipment Parent Tag</th>
+              <th>Controller Type</th>
+              <th>Controller Manufacturer</th>
+              <th>Controller Function</th>
+              <th>Controller Series</th>
+              <th>Equipment Type</th>
+              <th>Clone Equipment Type</th>
+              <th>Equipment Model</th>
+              <th>Node</th>
+              <th>Chassis</th>
+              <th>Slot</th>
+              <th>Data</th>
+              <th>IP Address</th>
+              <th>I/O Per Card</th>
+              <th>Dc Power</th>
+              <th>Relay Quantity</th>
+              <th>Esd Power</th>
+              <th>I/O Tag</th>
+              <th>I/O Type</th>
+              <th>I/O Description</th>
+              <th>Relay I/O Tag</th>
+              <th>Relay I/O Type</th>
+              <th>Relay I/O Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{controllerItem?.revision}}</td>                                      <!-- Rev. -->
+              <td>{{controllerItem?.controlsEquipmentTagFirst || 'New Controller'}}</td> <!-- Controls Equipment Tag -->
+              <td>{{controllerItem?.selectedControlsEquipmentParentTag || 'N/A'}}</td>   <!-- Controls Equipment Parent Tag -->
+              <td>{{controllerItem?.selectedControllerType?.name || 'N/A'}}</td>         <!-- Controller Type -->
+              <td>{{controllerItem?.selectedControllerManufacturer?.name || 'N/A'}}</td> <!-- Controller Manufacturer -->
+              <td>{{controllerItem?.selectedControllerFunction?.name || 'N/A'}}</td>     <!-- Controller Function -->
+              <td>{{controllerItem?.selectedControllerSeries?.name  || 'N/A'}}</td>      <!-- Controller Series -->
+              <td>{{controllerItem?.selectedEquipmentType || 'N/A'}}</td>                <!-- Equipment Type -->
+              <td>{{controllerItem?.selectedCloneEquipmentType?.name || 'N/A'}}</td>     <!-- Clone Equipment Type -->
+              <td>{{controllerItem?.selectedEquipmentModel?.name || 'N/A'}}</td>         <!-- Equipment Model -->
+              <td>{{controllerItem?.node || 'N/A'}}</td>                                 <!-- Node -->
+              <td>{{controllerItem?.chassis || 'N/A'}}</td>                              <!-- Chassis-->
+              <td>{{controllerItem?.slot || 'N/A'}}</td>                                 <!-- Slot -->
+              <td>{{controllerItem?.data || 'N/A'}}</td>                                 <!-- Data -->
+              <td>{{controllerItem?.selectedIPAdress?.name || 'N/A'}}</td>               <!-- IP Address -->
+              <td>{{controllerItem?.selectedIOPerCard?.name || 'N/A'}}</td>              <!-- I/O Per Card -->
+              <td>{{controllerItem?.dcPower || 'N/A'}}</td>                              <!-- Dc Power -->
+              <td>{{controllerItem?.relayQuantity || 'N/A'}}</td>                        <!-- Relay Quantity -->
+              <td>{{controllerItem?.esdPower || 'N/A'}}</td>                             <!-- Esd Power-->
+              <td>{{controllerItem?.selectedIOTag?.name || 'N/A'}}</td>                  <!-- I/O Tag -->
+              <td>{{controllerItem?.selectedIOType?.name || 'N/A'}}</td>                 <!-- I/O Type -->
+              <td>{{controllerItem?.selectedIODescription?.name || 'N/A'}}</td>          <!-- I/O Description -->
+              <td>{{controllerItem?.selectedRelayIODescription?.name || 'N/A'}}</td>     <!-- Relay I/O Tag -->
+              <td>{{controllerItem?.selectedRelayIOType?.name || 'N/A'}}</td>            <!-- Relay I/O Type -->
+              <td>{{controllerItem?.selectedIODescriptionRelay?.name || 'N/A'}}</td>     <!-- Relay I/O Description -->
+            </tr>
+          </tbody>
+          </table>
+      </div>
+      </div>
+      <ng-template #werticalTable>
+        <div class="row">
+          <table class="table table-bordered">
+            <tr>
+              <td><strong>Rev.</strong></td>
+              <td>{{controllerItem?.revision}}</td>
+            </tr>
+            <tr>
+              <td><strong>Controls Equipment Tag</strong></td>
+              <td>{{controllerItem?.controlsEquipmentTagFirst || 'New Controller'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Controls Equipment Parent Tag</strong></td>
+              <td>{{controllerItem?.selectedControlsEquipmentParentTag || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Controller Type</strong></td>
+              <td>{{controllerItem?.selectedControllerType?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Controller Manufacturer</strong></td>
+              <td>{{controllerItem?.selectedControllerManufacturer?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Controller Function</strong></td>
+              <td>{{controllerItem?.selectedControllerFunction?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Controller Series</strong></td>
+              <td>{{controllerItem?.selectedControllerSeries?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Equipment Type</strong></td>
+              <td>{{controllerItem?.selectedEquipmentType || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Clone Equipment Type</strong></td>
+              <td>{{controllerItem?.selectedCloneEquipmentType?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Equipment Model</strong></td>
+              <td>{{controllerItem?.selectedEquipmentModel?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Node</strong></td>
+              <td>{{controllerItem?.node || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Chassis</strong></td>
+              <td>{{controllerItem?.chassis || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Slot</strong></td>
+              <td>{{controllerItem?.slot || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Data</strong></td>
+              <td>{{controllerItem?.data || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>IP Address</strong></td>
+              <td>{{controllerItem?.selectedIPAdress?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>I/O Per Card</strong></td>
+              <td>{{controllerItem?.selectedIOPerCard?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Dc Power</strong></td>
+              <td>{{controllerItem?.dcPower || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Relay Quantity</strong></td>
+              <td>{{controllerItem?.relayQuantity || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Esd Power</strong></td>
+              <td>{{controllerItem?.esdPower || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>I/O Tag</strong></td>
+              <td>{{controllerItem?.selectedIOTag?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>I/O Type</strong></td>
+              <td>{{controllerItem?.selectedIOType?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>I/O Description</strong></td>
+              <td>{{controllerItem?.selectedIODescription?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Relay I/O Tag</strong></td>
+              <td>{{controllerItem?.selectedRelayIODescription?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Relay I/O Type</strong></td>
+              <td>{{controllerItem?.selectedRelayIOType?.name || 'N/A'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Relay I/O Description</strong></td>
+              <td>{{controllerItem?.selectedIODescriptionRelay?.name || 'N/A'}}</td>
+            </tr>
+          </table>
+        </div>
+      </ng-template>
+  </form>
+  <div class="row ml-3 mb-3">
+    <span *ngIf="isCanChange">
+      <button class="btn btn-danger" (click)="deleteController(controllerItem._id)">Delete</button>
+    </span>
+  </div>
+</div>
+<div>
+  <!--START MODALS -->
+  <app-electricals-modal [dataValue]="controllerItem?.controlsEquipmentParentTag" [selectedValue]="controllerItem?.selectedControlsEquipmentParentTag" [title]="controlsEquipmentParentTag" #equipmentParentTagModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="controllerItem?.location" [selectedValue]="controllerItem?.selectedLocation" [title]="location" #locationModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="controllerItem?.dataSheetNumber" [selectedValue]="controllerItem?.selectedDataSheetNumber" [title]="dataSheetNumberTitle" #dataSheetNumberModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="controllerItem?.layoutDrawing" [selectedValue]="controllerItem?.selectedLayoutDraving" [title]="layoutDrawing" #layoutDrawingModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="controllerItem?.schematicDrawing" [selectedValue]="controllerItem?.selectedSchematicDraving" [title]="schematicDrawing" #schematicDravingModal></app-electricals-modal>
+  <app-controller-modal [dataValue]="changeControllerTypeAfterChangeEquipmentType" [selectedValue]="controllerItem?.selectedControllerType?.name" [title]="controllerType" #controllerTypeModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeControllerFunctionAfterChangeEquipmentType" [selectedValue]="controllerItem?.selectedControllerFunction?.name" [title]="controllerFunction" #controllerFunctionModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeControllerManufactureAfterChangeEquipmentType" [selectedValue]="controllerItem?.selectedControllerManufacturer?.name" [title]="controllerManufacturer" #controllerManufacturerModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeControllerSeriesAfterChangeEquipmentType" [selectedValue]="controllerItem?.selectedControllerSeries?.name" [title]="controllerSeries" #controllerSeriesModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeEquipmentModelAfterChangeEquipmentType" [selectedValue]="controllerItem?.selectedEquipmentModel?.name" [title]="equipmentModel" #equipmentModelModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeIpAdressAfterChangeEquipmentType" [selectedValue]="controllerItem?.selectedIPAdress?.name" [title]="ipAdress" #ipAdressModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeIOPerCardAfterChangeEquimpentTypeAndEquipmentModel" [selectedValue]="controllerItem?.selectedIOPerCard?.name" [title]="ioPerCard" #ioPerCardModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeIOtagAfterChangeEquipmentElementTypeAndEquipmentModel" [selectedValue]="controllerItem?.selectedIOTag?.name" [title]="ioTag" #ioTagModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeIOTypeAfterChangeEquipmentType" [selectedValue]="controllerItem?.selectedIOType?.name" [title]="ioType" #ioTypeModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType" [selectedValue]="controllerItem?.selectedIODescription?.name" [title]="IODescription" #IODescriptionModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeRelayIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType" [selectedValue]="controllerItem?.selectedRelayIODescription?.name" [title]="relayIOTag" #RelayIODescriptionModal></app-controller-modal>
+  <app-controller-modal [dataValue]="changeRelayIOTypeAfterChangeEquimpentTypeAndCloneEquipmentType" [selectedValue]="controllerItem?.selectedRelayIOType?.name" [title]="relayIOType" #relayIOTypeModal></app-controller-modal>
+  <!-- IODescriptionRelay -->
+  <app-controller-modal [dataValue]="changeIODescriptionRelayAfterChangeEquimpentTypeAndCloneEquipmentType" [selectedValue]="controllerItem?.selectedIODescriptionRelay?.name" [title]="relayIODescription" #relayIODescriptionModal></app-controller-modal>
+  <!-- IODescriptionRelay -->
+  <!--END MODALS -->
+</div>

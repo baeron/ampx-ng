@@ -1,0 +1,3 @@
+C:\tfs_projects\NewAMPX\AMPX\new\obj\Debug\ngAmpxVS.njsprojAssemblyReference.cache
+C:\tfs_projects\NewAMPX\AMPX\new\obj\Debug\ngAmpxVS.njsproj.CoreCompileInputs.cache
+C:\tfs_projects\NewAMPX\AMPX\new\bin\Microsoft.NodejsTools.WebRole.dll

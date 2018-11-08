@@ -1,0 +1,157 @@
+<div>
+  <!--class="container"-->
+  <div class="row" style="margin-left: 0px!important; margin-right: 0px!important">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: white!important">
+          <li *ngIf="isAdmin" class="breadcrumb-item">
+            <a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="['/superadmin']">
+              <strong>Admin panel</strong>
+            </a>
+          </li>
+          <li  *ngIf="!isAdmin" class="breadcrumb-item">
+            <a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="['/project']">
+              <strong>Projects List</strong>
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="['/project', projectId]">
+              <strong>Dashboard for Project {{projectName?.title}}</strong>
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Sldschedules List</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="pt-2 text-center">
+    <h1>
+      SLD Schedule List
+      <span *ngIf="isCanChange">
+        <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add new SLD Schedule" (click)="saveSldShedule()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+      </span>
+    </h1>
+  </div>
+  <div class="row achievements-wrapper ml-3 mr-3">
+    <table id="exportable" class="table table-sm table-bordered table-hover table-text-style">
+      <thead>
+        <tr>
+          <!--<th></th> -->
+          <th>Rev.</th>                       <!-- 1 -->
+          <th>Major Equipment Device Tag</th> <!-- 2 -->
+          <th>Equipment Description</th>      <!-- 3 -->
+          <th>Device Type</th>                <!-- 4 -->
+          <th>Frame Rating</th>               <!-- 5 -->
+          <th>Trip Rating</th>                <!-- 6 -->
+          <th>Fuse Rating</th>                <!-- 7 -->
+          <th>Contactor Type</th>             <!-- 8 -->
+          <th>Contactor Size</th>             <!-- 9 -->
+          <th>Overload Type</th>              <!-- 10 -->
+          <th>Overload Size</th>              <!-- 11 -->
+          <th>Cpt Qty</th>                    <!-- 12 -->
+          <th>Cpt Voltage</th>                <!-- 13 -->
+          <th>Cpt Rating</th>                 <!-- 14 -->
+          <th>Vt Qty</th>                     <!-- 15 -->
+          <th>Vt Voltage</th>                 <!-- 16 -->
+          <th>Vt Accuracy</th>                <!-- 17 -->
+          <th>Ct Qty</th>                     <!-- 18 -->
+          <th>Ct Ratio</th>                   <!-- 19 -->
+          <th>GF CT Ratio</th>                <!-- 20 -->
+          <th>Shunt Coil</th>                 <!-- 21 -->
+          <th>Kirk key Intrlck</th>           <!-- 22 -->
+          <th>Ground Stud</th>                <!-- 23 -->
+          <th>Pqm</th>                        <!-- 24 -->
+          <th>Fdr Pr</th>                     <!-- 25 -->
+          <th>Tx Pr</th>                      <!-- 26 -->
+          <th>Mtr Pr</th>                     <!-- 27 -->
+          <th>Ngr Pr</th>                     <!-- 28 -->
+          <th>Ind. Lts.</th>                  <!-- 29 -->
+          <th>Spc. Htr.</th>                  <!-- 30 -->
+          <th>Htr. Circ.</th>                 <!-- 31 -->
+          <th>N.O. Aux.</th>                  <!-- 32 -->
+          <th>N.C. Aux.</th>                  <!-- 33 -->
+          <th>Ipos. Rly.</th>                 <!-- 34 -->
+          <th>Local Switch / Pushbutton 1</th><!-- 35 -->
+          <th>Local Switch / Pushbutton 2</th><!-- 36 -->
+          <th>Local Switch / Pushbutton 3</th><!-- 37 -->
+          <th>Local Switch / Pushbutton 4</th><!-- 38 -->
+          <th>Field Switch / Pushbutton 1</th><!-- 39 -->
+          <th>Field Switch / Pushbutton 2</th><!-- 40 -->
+          <th>Field Switch / Pushbutton 3</th><!-- 41 -->
+          <th>Field Switch / Pushbutton 4</th><!-- 42 -->
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sldShedule of sldSchedules">
+          <!-- <td></td> -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor"></a></td>                                        <!-- 1 false Rev -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.majorEquipmentDeviceTag}}</a></td> <!-- 2 true Major Equipment Device Tag -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor"></a></td>                                        <!-- 3 false Equipment Description -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedOCDevice}}</a></td>         <!-- 4 true Device Type /selectedOCDevice -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFrameRating}}</a></td>     <!-- 5 true Frame Rating -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.tripRating}}</a></td>              <!-- 6 true Trip Rating -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFuseRating}}</a></td>      <!-- 7 true Fuse Rating -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedContactorType}}</a></td>   <!-- 8 true Contactor Type -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedContactorSize}}</a></td>   <!-- 9 true Contactor Size -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedOverloadType}}</a></td>   <!-- 10 true Overload Type -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.overloadSize}}</a></td>           <!-- 11 true Overload Size -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCPTQTY}}</a></td>         <!-- 12 true Cpt Qty -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCPTVoltage}}</a></td>     <!-- 13 true Cpt Voltage -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCPTRating}}</a></td>      <!-- 14 true Cpt Rating -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedVTQTY}}</a></td>          <!-- 15 true Vt Qty -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedVTVoltage}}</a></td>      <!-- 16 true Vt Voltage -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedVTAccuracy}}</a></td>     <!-- 17 true Vt Accuracy -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCTQTY}}</a></td>          <!-- 18 true Ct Qty-->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCTRatio}}</a></td>        <!-- 19 true Ct Ratio -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedGFCTRatio}}</a></td>      <!-- 20 true GF CT Ratio -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedShuntCoil}}</a></td>      <!-- 21 true Shunt Coil -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedKirkKey}}</a></td>        <!-- 22 true Kirk key Intrlck -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedGroundStud}}</a></td>     <!-- 23 true Ground Stud -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.PQM}}</a></td>                    <!-- 24 true Pqm-->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.FeederPR}}</a></td>               <!-- 25 true Fdr Pr -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.TransformerPR}}</a></td>          <!-- 26 true Tx Pr/TransformerPR-->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.MotorPR}}</a></td>                <!-- 27 true Mtr Pr/MotorPR -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.NGRRelay}}</a></td>               <!-- 28 true Ngr Pr/NGRRelay -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedIndicatingLights}}</a></td><!--29 true Ind. Lts. -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.SpaceHeater}}</a></td>            <!-- 30 true Spc. Htr/SpaceHeater -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.HeaterCircuit}}</a></td>          <!-- 31 true Htr. Circ/HeaterCircuit -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedNOAuxContact}}</a></td>          <!-- 32 true N.O. Aux. -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedNCAuxContact}}</a></td>          <!-- 33 true N.C. Aux. -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedInterposRelay}}</a></td>          <!-- 34 true Ipos. Rly. -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFirstValueLocalSwitchPB}}</a></td> <!-- 35 true Local Switch / Pushbutton 1 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedSecondValueLocalSwitchPB}}</a></td> <!-- 36 true Local Switch / Pushbutton 2 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedThirdValueLocalSwitchPB}}</a></td> <!-- 37 true Local Switch / Pushbutton 3 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFourthValueLocalSwitchPB}}</a></td> <!-- 38 true Local Switch / Pushbutton 4 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFirstValueFieldSwitchPB}}</a></td> <!-- 39 trueField Switch / Pushbutton 1 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedSecondValueFieldSwitchPB}}</a></td> <!-- 40 true Field Switch / Pushbutton 2 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedThirdValueFieldSwitchPB}}</a></td> <!-- 41 trueField Switch / Pushbutton 3 -->
+          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFourthValueLocalFieldSwitchPB}}</a></td> <!-- 42 true Field Switch / Pushbutton 4 -->
+          <td>
+            <input type="checkbox" [(ngModel)]="sldShedule.isChecked" (click)="puchToSldSheduleArray(sldShedule)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex">
+    <div class="mt-1 ml-auto mr-3">
+      <div class="form-group">
+        <label for="isChecked">Select All</label>
+        <input type="checkbox" [(ngModel)]="isChecked" (click)="changeFlag(isChecked)">
+      </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="ml-auto mr-3">
+      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcell()">Export SLD Shedule</button>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="mt-1 ml-auto mr-3">
+      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcellUIData()" [disabled]="sldSheduleArrayList == 0">Export SLD Shedule UI Data</button>
+    </div>
+  </div>
+</div>

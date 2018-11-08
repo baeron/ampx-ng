@@ -1,0 +1,27 @@
+.achievements-wrapper {
+    height: auto; 
+    overflow: auto;
+  }
+  
+  button.btnPlus {
+    border-radius: 0 0 0 0!important;
+    /*color: black;*/
+  }
+  
+  button.btnMinus {
+    border-radius: 0 .25rem .25rem 0!important;
+    /*color: black;*/
+  }
+  
+  select.selectForOpenModal {
+    border-radius: .25rem 0 0 .25rem!important;
+  }
+
+  .border-eh-raiting {
+    border: 1px solid;
+    border-radius: 8px;
+  }
+
+  .inner-padding-eh-rating {
+    padding-bottom: 1.3rem!important;
+  }

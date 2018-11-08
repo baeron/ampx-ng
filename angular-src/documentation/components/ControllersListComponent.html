@@ -1,0 +1,1161 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-src documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-src documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ControllersListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/controllers-list/controllers-list.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-controllers-list</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>controllers-list.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./controllers-list.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#controller">controller</a>
+                            </li>
+                            <li>
+                                <a href="#controllers">controllers</a>
+                            </li>
+                            <li>
+                                <a href="#controllersArrayList">controllersArrayList</a>
+                            </li>
+                            <li>
+                                <a href="#isChecked">isChecked</a>
+                            </li>
+                            <li>
+                                <a href="#projectId">projectId</a>
+                            </li>
+                            <li>
+                                <a href="#projectName">projectName</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeFlag">changeFlag</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#pushToControllerArray">pushToControllerArray</a>
+                            </li>
+                            <li>
+                                <a href="#saveController">saveController</a>
+                            </li>
+                            <li>
+                                <a href="#saveToExcell">saveToExcell</a>
+                            </li>
+                            <li>
+                                <a href="#saveToExcellUIData">saveToExcellUIData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(controllerService: <a href="../injectables/ControllerService.html">ControllerService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, spinnerService: Ng4LoadingSpinnerService, projectServise: <a href="../injectables/ProjectService.html">ProjectService</a>, excelService: <a href="../injectables/ExcelService.html">ExcelService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>controllerService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ControllerService.html" target="_self" >ControllerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>spinnerService</td>
+                                                  
+                                                        <td>
+                                                                    <code>Ng4LoadingSpinnerService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>projectServise</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ProjectService.html" target="_self" >ProjectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>excelService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ExcelService.html" target="_self" >ExcelService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="changeFlag"></a>
+                        <span class="name">
+                            <b>
+                            changeFlag
+                            </b>
+                            <a href="#changeFlag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>changeFlag(isCheck: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:62</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>isCheck</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pushToControllerArray"></a>
+                        <span class="name">
+                            <b>
+                            pushToControllerArray
+                            </b>
+                            <a href="#pushToControllerArray"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>pushToControllerArray(element: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saveController"></a>
+                        <span class="name">
+                            <b>
+                            saveController
+                            </b>
+                            <a href="#saveController"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>saveController()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:134</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saveToExcell"></a>
+                        <span class="name">
+                            <b>
+                            saveToExcell
+                            </b>
+                            <a href="#saveToExcell"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>saveToExcell()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:78</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saveToExcellUIData"></a>
+                        <span class="name">
+                            <b>
+                            saveToExcellUIData
+                            </b>
+                            <a href="#saveToExcellUIData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>saveToExcellUIData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:106</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controller"></a>
+                        <span class="name">
+                            <b>
+                            controller
+                            </b>
+                            <a href="#controller"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>controller:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controllers"></a>
+                        <span class="name">
+                            <b>
+                            controllers
+                            </b>
+                            <a href="#controllers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>controllers:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controllersArrayList"></a>
+                        <span class="name">
+                            <b>
+                            controllersArrayList
+                            </b>
+                            <a href="#controllersArrayList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>controllersArrayList:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isChecked"></a>
+                        <span class="name">
+                            <b>
+                            isChecked
+                            </b>
+                            <a href="#isChecked"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>isChecked:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectId"></a>
+                        <span class="name">
+                            <b>
+                            projectId
+                            </b>
+                            <a href="#projectId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>projectId:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectName"></a>
+                        <span class="name">
+                            <b>
+                            projectName
+                            </b>
+                            <a href="#projectName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>projectName:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/controllers-list/controllers-list.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { ControllerService } from &#x27;../../services/controller.service&#x27;;
+import { Ng4LoadingSpinnerService } from &#x27;ng4-loading-spinner&#x27;;
+import { ExcelService } from &#x27;../../services/excel.service&#x27;;
+import { ProjectService } from &#x27;../../services/project.service&#x27;;
+
+@Component({
+  selector: &#x27;app-controllers-list&#x27;,
+  templateUrl: &#x27;./controllers-list.component.html&#x27;,
+  styleUrls: [&#x27;./controllers-list.component.css&#x27;]
+})
+export class ControllersListComponent implements OnInit {
+
+  projectId: String;
+  controllers: any;
+  controller: any;
+  controllersArrayList: any;
+  isChecked: Boolean &#x3D; false;
+  projectName: any;
+
+  constructor(
+    private controllerService: ControllerService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private spinnerService: Ng4LoadingSpinnerService,
+    private projectServise: ProjectService,
+    private excelService: ExcelService,
+  ) {
+      this.projectId &#x3D; this.route.snapshot.params[&#x27;id&#x27;];
+      this.controllersArrayList &#x3D; [];
+    }
+
+  ngOnInit() {
+    this.spinnerService.show();
+    this.controllerService.getControllersList(this.projectId).subscribe(controllerList &#x3D;&gt; {
+      this.controllers &#x3D; controllerList;
+      console.log(this.controllers);
+    },
+    err &#x3D;&gt; {
+      console.log(err);
+      return false;
+    });
+    this.projectServise.getProjectNameById(this.projectId).subscribe(project &#x3D;&gt; {
+      this.projectName &#x3D; project;
+    }, err &#x3D;&gt; {
+      this.spinnerService.hide();
+      console.log(err);
+      return false;
+    });
+    this.spinnerService.hide();
+  }
+
+  pushToControllerArray(element) {
+    if (!element.isChecked) {
+      this.controllersArrayList.push(element._id);
+    } else {
+      this.controllersArrayList.pop();
+    }
+  }
+
+  changeFlag(isCheck) {
+    if (isCheck) {
+      this.isChecked &#x3D; false;
+      for (let i &#x3D; 0; i &lt; this.controllers.controllers.length; ++i) {
+        this.controllers.controllers[i].isChecked &#x3D; false;
+        this.controllersArrayList &#x3D; [];
+      }
+    } else {
+      this.isChecked &#x3D; true;
+      for (let i &#x3D; 0; i &lt; this.controllers.controllers.length; ++i) {
+        this.controllers.controllers[i].isChecked &#x3D; true;
+        this.controllersArrayList.push(this.controllers.controllers[i]._id);
+      }
+    }
+  }
+
+  saveToExcell() {
+    const wscols &#x3D; [
+      // A      // B        // C       // D      // E       // F       // G       // H       // I      // J         // K     // L
+      {wch: 5}, {wch: 25}, {wch: 32}, {wch: 17}, {wch: 27}, {wch: 22}, {wch: 20}, {wch: 17}, {wch: 22}, {wch: 18}, {wch: 7}, {wch: 7},
+      // M      // N      // O       // P       // Q       // R       // S       // T       // U       // V       // W       // X
+      {wch: 7}, {wch: 7}, {wch: 10}, {wch: 12}, {wch: 12}, {wch: 15}, {wch: 12}, {wch: 10}, {wch: 10}, {wch: 17}, {wch: 14}, {wch: 15},
+      // Y
+      {wch: 22}
+    ];
+    const projectArray &#x3D; [];
+    for (let i &#x3D; 0; i &lt; this.controllers.controllers.length; ++i) {
+      projectArray.push(this.controllers.controllers[i]._id);
+    }
+    const queryString &#x3D; &#x27;controllers-item-list&#x27;;
+    const scheetName &#x3D; &#x27; Controllers List&#x27;;
+    const controllerName &#x3D; &#x27;Controllers&#x27;;
+    const fileName &#x3D; &#x27;CONTROLLER INDEX&#x27;;
+    this.excelService.exportToExcell(
+      this.projectId,
+      this.projectName.title,
+      projectArray,
+      queryString,
+      scheetName,
+      fileName,
+      controllerName,
+      wscols);
+  }
+
+  saveToExcellUIData() {
+    const wscols &#x3D; [
+      // A       // B       // C       // D       // E        // F      // G        // H      // I        // J      // K        // L
+      {wch: 14}, {wch: 10}, {wch: 22}, {wch: 28}, {wch: 28}, {wch: 32}, {wch: 12}, {wch: 18}, {wch: 18}, {wch: 21}, {wch: 15}, {wch: 17},
+      // M       // N       // O       // P       //Q        //R       //S       //T       //U       //V       //W
+      {wch: 19}, {wch: 27}, {wch: 19}, {wch: 22}, {wch: 19}, {wch: 8}, {wch: 8}, {wch: 7}, {wch: 7}, {wch: 13}, {wch: 12},
+      // X       // Y       // Z       // AA     // AB      // AC      // AD      // AE      // AF      // AG      // AH
+      {wch: 15}, {wch: 13}, {wch: 13}, {wch: 9}, {wch: 12}, {wch: 16}, {wch: 15}, {wch: 15}, {wch: 22}, {wch: 16}, {wch: 8}
+    ];
+    const projectArray &#x3D; [];
+    for (let i &#x3D; 0; i &lt; this.controllers.controllers.length; ++i) {
+      projectArray.push(this.controllers.controllers[i]._id);
+    }
+    const queryString &#x3D; &#x27;controllers-item&#x27;;
+    const scheetName &#x3D; &#x27;Controllers UI List&#x27;;
+    const controllerName &#x3D; &#x27;Controllers&#x27;;
+    const fileName &#x3D; &#x27;CONTROLLER REPORT&#x27;;
+    this.excelService.exportToExcell(
+      this.projectId,
+      this.projectName.title,
+      projectArray,
+      queryString,
+      scheetName,
+      fileName,
+      controllerName,
+      wscols);
+  }
+
+  saveController() {
+    this.controller &#x3D; {};
+    this.controller.length &#x3D; 0;
+    this.spinnerService.show();
+    this.controllerService.createController(this.projectId, this.controller).subscribe(
+      (res: Array&lt;string&gt;) &#x3D;&gt; {
+        // let id &#x3D; res[&#x27;_id&#x27;];
+        const responseId &#x3D; res[res.length - 1][&#x27;_id&#x27;];
+        const routeToControllerItem &#x3D; &#x27;/project/&#x27; + this.route.snapshot.params[&#x27;id&#x27;] + &#x27;/controllers/&#x27; + responseId;
+        this.router.navigate([routeToControllerItem]);
+      }, (err) &#x3D;&gt; {
+        console.log(err);
+      }
+    );
+    this.spinnerService.hide();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div&gt;
+  &lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;margin-left: 0px!important; margin-right: 0px!important&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;nav aria-label&#x3D;&quot;breadcrumb&quot;&gt;
+        &lt;ol class&#x3D;&quot;breadcrumb&quot; style&#x3D;&quot;background-color: white!important&quot;&gt;
+          &lt;li class&#x3D;&quot;breadcrumb-item&quot;&gt;&lt;a class&#x3D;&quot;cursor-style disable-decoration text-style&quot; style&#x3D;&quot;color: black!important &quot; [routerLink]&#x3D;&quot;[&#x27;/project&#x27;]&quot;&gt;&lt;strong&gt;Projects List&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li class&#x3D;&quot;breadcrumb-item&quot;&gt;&lt;a class&#x3D;&quot;cursor-style disable-decoration text-style&quot; style&#x3D;&quot;color: black!important &quot; [routerLink]&#x3D;&quot;[&#x27;/project&#x27;, projectId]&quot;&gt;&lt;strong&gt;Dashboard for Project {{projectName?.title}}&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li class&#x3D;&quot;breadcrumb-item active&quot; aria-current&#x3D;&quot;page&quot;&gt;Controllers List&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;pt-2 text-center&quot;&gt;
+    &lt;h1&gt;Controllers List
+      &lt;a class&#x3D;&quot;btn btn-primary&quot; data-toggle&#x3D;&quot;tooltip&quot; data-placement&#x3D;&quot;top&quot; title&#x3D;&quot;Add new controller&quot; (click)&#x3D;&quot;saveController()&quot;&gt;
+        &lt;i class&#x3D;&quot;fa fa-plus&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row achievements-wrapper ml-3 mr-3&quot;&gt;
+    &lt;table id&#x3D;&quot;exportable&quot; class&#x3D;&quot;table table-sm table-bordered table-hover table-text-style&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;!--&lt;th&gt;&lt;/th&gt; --&gt;                                 &lt;!-- 1 --&gt;
+          &lt;th&gt;Rev.&lt;/th&gt;                             &lt;!-- 2 --&gt;
+          &lt;th&gt;Controls Equipment Tag&lt;/th&gt;           &lt;!-- 3 --&gt;
+          &lt;th&gt;Controls Equipment Parent Tag&lt;/th&gt;    &lt;!-- 4 --&gt;
+          &lt;th&gt;Controller Type&lt;/th&gt;                  &lt;!-- 5 --&gt;
+          &lt;th&gt;Controller Manufacturer&lt;/th&gt;          &lt;!-- 6 --&gt;
+          &lt;th&gt;Controller Function&lt;/th&gt;              &lt;!-- 7 --&gt;
+          &lt;th&gt;Controller Series&lt;/th&gt;                &lt;!-- 8 --&gt;
+          &lt;th&gt;Equipment Type&lt;/th&gt;                   &lt;!-- 9 --&gt;
+          &lt;th&gt;Clone Equipment Type&lt;/th&gt;             &lt;!-- 10 --&gt;
+          &lt;th&gt;Equipment Model&lt;/th&gt;                  &lt;!-- 11 --&gt;
+          &lt;th&gt;Node&lt;/th&gt;                             &lt;!-- 12 --&gt;
+          &lt;th&gt;Chassis&lt;/th&gt;                          &lt;!-- 13 --&gt;
+          &lt;th&gt;Slot&lt;/th&gt;                             &lt;!-- 14 --&gt;
+          &lt;th&gt;Data&lt;/th&gt;                             &lt;!-- 15 --&gt;
+          &lt;th&gt;IP Address&lt;/th&gt;                       &lt;!-- 16 --&gt;
+          &lt;th&gt;I/O Per Card&lt;/th&gt;                     &lt;!-- 17 --&gt;
+          &lt;th&gt;Dc Power&lt;/th&gt;                         &lt;!-- 18 --&gt;
+          &lt;th&gt;Relay Quantity&lt;/th&gt;                   &lt;!-- 19 --&gt;
+          &lt;th&gt;Esd Power&lt;/th&gt;                        &lt;!-- 20 --&gt;
+          &lt;th&gt;I/O Tag&lt;/th&gt;                          &lt;!-- 21 --&gt;
+          &lt;th&gt;I/O Type&lt;/th&gt;                         &lt;!-- 22 --&gt;
+          &lt;th&gt;I/O Description&lt;/th&gt;                  &lt;!-- 23 --&gt;
+          &lt;th&gt;Relay I/O Tag&lt;/th&gt;                    &lt;!-- 24 --&gt;
+          &lt;th&gt;Relay I/O Type&lt;/th&gt;                   &lt;!-- 25 --&gt;
+          &lt;th&gt;Relay I/O Description&lt;/th&gt;            &lt;!-- 26 --&gt;
+          &lt;th&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr *ngFor&#x3D;&quot;let controller of controllers?.controllers&quot;&gt;
+          &lt;!--&lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt; --&gt;                                                              &lt;!-- check dox --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.revision || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                             &lt;!-- Rev --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.controlsEquipmentTagFirst || &#x27;New Controller&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt; &lt;!-- Controls Equipment Tag --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedControlsEquipmentParentTag || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;   &lt;!-- Controls Equipment Parent Tag --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedControllerType?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;         &lt;!-- Controller Type --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedControllerManufacturer?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt; &lt;!-- Controller Manufacturer --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedControllerFunction?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;     &lt;!-- Controller Function --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedControllerSeries?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;       &lt;!-- Controller Series --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedEquipmentType || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                &lt;!-- Equipment Type --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedCloneEquipmentType?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;     &lt;!-- Clone Equipment Type --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedEquipmentModel?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;         &lt;!-- Equipment Model --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.node || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                                 &lt;!-- Node --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.chassis || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                              &lt;!-- Chassis --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.slot || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                                 &lt;!-- Slot --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.data || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                                 &lt;!-- Data --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedIPAdress?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;               &lt;!-- IP Address --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedIOPerCard?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                             &lt;!-- 17 I/O Per Card --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.dcPower || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                              &lt;!-- 18 Dc Power --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.relayQuantity || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                        &lt;!-- 19 Relay Quantity --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.esdPower || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                             &lt;!-- 20 Esd Power --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedIOTag?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                  &lt;!-- 21 I/O Tag --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedIOType?.name}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                          &lt;!-- 22 I/O Type --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedIODescription?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;          &lt;!-- 23 I/O I/O Description --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedRelayIODescription?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;     &lt;!-- 24 Relay I/O Tag --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedRelayIOType?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;            &lt;!-- 25 Relay I/O Type --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/controllers/{{controller._id}}&quot;&gt;{{controller?.selectedRelayIODescription?.name || &#x27;N/A&#x27;}}&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;     &lt;!-- 26 Relay I/O Description --&gt;
+          &lt;td&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; [(ngModel)]&#x3D;&quot;controller.isChecked&quot; (click)&#x3D;&quot;pushToControllerArray(controller)&quot;&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+    &lt;div class&#x3D;&quot;mt-1 ml-auto mr-3&quot;&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;isChecked&quot;&gt;Select All&lt;/label&gt;
+        &lt;input type&#x3D;&quot;checkbox&quot; [(ngModel)]&#x3D;&quot;isChecked&quot; (click)&#x3D;&quot;changeFlag(isChecked)&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;d-flex&quot; &gt;
+    &lt;div class&#x3D;&quot;ml-auto mr-3&quot;&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success&quot; style&#x3D;&quot;width: 250px!important&quot; (click)&#x3D;&quot;saveToExcell()&quot;&gt;Export Controller Shedule&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+    &lt;div class&#x3D;&quot;mt-1 ml-auto mr-3&quot;&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success&quot; style&#x3D;&quot;width: 250px!important&quot; (click)&#x3D;&quot;saveToExcellUIData()&quot; [disabled]&#x3D;&quot;controllersArrayList &#x3D;&#x3D; 0&quot;&gt;Export Controllers UI Data&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div>  <div class="row" style="margin-left: 0px!important; margin-right: 0px!important">    <div class="col-12">      <nav aria-label="breadcrumb">        <ol class="breadcrumb" style="background-color: white!important">          <li class="breadcrumb-item"><a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="[\'/project\']"><strong>Projects List</strong></a></li>          <li class="breadcrumb-item"><a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="[\'/project\', projectId]"><strong>Dashboard for Project {{projectName?.title}}</strong></a></li>          <li class="breadcrumb-item active" aria-current="page">Controllers List</li>        </ol>      </nav>    </div>  </div>  <div class="pt-2 text-center">    <h1>Controllers List      <a class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add new controller" (click)="saveController()">        <i class="fa fa-plus" aria-hidden="true"></i>      </a>    </h1>  </div>  <div class="row achievements-wrapper ml-3 mr-3">    <table id="exportable" class="table table-sm table-bordered table-hover table-text-style">      <thead>        <tr>          <!--<th></th> -->                                 <!-- 1 -->          <th>Rev.</th>                             <!-- 2 -->          <th>Controls Equipment Tag</th>           <!-- 3 -->          <th>Controls Equipment Parent Tag</th>    <!-- 4 -->          <th>Controller Type</th>                  <!-- 5 -->          <th>Controller Manufacturer</th>          <!-- 6 -->          <th>Controller Function</th>              <!-- 7 -->          <th>Controller Series</th>                <!-- 8 -->          <th>Equipment Type</th>                   <!-- 9 -->          <th>Clone Equipment Type</th>             <!-- 10 -->          <th>Equipment Model</th>                  <!-- 11 -->          <th>Node</th>                             <!-- 12 -->          <th>Chassis</th>                          <!-- 13 -->          <th>Slot</th>                             <!-- 14 -->          <th>Data</th>                             <!-- 15 -->          <th>IP Address</th>                       <!-- 16 -->          <th>I/O Per Card</th>                     <!-- 17 -->          <th>Dc Power</th>                         <!-- 18 -->          <th>Relay Quantity</th>                   <!-- 19 -->          <th>Esd Power</th>                        <!-- 20 -->          <th>I/O Tag</th>                          <!-- 21 -->          <th>I/O Type</th>                         <!-- 22 -->          <th>I/O Description</th>                  <!-- 23 -->          <th>Relay I/O Tag</th>                    <!-- 24 -->          <th>Relay I/O Type</th>                   <!-- 25 -->          <th>Relay I/O Description</th>            <!-- 26 -->          <th></th>        </tr>      </thead>      <tbody>        <tr *ngFor="let controller of controllers?.controllers">          <!--<td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}"><a class="table-cursor"></a></td> -->                                                              <!-- check dox -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.revision || \'N/A\'}}<a class="table-cursor"></a></td>                             <!-- Rev -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.controlsEquipmentTagFirst || \'New Controller\'}}<a class="table-cursor"></a></td> <!-- Controls Equipment Tag -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedControlsEquipmentParentTag || \'N/A\'}}<a class="table-cursor"></a></td>   <!-- Controls Equipment Parent Tag -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedControllerType?.name || \'N/A\'}}<a class="table-cursor"></a></td>         <!-- Controller Type -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedControllerManufacturer?.name || \'N/A\'}}<a class="table-cursor"></a></td> <!-- Controller Manufacturer -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedControllerFunction?.name || \'N/A\'}}<a class="table-cursor"></a></td>     <!-- Controller Function -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedControllerSeries?.name || \'N/A\'}}<a class="table-cursor"></a></td>       <!-- Controller Series -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedEquipmentType || \'N/A\'}}<a class="table-cursor"></a></td>                <!-- Equipment Type -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedCloneEquipmentType?.name || \'N/A\'}}<a class="table-cursor"></a></td>     <!-- Clone Equipment Type -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedEquipmentModel?.name || \'N/A\'}}<a class="table-cursor"></a></td>         <!-- Equipment Model -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.node || \'N/A\'}}<a class="table-cursor"></a></td>                                 <!-- Node -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.chassis || \'N/A\'}}<a class="table-cursor"></a></td>                              <!-- Chassis -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.slot || \'N/A\'}}<a class="table-cursor"></a></td>                                 <!-- Slot -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.data || \'N/A\'}}<a class="table-cursor"></a></td>                                 <!-- Data -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedIPAdress?.name || \'N/A\'}}<a class="table-cursor"></a></td>               <!-- IP Address -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedIOPerCard?.name || \'N/A\'}}<a class="table-cursor"></a></td>                             <!-- 17 I/O Per Card -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.dcPower || \'N/A\'}}<a class="table-cursor"></a></td>                              <!-- 18 Dc Power -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.relayQuantity || \'N/A\'}}<a class="table-cursor"></a></td>                        <!-- 19 Relay Quantity -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.esdPower || \'N/A\'}}<a class="table-cursor"></a></td>                             <!-- 20 Esd Power -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedIOTag?.name || \'N/A\'}}<a class="table-cursor"></a></td>                  <!-- 21 I/O Tag -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedIOType?.name}}<a class="table-cursor"></a></td>                          <!-- 22 I/O Type -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedIODescription?.name || \'N/A\'}}<a class="table-cursor"></a></td>          <!-- 23 I/O I/O Description -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedRelayIODescription?.name || \'N/A\'}}<a class="table-cursor"></a></td>     <!-- 24 Relay I/O Tag -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedRelayIOType?.name || \'N/A\'}}<a class="table-cursor"></a></td>            <!-- 25 Relay I/O Type -->          <td class="table-cursor" routerLink="/project/{{projectId}}/controllers/{{controller._id}}">{{controller?.selectedRelayIODescription?.name || \'N/A\'}}<a class="table-cursor"></a></td>     <!-- 26 Relay I/O Description -->          <td>            <input type="checkbox" [(ngModel)]="controller.isChecked" (click)="pushToControllerArray(controller)">          </td>        </tr>    </tbody>    </table>  </div>  <div class="d-flex">    <div class="mt-1 ml-auto mr-3">      <div class="form-group">        <label for="isChecked">Select All</label>        <input type="checkbox" [(ngModel)]="isChecked" (click)="changeFlag(isChecked)">      </div>    </div>  </div>  <div class="d-flex" >    <div class="ml-auto mr-3">      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcell()">Export Controller Shedule</button>    </div>  </div>  <div class="d-flex">    <div class="mt-1 ml-auto mr-3">      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcellUIData()" [disabled]="controllersArrayList == 0">Export Controllers UI Data</button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ControllersListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ControllersListComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1262 @@
+<div class="ml-3 mr-3" *ngIf="instrumentationItem">
+  <div class="d-flex justify-content-center pt-3">
+    <h1>Instrumentation Tag <strong>{{instrumentationItem?.instrumentationTag || 'New Instrumentation' }}</strong></h1>
+  </div>
+  <form (ngSubmit)="saveInstrumentation(instrumentationItem._id, instrumentationForm.value)" #instrumentationForm="ngForm">
+    <div class="row"> 
+      <div class="col-12">
+        <p class="h4 text-center">Instrumentation Item</p>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 col-xl-6 align-self-start">
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="itemNumber">Item</label>
+                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.itemNumber" name="itemNumber" disabled>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="instrumentationTag">Instrumentation Tag</label>
+                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.instrumentationTag" name="instrumentationTag" placeholder="New Instrumentation">
+                </div>
+              </div>
+              <div class="col-12">
+                <label>Instrument Hazloc Rating</label>
+                <div class="d-flex justify-content-center pt-3">
+                  <p style="margin-top: -2px!important"><strong>Class 1 Zone 0 Group IIA T1 415C </strong></p>
+                </div>
+              </div>
+              <div class="col-12 align-self-end">
+                <div class="row">
+                  <div class="col-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="selectedHazlocClass">Hazloc Class</label>
+                      <select
+                        [disabled]="instrumentationItem.hazlocClass.length == 0"
+                        id="selectedHazlocClass"
+                        class="form-control"
+                        [(ngModel)]="instrumentationItem.selectedHazlocClass"
+                        (ngModelChange)="optionChanged($event)"
+                        name="selectedHazlocClass"
+                      >
+                        <option
+                          *ngFor="let currentHazlocClass of instrumentationItem.hazlocClass" 
+                          [ngValue]="currentHazlocClass"
+                          [selected]="currentHazlocClass==instrumentationItem.selectedHazlocClass">
+                            {{currentHazlocClass}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="selectedHazlocZone">Hazloc Zone</label>
+                      <div class="d-flex flex-row">
+                        <select
+                        [disabled]="instrumentationItem.selectedHazlocClass == instrumentationItem.hazlocClass[0] || !instrumentationItem.selectedHazlocClass"
+                          id="selectedHazlocZone"
+                          class="form-control selectForOpenModal"
+                          [(ngModel)]="instrumentationItem.selectedHazlocZone"
+                          #selectedHazlocZone="ngModel"
+                          name="selectedHazlocZone"
+                        >
+                          <option
+                            *ngFor="let currentHazlocZone of instrumentationItem.hazlocZone" 
+                            [ngValue]="currentHazlocZone"
+                            [selected]="currentHazlocZone==instrumentationItem.selectedHazlocZone">
+                              {{currentHazlocZone}}
+                          </option>
+                        </select>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btnPlus fa fa-plus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Add new item"
+                          [disabled]="!instrumentationItem.selectedHazlocClass || instrumentationItem.selectedHazlocClass == 'General'"
+                          (click)="hazlocZoneModal.showAddModal()"
+                        ></button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btnMinus fa fa-minus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Drop selected item"
+                          (click)="hazlocZoneModal.showDropModal(dropElementFlag)"
+                          [disabled]="instrumentationItem.hazlocZone.length == 0 || !instrumentationItem.selectedHazlocClass || instrumentationItem.selectedHazlocClass == 'General'"
+                        ></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 align-self-end">
+                <div class="row">
+                  <div class="col-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="selectedHazlocGroup">Hazloc Group</label>
+                      <select
+                        [disabled]="instrumentationItem.selectedHazlocClass == instrumentationItem.hazlocClass[0] || !instrumentationItem.selectedHazlocClass"
+                        id="selectedHazlocGroup"
+                        class="form-control"
+                        [(ngModel)]="instrumentationItem.selectedHazlocGroup"
+                        #selectedHazlocGroup="ngModel"
+                        name="selectedHazlocGroup"
+                      >
+                        <option
+                          *ngFor="let currentHazlocGroup of instrumentationItem.hazlocGroup" 
+                          [ngValue]="currentHazlocGroup"
+                          [selected]="currentHazlocGroup==instrumentationItem.selectedHazlocGroup">
+                            {{currentHazlocGroup}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="selectedHazlocTemperature">Hazloc Temperature</label>
+                      <div class="d-flex flex-row">
+                        <select
+                        [disabled]="instrumentationItem.selectedHazlocClass == instrumentationItem.hazlocClass[0] || !instrumentationItem.selectedHazlocClass"
+                          id="selectedHazlocTemperature"
+                          class="form-control selectForOpenModal"
+                          [(ngModel)]="instrumentationItem.selectedHazlocTemperature"
+                          #selectedHazlocTemperature="ngModel"
+                          name="selectedHazlocTemperature"
+                        >
+                          <option
+                            *ngFor="let currentHazlocTemperature of instrumentationItem.hazlocTemperature" 
+                            [ngValue]="currentHazlocTemperature"
+                            [selected]="currentHazlocTemperature==instrumentationItem.selectedHazlocTemperature">
+                              {{currentHazlocTemperature}}
+                          </option>
+                        </select>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btnPlus fa fa-plus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Add new item"
+                          [disabled]="!instrumentationItem.selectedHazlocClass || instrumentationItem.selectedHazlocClass == 'General'"
+                          (click)="hazlocTemperatureModal.showAddModal()"
+                        ></button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btnMinus fa fa-minus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Drop selected item"
+                          (click)="hazlocTemperatureModal.showDropModal(dropElementFlag)"
+                          [disabled]="instrumentationItem.hazlocTemperature.length == 0 || !instrumentationItem.selectedHazlocClass || instrumentationItem.selectedHazlocClass == 'General'"
+                        ></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedPidNumber">Pid Number</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.pidNumber.length == 0"
+                      id="selectedPidNumber"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedPidNumber"
+                      name="selectedPidNumber"
+                    >
+                      <option
+                        *ngFor="let currentPidNumber of instrumentationItem.pidNumber" 
+                        [ngValue]="currentPidNumber"
+                        [selected]="currentPidNumber==instrumentationItem.selectedPidNumber">
+                          {{currentPidNumber}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="pidNumberModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="pidNumberModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.pidNumber.length == 0"
+                    ></button>
+                  </div>
+                </div>  
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedServiceDescription">Service Description</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.serviceDescription.length == 0"
+                      id="selectedServiceDescription"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedServiceDescription"
+                      name="selectedServiceDescription"
+                    >
+                      <option
+                        *ngFor="let currentServiceDescription of instrumentationItem.serviceDescription" 
+                        [ngValue]="currentServiceDescription"
+                        [selected]="currentServiceDescription==instrumentationItem.selectedServiceDescription">
+                          {{currentServiceDescription}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="serviceDescriptionModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="serviceDescriptionModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.serviceDescription.length == 0"
+                    ></button>
+                  </div>
+                </div>  
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedLineEquipmentNumber">Line Equipment Number</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.lineEquipmentNumber.length == 0"
+                      id="selectedLineEquipmentNumber"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedLineEquipmentNumber"
+                      name="selectedLineEquipmentNumber"
+                    >
+                      <option
+                        *ngFor="let currentLineEquipmentNumber of instrumentationItem.lineEquipmentNumber" 
+                        [ngValue]="currentLineEquipmentNumber"
+                        [selected]="currentLineEquipmentNumber==instrumentationItem.selectedLineEquipmentNumber">
+                          {{currentLineEquipmentNumber}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="lineEquipmentNumberModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="lineEquipmentNumberModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.lineEquipmentNumber.length == 0"
+                    ></button>
+                  </div>
+                </div>  
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedFirstInstrumentType">Instrument Type 1</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.firstInstrumentType.length == 0"
+                      id="selectedFirstInstrumentType"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedFirstInstrumentType"
+                      name="selectedFirstInstrumentType"
+                    >
+                      <option
+                        *ngFor="let currentFirstInstrumentTypeModal of instrumentationItem.firstInstrumentType" 
+                        [ngValue]="currentFirstInstrumentTypeModal"
+                        [selected]="currentFirstInstrumentTypeModal==instrumentationItem.selectedFirstInstrumentType">
+                          {{currentFirstInstrumentTypeModal}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="firstInstrumentTypeModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="firstInstrumentTypeModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.firstInstrumentType.length == 0"
+                    ></button>
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedManufacturer">Manufacturer</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.manufacturer.length == 0"
+                      id="selectedManufacturer"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedManufacturer"
+                      name="selectedManufacturer"
+                    >
+                      <option
+                        *ngFor="let currentManufacturer of instrumentationItem.manufacturer" 
+                        [ngValue]="currentManufacturer"
+                        [selected]="currentManufacturer==instrumentationItem.selectedManufacturer">
+                          {{currentManufacturer}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="manufacturerModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="manufacturerModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.manufacturer.length == 0"
+                    ></button>
+                  </div>
+                </div>  
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedModelNumber">Model Number</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.modelNumber.length == 0"
+                      id="selectedModelNumber"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedModelNumber"
+                      name="selectedModelNumber"
+                    >
+                      <option
+                        *ngFor="let currentModelNumber of instrumentationItem.modelNumber" 
+                        [ngValue]="currentModelNumber"
+                        [selected]="currentModelNumber==instrumentationItem.selectedModelNumber">
+                          {{currentModelNumber}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="modelNumberModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="modelNumberModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.modelNumber.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedDataSheetNumber">Data Sheet Number</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.dataSheetNumber.length == 0"
+                      id="selectedDataSheetNumber"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedDataSheetNumber"
+                      name="selectedDataSheetNumber"
+                    >
+                      <option
+                        *ngFor="let currentDataSheetNumber of instrumentationItem.dataSheetNumber" 
+                        [ngValue]="currentDataSheetNumber"
+                        [selected]="currentDataSheetNumber==instrumentationItem.selectedDataSheetNumber">
+                          {{currentDataSheetNumber}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="dataSheetNumberModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="dataSheetNumberModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.dataSheetNumber.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedMrPoNumber">MR/PO Number</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.mrPoNumber.length == 0"
+                      id="selectedMrPoNumber"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedMrPoNumber"
+                      name="selectedMrPoNumber"
+                    >
+                      <option
+                        *ngFor="let currentMrPoNumber of instrumentationItem.mrPoNumber" 
+                        [ngValue]="currentMrPoNumber"
+                        [selected]="currentMrPoNumber==instrumentationItem.selectedMrPoNumber">
+                          {{currentMrPoNumber}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="mrPoNumberModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="mrPoNumberModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.mrPoNumber.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedInstallationDetail">Installation Detail</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.installationDetail.length == 0"
+                      id="selectedInstallationDetail"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedInstallationDetail"
+                      name="selectedInstallationDetail"
+                    >
+                      <option
+                        *ngFor="let currentInstallationDetail of instrumentationItem.installationDetail" 
+                        [ngValue]="currentInstallationDetail"
+                        [selected]="currentInstallationDetail==instrumentationItem.selectedInstallationDetail">
+                          {{currentInstallationDetail}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="installationDetailModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="installationDetailModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.installationDetail.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedWiringDrawing">Wiring Drawing</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.wiringDrawing.length == 0"
+                      id="selectedWiringDrawing"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedWiringDrawing"
+                      name="selectedWiringDrawing"
+                    >
+                      <option
+                        *ngFor="let currentWiringDrawing of instrumentationItem.wiringDrawing" 
+                        [ngValue]="currentWiringDrawing"
+                        [selected]="currentWiringDrawing==instrumentationItem.selectedWiringDrawing">
+                          {{currentWiringDrawing}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="wiringDrawingModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="wiringDrawingModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.wiringDrawing.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedLocation">Location</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.location.length == 0"
+                      id="selectedLocation"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedLocation"
+                      name="selectedLocation"
+                    >
+                      <option
+                        *ngFor="let currentLocation of instrumentationItem.location" 
+                        [ngValue]="currentLocation"
+                        [selected]="currentLocation==instrumentationItem.selectedLocation">
+                          {{currentLocation}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="locationModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="locationModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.location.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedSystem">System</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.system.length == 0"
+                      id="selectedSystem"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedSystem"
+                      name="selectedSystem"
+                    >
+                      <option
+                        *ngFor="let currentSystem of instrumentationItem.system" 
+                        [ngValue]="currentSystem"
+                        [selected]="currentSystem==instrumentationItem.selectedSystem">
+                          {{currentSystem}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="systemModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="systemModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.system.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedSecondInstrumentType">Instrument Type 2</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.secondInstrumentType.length == 0"
+                      id="selectedSecondInstrumentType"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedSecondInstrumentType"
+                      name="selectedSecondInstrumentType"
+                    >
+                      <option
+                        *ngFor="let currentSecondInstrumentType of instrumentationItem.secondInstrumentType" 
+                        [ngValue]="currentSecondInstrumentType"
+                        [selected]="currentSecondInstrumentType==instrumentationItem.selectedSecondInstrumentType">
+                          {{currentSecondInstrumentType}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="secondInstrumentTypeModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="secondInstrumentTypeModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.secondInstrumentType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-6 align-self-start">
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedStatus">Status</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.status.length == 0"
+                      id="selectedStatus"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedStatus"
+                      name="selectedStatus"
+                    >
+                      <option
+                        *ngFor="let currentStatus of instrumentationItem.status" 
+                        [ngValue]="currentStatus"
+                        [selected]="currentStatus==instrumentationItem.selectedStatus">
+                          {{currentStatus}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="statusModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="statusModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.status.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedVendor">Vendor</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.vendor.length == 0"
+                      id="selectedVendor"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedVendor"
+                      name="selectedVendor"
+                    >
+                      <option
+                        *ngFor="let currentVendor of instrumentationItem.vendor" 
+                        [ngValue]="currentVendor"
+                        [selected]="currentVendor==instrumentationItem.selectedVendor">
+                          {{currentVendor}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="vendorModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="vendorModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.vendor.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="cost">Cost</label>
+                  <input type="number" class="form-control" [(ngModel)]="instrumentationItem.cost" name="cost">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedSuppliedBy">Supplied By</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.suppliedBy.length == 0"
+                      id="selectedSuppliedBy"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedSuppliedBy"
+                      name="selectedSuppliedBy"
+                    >
+                      <option
+                        *ngFor="let currentSuppliedBy of instrumentationItem.suppliedBy" 
+                        [ngValue]="currentSuppliedBy"
+                        [selected]="currentSuppliedBy==instrumentationItem.selectedSuppliedBy">
+                          {{currentSuppliedBy}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="suppliedByModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="suppliedByModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.suppliedBy.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedInstalledBy">Installed By</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.installedBy.length == 0"
+                      id="selectedInstalledBy"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedInstalledBy"
+                      name="selectedInstalledBy"
+                    >
+                      <option
+                        *ngFor="let currentInstalledBy of instrumentationItem.installedBy" 
+                        [ngValue]="currentInstalledBy"
+                        [selected]="currentInstalledBy==instrumentationItem.selectedInstalledBy">
+                          {{currentInstalledBy}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="installedByModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="installedByModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.installedBy.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedSignalLevel">Signal Level</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.signalLevel.length == 0"
+                      id="selectedSignalLevel"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedSignalLevel"
+                      name="selectedSignalLevel"
+                    >
+                      <option
+                        *ngFor="let currentSignalLevel of instrumentationItem.signalLevel" 
+                        [ngValue]="currentSignalLevel"
+                        [selected]="currentSignalLevel==instrumentationItem.selectedSignalLevel">
+                          {{currentSignalLevel}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="signalLevelModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="signalLevelModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.signalLevel.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedIOType">I/O Type</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.ioType.length == 0"
+                      id="selectedIOType"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedIOType"
+                      name="selectedIOType"
+                    >
+                      <option
+                        *ngFor="let currentIOType of instrumentationItem.ioType" 
+                        [ngValue]="currentIOType"
+                        [selected]="currentIOType==instrumentationItem.selectedIOType">
+                          {{currentIOType}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="ioTypeModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="ioTypeModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.ioType.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="dateInstrumentAdded">Date Instrument Added</label>
+                  <input type="text" class="form-control" [(ngModel)]="dateInstrumentAdded" name="dateInstrumentAdded" disabled>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="cloneTag">Clone Tag</label>
+                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.cloneTag" name="cloneTag" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="coordForX">X</label>
+                  <input type="number" class="form-control" [(ngModel)]="instrumentationItem.coordForX" name="coordForX">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="coordForY">Y</label>
+                  <input type="number" class="form-control" [(ngModel)]="instrumentationItem.coordForY" name="coordForY">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="coordForZ">Z</label>
+                  <input type="number" class="form-control" [(ngModel)]="instrumentationItem.coordForZ" name="coordForZ">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedPowerSupply">Power Supply</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.powerSupply.length == 0"
+                      id="selectedPowerSupply"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedPowerSupply"
+                      name="selectedPowerSupply"
+                    >
+                      <option
+                        *ngFor="let currentPowerSupply of instrumentationItem.powerSupply" 
+                        [ngValue]="currentPowerSupply"
+                        [selected]="currentPowerSupply==instrumentationItem.selectedPowerSupply">
+                          {{currentPowerSupply}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="powerSupplyModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="powerSupplyModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.powerSupply.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedInstrumentFunction">Instrument Function</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.instrumentFunction.length == 0"
+                      id="selectedInstrumentFunction"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedInstrumentFunction"
+                      name="selectedInstrumentFunction"
+                    >
+                      <option
+                        *ngFor="let currentInstrumentFunction of instrumentationItem.instrumentFunction" 
+                        [ngValue]="currentInstrumentFunction"
+                        [selected]="currentInstrumentFunction==instrumentationItem.selectedInstrumentFunction">
+                          {{currentInstrumentFunction}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="instrumentFunctionModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="instrumentFunctionModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.instrumentFunction.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="instrumentationNotes">Instrumentation Notes</label>
+                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.instrumentationNotes" name="instrumentationNotes">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="internalNotes">Internal Notes</label>
+                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.internalNotes" name="internalNotes">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="selectedInstrumentDescription">Instrument Description</label>
+                  <div class="d-flex flex-row">
+                    <select
+                      [disabled]="instrumentationItem.instrumentDescription.length == 0"
+                      id="selectedInstrumentDescription"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="instrumentationItem.selectedInstrumentDescription"
+                      name="selectedInstrumentDescription"
+                    >
+                      <option
+                        *ngFor="let currentInstrumentDescription of instrumentationItem.instrumentDescription" 
+                        [ngValue]="currentInstrumentDescription"
+                        [selected]="currentInstrumentDescription==instrumentationItem.selectedInstrumentDescription">
+                          {{currentInstrumentDescription}}
+                      </option>
+                    </select>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnPlus fa fa-plus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add new item"
+                      (click)="instrumentDescriptionModal.showAddModal()"
+                    ></button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary btnMinus fa fa-minus"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Drop selected item"
+                      (click)="instrumentDescriptionModal.showDropModal(dropElementFlag)"
+                      [disabled]="instrumentationItem.instrumentDescription.length == 0"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="newTag">New Tag</label>
+                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.newTag" name="newTag" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-end">
+          <div class="mr-auto p-2">
+            <a routerLink="/project/{{projectId}}/instrumentations/" class="btn btn-primary">Back</a>
+          </div>
+          <div class="p-2 form-group">
+            <span *ngIf="isCanChange">
+              <button type="submit" class="btn btn-success" [disabled]="!instrumentationForm.form.valid">Update/Create</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="ml-3 mr-3" *ngIf="sizeWindow > 576; else werticalTable">
+          <div class="row achievements-wrapper">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Item</th>                                                 <!-- 1 -->
+                  <th>Instrumentation Tag</th>                                  <!-- 2 -->
+                  <th>Instrument Description</th>                               <!-- 3 -->
+                  <th>PID Number</th>                                           <!-- 4 -->
+                  <th>Service Description</th>                                  <!-- 5 -->
+                  <th>Instrument Type 1</th>                                    <!-- 6 -->
+                  <th>Instrument Type 2</th>                                    <!-- 7 -->
+                  <th>Manufacturer</th>                                         <!-- 8 -->
+                  <th>Data Sheet Number</th>                                    <!-- 9 -->
+                  <th>MR/PO Number</th>                                         <!-- 10 -->
+                  <th>Model Number</th>                                         <!-- 11 -->
+                  <th>Status</th>                                               <!-- 12 -->
+                  <th>Location</th>                                             <!-- 13 -->
+                  <th>System</th>                                               <!-- 14 -->
+                  <th>I/O Type</th>                                             <!-- 15 -->
+                  <th>Signal Level</th>                                         <!-- 16 -->
+                  <th>Power Supply</th>                                         <!-- 17 -->
+                  <th>Instrument Function</th>                                  <!-- 18 -->
+                  <th>Instrument Description</th>                               <!-- 19 -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{instrumentationItem?.itemNumber || 'N/A'}}</td>     <!-- 1 Item -->
+                  <td>{{instrumentationItem?.instrumentationTag || 'N/A'}}</td>     <!-- 2 Instrumentation Tag -->
+                  <td>{{instrumentationItem?.selectedInstrumentDescription || 'N/A'}}</td>     <!-- 3 Instrument Description -->
+                  <td>{{instrumentationItem?.selectedPidNumber || 'N/A'}}</td>     <!-- 4 PID Number -->
+                  <td>{{instrumentationItem?.selectedServiceDescription || 'N/A'}}</td>     <!-- 5 Service Description -->
+                  <td>{{instrumentationItem?.selectedFirstInstrumentType || 'N/A'}}</td>     <!-- 6 Instrument Type 1 -->
+                  <td>{{instrumentationItem?.selectedSecondInstrumentType || 'N/A'}}</td>     <!-- 7 Instrument Type 2 -->
+                  <td>{{instrumentationItem?.selectedManufacturer || 'N/A'}}</td>     <!-- 8 Manufacturer -->
+                  <td>{{instrumentationItem?.selectedDataSheetNumber || 'N/A'}}</td>     <!-- 9 Data Sheet Number -->
+                  <td>{{instrumentationItem?.selectedMrPoNumber || 'N/A'}}</td>     <!-- 10 MR/PO Number -->
+                  <td>{{instrumentationItem?.selectedModelNumber || 'N/A'}}</td>     <!-- 11 Model Number -->
+                  <td>{{instrumentationItem?.selectedStatus || 'N/A'}}</td>     <!-- 12 Status -->
+                  <td>{{instrumentationItem?.selectedLocation || 'N/A'}}</td>     <!-- 13 Location -->
+                  <td>{{instrumentationItem?.selectedSystem || 'N/A'}}</td>     <!-- 14 System -->
+                  <td>{{instrumentationItem?.selectedIOType || 'N/A'}}</td>     <!-- 15 I/O Type -->
+                  <td>{{instrumentationItem?.selectedSignalLevel || 'N/A'}}</td>     <!-- 16 Signal Level -->
+                  <td>{{instrumentationItem?.selectedPowerSupply || 'N/A'}}</td>     <!-- 17 Power Supply -->
+                  <td>{{instrumentationItem?.selectedInstrumentFunction || 'N/A'}}</td>     <!-- 18 Instrument Function -->
+                  <td>{{instrumentationItem?.selectedInstrumentDescription || 'N/A'}}</td>     <!-- 19 Instrument Description -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+          <ng-template class="ml-3 mr-3" #werticalTable>
+            <div class="row">
+              <table class="table table-bordered">
+                <tr>
+                  <td><strong>Item</strong></td>
+                  <td>{{instrumentationItem?.itemNumber || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Instrumentation Tag</strong></td>
+                  <td>{{instrumentationItem?.instrumentationTag || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Instrument Description</strong></td>
+                  <td>{{instrumentationItem?.selectedInstrumentDescription || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>PID Number</strong></td>
+                  <td>{{instrumentationItem?.selectedPidNumber || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Service Description</strong></td>
+                  <td>{{instrumentationItem?.selectedServiceDescription || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Instrument Type 1</strong></td>
+                  <td>{{instrumentationItem?.selectedFirstInstrumentType || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Instrument Type 2</strong></td>
+                  <td>{{instrumentationItem?.selectedSecondInstrumentType || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Manufacturer</strong></td>
+                  <td>{{instrumentationItem?.selectedManufacturer || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Data Sheet Number</strong></td>
+                  <td>{{instrumentationItem?.selectedDataSheetNumber || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>MR/PO Number</strong></td>
+                  <td>{{instrumentationItem?.selectedMrPoNumber || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Model Number</strong></td>
+                  <td>{{instrumentationItem?.selectedModelNumber || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Status</strong></td>
+                  <td>{{instrumentationItem?.selectedStatus || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Location</strong></td>
+                  <td>{{instrumentationItem?.selectedLocation || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>System</strong></td>
+                  <td>{{instrumentationItem?.selectedSystem || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>I/O Type</strong></td>
+                  <td>{{instrumentationItem?.selectedIOType || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Signal Level</strong></td>
+                  <td>{{instrumentationItem?.selectedSignalLevel || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Power Supply</strong></td>
+                  <td>{{instrumentationItem?.selectedPowerSupply || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Instrument Function</strong></td>
+                  <td>{{instrumentationItem?.selectedInstrumentFunction || 'N/A'}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Instrument Description</strong></td>
+                  <td>{{instrumentationItem?.selectedInstrumentDescription || 'N/A'}}</td>
+                </tr>
+              </table>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+    <div class="row ml-3 mb-3">
+      <span *ngIf="isCanChange">
+        <button class="btn btn-danger" (click)="deleteInstrumentation(instrumentationItem._id)">Delete</button>
+      </span>
+    </div>
+  </div>
+  <div>
+  <!--START MODALS -->
+    <app-electricals-modal [dataValue]="instrumentationItem?.hazlocZone" [selectedValue]="instrumentationItem?.selectedHazlocZone" [title]="hazlocZoneTitle" #hazlocZoneModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.hazlocTemperature" [selectedValue]="instrumentationItem?.selectedHazlocTemperature" [title]="hazlocTemperatureTitle" #hazlocTemperatureModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.pidNumber" [selectedValue]="instrumentationItem?.selectedPidNumber" [title]="pidNumberTitle" #pidNumberModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.serviceDescription" [selectedValue]="instrumentationItem?.selectedServiceDescription" [title]="serviceDescriptionTitle" #serviceDescriptionModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.lineEquipmentNumber" [selectedValue]="instrumentationItem?.selectedLineEquipmentNumber" [title]="lineEquipmentNumberTitle" #lineEquipmentNumberModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.firstInstrumentType" [selectedValue]="instrumentationItem?.selectedFirstInstrumentType" [title]="firstInstrumentTypeTitle" #firstInstrumentTypeModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.manufacturer" [selectedValue]="instrumentationItem?.selectedManufacturer" [title]="manufacturerTitle" #manufacturerModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.modelNumber" [selectedValue]="instrumentationItem?.selectedModelNumber" [title]="modelNumberTitle" #modelNumberModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.dataSheetNumber" [selectedValue]="instrumentationItem?.selectedDataSheetNumber" [title]="dataSheetNumberTitle" #dataSheetNumberModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.mrPoNumber" [selectedValue]="instrumentationItem?.selectedMrPoNumber" [title]="mrPoNumberTitle" #mrPoNumberModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.installationDetail" [selectedValue]="instrumentationItem?.selectedInstallationDetail" [title]="installationDetailTitle" #installationDetailModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.wiringDrawing" [selectedValue]="instrumentationItem?.selectedWiringDrawing" [title]="wiringDrawingTitle" #wiringDrawingModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.location" [selectedValue]="instrumentationItem?.selectedLocation" [title]="locationTitle" #locationModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.system" [selectedValue]="instrumentationItem?.selectedSystem" [title]="systemTitle" #systemModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.secondInstrumentType" [selectedValue]="instrumentationItem?.selectedSecondInstrumentType" [title]="secondInstrumentTypeTitle" #secondInstrumentTypeModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.status" [selectedValue]="instrumentationItem?.selectedStatus" [title]="statusTitle" #statusModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.vendor" [selectedValue]="instrumentationItem?.selectedVendor" [title]="vendorTitle" #vendorModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.suppliedBy" [selectedValue]="instrumentationItem?.selectedSuppliedBy" [title]="suppliedByTitle" #suppliedByModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.installedBy" [selectedValue]="instrumentationItem?.selectedInstalledBy" [title]="installedByTitle" #installedByModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.signalLevel" [selectedValue]="instrumentationItem?.selectedSignalLevel" [title]="signalLevelTitle" #signalLevelModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.ioType" [selectedValue]="instrumentationItem?.selectedIOType" [title]="ioTypeTitle" #ioTypeModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.powerSupply" [selectedValue]="instrumentationItem?.selectedPowerSupply" [title]="powerSupplyTitle" #powerSupplyModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.instrumentFunction" [selectedValue]="instrumentationItem?.selectedInstrumentFunction" [title]="instrumentFunctionTitle" #instrumentFunctionModal></app-electricals-modal>
+      <app-electricals-modal [dataValue]="instrumentationItem?.instrumentDescription" [selectedValue]="instrumentationItem?.selectedInstrumentDescription" [title]="instrumentDescriptionTitle" #instrumentDescriptionModal></app-electricals-modal>
+      <!--  <app-electricals-modal [dataValue]="" [selectedValue]="" [title]="" #></app-electricals-modal>
+      -->
+      <!--END MODALS -->
+  </div>

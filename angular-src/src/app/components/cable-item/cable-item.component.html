@@ -1,0 +1,824 @@
+<div class="ml-3 mr-3" *ngIf="cabelItem">
+  <div class="d-flex justify-content-center pt-3">
+    <h1>Cable Tag <strong>{{cabelItem?.cableTagFirst}} {{cabelItem?.cableTagSecond}} {{cabelItem?.selectedCableTagIndex}} {{cabelItem?.cableTagThird}} {{cabelItem?.cableTagFourth}}</strong></h1>
+  </div>
+  <form (ngSubmit)="saveCable(cabelItem._id, cabelForm.value)" #cabelForm="ngForm">
+    <div class="row">
+      <div class="col-12 col-sm-4 col-xl-2 align-self-start">
+        <div class="d-flex justify-content-center">
+          <span class="h4">Info</span>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="cableTag">Create Cable Tag</label>
+              <div class="form-group row">
+                <div class="col-xl-3 cableTag">
+                  <input type="text" class="form-control" [(ngModel)]="cabelItem.cableTagFirst" name="cableTagFirst">
+                </div>
+                <div class="col-xl-3 cableTag">
+                  <input type="text" class="form-control" [(ngModel)]="cabelItem.cableTagSecond" name="cableTagSecond">
+                </div>
+                <div class="col-xl-3 cableTag">
+                  <input type="text" class="form-control" [(ngModel)]="cabelItem.cableTagThird" name="cableTagThird">
+                </div>
+                <div class="col-xl-3 cableTag">
+                  <input type="text" class="form-control" [(ngModel)]="cabelItem.cableTagFourth" name="cableTagFourth">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="equipmentType">Cable Type</label>
+              <!--
+                              <app-drop-down
+                                (onChanged) = "onChanged($event, 'Cable Type')"
+                                (newOnChanged) = "newOnChanged($event, 'Cable Type')"
+                                [dropDownName] = "'Cable Type'"
+                                [equipmentType] = 'cabelItem.cableTagIndex'
+                                [selectedEquipmentType] = 'cabelItem.selectedCableTagIndex'
+                                name="selectedCableTagIndex"
+                              >
+                              </app-drop-down>
+              -->
+              <div class="d-flex flex-row">
+                <select [disabled]="cabelItem.cableTagIndex.length == 0"
+                        id="selectedCableTagIndex"
+                        class="form-control selectForOpenModal"
+                        [(ngModel)]="cabelItem.selectedCableTagIndex"
+                        name="selectedCableTagIndex">
+                  <option *ngFor="let currentCableTagIndex of cabelItem.cableTagIndex"
+                          [ngValue]="currentCableTagIndex"
+                          [selected]="currentCableTagIndex==cabelItem.selectedCableTagIndex">
+                    {{currentCableTagIndex}}
+                  </option>
+                </select>
+                <button type="button"
+                        class="btn btn-outline-secondary btnPlus fa fa-plus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Add new item"
+                        (click)="cableType.showAddModal()">
+                </button>
+                <button type="button"
+                        class="btn btn-outline-secondary btnMinus fa fa-minus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Drop selected item"
+                        (click)="cableType.showDropModal(dropElementFlag)"
+                        [disabled]="cabelItem.cableTagIndex.length == 0">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="electricalList">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedCableFrom">Cable From</label>
+              <select [disabled]="electricalList.length == 0"
+                      id="selectedCableFrom"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedCableFrom"
+                      (change)="getXYZValue(electricalList, cabelItem.selectedCableFrom, cabelItem.selectedCableTo)"
+                      name="selectedCableFrom">
+                <option *ngFor="let currentCableFrom of electricalList"
+                        [ngValue]="currentCableFrom.equipmentTag"
+                        [selected]="currentCableFrom.equipmentTag==cabelItem.selectedCableFrom">
+                  {{currentCableFrom.equipmentTag}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="electricalList">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedCableTo">Cable To</label>
+              <select [disabled]="electricalList.length == 0"
+                      id="selectedCableTo"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedCableTo"
+                      (change)="setCabelToConnectedFLA(electricalList, cabelItem.selectedCableTo);
+                    getXYZValue(electricalList, cabelItem.selectedCableFrom, cabelItem.selectedCableTo)"
+                      name="selectedCableTo">
+                <option *ngFor="let currentCableTo of electricalList"
+                        [ngValue]="currentCableTo.equipmentTag"
+                        [selected]="currentCableTo.equipmentTag==cabelItem.selectedCableTo">
+                  {{currentCableTo.equipmentTag}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedPowerSystem">System</label>
+              <select id="selectedPowerSystem"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedPowerSystem"
+                      (change)="typeChanged()"
+                      name="selectedPowerSystem">
+                <option *ngFor="let currentPowerSystem of cabelItem.powerSystem"
+                        [ngValue]="currentPowerSystem"
+                        [selected]="currentPowerSystem==cabelItem.selectedPowerSystem">
+                  {{currentPowerSystem}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedConductorMaterial">Conductor Material</label>
+              <select id="selectedConductorMaterial"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedConductorMaterial.name"
+                      (change)="conductorMaterialChanged()"
+                      name="selectedConductorMaterial">
+                <option *ngFor="let currentConductorMaterial of conductorMaterialAfterChangePowerSystem"
+                        [ngValue]="currentConductorMaterial.name"
+                        [selected]="currentConductorMaterial.name == cabelItem.selectedConductorMaterial.name">
+                  {{currentConductorMaterial.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedVoltage">Circuit Voltage</label>
+              <div class="d-flex flex-row">
+                <select id="selectedVoltage"
+                        class="form-control selectForOpenModal"
+                        [(ngModel)]="cabelItem.selectedVoltage.name"
+                        name="selectedVoltage"
+                        (change)="getVoltagePrefix(cabelItem.selectedVoltage.name)">
+                  <option *ngFor="let currentVoltage of voltageAfterChangePowerSystem"
+                          [ngValue]="currentVoltage.name"
+                          [selected]="currentVoltage.name == cabelItem.selectedVoltage.name">
+                    {{currentVoltage.name}}
+                  </option>
+                </select>
+                <button type="button"
+                        class="btn btn-outline-secondary btnPlus fa fa-plus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Add new item"
+                        (click)="voltageModal.showAddModal()"></button>
+                <button type="button"
+                        class="btn btn-outline-secondary btnMinus fa fa-minus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Drop selected item"
+                        (click)="voltageModal.showDropModal(dropElementFlag)"
+                        [disabled]="voltageAfterChangePowerSystem.length == 0"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedService">Service</label>
+              <select id="selectedService"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedService"
+                      name="selectedService">
+                <option *ngFor="let currentService of cabelItem.serviceArray"
+                        [ngValue]="currentService"
+                        [selected]="currentService==cabelItem.selectedService">
+                  {{currentService}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedMaxAmbientTemp">Max. Amb. Temp.</label>
+              <select id="selectedMaxAmbientTemp"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedMaxAmbientTemp"
+                      name="selectedMaxAmbientTemp">
+                <option *ngFor="let currentMaxAmbientTemp of cabelItem.maxAmbientTempArray"
+                        [ngValue]="currentMaxAmbientTemp"
+                        [selected]="currentMaxAmbientTemp==cabelItem.selectedMaxAmbientTemp">
+                  {{currentMaxAmbientTemp}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-8 col-xl-4 align-self-start">
+        <div class="d-flex justify-content-center">
+          <span class="h4">Physical</span>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedCableType">Cable Type</label>
+              <select id="selectedCableType"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedCableType"
+                      name="selectedCableType">
+                <option *ngFor="let currentCableType of cabelItem.cableTypeArrayArray"
+                        [ngValue]="currentCableType"
+                        [selected]="currentCableType==cabelItem.selectedCableType">
+                  {{currentCableType}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="outJacket">Out Jacket</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.outJacket" name="outJacket">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedInsulationVoltage">Insulation Voltage</label>
+              <select id="selectedInsulationVoltage"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedInsulationVoltage"
+                      name="selectedInsulationVoltage">
+                <option *ngFor="let currentInsulationVoltage of cabelItem.insulationVoltageArray"
+                        [ngValue]="currentInsulationVoltage"
+                        [selected]="currentInsulationVoltage==cabelItem.selectedInsulationVoltage">
+                  {{currentInsulationVoltage}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedJacketColor">Jacket Color</label>
+              <select id="selectedJacketColor"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedJacketColor"
+                      name="selectedJacketColor">
+                <option *ngFor="let currentJacketColor of cabelItem.jacketColorArray"
+                        [ngValue]="currentJacketColor"
+                        [selected]="currentJacketColor==cabelItem.selectedJacketColor">
+                  {{currentJacketColor}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedInsulationRating">Ins. Rating</label>
+              <select id="selectedInsulationRating"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedInsulationRating"
+                      name="selectedInsulationRating">
+                <option *ngFor="let currentInsulationRating of cabelItem.insulationRatingArray"
+                        [ngValue]="currentInsulationRating"
+                        [selected]="currentInsulationRating==cabelItem.selectedInsulationRating">
+                  {{currentInsulationRating}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedRaceway">Raceway</label>
+              <select id="selectedRaceway"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedRaceway"
+                      name="selectedRaceway">
+                <option *ngFor="let currentRaceway of cabelItem.racewayArray"
+                        [ngValue]="currentRaceway"
+                        [selected]="currentRaceway==cabelItem.selectedJacketColor">
+                  {{currentRaceway}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedConductorInsulationType">Conductor Ins Type</label>
+              <select id="selectedConductorInsulationType"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedConductorInsulationType"
+                      name="selectedConductorInsulationType">
+                <option *ngFor="let currentConductorInsulationType of cabelItem.conductorInsulationTypeArray"
+                        [ngValue]="currentConductorInsulationType"
+                        [selected]="currentConductorInsulationType==cabelItem.selectedConductorInsulationType">
+                  {{currentConductorInsulationType}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedFtRating">Ft. Rating</label>
+              <select id="selectedFtRating"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedFtRating"
+                      name="selectedFtRating">
+                <option *ngFor="let currentFtRating of cabelItem.ftRatingArray"
+                        [ngValue]="currentFtRating"
+                        [selected]="currentFtRating==cabelItem.selectedFtRating">
+                  {{currentFtRating}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedInsulationTemperatureRating">Ins Temp Rating</label>
+              <select [disabled]="!cabelItem.selectedConductorMaterial.name || cabelItem.selectedConductorMaterial.name == 'Aluminium'"
+                      id="selectedInsulationTemperatureRating"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedInsulationTemperatureRating.name"
+                      name="selectedInsulationTemperatureRating">
+                <option *ngFor="let currentInsulationType of insTempRatingAfterChangeConductorMaterial"
+                        [ngValue]="currentInsulationType.name"
+                        [selected]="currentInsulationType.name == cabelItem.selectedInsulationTemperatureRating.name">
+                  {{currentInsulationType.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedWireColor">Wire Color</label>
+              <select id="selectedWireColor"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedWireColor"
+                      name="selectedWireColor">
+                <option *ngFor="let currentWireColor of cabelItem.wireColorArray"
+                        [ngValue]="currentWireColor"
+                        [selected]="currentWireColor==cabelItem.selectedWireColor">
+                  {{currentWireColor}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedShield">Shield</label>
+              <select id="selectedShield"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedShield"
+                      name="selectedShield">
+                <option *ngFor="let currentShield of cabelItem.shieldArray"
+                        [ngValue]="currentShield"
+                        [selected]="currentShield==cabelItem.selectedShield">
+                  {{currentShield}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedApproval">Approval</label>
+              <select id="selectedApproval"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedApproval"
+                      name="selectedApproval">
+                <option *ngFor="let currentApproval of cabelItem.approvalArray"
+                        [ngValue]="currentApproval"
+                        [selected]="currentApproval==cabelItem.selectedApproval">
+                  {{currentApproval}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="selectedArmour">Armour</label>
+              <select id="selectedArmour"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedArmour"
+                      name="selectedArmour">
+                <option *ngFor="let currentArmour of cabelItem.armourArray"
+                        [ngValue]="currentArmour"
+                        [selected]="currentArmour==cabelItem.selectedArmour">
+                  {{currentArmour}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="od">O.D.</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.od" name="od">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="form-group">
+              <label for="kgPerMetr">kg/m</label>
+              <input type="number" class="form-control" [(ngModel)]="cabelItem.kgPerMetr" name="kgPerMetr">
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-6 align-self-end">
+            <div class="row">
+              <div class="col-2">
+                <div class="form-group">
+                  <label for="itemNum">No</label>
+                  <input type="number" class="form-control" [(ngModel)]="cabelItem.itemNum" name="itemNum">
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="selectedItemType">Type</label>
+                  <select id="selectedItemType"
+                          class="form-control"
+                          [(ngModel)]="cabelItem.selectedItemType"
+                          name="selectedItemType">
+                    <option *ngFor="let currentItemType of cabelItem.itemTypeArray"
+                            [ngValue]="currentItemType"
+                            [selected]="currentItemType==cabelItem.selectedItemType">
+                      {{currentItemType}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="selectedCableSize">Size</label>
+                  <select id="selectedCableSize"
+                          class="form-control"
+                          [(ngModel)]="cabelItem.selectedCableSize"
+                          name="selectedCableSize">
+                    <option *ngFor="let currentCableSize of cabelItem.cableSizeArray"
+                            [ngValue]="currentCableSize"
+                            [selected]="currentCableSize==cabelItem.selectedCableSize">
+                      {{currentCableSize}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Start CONFIGURATION -->
+      <div class="col-12 col-sm-4 col-xl-2 align-self-start">
+        <div class="d-flex justify-content-center">
+          <span class="h4">Configuration</span>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedInstallMethod">Install Method</label>
+              <select id="selectedInstallMethod"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedInstallMethod"
+                      name="selectedInstallMethod">
+                <option *ngFor="let currentsInstallMethod of cabelItem.installMethodArray"
+                        [ngValue]="currentsInstallMethod"
+                        [selected]="currentsInstallMethod==cabelItem.selectedInstallMethod">
+                  {{currentsInstallMethod}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedSpacing">Spacing</label>
+              <select id="selectedSpacing"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedSpacing"
+                      name="selectedSpacing">
+                <option *ngFor="let currentsSpacing of cabelItem.spacingArray"
+                        [ngValue]="currentsSpacing"
+                        [selected]="currentsSpacing==cabelItem.selectedSpacing">
+                  {{currentsSpacing}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedSpacingCorrection">Spacing Correction</label>
+              <select id="selectedSpacingCorrection"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedSpacingCorrection"
+                      name="selectedSpacingCorrection">
+                <option *ngFor="let currentsSpacingCorrection of cabelItem.spacingCorrectionArray"
+                        [ngValue]="currentsSpacingCorrection"
+                        [selected]="currentsSpacingCorrection==cabelItem.selectedSpacingCorrection">
+                  {{currentsSpacingCorrection}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="tempCorrection">Temp Correction</label>
+              <input type="number" class="form-control" [(ngModel)]="cabelItem.tempCorrection" name="tempCorrection">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedCec">Cec 28-104</label>
+              <select id="selectedCec"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedCec"
+                      name="selectedCec">
+                <option *ngFor="let currentsSelectedCec of cabelItem.cecArray"
+                        [ngValue]="currentsSelectedCec"
+                        [selected]="currentsSelectedCec==cabelItem.selectedCec">
+                  {{currentsSelectedCec}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="correctedCondAmp">Corrected Cond. Amp</label>
+              <input type="number" class="form-control" [(ngModel)]="cabelItem.correctedCondAmp" name="correctedCondAmp">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="numberOfRunsPerPhase">No. of Runs Per Phase</label>
+              <input type="number" class="form-control" [(ngModel)]="cabelItem.numberOfRunsPerPhase" name="numberOfRunsPerPhase">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="feederAmpacity">Feeder Ampacity</label>
+              <input type="number" class="form-control" [(ngModel)]="cabelItem.feederAmpacity" name="feederAmpacity">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Edd CONFIGURATION -->
+      <!-- Strart VOLTAGE DROP section -->
+      <div class="col-12 col-sm-4 col-xl-2 align-self-start">
+        <div class="d-flex justify-content-center">
+          <span class="h4">Voltage Drop</span>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label>Cable Distance Calc</label>
+              <button type="button"
+                      class="btn btn-secondary btn-block"
+                      (click)="cabelDistanceModal.showModal()">
+                Cable calculate
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="cableLenth">Total Length</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.cableLenth" name="cableLenth" disabled>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="voltageDropPercent">Voltage Drop (%)</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.voltageDropPercent" name="voltageDropPercent" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End VOLTAGE DROP section -->
+      <!-- Strart LOAD section -->
+      <div class="col-12 col-sm-4 col-xl-2 align-self-start">
+        <div class="d-flex justify-content-center">
+          <span class="h4">Load</span>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="connectedFla">Connected FLA</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.connectedFLA" name="connectedFla" disabled>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="selectedAmpacityMultiplier">Ampacity Multiplier</label>
+              <select id="selectedAmpacityMultiplier"
+                      class="form-control"
+                      [(ngModel)]="cabelItem.selectedAmpacityMultiplier"
+                      name="selectedAmpacityMultiplier">
+                <option *ngFor="let currentAmpacityMultiplierArray of cabelItem.ampacityMultiplierArray"
+                        [ngValue]="currentAmpacityMultiplierArray"
+                        [selected]="currentAmpacityMultiplierArray==cabelItem.selectedAmpacityMultiplier">
+                  {{currentAmpacityMultiplierArray}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="minCondAmp">Min. Cond. Amp.</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.minCondAmp" name="minCondAmp">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="condAmpacity">Cond. Ampacity</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.condAmpacity" name="condAmpacity">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="ocAmpRating">O/C Amp Rating</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.ocAmpRating" name="ocAmpRating">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-self-end">
+            <div class="form-group">
+              <label for="internalNotes">Internal Notes</label>
+              <input type="text" class="form-control" [(ngModel)]="cabelItem.internalNotes" name="internalNotes">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <div class="mr-auto p-2">
+        <a routerLink="/project/{{projectId}}/cables/" class="btn btn-primary">Back</a>
+      </div>
+      <div class="p-2 form-group">
+        <span *ngIf="isCanChange">
+          <button type="submit" class="btn btn-success" [disabled]="!cabelForm.form.valid">Update/Create</button>
+        </span>
+      </div>
+    </div>
+    <div class="ml-3 mr-3" *ngIf="sizeWindow > 576; else werticalTable">
+      <div class="row achievements-wrapper">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Rev.</th>                                                 <!-- 1 -->
+              <th>Cable Conduit Tag</th>                                    <!-- 2 -->
+              <th>Service</th>                                              <!-- 3 -->
+              <th>Load(A)</th>                                              <!-- 4 -->
+              <th>Volts</th>                                                <!-- 5 -->
+              <th>From Source</th>                                          <!-- 6 -->
+              <th>To Destination</th>                                       <!-- 7 -->
+              <th>Cable/Conduit Size/Type</th>                              <!-- 8 -->
+              <th>Cable/Conduit Lenth(m) etc.</th>                          <!-- 9 -->
+              <th>No. of Cond.</th>                                         <!-- 10 -->
+              <th>Type of Cond.</th>                                        <!-- 11 -->
+              <th>Cable Size</th>                                           <!-- 12 -->
+              <th>Conductor Insulation Type.</th>                           <!-- 13 -->
+              <th>Insul. Volts</th>                                         <!-- 14 -->
+              <th>Spare</th>                                                <!-- 15 -->
+              <th>Comments/Raceway Numbers</th>                             <!-- 16 -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>                         <!-- 1 Rev. -->
+              <td></td>                     <!-- 2 Cable Conduit Tag -->
+              <td>{{cabelItem?.selectedService}}</td>     <!-- 3 Service -->
+              <td></td>            <!-- 4 Load(A) -->
+              <td>{{voltagePrefix}}</td>             <!-- 5 Volts -->
+              <td>{{cabelItem?.selectedCableFrom}}</td>              <!-- 6 From Source -->
+              <td>{{cabelItem?.selectedCableTo}}</td>                  <!-- 7 To Destination -->
+              <td>{{cabelItem?.selectedCableTagIndex}}</td>                    <!-- 8 Cable/Conduit Size/Type -->
+              <td>{{cableLenth}}</td>                          <!-- 9 Cable/Conduit Lenth(m) etc. -->
+              <td>{{cabelItem?.itemNum}}</td>                         <!-- 10 No. of Cond. -->
+              <td>{{cabelItem?.selectedItemType}}</td>                  <!-- 11 Type of Cond. -->
+              <td>{{cabelItem?.selectedCableSize}}</td>                <!-- 12 Cable Size -->
+              <td>{{cabelItem?.selectedConductorInsulationType}}</td>                       <!-- 13 Conductor Insulation Type. -->
+              <td>{{cabelItem?.selectedInsulationVoltage}}</td>                 <!-- 14 Insul. Volts -->
+              <td></td>                 <!-- 15 Spare -->
+              <td></td>                  <!-- 16 Comments/Raceway Numbers -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template class="ml-3 mr-3" #werticalTable>
+      <div class="row">
+        <table class="table table-bordered">
+          <tr>
+            <td><strong>Rev.</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Cable Conduit Tag</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Service</strong></td>
+            <td>{{cabelItem?.selectedService}}</td>
+          </tr>
+          <tr>
+            <td><strong>Load(A)</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Volts</strong></td>
+            <td>{{voltagePrefix}}</td>
+          </tr>
+          <tr>
+            <td><strong>From Source</strong></td>
+            <td>{{cabelItem?.selectedCableFrom}}</td>
+          </tr>
+          <tr>
+            <td><strong>To Destination</strong></td>
+            <td>{{cabelItem?.selectedCableTo}}</td>
+          </tr>
+          <tr>
+            <td><strong>Cable/Conduit Size/Type</strong></td>
+            <td>{{cabelItem?.selectedCableTagIndex}}</td>
+          </tr>
+          <tr>
+            <td><strong>Cable/Conduit Lenth(m) etc.</strong></td>
+            <td>{{cableLenth}}</td>
+          </tr>
+          <tr>
+            <td><strong>No. of Cond.</strong></td>
+            <td>{{cabelItem?.itemNum}}</td>
+          </tr>
+          <tr>
+            <td><strong>Type of Cond.</strong></td>
+            <td>{{cabelItem?.selectedItemType}}</td>
+          </tr>
+          <tr>
+            <td><strong>Cable Size</strong></td>
+            <td>{{cabelItem.selectedCableSize}}</td>
+          </tr>
+          <tr>
+            <td><strong>Conductor Insulation Type.</strong></td>
+            <td>{{cabelItem?.selectedConductorInsulationType}}</td>
+          </tr>
+          <tr>
+            <td><strong>Insul. Volts</strong></td>
+            <td>{{cabelItem?.selectedInsulationVoltage}}</td>
+          </tr>
+          <tr>
+            <td><strong>Spare</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Comments/Raceway Numbers</strong></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </ng-template>
+  </form>
+  <div class="row ml-3 mb-3">
+    <span *ngIf="isCanChange">
+      <button class="btn btn-danger" (click)="deleteCable(cabelItem._id)">Delete</button>
+    </span>
+  </div>
+</div>
+<div>
+  <app-electricals-modal [dataValue]="voltageAfterChangePowerSystem" [selectedValue]="cabelItem?.selectedVoltage?.name" [title]="voltage" #voltageModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="cabelItem?.cableTagIndex" [selectedValue]="cabelItem?.selectedCableTagIndex" [title]="cableTypeModalName" #cableType></app-electricals-modal>
+  <app-cable-distance-modal [firstElement]="cabelItem?.selectedCableFrom" [secondElement]="cabelItem?.selectedCableTo" [title]="cableDistanceModalHeader" #cabelDistanceModal></app-cable-distance-modal>
+</div>

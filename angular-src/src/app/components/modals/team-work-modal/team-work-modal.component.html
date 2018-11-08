@@ -1,0 +1,117 @@
+<!--
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+-->
+
+<div class="modal fade"
+     (click)="onContainerClicked($event)"
+     tabindex="-1"
+     role="dialog"
+     [ngClass]="{'in': visibleAnimate}"
+     [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+  <div class="modal-dialog modal-dialog-centered" aria-labelledby="exampleModalLongTitle">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">{{title}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="addUserInTeam">
+        <div class="form-inline">
+          <label class="pr-2"><strong>User e-mail: </strong></label>
+          <input class="form-control"
+                 type="email"
+                 name="teamUserEmail"
+                 [(ngModel)]="teamUserEmail"
+                 placeholder='Input email for team work'
+                 onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'Input user email'"
+                 required
+          />
+        </div>
+        <div>
+          <div class="d-flex justify-content-center">
+            <div>
+              <span> Your team</span>
+            </div>
+          </div>
+          <div class="d-flex" *ngFor="let itemTeamUser of project.team_project">
+            <div class="mr-auto p-2">{{itemTeamUser.email}}</div>
+            <div class="p-2">
+              <a class="btn btn-danger"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Delete project"
+                 (click)="deleteUserFromFolowers(isTeam=true, itemTeamUser.guid)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="p-2">
+              <a class="btn btn-info"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Move user to browse group"
+                 (click)="moveUserFromTeamToBrouse(itemTeamUser)">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body" *ngIf="addUserForBrowse">
+        <div class="form-inline">
+          <label class="pr-2"><strong>User e-mail: </strong></label>
+          <input class="form-control"
+                 name="browseUserEmail"
+                 [(ngModel)]="browseUserEmail"
+                 placeholder='Input email for browse'
+                 onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'Input user email'" />
+        </div>
+        <div>
+          <div class="d-flex justify-content-center">
+            <div>
+              <span> Your folowers</span>
+            </div>
+          </div>
+          <div class="d-flex" *ngFor="let itemTeamUser of project.brows_team_project">
+            <div class="mr-auto p-2">{{itemTeamUser.email}}</div>
+            <div class="p-2">
+              <a class="btn btn-danger"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Delete user"
+                 (click)="deleteUserFromFolowers(isTeam=false, itemTeamUser.guid)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="p-2">
+              <a class="btn btn-info"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Move user to team group"
+                 (click)="moveUserFromFoloversToTeam(itemTeamUser)">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="d-flex justify-content-end">
+            <div *ngIf="addUserInTeam" class="form-group pr-1">
+              <button class="btn btn-success" (click)="addUserToTeam(teamUserEmail)">Add user to team</button>
+            </div>
+            <div *ngIf="addUserForBrowse" class="form-group pr-1">
+              <button class="btn btn-success" (click)="addBrowseUser(browseUserEmail)">Add folower</button>
+            </div>
+            <div class="pl-1 pr-2">
+              <button class="btn btn-primary" (click)="close()">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

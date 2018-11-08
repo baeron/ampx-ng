@@ -1,0 +1,45 @@
+<div class="form-group" *ngIf="equipmentType">
+  <div class="d-flex flex-row">
+    <select 
+      [disabled]="equipmentType.length == 0"
+      id="selectedEquipmentType"
+      class="form-control selectForOpenModal"
+      [(ngModel)]="selectedEquipmentType"
+      (click)="change(selectedEquipmentType)"
+      name="selectedEquipmentType"
+    >
+      <option
+        *ngFor="let currentEquipmentType of equipmentType" 
+        [ngValue]="currentEquipmentType"
+      >
+          {{currentEquipmentType}}
+      </option>
+    </select>
+    <button
+      type="button"
+      class="btn btn-outline-secondary btnPlus fa fa-plus"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Add new item"
+      (click)="equipmentTypeModal.showAddModal()"
+    ></button>
+    <button
+      type="button"
+      class="btn btn-outline-secondary btnMinus fa fa-minus"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Drop selected item"
+      (click)="equipmentTypeModal.showDropModal(dropElementFlag)"
+      [disabled]="equipmentType.length == 0"
+    ></button>
+  </div>
+</div>
+
+<app-simple-electrical-modal
+  [dataValue]="equipmentType"
+  [selectedValue]="selectedEquipmentType"
+  [title]="dropDownName"
+  (newOnChanged)="newChanged($event)"
+  #equipmentTypeModal
+>
+</app-simple-electrical-modal>

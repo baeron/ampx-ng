@@ -1,0 +1,1474 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-src documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-src documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>IoAssignmentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/io-assignment/io-assignment.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-io-assignment</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>io-assignment.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./io-assignment.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeIOAssigmentTableAfterChangeTagAndController">changeIOAssigmentTableAfterChangeTagAndController</a>
+                            </li>
+                            <li>
+                                <a href="#fieldArray">fieldArray</a>
+                            </li>
+                            <li>
+                                <a href="#formData">formData</a>
+                            </li>
+                            <li>
+                                <a href="#ioassignments">ioassignments</a>
+                            </li>
+                            <li>
+                                <a href="#myForm">myForm</a>
+                            </li>
+                            <li>
+                                <a href="#newAttribute">newAttribute</a>
+                            </li>
+                            <li>
+                                <a href="#projectId">projectId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addFieldValue2">addFieldValue2</a>
+                            </li>
+                            <li>
+                                <a href="#cleanStringify">cleanStringify</a>
+                            </li>
+                            <li>
+                                <a href="#deleteFieldValue2">deleteFieldValue2</a>
+                            </li>
+                            <li>
+                                <a href="#ioassignmentsControllerChange">ioassignmentsControllerChange</a>
+                            </li>
+                            <li>
+                                <a href="#ioassignmentsTagChange">ioassignmentsTagChange</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#saveIOAssignment">saveIOAssignment</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, ioAssignmentService: <a href="../injectables/IoAssignmentService.html">IoAssignmentService</a>, spinnerService: Ng4LoadingSpinnerService, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ioAssignmentService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/IoAssignmentService.html" target="_self" >IoAssignmentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>spinnerService</td>
+                                                  
+                                                        <td>
+                                                                    <code>Ng4LoadingSpinnerService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addFieldValue2"></a>
+                        <span class="name">
+                            <b>
+                            addFieldValue2
+                            </b>
+                            <a href="#addFieldValue2"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addFieldValue2(index: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:71</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>index</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cleanStringify"></a>
+                        <span class="name">
+                            <b>
+                            cleanStringify
+                            </b>
+                            <a href="#cleanStringify"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cleanStringify(object: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:94</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>object</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteFieldValue2"></a>
+                        <span class="name">
+                            <b>
+                            deleteFieldValue2
+                            </b>
+                            <a href="#deleteFieldValue2"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteFieldValue2(index: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:89</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>index</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ioassignmentsControllerChange"></a>
+                        <span class="name">
+                            <b>
+                            ioassignmentsControllerChange
+                            </b>
+                            <a href="#ioassignmentsControllerChange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ioassignmentsControllerChange(selectedTag: , selectedController: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>selectedTag</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>selectedController</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ioassignmentsTagChange"></a>
+                        <span class="name">
+                            <b>
+                            ioassignmentsTagChange
+                            </b>
+                            <a href="#ioassignmentsTagChange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ioassignmentsTagChange(info: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>info</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saveIOAssignment"></a>
+                        <span class="name">
+                            <b>
+                            saveIOAssignment
+                            </b>
+                            <a href="#saveIOAssignment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>saveIOAssignment(data: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:119</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="changeIOAssigmentTableAfterChangeTagAndController"></a>
+                        <span class="name">
+                            <b>
+                            changeIOAssigmentTableAfterChangeTagAndController
+                            </b>
+                            <a href="#changeIOAssigmentTableAfterChangeTagAndController"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>changeIOAssigmentTableAfterChangeTagAndController:     <code>[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fieldArray"></a>
+                        <span class="name">
+                            <b>
+                            fieldArray
+                            </b>
+                            <a href="#fieldArray"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>fieldArray:     <code>Array&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formData"></a>
+                        <span class="name">
+                            <b>
+                            formData
+                            </b>
+                            <a href="#formData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>formData:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ioassignments"></a>
+                        <span class="name">
+                            <b>
+                            ioassignments
+                            </b>
+                            <a href="#ioassignments"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>ioassignments:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="myForm"></a>
+                        <span class="name">
+                            <b>
+                            myForm
+                            </b>
+                            <a href="#myForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>myForm:     <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="newAttribute"></a>
+                        <span class="name">
+                            <b>
+                            newAttribute
+                            </b>
+                            <a href="#newAttribute"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>newAttribute:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectId"></a>
+                        <span class="name">
+                            <b>
+                            projectId
+                            </b>
+                            <a href="#projectId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>projectId:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/io-assignment/io-assignment.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Ng4LoadingSpinnerService } from &#x27;ng4-loading-spinner&#x27;;
+import { IoAssignmentService } from &#x27;../../services/io-assignment.service&#x27;;
+import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+import {FormGroup, FormBuilder, FormControl, Validators, FormArray} from &#x27;@angular/forms&#x27;;
+
+@Component({
+  selector: &#x27;app-io-assignment&#x27;,
+  templateUrl: &#x27;./io-assignment.component.html&#x27;,
+  styleUrls: [&#x27;./io-assignment.component.css&#x27;]
+})
+export class IoAssignmentComponent implements OnInit {
+  myForm: FormGroup;
+  newAttribute: any &#x3D; {};
+  projectId: String;
+  ioassignments: any;
+  formData: any;
+  fieldArray: Array&lt;any&gt; &#x3D; [];
+  changeIOAssigmentTableAfterChangeTagAndController &#x3D; [];
+
+  constructor(
+    private fb: FormBuilder,
+    private ioAssignmentService: IoAssignmentService,
+    private spinnerService: Ng4LoadingSpinnerService,
+    private router: Router,
+    private route: ActivatedRoute,
+  ){
+    this.projectId &#x3D; this.route.snapshot.params[&#x27;id&#x27;];
+    this.newAttribute &#x3D; { };
+
+    
+    this.newAttribute.ioTypeFirst &#x3D; [&#x27;DI&#x27;, &#x27;DO&#x27;, &#x27;AI&#x27;, &#x27;IAI&#x27;, &#x27;H-AI&#x27;, &#x27;AO&#x27;, &#x27;H-AO&#x27;, &#x27;RTD&#x27;, &#x27;TC&#x27;];
+    this.newAttribute.selectedIoTypeFirst &#x3D; &#x27;&#x27;;
+    this.newAttribute.ioTypeSecond &#x3D; [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;I&#x27;, &#x27;J&#x27;, &#x27;K&#x27;, &#x27;L&#x27;, &#x27;P&#x27;, &#x27;PD&#x27;, &#x27;Q&#x27;, &#x27;R&#x27;, &#x27;S&#x27;, &#x27;T&#x27;, &#x27;V&#x27;, &#x27;W&#x27;, &#x27;X&#x27;, &#x27;Z&#x27;];
+    this.newAttribute.selectedIoTypeSecond &#x3D; &#x27;&#x27;;
+    this.newAttribute.ioTypeThird &#x3D; [&#x27;I&#x27;, &#x27;R&#x27;, &#x27;S&#x27;];
+    this.newAttribute.ioTypeFourth &#x3D; [&#x27;E&#x27;, &#x27;H&#x27;, &#x27;HH&#x27;, &#x27;L&#x27;, &#x27;LL&#x27;, &#x27;S&#x27;, &#x27;T&#x27;, &#x27;Y&#x27;];
+    this.newAttribute.selectedIoTypeFourth &#x3D; &#x27;&#x27;;
+  }
+
+  ngOnInit() {
+    this.ioAssignmentService.getIoAssignmentList(this.projectId).subscribe(ioAssignmentList &#x3D;&gt; {
+      this.ioassignments &#x3D; ioAssignmentList;
+      this.changeIOAssigmentTableAfterChangeTagAndController.push(this.newAttribute);
+      this.spinnerService.hide();
+    },
+    err &#x3D;&gt; {
+      console.log(err);
+      return false;
+    });
+  }
+
+  ioassignmentsTagChange(info){
+    console.log(info);
+  }
+
+  ioassignmentsControllerChange(selectedTag, selectedController){
+    if(selectedTag){
+      this.changeIOAssigmentTableAfterChangeTagAndController &#x3D; this.ioassignments.ioAssignments.filter(et &#x3D;&gt; et.selectedController  &#x3D;&#x3D; this.ioassignments.selectedController);
+      if(this.changeIOAssigmentTableAfterChangeTagAndController.length &#x3D;&#x3D;&#x3D; 0){
+        this.changeIOAssigmentTableAfterChangeTagAndController.push(this.newAttribute);
+        return;
+      } else {
+        this.changeIOAssigmentTableAfterChangeTagAndController;
+      }
+    } else {
+      return;
+    }
+  }
+
+  addFieldValue2(index) {
+    if(!this.changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription) {
+      this.changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription &#x3D; [];
+      this.changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription.push(this.newAttribute);
+    } else {
+      this.changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription.push(this.newAttribute);
+    }
+    this.newAttribute &#x3D; { };
+    this.newAttribute.ioTypeFirst &#x3D; [&#x27;DI&#x27;, &#x27;DO&#x27;, &#x27;AI&#x27;, &#x27;IAI&#x27;, &#x27;H-AI&#x27;, &#x27;AO&#x27;, &#x27;H-AO&#x27;, &#x27;RTD&#x27;, &#x27;TC&#x27;];
+    this.newAttribute.selectedIoTypeFirst &#x3D; &#x27;&#x27;;
+    this.newAttribute.ioTypeSecond &#x3D; [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;I&#x27;, &#x27;J&#x27;, &#x27;K&#x27;, &#x27;L&#x27;, &#x27;P&#x27;, &#x27;PD&#x27;, &#x27;Q&#x27;, &#x27;R&#x27;, &#x27;S&#x27;, &#x27;T&#x27;, &#x27;V&#x27;, &#x27;W&#x27;, &#x27;X&#x27;, &#x27;Z&#x27;];
+    this.newAttribute.selectedIoTypeSecond &#x3D; &#x27;&#x27;;
+    this.newAttribute.ioTypeThird &#x3D; [&#x27;I&#x27;, &#x27;R&#x27;, &#x27;S&#x27;];
+    this.newAttribute.selectedIoTypeThird &#x3D; &#x27;&#x27;;
+    this.newAttribute.ioTypeFourth &#x3D; [&#x27;E&#x27;, &#x27;H&#x27;, &#x27;HH&#x27;, &#x27;L&#x27;, &#x27;LL&#x27;, &#x27;S&#x27;, &#x27;T&#x27;, &#x27;Y&#x27;];
+    this.newAttribute.selectedIoTypeFourth &#x3D; &#x27;&#x27;;
+  }
+
+  deleteFieldValue2(index) {
+    this.changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription.splice(index, 1);
+  }
+
+
+  cleanStringify(object) {
+    if (object &amp;&amp; typeof object &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+        object &#x3D; copyWithoutCircularReferences([object], object);
+    }
+    return JSON.stringify(object);
+    function copyWithoutCircularReferences(references, object) {
+        var cleanObject &#x3D; {};
+        Object.keys(object).forEach(function(key) {
+            var value &#x3D; object[key];
+            if (value &amp;&amp; typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+                if (references.indexOf(value) &lt; 0) {
+                    references.push(value);
+                    cleanObject[key] &#x3D; copyWithoutCircularReferences(references, value);
+                    references.pop();
+                } else {
+                    cleanObject[key] &#x3D; &#x27;###_Circular_###&#x27;;
+                }
+            } else if (typeof value !&#x3D;&#x3D; &#x27;function&#x27;) {
+                cleanObject[key] &#x3D; value;
+            }
+        });
+        return cleanObject;
+    }
+}
+
+  saveIOAssignment(data){
+    this.formData &#x3D; {};
+    this.formData.selectedController &#x3D; data.selectedController;
+    this.formData.selectedTag &#x3D; data.selectedTag;
+    this.formData.fullDescription &#x3D; [];
+    let fullDescription &#x3D; this.changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription;
+    let temp &#x3D; this.cleanStringify(this.changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription);
+    this.formData.fullDescription &#x3D; temp;
+    this.ioAssignmentService.updateIOAssignment(this.projectId, this.formData).subscribe(res &#x3D;&gt; {
+      this.spinnerService.hide();
+      this.router.navigate([&#x27;project&#x27;, this.projectId]);
+    }, (err) &#x3D;&gt; {
+      console.log(err);
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;div *ngIf&#x3D;&quot;ioassignments&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;hr/&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;form (ngSubmit)&#x3D;&quot;saveIOAssignment(ioAssignmentForm.value)&quot; #ioAssignmentForm&#x3D;&quot;ngForm&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-6&quot;&gt;
+            &lt;label for&#x3D;&quot;itemNumber&quot;&gt;Tag&lt;/label&gt;
+            &lt;select
+              [disabled]&#x3D;&quot;ioassignments.instrumentations.length &#x3D;&#x3D; 0&quot;
+              id&#x3D;&quot;selectedTag&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;ioassignments.selectedTag&quot;
+              name&#x3D;&quot;selectedTag&quot;
+            &gt;
+              &lt;option
+                *ngFor&#x3D;&quot;let currentInstrumentations of ioassignments.instrumentations&quot; 
+                [ngValue]&#x3D;&quot;currentInstrumentations.instrumentationTag&quot;
+                [selected]&#x3D;&quot;currentInstrumentations.instrumentationTag&#x3D;&#x3D;selectedTag&quot;
+              &gt;
+                {{currentInstrumentations.instrumentationTag}}
+              &lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;col-6&quot;&gt;
+            &lt;label for&#x3D;&quot;itemNumber&quot;&gt;Controller&lt;/label&gt;
+            &lt;select
+              [disabled]&#x3D;&quot;ioassignments.controllers.length &#x3D;&#x3D; 0&quot;
+              id&#x3D;&quot;selectedController&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;ioassignments.selectedController&quot;
+              name&#x3D;&quot;selectedController&quot;
+              (change)&#x3D;&quot;ioassignmentsControllerChange(ioassignments.selectedTag, ioassignments.selectedController)&quot;
+            &gt;
+              &lt;option
+                *ngFor&#x3D;&quot;let currentController of ioassignments.controllers&quot; 
+                [ngValue]&#x3D;&quot;currentController.controlsEquipmentTagFirst&quot;
+                [selected]&#x3D;&quot;currentController.controlsEquipmentTagFirst&#x3D;&#x3D;selectedController&quot;
+              &gt;
+                {{currentController.controlsEquipmentTagFirst}}
+              &lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;col-12&quot;&gt;
+            &lt;table class&#x3D;&quot;table table-striped table-bordered&quot;&gt;
+              &lt;thead&gt;
+                &lt;tr&gt;
+                  &lt;th colspan&#x3D;&quot;4&quot;&gt;IoType&lt;/th&gt;
+                  &lt;th colspan&#x3D;&quot;2&quot;&gt;IoTag&lt;/th&gt;
+                  &lt;th&gt;I/O Description&lt;/th&gt;
+                  &lt;th&gt;Chassis&lt;/th&gt;
+                  &lt;th&gt;Slot&lt;/th&gt;
+                  &lt;th&gt;Data&lt;/th&gt;
+                &lt;/tr&gt;
+              &lt;/thead&gt;
+              &lt;tbody *ngIf&#x3D;&quot;changeIOAssigmentTableAfterChangeTagAndController&quot;&gt;
+                &lt;tr *ngFor&#x3D;&quot;let field of changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription; let i &#x3D; index&quot;&gt;
+                  &lt;td&gt;
+                    &lt;select
+                      class&#x3D;&quot;form-control&quot;
+                      [(ngModel)]&#x3D;&quot;field.selectedIoTypeFirst&quot;
+                      name&#x3D;&quot;{{field.selectedIoTypeFirst}}&quot;
+                    &gt;
+                      &lt;option
+                        *ngFor&#x3D;&quot;let currentIoTypeFirst of field.ioTypeFirst&quot; 
+                        [ngValue]&#x3D;&quot;currentIoTypeFirst&quot;
+                        [selected]&#x3D;&quot;currentIoTypeFirst&#x3D;&#x3D;field.selectedIoTypeFirst&quot;
+                      &gt;
+                        {{currentIoTypeFirst}}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;select
+                      class&#x3D;&quot;form-control&quot;
+                      [(ngModel)]&#x3D;&quot;field.selectedIoTypeSecond&quot;
+                      name&#x3D;&quot;{{field.selectedIoTypeSecond}}&quot;
+                    &gt;
+                      &lt;option
+                        *ngFor&#x3D;&quot;let currentIoTypeSecond of field.ioTypeSecond&quot; 
+                        [ngValue]&#x3D;&quot;currentIoTypeSecond&quot;
+                        [selected]&#x3D;&quot;currentIoTypeSecond&#x3D;&#x3D;field.selectedIoTypeSecon&quot;
+                      &gt;
+                        {{currentIoTypeSecond}}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;select
+                      class&#x3D;&quot;form-control&quot;
+                      [(ngModel)]&#x3D;&quot;field.selectedIoTypeThird&quot;
+                      name&#x3D;&quot;{{field.selectedIoTypeThird}}&quot;
+                    &gt;
+                      &lt;option
+                        *ngFor&#x3D;&quot;let currentIoTypeThird of field.ioTypeThird&quot; 
+                        [ngValue]&#x3D;&quot;currentIoTypeThird&quot;
+                        [selected]&#x3D;&quot;currentIoTypeThird&#x3D;&#x3D;field.selectedIoTypeThird&quot;
+                      &gt;
+                        {{currentIoTypeThird}}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;select
+                      class&#x3D;&quot;form-control&quot;
+                      [(ngModel)]&#x3D;&quot;field.selectedIoTypeFourth&quot;
+                      name&#x3D;&quot;{{field.selectedIoTypeFourth}}&quot;
+                    &gt;
+                      &lt;option
+                        *ngFor&#x3D;&quot;let currentIoTypeFourth of field.ioTypeFourth&quot; 
+                        [ngValue]&#x3D;&quot;currentIoTypeFourth&quot;
+                        [selected]&#x3D;&quot;currentIoTypeThird&#x3D;&#x3D;field.selectedIoTypeFourth&quot;
+                      &gt;
+                        {{currentIoTypeFourth}}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input [(ngModel)]&#x3D;&quot;field.ioTagFirst&quot; class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;{{field.ioTagFirst}}&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input [(ngModel)]&#x3D;&quot;field.ioTagSecond&quot; class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;{{field.ioTagSecond}}&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input [(ngModel)]&#x3D;&quot;field.ioDescription&quot; class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;{{field.ioDescription}}&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input [(ngModel)]&#x3D;&quot;field.chassis&quot; class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;{{field.chassis}}&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input [(ngModel)]&#x3D;&quot;field.slot&quot; class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;{{field.slot}}&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input [(ngModel)]&#x3D;&quot;field.data&quot; class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;{{field.data}}&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;button class&#x3D;&quot;btn btn-default&quot;  type&#x3D;&quot;button&quot; (click)&#x3D;&quot;deleteFieldValue2(i)&quot;&gt;Delete&lt;/button&gt;
+                  &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;
+                    &lt;select
+                      class&#x3D;&quot;form-control&quot;
+                      [(ngModel)]&#x3D;&quot;newAttribute.selectedIoTypeFirst&quot;
+                      name&#x3D;&quot;selectedIoTypeFirst&quot;
+                    &gt;
+                      &lt;option
+                        *ngFor&#x3D;&quot;let currentIoTypeFirst of newAttribute.ioTypeFirst&quot; 
+                        [ngValue]&#x3D;&quot;currentIoTypeFirst&quot;
+                        [selected]&#x3D;&quot;currentIoTypeFirst&#x3D;&#x3D;selectedIoTypeFirst&quot;
+                      &gt;
+                        {{currentIoTypeFirst}}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;select
+                      class&#x3D;&quot;form-control&quot;
+                      [(ngModel)]&#x3D;&quot;newAttribute.selectedIoTypeSecond&quot;
+                      name&#x3D;&quot;selectedIoTypeSecond&quot;
+                    &gt;
+                      &lt;option
+                        *ngFor&#x3D;&quot;let currentIoTypeSecond of newAttribute.ioTypeSecond&quot; 
+                        [ngValue]&#x3D;&quot;currentIoTypeSecond&quot;
+                        [selected]&#x3D;&quot;currentIoTypeFirst&#x3D;&#x3D;selectedIoTypeSecond&quot;
+                      &gt;
+                        {{currentIoTypeSecond}}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;select
+                      class&#x3D;&quot;form-control&quot;
+                      [(ngModel)]&#x3D;&quot;newAttribute.selectedIoTypeThird&quot;
+                      name&#x3D;&quot;selectedIoTypeThird&quot;
+                    &gt;
+                      &lt;option
+                        *ngFor&#x3D;&quot;let currentIoTypeThird of newAttribute.ioTypeThird&quot; 
+                        [ngValue]&#x3D;&quot;currentIoTypeThird&quot;
+                        [selected]&#x3D;&quot;currentIoTypeThird&#x3D;&#x3D;selectedIoTypeThird&quot;
+                      &gt;
+                        {{currentIoTypeThird}}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;select
+                      class&#x3D;&quot;form-control&quot;
+                      [(ngModel)]&#x3D;&quot;newAttribute.selectedIoTypeFourth&quot;
+                      name&#x3D;&quot;selectedIoTypeFourth&quot;
+                    &gt;
+                      &lt;option
+                        *ngFor&#x3D;&quot;let currentIoTypeFourth of newAttribute.ioTypeFourth&quot; 
+                        [ngValue]&#x3D;&quot;currentIoTypeFourth&quot;
+                        [selected]&#x3D;&quot;currentIoTypeThird&#x3D;&#x3D;selectedIoTypeFourth&quot;
+                      &gt;
+                        {{currentIoTypeFourth}}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;ioTagFirst&quot; [(ngModel)]&#x3D;&quot;newAttribute.ioTagFirst&quot; name&#x3D;&quot;ioTagFirst&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;ioTagSecond&quot; [(ngModel)]&#x3D;&quot;newAttribute.ioTagSecond&quot; name&#x3D;&quot;ioTagSecond&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;ioDescription&quot; [(ngModel)]&#x3D;&quot;newAttribute.ioDescription&quot; name&#x3D;&quot;ioDescription&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;chassis&quot; [(ngModel)]&#x3D;&quot;newAttribute.chassis&quot; name&#x3D;&quot;chassis&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;slot&quot; [(ngModel)]&#x3D;&quot;newAttribute.slot&quot; name&#x3D;&quot;slot&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;data&quot; [(ngModel)]&#x3D;&quot;newAttribute.data&quot; name&#x3D;&quot;data&quot; /&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;button class&#x3D;&quot;btn btn-default&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;addFieldValue2(i)&quot;&gt;Add&lt;/button&gt;
+                  &lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tbody&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;d-flex justify-content-end&quot;&gt;
+          &lt;div class&#x3D;&quot;p-2 form-group&quot;&gt;
+            &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-success&quot;&gt;Update/Create&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="ioassignments">  <div class="row">    <div class="col-12">      <hr/>    </div>  </div>  <div class="row">    <div class="col-12">      <form (ngSubmit)="saveIOAssignment(ioAssignmentForm.value)" #ioAssignmentForm="ngForm">        <div class="row">          <div class="col-6">            <label for="itemNumber">Tag</label>            <select              [disabled]="ioassignments.instrumentations.length == 0"              id="selectedTag"              class="form-control"              [(ngModel)]="ioassignments.selectedTag"              name="selectedTag"            >              <option                *ngFor="let currentInstrumentations of ioassignments.instrumentations"                 [ngValue]="currentInstrumentations.instrumentationTag"                [selected]="currentInstrumentations.instrumentationTag==selectedTag"              >                {{currentInstrumentations.instrumentationTag}}              </option>            </select>          </div>          <div class="col-6">            <label for="itemNumber">Controller</label>            <select              [disabled]="ioassignments.controllers.length == 0"              id="selectedController"              class="form-control"              [(ngModel)]="ioassignments.selectedController"              name="selectedController"              (change)="ioassignmentsControllerChange(ioassignments.selectedTag, ioassignments.selectedController)"            >              <option                *ngFor="let currentController of ioassignments.controllers"                 [ngValue]="currentController.controlsEquipmentTagFirst"                [selected]="currentController.controlsEquipmentTagFirst==selectedController"              >                {{currentController.controlsEquipmentTagFirst}}              </option>            </select>          </div>        </div>        <div class="row">          <div class="col-12">            <table class="table table-striped table-bordered">              <thead>                <tr>                  <th colspan="4">IoType</th>                  <th colspan="2">IoTag</th>                  <th>I/O Description</th>                  <th>Chassis</th>                  <th>Slot</th>                  <th>Data</th>                </tr>              </thead>              <tbody *ngIf="changeIOAssigmentTableAfterChangeTagAndController">                <tr *ngFor="let field of changeIOAssigmentTableAfterChangeTagAndController[0].fullDescription; let i = index">                  <td>                    <select                      class="form-control"                      [(ngModel)]="field.selectedIoTypeFirst"                      name="{{field.selectedIoTypeFirst}}"                    >                      <option                        *ngFor="let currentIoTypeFirst of field.ioTypeFirst"                         [ngValue]="currentIoTypeFirst"                        [selected]="currentIoTypeFirst==field.selectedIoTypeFirst"                      >                        {{currentIoTypeFirst}}                      </option>                    </select>                  </td>                  <td>                    <select                      class="form-control"                      [(ngModel)]="field.selectedIoTypeSecond"                      name="{{field.selectedIoTypeSecond}}"                    >                      <option                        *ngFor="let currentIoTypeSecond of field.ioTypeSecond"                         [ngValue]="currentIoTypeSecond"                        [selected]="currentIoTypeSecond==field.selectedIoTypeSecon"                      >                        {{currentIoTypeSecond}}                      </option>                    </select>                  </td>                  <td>                    <select                      class="form-control"                      [(ngModel)]="field.selectedIoTypeThird"                      name="{{field.selectedIoTypeThird}}"                    >                      <option                        *ngFor="let currentIoTypeThird of field.ioTypeThird"                         [ngValue]="currentIoTypeThird"                        [selected]="currentIoTypeThird==field.selectedIoTypeThird"                      >                        {{currentIoTypeThird}}                      </option>                    </select>                  </td>                  <td>                    <select                      class="form-control"                      [(ngModel)]="field.selectedIoTypeFourth"                      name="{{field.selectedIoTypeFourth}}"                    >                      <option                        *ngFor="let currentIoTypeFourth of field.ioTypeFourth"                         [ngValue]="currentIoTypeFourth"                        [selected]="currentIoTypeThird==field.selectedIoTypeFourth"                      >                        {{currentIoTypeFourth}}                      </option>                    </select>                  </td>                  <td>                    <input [(ngModel)]="field.ioTagFirst" class="form-control" type="text" name="{{field.ioTagFirst}}" />                  </td>                  <td>                    <input [(ngModel)]="field.ioTagSecond" class="form-control" type="text" name="{{field.ioTagSecond}}" />                  </td>                  <td>                    <input [(ngModel)]="field.ioDescription" class="form-control" type="text" name="{{field.ioDescription}}" />                  </td>                  <td>                    <input [(ngModel)]="field.chassis" class="form-control" type="text" name="{{field.chassis}}" />                  </td>                  <td>                    <input [(ngModel)]="field.slot" class="form-control" type="text" name="{{field.slot}}" />                  </td>                  <td>                    <input [(ngModel)]="field.data" class="form-control" type="text" name="{{field.data}}" />                  </td>                  <td>                    <button class="btn btn-default"  type="button" (click)="deleteFieldValue2(i)">Delete</button>                  </td>                </tr>                <tr>                  <td>                    <select                      class="form-control"                      [(ngModel)]="newAttribute.selectedIoTypeFirst"                      name="selectedIoTypeFirst"                    >                      <option                        *ngFor="let currentIoTypeFirst of newAttribute.ioTypeFirst"                         [ngValue]="currentIoTypeFirst"                        [selected]="currentIoTypeFirst==selectedIoTypeFirst"                      >                        {{currentIoTypeFirst}}                      </option>                    </select>                  </td>                  <td>                    <select                      class="form-control"                      [(ngModel)]="newAttribute.selectedIoTypeSecond"                      name="selectedIoTypeSecond"                    >                      <option                        *ngFor="let currentIoTypeSecond of newAttribute.ioTypeSecond"                         [ngValue]="currentIoTypeSecond"                        [selected]="currentIoTypeFirst==selectedIoTypeSecond"                      >                        {{currentIoTypeSecond}}                      </option>                    </select>                  </td>                  <td>                    <select                      class="form-control"                      [(ngModel)]="newAttribute.selectedIoTypeThird"                      name="selectedIoTypeThird"                    >                      <option                        *ngFor="let currentIoTypeThird of newAttribute.ioTypeThird"                         [ngValue]="currentIoTypeThird"                        [selected]="currentIoTypeThird==selectedIoTypeThird"                      >                        {{currentIoTypeThird}}                      </option>                    </select>                  </td>                  <td>                    <select                      class="form-control"                      [(ngModel)]="newAttribute.selectedIoTypeFourth"                      name="selectedIoTypeFourth"                    >                      <option                        *ngFor="let currentIoTypeFourth of newAttribute.ioTypeFourth"                         [ngValue]="currentIoTypeFourth"                        [selected]="currentIoTypeThird==selectedIoTypeFourth"                      >                        {{currentIoTypeFourth}}                      </option>                    </select>                  </td>                  <td>                    <input class="form-control" type="text" id="ioTagFirst" [(ngModel)]="newAttribute.ioTagFirst" name="ioTagFirst" />                  </td>                  <td>                    <input class="form-control" type="text" id="ioTagSecond" [(ngModel)]="newAttribute.ioTagSecond" name="ioTagSecond" />                  </td>                  <td>                    <input class="form-control" type="text" id="ioDescription" [(ngModel)]="newAttribute.ioDescription" name="ioDescription" />                  </td>                  <td>                    <input class="form-control" type="text" id="chassis" [(ngModel)]="newAttribute.chassis" name="chassis" />                  </td>                  <td>                    <input class="form-control" type="text" id="slot" [(ngModel)]="newAttribute.slot" name="slot" />                  </td>                  <td>                    <input class="form-control" type="text" id="data" [(ngModel)]="newAttribute.data" name="data" />                  </td>                  <td>                    <button class="btn btn-default" type="button" (click)="addFieldValue2(i)">Add</button>                  </td>                </tr>              </tbody>            </table>          </div>        </div>        <div class="d-flex justify-content-end">          <div class="p-2 form-group">            <button type="submit" class="btn btn-success">Update/Create</button>          </div>        </div>      </form>      </div>    </div>  </div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'IoAssignmentComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'IoAssignmentComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1334 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-src documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-src documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SldScheduleListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/sld-schedule-list/sld-schedule-list.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sld-schedule-list</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>sld-schedule-list.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sld-schedule-list.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isChecked">isChecked</a>
+                            </li>
+                            <li>
+                                <a href="#project">project</a>
+                            </li>
+                            <li>
+                                <a href="#projectId">projectId</a>
+                            </li>
+                            <li>
+                                <a href="#projectName">projectName</a>
+                            </li>
+                            <li>
+                                <a href="#sldSchedule">sldSchedule</a>
+                            </li>
+                            <li>
+                                <a href="#sldSchedules">sldSchedules</a>
+                            </li>
+                            <li>
+                                <a href="#sldSheduleArrayList">sldSheduleArrayList</a>
+                            </li>
+                            <li>
+                                <a href="#teamWork">teamWork</a>
+                            </li>
+                            <li>
+                                <a href="#userEmail">userEmail</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeFlag">changeFlag</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#puchToSldSheduleArray">puchToSldSheduleArray</a>
+                            </li>
+                            <li>
+                                <a href="#saveSldShedule">saveSldShedule</a>
+                            </li>
+                            <li>
+                                <a href="#saveToExcell">saveToExcell</a>
+                            </li>
+                            <li>
+                                <a href="#saveToExcellUIData">saveToExcellUIData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(sldscheduleService: <a href="../injectables/SldscheduleService.html">SldscheduleService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, projectServise: <a href="../injectables/ProjectService.html">ProjectService</a>, spinnerService: Ng4LoadingSpinnerService, excelService: <a href="../injectables/ExcelService.html">ExcelService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>sldscheduleService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/SldscheduleService.html" target="_self" >SldscheduleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>projectServise</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ProjectService.html" target="_self" >ProjectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>spinnerService</td>
+                                                  
+                                                        <td>
+                                                                    <code>Ng4LoadingSpinnerService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>excelService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ExcelService.html" target="_self" >ExcelService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="changeFlag"></a>
+                        <span class="name">
+                            <b>
+                            changeFlag
+                            </b>
+                            <a href="#changeFlag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>changeFlag(isCheck: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:91</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>isCheck</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="puchToSldSheduleArray"></a>
+                        <span class="name">
+                            <b>
+                            puchToSldSheduleArray
+                            </b>
+                            <a href="#puchToSldSheduleArray"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>puchToSldSheduleArray(element: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:82</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saveSldShedule"></a>
+                        <span class="name">
+                            <b>
+                            saveSldShedule
+                            </b>
+                            <a href="#saveSldShedule"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>saveSldShedule()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:160</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saveToExcell"></a>
+                        <span class="name">
+                            <b>
+                            saveToExcell
+                            </b>
+                            <a href="#saveToExcell"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>saveToExcell()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:107</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saveToExcellUIData"></a>
+                        <span class="name">
+                            <b>
+                            saveToExcellUIData
+                            </b>
+                            <a href="#saveToExcellUIData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>saveToExcellUIData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:132</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isChecked"></a>
+                        <span class="name">
+                            <b>
+                            isChecked
+                            </b>
+                            <a href="#isChecked"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>isChecked:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="project"></a>
+                        <span class="name">
+                            <b>
+                            project
+                            </b>
+                            <a href="#project"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>project:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectId"></a>
+                        <span class="name">
+                            <b>
+                            projectId
+                            </b>
+                            <a href="#projectId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>projectId:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectName"></a>
+                        <span class="name">
+                            <b>
+                            projectName
+                            </b>
+                            <a href="#projectName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>projectName:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sldSchedule"></a>
+                        <span class="name">
+                            <b>
+                            sldSchedule
+                            </b>
+                            <a href="#sldSchedule"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>sldSchedule:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sldSchedules"></a>
+                        <span class="name">
+                            <b>
+                            sldSchedules
+                            </b>
+                            <a href="#sldSchedules"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>sldSchedules:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sldSheduleArrayList"></a>
+                        <span class="name">
+                            <b>
+                            sldSheduleArrayList
+                            </b>
+                            <a href="#sldSheduleArrayList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>sldSheduleArrayList:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="teamWork"></a>
+                        <span class="name">
+                            <b>
+                            teamWork
+                            </b>
+                            <a href="#teamWork"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>teamWork:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userEmail"></a>
+                        <span class="name">
+                            <b>
+                            userEmail
+                            </b>
+                            <a href="#userEmail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>userEmail:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/sld-schedule-list/sld-schedule-list.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { ProjectService } from &#x27;../../services/project.service&#x27;;
+import { SldscheduleService } from &#x27;../../services/sldschedule.service&#x27;;
+import { Ng4LoadingSpinnerService } from &#x27;ng4-loading-spinner&#x27;;
+
+// import { SldSchedule } from &#x27;./sld-schedule&#x27;;
+import { ExcelService } from &#x27;../../services/excel.service&#x27;;
+
+// import * as XLSX from &#x27;xlsx&#x27;;
+// import {saveAs as importedSaveAs} from &quot;file-saver&quot;;
+
+
+@Component({
+  selector: &#x27;app-sld-schedule-list&#x27;,
+  templateUrl: &#x27;./sld-schedule-list.component.html&#x27;,
+  styleUrls: [&#x27;./sld-schedule-list.component.css&#x27;]
+})
+export class SldScheduleListComponent implements OnInit {
+  projectId: String;
+  sldSchedules: any;
+  sldSchedule: any;
+  projectName: any;
+  sldSheduleArrayList: any;
+  isChecked: Boolean &#x3D; false;
+  userEmail: string;
+  project: any;
+  teamWork &#x3D; false;
+
+  constructor(
+    private sldscheduleService: SldscheduleService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private projectServise: ProjectService,
+    private spinnerService: Ng4LoadingSpinnerService,
+    private excelService: ExcelService,
+  ) {
+    this.projectId &#x3D; this.route.snapshot.params[&#x27;id&#x27;];
+    this.sldSheduleArrayList &#x3D; [];
+  }
+
+  ngOnInit() {
+    if (window.localStorage) {
+      const user &#x3D; localStorage.getItem(&#x27;user&#x27;);
+      const u &#x3D; JSON.parse(user);
+      this.userEmail &#x3D; u.email;
+    }
+    //
+    this.spinnerService.show();
+    this.sldscheduleService.getSldScheduleList(this.projectId).subscribe(sldSchedulesList &#x3D;&gt; {
+      this.sldSchedules &#x3D; sldSchedulesList.sldschedules;
+      this.projectServise.getProjectById(this.projectId).subscribe(itemProject &#x3D;&gt; {
+        this.project &#x3D; itemProject;
+        for (let i &#x3D; 0; i &lt; this.project.team_project.length; ++i) {
+          const teamWorker &#x3D; this.project.team_project[i];
+          if (this.project.creator &#x3D;&#x3D;&#x3D; this.userEmail || teamWorker &#x3D;&#x3D;&#x3D; this.userEmail) {
+            this.teamWork &#x3D; true;
+            break;
+          } else {
+            this.teamWork &#x3D; false;
+          }
+        }
+      });
+      // console.log(this.sldSchedules);
+    },
+      err &#x3D;&gt; {
+        this.spinnerService.hide();
+        console.log(err);
+        return false;
+      });
+    this.projectServise.getProjectNameById(this.projectId).subscribe(project &#x3D;&gt; {
+      this.projectName &#x3D; project;
+      // console.log(this.projectName);
+    }, err &#x3D;&gt; {
+      this.spinnerService.hide();
+      console.log(err);
+      return false;
+    });
+    this.spinnerService.hide();
+  }
+
+  puchToSldSheduleArray(element) {
+    if (!element.isChecked) {
+      this.sldSheduleArrayList.push(element._id);
+      // console.log(this.instrumentationArrayList);
+    } else {
+      this.sldSheduleArrayList.pop();
+    }
+  }
+
+  changeFlag(isCheck) {
+    if (isCheck) {
+      this.isChecked &#x3D; false;
+      for (let i &#x3D; 0; i &lt; this.sldSchedules.length; ++i) {
+        this.sldSchedules[i].isChecked &#x3D; false;
+        this.sldSheduleArrayList &#x3D; [];
+      }
+    } else {
+      this.isChecked &#x3D; true;
+      for (let i &#x3D; 0; i &lt; this.sldSchedules.length; ++i) {
+        this.sldSchedules[i].isChecked &#x3D; true;
+        this.sldSheduleArrayList.push(this.sldSchedules[i]._id);
+      }
+    }
+  }
+
+  saveToExcell() {
+    const wscols &#x3D; [
+      // tslint:disable-next-line:max-line-length
+      // A     // B         // C       // D       // E       // F       // G       // H       // I       // J       // K       // L     // M       // N       // O       // P
+      // tslint:disable-next-line:max-line-length
+      { wch: 5 }, { wch: 29 }, { wch: 23 }, { wch: 11 }, { wch: 13 }, { wch: 11 }, { wch: 12 }, { wch: 17 }, { wch: 15 }, { wch: 17 }, { wch: 15 }, { wch: 8 }, { wch: 13 }, { wch: 12 }, { wch: 7 }, { wch: 12 },
+      // Q       // R       // S       // T       // U       // V       // W        // X     // Y     // Z      // AA     // AB     // AC      // AD     //AE     // AF     // AG
+      // tslint:disable-next-line:max-line-length
+      { wch: 12 }, { wch: 7 }, { wch: 10 }, { wch: 12 }, { wch: 12 }, { wch: 15 }, { wch: 15 }, { wch: 5 }, { wch: 7 }, { wch: 5 }, { wch: 7 }, { wch: 7 }, { wch: 9 }, { wch: 9 }, { wch: 9 }, { wch: 9 }, { wch: 9 },
+      // AH      // AI      // AJ      // AK     // AL      // AM      // AN      // AO      // AP
+      { wch: 9 }, { wch: 29 }, { wch: 29 }, { wch: 29 }, { wch: 29 }, { wch: 27 }, { wch: 27 }, { wch: 27 }, { wch: 27 }
+    ];
+    const projectArray &#x3D; [];
+    for (let i &#x3D; 0; i &lt; this.sldSchedules.length; ++i) {
+      // console.log(this.instrumentation[i]._id);
+      projectArray.push(this.sldSchedules[i]._id);
+    }
+    const queryString &#x3D; &#x27;sldshedule-item-list&#x27;;
+    const scheetName &#x3D; &#x27;SLD Schedules List&#x27;;
+    const controllerName &#x3D; &#x27;Sldshadule&#x27;;
+    const fileName &#x3D; &#x27;SLD Schedule INDEX&#x27;;
+    // tslint:disable-next-line:max-line-length
+    this.excelService.exportToExcell(this.projectId, this.projectName.title, projectArray, queryString, scheetName, fileName, controllerName, wscols);
+  }
+
+  saveToExcellUIData() {
+    const wscols &#x3D; [
+      // tslint:disable-next-line:max-line-length
+      // A       // B        // C       // D     // E       // F       // G       // H       // I       // J       // K       // L     // M       // N       // O       // P
+      { wch: 25 }, { wch: 25 }, { wch: 22 }, { wch: 29 }, { wch: 16 }, { wch: 10 }, { wch: 19 }, { wch: 15 }, { wch: 19 }, { wch: 13 }, { wch: 17 }, { wch: 8 }, { wch: 8 }, { wch: 12 }, { wch: 15 }, { wch: 12 },
+      // tslint:disable-next-line:max-line-length
+      // Q       // R       // S       // T       // U       // V       // W       // X       // Y       // Z       // AA     // AB      // AC        // AD    // AE      // AF      // AG
+      // tslint:disable-next-line:max-line-length
+      { wch: 12 }, { wch: 15 }, { wch: 15 }, { wch: 12 }, { wch: 13 }, { wch: 12 }, { wch: 15 }, { wch: 8 }, { wch: 12 }, { wch: 16 }, { wch: 12 }, { wch: 12 }, { wch: 12 }, { wch: 10 }, { wch: 16 }, { wch: 17 }, { wch: 17 },
+      // AH      // AI      // AJ      // AK      // AL      // AM      // AN      // AO      // AP    // AQ      // AR      // AS      // AT      // AU      // AV      // AW
+      // tslint:disable-next-line:max-line-length
+      { wch: 17 }, { wch: 7 }, { wch: 10 }, { wch: 13 }, { wch: 15 }, { wch: 17 }, { wch: 13 }, { wch: 17 }, { wch: 16 }, { wch: 16 }, { wch: 14 }, { wch: 14 }, { wch: 18 }, { wch: 6 }, { wch: 22 }, { wch: 20 },
+      // AX      // AY      // AZ      // BA      // BB      // BC
+      { wch: 20 }, { wch: 20 }, { wch: 20 }, { wch: 20 }, { wch: 20 }, { wch: 20 }
+    ];
+    const projectArray &#x3D; [];
+    for (let i &#x3D; 0; i &lt; this.sldSchedules.length; ++i) {
+      // console.log(this.instrumentation[i]._id);
+      projectArray.push(this.sldSchedules[i]._id);
+    }
+    const queryString &#x3D; &#x27;sldshedule-item&#x27;;
+    const scheetName &#x3D; &#x27;SLD Shedules UI List&#x27;;
+    const controllerName &#x3D; &#x27;Sldshadule&#x27;;
+    const fileName &#x3D; &#x27;SLD Shedule REPORT&#x27;;
+    // tslint:disable-next-line:max-line-length
+    this.excelService.exportToExcell(this.projectId, this.projectName.title, projectArray, queryString, scheetName, fileName, controllerName, wscols);
+  }
+
+  saveSldShedule() {
+    this.sldSchedule &#x3D; {};
+    this.sldSchedule.length &#x3D; 0;
+    this.spinnerService.show();
+    this.sldscheduleService.createSldSchedule(this.projectId, this.sldSchedule).subscribe(
+      (res: Array&lt;string&gt;) &#x3D;&gt; {
+        // let id &#x3D; res[&#x27;_id&#x27;];
+        const responseId &#x3D; res[res.length - 1][&#x27;_id&#x27;];
+        const routeToCableItem &#x3D; &#x27;/project/&#x27; + this.route.snapshot.params[&#x27;id&#x27;] + &#x27;/sldshedules/&#x27; + responseId;
+        this.router.navigate([routeToCableItem]);
+      }, (err) &#x3D;&gt; {
+        console.log(err);
+      }
+    );
+    this.spinnerService.hide();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div&gt;
+  &lt;!--class&#x3D;&quot;container&quot;--&gt;
+  &lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;margin-left: 0px!important; margin-right: 0px!important&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;nav aria-label&#x3D;&quot;breadcrumb&quot;&gt;
+        &lt;ol class&#x3D;&quot;breadcrumb&quot; style&#x3D;&quot;background-color: white!important&quot;&gt;
+          &lt;li class&#x3D;&quot;breadcrumb-item&quot;&gt;&lt;a class&#x3D;&quot;cursor-style disable-decoration text-style&quot; style&#x3D;&quot;color: black!important &quot; [routerLink]&#x3D;&quot;[&#x27;/project&#x27;]&quot;&gt;&lt;strong&gt;Projects List&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li class&#x3D;&quot;breadcrumb-item&quot;&gt;&lt;a class&#x3D;&quot;cursor-style disable-decoration text-style&quot; style&#x3D;&quot;color: black!important &quot; [routerLink]&#x3D;&quot;[&#x27;/project&#x27;, projectId]&quot;&gt;&lt;strong&gt;Dashboard for Project {{projectName?.title}}&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li class&#x3D;&quot;breadcrumb-item active&quot; aria-current&#x3D;&quot;page&quot;&gt;Sldschedules List&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;pt-2 text-center&quot;&gt;
+    &lt;h1&gt;
+      SLD Schedule List
+      &lt;button class&#x3D;&quot;btn btn-primary&quot; data-toggle&#x3D;&quot;tooltip&quot; data-placement&#x3D;&quot;top&quot; title&#x3D;&quot;Add new SLD Schedule&quot; (click)&#x3D;&quot;saveSldShedule()&quot; [hidden]&#x3D;&quot;!teamWork&quot;&gt;
+        &lt;i class&#x3D;&quot;fa fa-plus&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row achievements-wrapper ml-3 mr-3&quot;&gt;
+    &lt;table id&#x3D;&quot;exportable&quot; class&#x3D;&quot;table table-sm table-bordered table-hover table-text-style&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;!--&lt;th&gt;&lt;/th&gt; --&gt;
+          &lt;th&gt;Rev.&lt;/th&gt;                       &lt;!-- 1 --&gt;
+          &lt;th&gt;Major Equipment Device Tag&lt;/th&gt; &lt;!-- 2 --&gt;
+          &lt;th&gt;Equipment Description&lt;/th&gt;      &lt;!-- 3 --&gt;
+          &lt;th&gt;Device Type&lt;/th&gt;                &lt;!-- 4 --&gt;
+          &lt;th&gt;Frame Rating&lt;/th&gt;               &lt;!-- 5 --&gt;
+          &lt;th&gt;Trip Rating&lt;/th&gt;                &lt;!-- 6 --&gt;
+          &lt;th&gt;Fuse Rating&lt;/th&gt;                &lt;!-- 7 --&gt;
+          &lt;th&gt;Contactor Type&lt;/th&gt;             &lt;!-- 8 --&gt;
+          &lt;th&gt;Contactor Size&lt;/th&gt;             &lt;!-- 9 --&gt;
+          &lt;th&gt;Overload Type&lt;/th&gt;              &lt;!-- 10 --&gt;
+          &lt;th&gt;Overload Size&lt;/th&gt;              &lt;!-- 11 --&gt;
+          &lt;th&gt;Cpt Qty&lt;/th&gt;                    &lt;!-- 12 --&gt;
+          &lt;th&gt;Cpt Voltage&lt;/th&gt;                &lt;!-- 13 --&gt;
+          &lt;th&gt;Cpt Rating&lt;/th&gt;                 &lt;!-- 14 --&gt;
+          &lt;th&gt;Vt Qty&lt;/th&gt;                     &lt;!-- 15 --&gt;
+          &lt;th&gt;Vt Voltage&lt;/th&gt;                 &lt;!-- 16 --&gt;
+          &lt;th&gt;Vt Accuracy&lt;/th&gt;                &lt;!-- 17 --&gt;
+          &lt;th&gt;Ct Qty&lt;/th&gt;                     &lt;!-- 18 --&gt;
+          &lt;th&gt;Ct Ratio&lt;/th&gt;                   &lt;!-- 19 --&gt;
+          &lt;th&gt;GF CT Ratio&lt;/th&gt;                &lt;!-- 20 --&gt;
+          &lt;th&gt;Shunt Coil&lt;/th&gt;                 &lt;!-- 21 --&gt;
+          &lt;th&gt;Kirk key Intrlck&lt;/th&gt;           &lt;!-- 22 --&gt;
+          &lt;th&gt;Ground Stud&lt;/th&gt;                &lt;!-- 23 --&gt;
+          &lt;th&gt;Pqm&lt;/th&gt;                        &lt;!-- 24 --&gt;
+          &lt;th&gt;Fdr Pr&lt;/th&gt;                     &lt;!-- 25 --&gt;
+          &lt;th&gt;Tx Pr&lt;/th&gt;                      &lt;!-- 26 --&gt;
+          &lt;th&gt;Mtr Pr&lt;/th&gt;                     &lt;!-- 27 --&gt;
+          &lt;th&gt;Ngr Pr&lt;/th&gt;                     &lt;!-- 28 --&gt;
+          &lt;th&gt;Ind. Lts.&lt;/th&gt;                  &lt;!-- 29 --&gt;
+          &lt;th&gt;Spc. Htr.&lt;/th&gt;                  &lt;!-- 30 --&gt;
+          &lt;th&gt;Htr. Circ.&lt;/th&gt;                 &lt;!-- 31 --&gt;
+          &lt;th&gt;N.O. Aux.&lt;/th&gt;                  &lt;!-- 32 --&gt;
+          &lt;th&gt;N.C. Aux.&lt;/th&gt;                  &lt;!-- 33 --&gt;
+          &lt;th&gt;Ipos. Rly.&lt;/th&gt;                 &lt;!-- 34 --&gt;
+          &lt;th&gt;Local Switch / Pushbutton 1&lt;/th&gt;&lt;!-- 35 --&gt;
+          &lt;th&gt;Local Switch / Pushbutton 2&lt;/th&gt;&lt;!-- 36 --&gt;
+          &lt;th&gt;Local Switch / Pushbutton 3&lt;/th&gt;&lt;!-- 37 --&gt;
+          &lt;th&gt;Local Switch / Pushbutton 4&lt;/th&gt;&lt;!-- 38 --&gt;
+          &lt;th&gt;Field Switch / Pushbutton 1&lt;/th&gt;&lt;!-- 39 --&gt;
+          &lt;th&gt;Field Switch / Pushbutton 2&lt;/th&gt;&lt;!-- 40 --&gt;
+          &lt;th&gt;Field Switch / Pushbutton 3&lt;/th&gt;&lt;!-- 41 --&gt;
+          &lt;th&gt;Field Switch / Pushbutton 4&lt;/th&gt;&lt;!-- 42 --&gt;
+          &lt;th&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr *ngFor&#x3D;&quot;let sldShedule of sldSchedules&quot;&gt;
+          &lt;!-- &lt;td&gt;&lt;/td&gt; --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                                        &lt;!-- 1 false Rev --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.majorEquipmentDeviceTag}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 2 true Major Equipment Device Tag --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;&lt;/a&gt;&lt;/td&gt;                                        &lt;!-- 3 false Equipment Description --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedOCDevice}}&lt;/a&gt;&lt;/td&gt;         &lt;!-- 4 true Device Type /selectedOCDevice --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedFrameRating}}&lt;/a&gt;&lt;/td&gt;     &lt;!-- 5 true Frame Rating --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.tripRating}}&lt;/a&gt;&lt;/td&gt;              &lt;!-- 6 true Trip Rating --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedFuseRating}}&lt;/a&gt;&lt;/td&gt;      &lt;!-- 7 true Fuse Rating --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedContactorType}}&lt;/a&gt;&lt;/td&gt;   &lt;!-- 8 true Contactor Type --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedContactorSize}}&lt;/a&gt;&lt;/td&gt;   &lt;!-- 9 true Contactor Size --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedOverloadType}}&lt;/a&gt;&lt;/td&gt;   &lt;!-- 10 true Overload Type --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.overloadSize}}&lt;/a&gt;&lt;/td&gt;           &lt;!-- 11 true Overload Size --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedCPTQTY}}&lt;/a&gt;&lt;/td&gt;         &lt;!-- 12 true Cpt Qty --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedCPTVoltage}}&lt;/a&gt;&lt;/td&gt;     &lt;!-- 13 true Cpt Voltage --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedCPTRating}}&lt;/a&gt;&lt;/td&gt;      &lt;!-- 14 true Cpt Rating --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedVTQTY}}&lt;/a&gt;&lt;/td&gt;          &lt;!-- 15 true Vt Qty --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedVTVoltage}}&lt;/a&gt;&lt;/td&gt;      &lt;!-- 16 true Vt Voltage --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedVTAccuracy}}&lt;/a&gt;&lt;/td&gt;     &lt;!-- 17 true Vt Accuracy --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedCTQTY}}&lt;/a&gt;&lt;/td&gt;          &lt;!-- 18 true Ct Qty--&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedCTRatio}}&lt;/a&gt;&lt;/td&gt;        &lt;!-- 19 true Ct Ratio --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedGFCTRatio}}&lt;/a&gt;&lt;/td&gt;      &lt;!-- 20 true GF CT Ratio --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedShuntCoil}}&lt;/a&gt;&lt;/td&gt;      &lt;!-- 21 true Shunt Coil --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedKirkKey}}&lt;/a&gt;&lt;/td&gt;        &lt;!-- 22 true Kirk key Intrlck --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedGroundStud}}&lt;/a&gt;&lt;/td&gt;     &lt;!-- 23 true Ground Stud --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.PQM}}&lt;/a&gt;&lt;/td&gt;                    &lt;!-- 24 true Pqm--&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.FeederPR}}&lt;/a&gt;&lt;/td&gt;               &lt;!-- 25 true Fdr Pr --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.TransformerPR}}&lt;/a&gt;&lt;/td&gt;          &lt;!-- 26 true Tx Pr/TransformerPR--&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.MotorPR}}&lt;/a&gt;&lt;/td&gt;                &lt;!-- 27 true Mtr Pr/MotorPR --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.NGRRelay}}&lt;/a&gt;&lt;/td&gt;               &lt;!-- 28 true Ngr Pr/NGRRelay --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedIndicatingLights}}&lt;/a&gt;&lt;/td&gt;&lt;!--29 true Ind. Lts. --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.SpaceHeater}}&lt;/a&gt;&lt;/td&gt;            &lt;!-- 30 true Spc. Htr/SpaceHeater --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.HeaterCircuit}}&lt;/a&gt;&lt;/td&gt;          &lt;!-- 31 true Htr. Circ/HeaterCircuit --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedNOAuxContact}}&lt;/a&gt;&lt;/td&gt;          &lt;!-- 32 true N.O. Aux. --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedNCAuxContact}}&lt;/a&gt;&lt;/td&gt;          &lt;!-- 33 true N.C. Aux. --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedInterposRelay}}&lt;/a&gt;&lt;/td&gt;          &lt;!-- 34 true Ipos. Rly. --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedFirstValueLocalSwitchPB}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 35 true Local Switch / Pushbutton 1 --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedSecondValueLocalSwitchPB}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 36 true Local Switch / Pushbutton 2 --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedThirdValueLocalSwitchPB}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 37 true Local Switch / Pushbutton 3 --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedFourthValueLocalSwitchPB}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 38 true Local Switch / Pushbutton 4 --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedFirstValueFieldSwitchPB}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 39 trueField Switch / Pushbutton 1 --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedSecondValueFieldSwitchPB}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 40 true Field Switch / Pushbutton 2 --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedThirdValueFieldSwitchPB}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 41 trueField Switch / Pushbutton 3 --&gt;
+          &lt;td class&#x3D;&quot;table-cursor&quot; routerLink&#x3D;&quot;/project/{{projectId}}/sldshedules/{{sldShedule._id}}&quot;&gt;&lt;a class&#x3D;&quot;table-cursor&quot;&gt;{{sldShedule?.selectedFourthValueLocalFieldSwitchPB}}&lt;/a&gt;&lt;/td&gt; &lt;!-- 42 true Field Switch / Pushbutton 4 --&gt;
+          &lt;td&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; [(ngModel)]&#x3D;&quot;sldShedule.isChecked&quot; (click)&#x3D;&quot;puchToSldSheduleArray(sldShedule)&quot;&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+    &lt;div class&#x3D;&quot;mt-1 ml-auto mr-3&quot;&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;isChecked&quot;&gt;Select All&lt;/label&gt;
+        &lt;input type&#x3D;&quot;checkbox&quot; [(ngModel)]&#x3D;&quot;isChecked&quot; (click)&#x3D;&quot;changeFlag(isChecked)&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+    &lt;div class&#x3D;&quot;ml-auto mr-3&quot;&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success&quot; style&#x3D;&quot;width: 250px!important&quot; (click)&#x3D;&quot;saveToExcell()&quot;&gt;Export SLD Shedule&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+    &lt;div class&#x3D;&quot;mt-1 ml-auto mr-3&quot;&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success&quot; style&#x3D;&quot;width: 250px!important&quot; (click)&#x3D;&quot;saveToExcellUIData()&quot; [disabled]&#x3D;&quot;sldSheduleArrayList &#x3D;&#x3D; 0&quot;&gt;Export SLD Shedule UI Data&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div>  <!--class="container"-->  <div class="row" style="margin-left: 0px!important; margin-right: 0px!important">    <div class="col-12">      <nav aria-label="breadcrumb">        <ol class="breadcrumb" style="background-color: white!important">          <li class="breadcrumb-item"><a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="[\'/project\']"><strong>Projects List</strong></a></li>          <li class="breadcrumb-item"><a class="cursor-style disable-decoration text-style" style="color: black!important " [routerLink]="[\'/project\', projectId]"><strong>Dashboard for Project {{projectName?.title}}</strong></a></li>          <li class="breadcrumb-item active" aria-current="page">Sldschedules List</li>        </ol>      </nav>    </div>  </div>  <div class="pt-2 text-center">    <h1>      SLD Schedule List      <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add new SLD Schedule" (click)="saveSldShedule()" [hidden]="!teamWork">        <i class="fa fa-plus" aria-hidden="true"></i>      </button>    </h1>  </div>  <div class="row achievements-wrapper ml-3 mr-3">    <table id="exportable" class="table table-sm table-bordered table-hover table-text-style">      <thead>        <tr>          <!--<th></th> -->          <th>Rev.</th>                       <!-- 1 -->          <th>Major Equipment Device Tag</th> <!-- 2 -->          <th>Equipment Description</th>      <!-- 3 -->          <th>Device Type</th>                <!-- 4 -->          <th>Frame Rating</th>               <!-- 5 -->          <th>Trip Rating</th>                <!-- 6 -->          <th>Fuse Rating</th>                <!-- 7 -->          <th>Contactor Type</th>             <!-- 8 -->          <th>Contactor Size</th>             <!-- 9 -->          <th>Overload Type</th>              <!-- 10 -->          <th>Overload Size</th>              <!-- 11 -->          <th>Cpt Qty</th>                    <!-- 12 -->          <th>Cpt Voltage</th>                <!-- 13 -->          <th>Cpt Rating</th>                 <!-- 14 -->          <th>Vt Qty</th>                     <!-- 15 -->          <th>Vt Voltage</th>                 <!-- 16 -->          <th>Vt Accuracy</th>                <!-- 17 -->          <th>Ct Qty</th>                     <!-- 18 -->          <th>Ct Ratio</th>                   <!-- 19 -->          <th>GF CT Ratio</th>                <!-- 20 -->          <th>Shunt Coil</th>                 <!-- 21 -->          <th>Kirk key Intrlck</th>           <!-- 22 -->          <th>Ground Stud</th>                <!-- 23 -->          <th>Pqm</th>                        <!-- 24 -->          <th>Fdr Pr</th>                     <!-- 25 -->          <th>Tx Pr</th>                      <!-- 26 -->          <th>Mtr Pr</th>                     <!-- 27 -->          <th>Ngr Pr</th>                     <!-- 28 -->          <th>Ind. Lts.</th>                  <!-- 29 -->          <th>Spc. Htr.</th>                  <!-- 30 -->          <th>Htr. Circ.</th>                 <!-- 31 -->          <th>N.O. Aux.</th>                  <!-- 32 -->          <th>N.C. Aux.</th>                  <!-- 33 -->          <th>Ipos. Rly.</th>                 <!-- 34 -->          <th>Local Switch / Pushbutton 1</th><!-- 35 -->          <th>Local Switch / Pushbutton 2</th><!-- 36 -->          <th>Local Switch / Pushbutton 3</th><!-- 37 -->          <th>Local Switch / Pushbutton 4</th><!-- 38 -->          <th>Field Switch / Pushbutton 1</th><!-- 39 -->          <th>Field Switch / Pushbutton 2</th><!-- 40 -->          <th>Field Switch / Pushbutton 3</th><!-- 41 -->          <th>Field Switch / Pushbutton 4</th><!-- 42 -->          <th></th>        </tr>      </thead>      <tbody>        <tr *ngFor="let sldShedule of sldSchedules">          <!-- <td></td> -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor"></a></td>                                        <!-- 1 false Rev -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.majorEquipmentDeviceTag}}</a></td> <!-- 2 true Major Equipment Device Tag -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor"></a></td>                                        <!-- 3 false Equipment Description -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedOCDevice}}</a></td>         <!-- 4 true Device Type /selectedOCDevice -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFrameRating}}</a></td>     <!-- 5 true Frame Rating -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.tripRating}}</a></td>              <!-- 6 true Trip Rating -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFuseRating}}</a></td>      <!-- 7 true Fuse Rating -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedContactorType}}</a></td>   <!-- 8 true Contactor Type -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedContactorSize}}</a></td>   <!-- 9 true Contactor Size -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedOverloadType}}</a></td>   <!-- 10 true Overload Type -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.overloadSize}}</a></td>           <!-- 11 true Overload Size -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCPTQTY}}</a></td>         <!-- 12 true Cpt Qty -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCPTVoltage}}</a></td>     <!-- 13 true Cpt Voltage -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCPTRating}}</a></td>      <!-- 14 true Cpt Rating -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedVTQTY}}</a></td>          <!-- 15 true Vt Qty -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedVTVoltage}}</a></td>      <!-- 16 true Vt Voltage -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedVTAccuracy}}</a></td>     <!-- 17 true Vt Accuracy -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCTQTY}}</a></td>          <!-- 18 true Ct Qty-->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedCTRatio}}</a></td>        <!-- 19 true Ct Ratio -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedGFCTRatio}}</a></td>      <!-- 20 true GF CT Ratio -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedShuntCoil}}</a></td>      <!-- 21 true Shunt Coil -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedKirkKey}}</a></td>        <!-- 22 true Kirk key Intrlck -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedGroundStud}}</a></td>     <!-- 23 true Ground Stud -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.PQM}}</a></td>                    <!-- 24 true Pqm-->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.FeederPR}}</a></td>               <!-- 25 true Fdr Pr -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.TransformerPR}}</a></td>          <!-- 26 true Tx Pr/TransformerPR-->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.MotorPR}}</a></td>                <!-- 27 true Mtr Pr/MotorPR -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.NGRRelay}}</a></td>               <!-- 28 true Ngr Pr/NGRRelay -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedIndicatingLights}}</a></td><!--29 true Ind. Lts. -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.SpaceHeater}}</a></td>            <!-- 30 true Spc. Htr/SpaceHeater -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.HeaterCircuit}}</a></td>          <!-- 31 true Htr. Circ/HeaterCircuit -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedNOAuxContact}}</a></td>          <!-- 32 true N.O. Aux. -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedNCAuxContact}}</a></td>          <!-- 33 true N.C. Aux. -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedInterposRelay}}</a></td>          <!-- 34 true Ipos. Rly. -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFirstValueLocalSwitchPB}}</a></td> <!-- 35 true Local Switch / Pushbutton 1 -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedSecondValueLocalSwitchPB}}</a></td> <!-- 36 true Local Switch / Pushbutton 2 -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedThirdValueLocalSwitchPB}}</a></td> <!-- 37 true Local Switch / Pushbutton 3 -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFourthValueLocalSwitchPB}}</a></td> <!-- 38 true Local Switch / Pushbutton 4 -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFirstValueFieldSwitchPB}}</a></td> <!-- 39 trueField Switch / Pushbutton 1 -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedSecondValueFieldSwitchPB}}</a></td> <!-- 40 true Field Switch / Pushbutton 2 -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedThirdValueFieldSwitchPB}}</a></td> <!-- 41 trueField Switch / Pushbutton 3 -->          <td class="table-cursor" routerLink="/project/{{projectId}}/sldshedules/{{sldShedule._id}}"><a class="table-cursor">{{sldShedule?.selectedFourthValueLocalFieldSwitchPB}}</a></td> <!-- 42 true Field Switch / Pushbutton 4 -->          <td>            <input type="checkbox" [(ngModel)]="sldShedule.isChecked" (click)="puchToSldSheduleArray(sldShedule)">          </td>        </tr>      </tbody>    </table>  </div>  <div class="d-flex">    <div class="mt-1 ml-auto mr-3">      <div class="form-group">        <label for="isChecked">Select All</label>        <input type="checkbox" [(ngModel)]="isChecked" (click)="changeFlag(isChecked)">      </div>    </div>  </div>  <div class="d-flex">    <div class="ml-auto mr-3">      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcell()">Export SLD Shedule</button>    </div>  </div>  <div class="d-flex">    <div class="mt-1 ml-auto mr-3">      <button type="button" class="btn btn-success" style="width: 250px!important" (click)="saveToExcellUIData()" [disabled]="sldSheduleArrayList == 0">Export SLD Shedule UI Data</button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SldScheduleListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SldScheduleListComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

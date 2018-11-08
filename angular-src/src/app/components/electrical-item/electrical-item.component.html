@@ -1,0 +1,821 @@
+<div class="ml-3 mr-3" (window:resize)="onResize($event)" *ngIf="electricalItem">
+  <div class="d-flex justify-content-center pt-3">
+    <h1>Electrical <strong>{{electricalItem?.equipmentTag || "New Electrical"}}</strong></h1>
+  </div>
+  <form (ngSubmit)="saveElectrical(electricalItem._id, electricalForm.value)" #electricalForm="ngForm">
+    <div class="row">
+      <div class="col-12 col-xl-6 align-self-start">
+        <div class="d-flex justify-content-center">
+          <span class="h4">Electrical Equipment Entry</span>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 align-self-end">
+            <div class="form-group">
+              <label for="itemNumber">Item number</label>
+              <input type="text" class="form-control" name="itemNumber" disabled>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="dateCreate">Date added</label>
+              <input type="text" class="form-control" [(ngModel)]="date" name="dateCreate" disabled>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="revision">Revision</label>
+              <input type="text" class="form-control" [(ngModel)]="electricalItem.revision" name="revision">
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <input type="number" class="form-control" [(ngModel)]="electricalItem.quantity" name="quantity">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="equipmentType">Equipment Type</label>
+              <app-drop-down (onChanged)="onChanged($event, 'Equipment Type')"
+                             (newOnChanged)="newOnChanged($event, 'Equipment Type')"
+                             [dropDownName]="'Equipment Type'"
+                             [equipmentType]='electricalItem.equipmentType'
+                             [selectedEquipmentType]='electricalItem.selectedEquipmentType'
+                             name="selectedEquipmentType">
+              </app-drop-down>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="selectedPidDrawing">Pid Drawing</label>
+              <app-drop-down (onChanged)="onChanged($event, 'Pid Drawing')"
+                             (newOnChanged)="newOnChanged($event, 'Pid Drawing')"
+                             [dropDownName]="'Pid Drawing'"
+                             [equipmentType]='electricalItem.pidDrawing'
+                             [selectedEquipmentType]='electricalItem.selectedPidDrawing'
+                             name="selectedPidDrawing">
+              </app-drop-down>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="layoutDrawing">Layout Drawing</label>
+              <app-drop-down (onChanged)="onChanged($event, 'Layout Drawing')"
+                             (newOnChanged)="newOnChanged($event, 'Layout Drawing')"
+                             [dropDownName]="'Layout Drawing'"
+                             [equipmentType]='electricalItem.layoutDrawing'
+                             [selectedEquipmentType]='electricalItem.selectedLayoutDrawing'
+                             name="selectedLayoutDrawing">
+              </app-drop-down>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="sldDraving">SLD Drawing</label>
+              <app-drop-down (onChanged)="onChanged($event, 'SLD Drawing')"
+                             (newOnChanged)="newOnChanged($event, 'SLD Drawing')"
+                             [dropDownName]="'SLD Drawing'"
+                             [equipmentType]='electricalItem.sldDraving'
+                             [selectedEquipmentType]='electricalItem.selectedSldDraving'
+                             name="selectedSldDraving">
+              </app-drop-down>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="equipmentTag">Equipment Tag</label>
+              <input type="text" class="form-control" [(ngModel)]="electricalItem.equipmentTag" name="equipmentTag" placeholder="New Electrical">
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="equipmentTag2">Equipment Tag 2</label>
+              <input type="text" class="form-control" [(ngModel)]="electricalItem.equipmentTag2" name="equipmentTag2" placeholder="Equipment Tag 2">
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="parentTag">Parent Tag</label>
+              <select [disabled]="parentList?.length == 0"
+                      id="selectedParentTag"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="electricalItem.selectedParentTag"
+                      name="selectedParentTag">
+                <option *ngFor="let currentParentTag of parentList"
+                        [ngValue]="currentParentTag"
+                        [selected]="currentParentTag==electricalItem.selectedParentTag">
+                  {{currentParentTag}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="equipmentNotes">Equipment Notes</label>
+              <input type="number" class="form-control" [(ngModel)]="electricalItem.equipmentNotes" name="equipmentNotes">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="locationArea">Location/Area</label>
+              <app-drop-down (onChanged)="onChanged($event, 'Location/Area')"
+                             (newOnChanged)="newOnChanged($event, 'Location/Area')"
+                             [dropDownName]="'Location/Area'"
+                             [equipmentType]='electricalItem.locationArea'
+                             [selectedEquipmentType]='electricalItem.selectedLocationArea'
+                             name="selectedLocationArea">
+              </app-drop-down>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="selectedEquipmentDescription">Equipment Description</label>
+              <app-drop-down (onChanged)="onChanged($event, 'Equipment Description')"
+                             (newOnChanged)="newOnChanged($event, 'Equipment Description')"
+                             [dropDownName]="'Equipment Description'"
+                             [equipmentType]='electricalItem.equipmentDescription'
+                             [selectedEquipmentType]='electricalItem.selectedEquipmentDescription'
+                             name="selectedEquipmentDescription">
+              </app-drop-down>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="cloneTag">Clone Tag</label>
+              <input type="text" class="form-control" [(ngModel)]="electricalItem.cloneTag" name="cloneTag" disabled>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="newTag">New Tag</label>
+              <input type="text" class="form-control" [(ngModel)]="electricalItem.newTag" name="newTag">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col">
+                  <label for="length">Length(mm)</label>
+                </div>
+                <div class="col">
+                  <label for="depth">Depth(mm)</label>
+                </div>
+                <div class="col">
+                  <label for="height">Height(mm)</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <input type="number" class="form-control" [(ngModel)]="electricalItem.length" name="length">
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" [(ngModel)]="electricalItem.depth" name="depth">
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" [(ngModel)]="electricalItem.height" name="height">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col">
+                  <label for="coordForX">X Coord(m)</label>
+                </div>
+                <div class="col">
+                  <label for="coordForY">Y Coord(m)</label>
+                </div>
+                <div class="col">
+                  <label for="coordForZ">Z Coord(m)</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <input type="number" class="form-control" [(ngModel)]="electricalItem.coordForX" name="coordForX">
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" [(ngModel)]="electricalItem.coordForY" name="coordForY">
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" [(ngModel)]="electricalItem.coordForZ" name="coordForZ">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="scenarioFirstLoadFactor">Scenario 1 Load Factor %</label>
+              <input type="number" class="form-control" [(ngModel)]="electricalItem.scenarioFirstLoadFactor" name="scenarioFirstLoadFactor">
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="heatDissipation">Heat Dissipation (W)</label>
+              <input type="number" class="form-control" [(ngModel)]="electricalItem.heatDissipation" name="heatDissipation">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-xl-6 align-self-start">
+        <div class="d-flex justify-content-center">
+          <span class="h4">General Rating</span>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="selectedPowerSystem">Power System</label>
+              <select id="selectedPowerSystem"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.selectedPowerSystem"
+                      (change)="typeChanged()"
+                      name="selectedPowerSystem">
+                <option *ngFor="let currentPowerSystem of electricalItem.powerSystem"
+                        [ngValue]="currentPowerSystem"
+                        [selected]="currentPowerSystem==electricalItem.selectedPowerSystem">
+                  {{currentPowerSystem}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="selectedVoltage">Voltage</label>
+              <!--
+                                <app-drop-down-dependent
+                                  (onChanged)="onChanged($event, 'Voltage')"
+                                  (newOnChanged)="newOnChanged($event, 'Voltage')"
+                                  [dropDownName] = "'Voltage'"
+                                  [itemType] = 'productsAfterChangeEvent'
+                                  [selectedItemType] = 'electricalItem.selectedVoltage'
+                                  name="selectedVoltage"
+                                >
+                                </app-drop-down-dependent>
+                                <p>electricalItem.selectedVoltage</p>
+                                <div>{{ electricalItem?.selectedVoltage?.name }}</div>
+                                <div>{{ electricalItem?.selectedVoltage?.powerSystemType }}</div>
+              -->
+              <div class="d-flex flex-row">
+                <select id="selectedVoltage"
+                        class="form-control selectForOpenModal"
+                        [(ngModel)]="electricalItem.selectedVoltage.name"
+                        name="selectedVoltage"
+                        [disabled]="!electricalItem.selectedPowerSystem">
+                  <option *ngFor="let currentVoltage of productsAfterChangeEvent"
+                          [ngValue]="currentVoltage.name"
+                          [selected]="currentVoltage.name == electricalItem.selectedVoltage.name">
+                    {{currentVoltage.name}}
+                  </option>
+                </select>
+                <button type="button"
+                        class="btn btn-outline-secondary btnPlus fa fa-plus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Add new item"
+                        (click)="voltageModal.showAddModal()"
+                        [disabled]="!electricalItem.selectedPowerSystem"></button>
+                <button type="button"
+                        class="btn btn-outline-secondary btnMinus fa fa-minus"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Drop selected item"
+                        (click)="voltageModal.showDropModal(dropElementFlag)"
+                        [disabled]="productsAfterChangeEvent.length == 0"></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="totalPF">Total % P.F.</label>
+              <input type="number" class="form-control" [(ngModel)]="electricalItem.totalPF" name="totalPF">
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="totalEFF">Total % EFF.</label>
+              <input type="number" class="form-control" [(ngModel)]="electricalItem.totalEFF" name="totalEFF">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="nameplateRating">Nameplate Rating</label>
+              <input type="number" class="form-control" [(ngModel)]="electricalItem.nameplateRating" name="nameplateRating">
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="units">Units</label>
+              <select id="selectedUnits"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.selectedUnits"
+                      name="selectedUnits">
+                <option *ngFor="let currentUnit of electricalItem.units"
+                        [ngValue]="currentUnit"
+                        [selected]="currentUnit==electricalItem.selectedUnits">
+                  {{currentUnit}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="selectedMotorSF">Motor S.F.</label>
+              <select id="selectedMotorSF"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.selectedMotorSF"
+                      name="selectedMotorSF">
+                <option *ngFor="let currentMotorSF of electricalItem.motorSF"
+                        [ngValue]="currentMotorSF"
+                        [selected]="currentMotorSF==electricalItem.selectedMotorSF">
+                  {{currentMotorSF}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="motorCode">Motor Code</label>
+              <select id="selectedMotorCode"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.selectedMotorCode"
+                      name="selectedMotorCode">
+                <option *ngFor="let currentMotorCode of electricalItem.motorCode"
+                        [ngValue]="currentMotorCode"
+                        [selected]="currentMotorCode==electricalItem.selectedMotorCode">
+                  {{currentMotorCode}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="selectedSccRating">SCC Rating</label>
+              <select id="selectedSccRating"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.selectedSccRating"
+                      name="selectedSccRating">
+                <option *ngFor="let currentSccRating of electricalItem.sccRating"
+                        [ngValue]="currentSccRating"
+                        [selected]="currentSccRating==electricalItem.selectedSccRating">
+                  {{currentSccRating}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="selectedEnclosureRating">Enclosure Rating</label>
+              <select id="selectedEnclosureRating"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.selectedEnclosureRating"
+                      name="selectedEnclosureRating">
+                <option *ngFor="let currentEnclosureRating of electricalItem.enclosureRating"
+                        [ngValue]="currentEnclosureRating"
+                        [selected]="currentEnclosureRating==electricalItem.selectedEnclosureRating">
+                  {{currentEnclosureRating}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="loadFactor">Load Factor (%)</label>
+              <input type="number" class="form-control" [(ngModel)]="electricalItem.loadFactor" name="loadFactor">
+            </div>
+          </div>
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="selectedLoadDuty">Load Duty</label>
+              <select id="selectedLoadDuty"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.selectedLoadDuty"
+                      name="selectedLoadDuty">
+                <option *ngFor="let currentLoadDuty of electricalItem.loadDuty"
+                        [ngValue]="currentLoadDuty"
+                        [selected]="currentLoadDuty==electricalItem.selectedLoadDuty">
+                  {{currentLoadDuty}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 align-self-end">
+            <div class="row">
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="ambientTemp">Ambient Temp (°C)</label>
+                  <input id="ambientTemp" type="number" class="form-control" [(ngModel)]="electricalItem.ambientTemp" name="ambientTemp">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="selectedTerminationTemp">Termination Temp (°C)</label>
+                  <select id="selectedTerminationTemp"
+                          class="form-control"
+                          [(ngModel)]="electricalItem.selectedTerminationTemp"
+                          name="selectedTerminationTemp">
+                    <option *ngFor="let currentTerminationTemp of electricalItem.terminationTemp"
+                            [ngValue]="currentTerminationTemp"
+                            [selected]="currentTerminationTemp==electricalItem.selectedTerminationTemp">
+                      {{currentTerminationTemp}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="operationTempMin">Operating T Min.(°C)</label>
+                  <input id="operationTempMin" type="number" class="form-control" [(ngModel)]="electricalItem.operationTempMin" name="operationTempMin">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="operationTempMax">Operating T Max.(°C)</label>
+                  <input id="operationTempMax" type="number" class="form-control" [(ngModel)]="electricalItem.operationTempMax" name="operationTempMax">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="selectedInsulDescription">Insul. Designation</label>
+                  <select id="selectedInsulDescription"
+                          class="form-control"
+                          [(ngModel)]="electricalItem.selectedInsulDescription"
+                          name="selectedInsulDescription">
+                    <option *ngFor="let currentInsulDescription of electricalItem.insulDescription"
+                            [ngValue]="currentInsulDescription"
+                            [selected]="currentInsulDescription==electricalItem.selectedInsulDescription">
+                      {{currentInsulDescription}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 align-self-end border-eh-raiting">
+            <div class="row d-flex justify-content-center inner-padding-eh-rating">
+              <label><strong>Equipment Hazloc Rating</strong></label>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <label><strong>{{electricalItem?.selectedHazlocClass}}</strong></label>
+              </div>
+              <div class="col-3">
+                <label><strong>{{electricalItem?.selectedHazlocZone}}</strong></label>
+              </div>
+              <div class="col-3">
+                <label><strong>{{electricalItem?.selectedHazlocGroup}}</strong></label>
+              </div>
+              <div class="col-3">
+                <label><strong>{{electricalItem?.selectedHazlocTemperature}}</strong></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="selectedHazlocClass">Hazloc Class</label>
+                  <select id="selectedHazlocClass"
+                          class="form-control selectForOpenModal"
+                          [(ngModel)]="electricalItem.selectedHazlocClass"
+                          (ngModelChange)="optionChanged($event)"
+                          name="selectedHazlocClass">
+                    <option *ngFor="let currentHazlocClass of electricalItem.hazlocClass"
+                            [ngValue]="currentHazlocClass"
+                            [selected]="currentHazlocClass==electricalItem.selectedHazlocClass">
+                      {{currentHazlocClass}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="selectedHazlocZone">Hazloc Zone</label>
+                  <!--
+                  <app-drop-down
+                    (onChanged)="onChanged($event, 'Hazloc Zone')"
+                    (newOnChanged)="newOnChanged($event, 'Hazloc Zone')"
+                    [dropDownName] = "'Hazloc Zone'"
+                    [equipmentType] = 'electricalItem.hazlocZone'
+                    [selectedEquipmentType] = 'electricalItem.selectedHazlocZone'
+                    name="selectedHazlocZone"
+                  ></app-drop-down>
+                  -->
+                  <div class="d-flex flex-row">
+                    <select [disabled]="electricalItem.selectedHazlocClass == electricalItem.hazlocClass[0] || !electricalItem.selectedHazlocClass"
+                            id="selectedHazlocZone"
+                            class="form-control selectForOpenModal"
+                            [(ngModel)]="electricalItem.selectedHazlocZone"
+                            #selectedHazlocZone="ngModel"
+                            name="selectedHazlocZone">
+                      <option *ngFor="let currentHazlocZone of electricalItem.hazlocZone"
+                              [ngValue]="currentHazlocZone"
+                              [selected]="currentHazlocZone==electricalItem.selectedHazlocZone">
+                        {{currentHazlocZone}}
+                      </option>
+                    </select>
+                    <button type="button"
+                            class="btn btn-outline-secondary btnPlus fa fa-plus"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Add new item"
+                            [disabled]="!electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'"
+                            (click)="hazlocZoneModal.showAddModal()"></button>
+                    <button type="button"
+                            class="btn btn-outline-secondary btnMinus fa fa-minus"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Drop selected item"
+                            (click)="hazlocZoneModal.showDropModal(dropElementFlag)"
+                            [disabled]="electricalItem.hazlocZone.length == 0 || !electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="selectedHazlocGroup">Hazloc Group</label>
+                  <select [disabled]="electricalItem.selectedHazlocClass == electricalItem.hazlocClass[0] || !electricalItem.selectedHazlocClass"
+                          id="selectedHazlocGroup"
+                          class="form-control selectForOpenModal"
+                          [(ngModel)]="electricalItem.selectedHazlocGroup"
+                          #selectedHazlocGroup="ngModel"
+                          name="selectedHazlocGroup"
+                  >
+                    <option *ngFor="let currentHazlocGroup of electricalItem.hazlocGroup"
+                            [ngValue]="currentHazlocGroup"
+                            [selected]="currentHazlocGroup==electricalItem.selectedHazlocGroup"
+                    >
+                      {{currentHazlocGroup}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+                <div class="form-group">
+                  <label for="selectedHazlocTemperature">Hazloc Temperature</label>
+                  <div class="d-flex flex-row">
+                    <select [disabled]="electricalItem.selectedHazlocClass == electricalItem.hazlocClass[0] || !electricalItem.selectedHazlocClass"
+                            id="selectedHazlocTemperature"
+                            class="form-control selectForOpenModal"
+                            [(ngModel)]="electricalItem.selectedHazlocTemperature"
+                            #selectedHazlocTemperature="ngModel"
+                            name="selectedHazlocTemperature"
+                    >
+                      <option *ngFor="let currentHazlocTemperature of electricalItem.hazlocTemperature"
+                              [ngValue]="currentHazlocTemperature"
+                              [selected]="currentHazlocTemperature==electricalItem.selectedHazlocTemperature"
+                      >
+                        {{currentHazlocTemperature}}
+                      </option>
+                    </select>
+                    <button type="button"
+                            class="btn btn-outline-secondary btnPlus fa fa-plus"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Add new item"
+                            [disabled]="!electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'"
+                            (click)="hazlocTemperatureModal.showAddModal()"
+                    >
+                    </button>
+                    <button type="button"
+                          class="btn btn-outline-secondary btnMinus fa fa-minus"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Drop selected item"
+                          (click)="hazlocTemperatureModal.showDropModal(dropElementFlag)"
+                          [disabled]="electricalItem.hazlocTemperature.length == 0 || !electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'"
+                    >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <div class="mr-auto p-2">
+        <a routerLink="/project/{{projectId}}/electricals/" class="btn btn-primary">Back</a>
+      </div>
+      <div class="p-2 form-group">
+        <span *ngIf="isCanChange">
+          <button type="submit" class="btn btn-success" [disabled]="!electricalForm.form.valid">Update/Create</button>
+        </span>
+      </div>
+    </div>
+    <div class="ml-3 mr-3" *ngIf="sizeWindow > 576; else werticalTable">
+      <div class="row achievements-wrapper">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Rev.</th>
+              <th>Equipment Tag</th>
+              <th>Equipment Description</th>
+              <th>Load Type</th>
+              <th>System Voltage</th>
+              <th>Power System</th>
+              <th>Nameplate Rating</th>
+              <th>Units</th>
+              <th>Total % PF</th>
+              <th>Total % EFF</th>
+              <th>Motor SF</th>
+              <th>Motor Code</th>
+              <th>Load Factor %</th>
+              <th>Load Duty</th>
+              <th>Total Connected FLA</th>
+              <th>Total Connected KW</th>
+              <th>Total Connected KVAR</th>
+              <th>Total Connected KVA</th>
+              <th>Total Demand FLA</th>
+              <th>Total Demand KW</th>
+              <th>Total Demand KVAR</th>
+              <th>Total Demand KVA</th>
+              <th>Total Scenario 1 Load Factor %</th>
+              <th>Total Scenario 1 FLA</th>
+              <th>Total Scenario 1 KW</th>
+              <th>Total Scenario 1 KVAR</th>
+              <th>Total Scenario 1 KVA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{electricalItem?.revision}}</td>                         <!-- Rev. -->
+              <td>{{electricalItem?.equipmentTag}}</td>                     <!-- Equipment Tag -->
+              <td>{{electricalItem?.selectedEquipmentDescription}}</td>     <!-- Equipment Description -->
+              <td>{{electricalItem?.selectedEquipmentType}}</td>            <!-- Load Type -->
+              <td>{{electricalItem?.selectedVoltage?.name}}</td>             <!-- System Voltage -->
+              <td>{{electricalItem?.selectedPowerSystem}}</td>              <!-- Power System -->
+              <td>{{electricalItem?.nameplateRating}}</td>                  <!-- Nameplate Rating -->
+              <td>{{electricalItem?.selectedUnits}}</td>                    <!-- Units -->
+              <td>{{electricalItem?.totalPF}}</td>                          <!-- Total % PF -->
+              <td>{{electricalItem?.totalEFF}}</td>                         <!-- Total % EFF -->
+              <td>{{electricalItem?.selectedMotorSF}}</td>                  <!-- Motor SF -->
+              <td>{{electricalItem?.selectedMotorCode}}</td>                <!-- Motor Code -->
+              <td>{{electricalItem?.loadFactor}}</td>                       <!-- Load Factor % -->
+              <td>{{electricalItem?.selectedLoadDuty}}</td>                 <!-- Load Duty -->
+              <td>{{electricalItem?.totalConectedFla}}</td>                 <!-- Total Connected FLA -->
+              <td>{{electricalItem?.totalConectedKW}}</td>                  <!-- Total Connected KW -->
+              <td>{{electricalItem?.totalConnectedKVAR}}</td>               <!-- Total Connected KVAR -->
+              <td>{{electricalItem?.totalConnectedKVA}}</td>                <!-- Total Connected KVA -->
+              <td>{{electricalItem?.totalDemandFLA}}</td>                   <!-- Total Demand FLA -->
+              <td>{{electricalItem?.totalDemandKW}}</td>                    <!-- Total Demand KW -->
+              <td>{{electricalItem?.totalDemandKVAR}}</td>                  <!-- Total Demand KVAR -->
+              <td>{{electricalItem?.totalDemandKVA}}</td>                    <!-- Total Demand KVA -->
+              <td>{{electricalItem?.scenarioFirstLoadFactor}}</td>          <!-- Total Scenario 1 Load Factor % -->
+              <td>{{electricalItem?.scenarioFirstFLA}}</td>                  <!-- Total Scenario 1 FLA -->
+              <td>{{electricalItem?.scenarioFirstKW}}</td>                   <!-- Total Scenario 1 KW -->
+              <td>{{electricalItem?.scenarioFirstKVAR}}</td>                 <!-- Total Scenario 1 KVAR -->
+              <td>{{electricalItem?.scenarioFirstKVA}}</td>                  <!-- Total Scenario 1 KVA -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #werticalTable>
+      <div class="row">
+        <table class="table table-bordered">
+          <tr>
+            <td><strong>Rev.</strong></td>
+            <td>{{electricalItem?.revision}}</td>
+          </tr>
+          <tr>
+            <td><strong>Equipment Tag</strong></td>
+            <td>{{electricalItem?.equipmentTag}}</td>
+          </tr>
+          <tr>
+            <td><strong>Equipment Description</strong></td>
+            <td>{{electricalItem?.selectedEquipmentDescription}}</td>
+          </tr>
+          <tr>
+            <td><strong>Load Type</strong></td>
+            <td>{{electricalItem?.selectedEquipmentType}}</td>
+          </tr>
+          <tr>
+            <td><strong>System Voltage</strong></td>
+            <td>{{electricalItem?.selectedVoltage?.name}}</td>
+          </tr>
+          <tr>
+            <td><strong>Power System</strong></td>
+            <td>{{electricalItem?.selectedPowerSystem}}</td>
+          </tr>
+          <tr>
+            <td><strong>Nameplate Rating</strong></td>
+            <td>{{electricalItem?.nameplateRating}}</td>
+          </tr>
+          <tr>
+            <td><strong>Units</strong></td>
+            <td>{{electricalItem?.selectedUnits}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total % PF</strong></td>
+            <td>{{electricalItem?.totalPF}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total % EFF</strong></td>
+            <td>{{electricalItem?.totalEFF}}</td>
+          </tr>
+          <tr>
+            <td><strong>Motor SF</strong></td>
+            <td>{{electricalItem?.selectedMotorSF}}</td>
+          </tr>
+          <tr>
+            <td><strong>Motor Code</strong></td>
+            <td>{{electricalItem?.selectedMotorCode}}</td>
+          </tr>
+          <tr>
+            <td><strong>Load Factor %</strong></td>
+            <td>{{electricalItem?.loadFactor}}</td>
+          </tr>
+          <tr>
+            <td><strong>Load Duty</strong></td>
+            <td>{{electricalItem?.selectedLoadDuty}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Connected FLA</strong></td>
+            <td>{{electricalItem?.totalConectedFla}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Connected KW</strong></td>
+            <td>{{electricalItem?.totalConectedKW}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Connected KVAR</strong></td>
+            <td>{{electricalItem?.totalConnectedKVAR}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Connected KVA</strong></td>
+            <td>{{electricalItem?.totalConnectedKVA}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Demand FLA</strong></td>
+            <td>{{electricalItem?.totalDemandFLA}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Demand KW</strong></td>
+            <td>{{electricalItem?.totalDemandKW}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Demand KVAR</strong></td>
+            <td>{{electricalItem?.totalDemandKVAR}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Demand KVA</strong></td>
+            <td>{{electricalItem?.totalDemandKVA}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Scenario 1 Load Factor %</strong></td>
+            <td>{{electricalItem?.scenarioFirstLoadFactor}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Scenario 1 FLA</strong></td>
+            <td>{{electricalItem?.scenarioFirstFLA}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Scenario 1 KW</strong></td>
+            <td>{{electricalItem?.scenarioFirstKW}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Scenario 1 KVAR</strong></td>
+            <td>{{electricalItem?.scenarioFirstKVAR}}</td>
+          </tr>
+          <tr>
+            <td><strong>Total Scenario 1 KVA</strong></td>
+            <td>{{electricalItem?.scenarioFirstKVA}}</td>
+          </tr>
+        </table>
+      </div>
+    </ng-template>
+  </form>
+  <div class="row m-3">
+    <span *ngIf="isCanChange">
+      <button class="btn btn-danger" (click)="deleteElectrical(electricalItem._id)">Delete</button>
+    </span>
+  </div>
+  <!--START MODALS-->
+  <app-electricals-modal [dataValue]="productsAfterChangeEvent" [selectedValue]="electricalItem?.selectedVoltage?.name" [title]="voltage" #voltageModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="electricalItem?.hazlocZone" [selectedValue]="electricalItem?.selectedHazlocZone" [title]="hazlocZone" #hazlocZoneModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="electricalItem?.hazlocTemperature" [selectedValue]="electricalItem?.selectedHazlocTemperature" [title]="hazlocTemperature" #hazlocTemperatureModal></app-electricals-modal>
+  <!-- END MODALS -->
+</div>

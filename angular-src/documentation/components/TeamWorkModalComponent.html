@@ -1,0 +1,1890 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-src documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-src documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>TeamWorkModalComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/modals/team-work-modal/team-work-modal.component.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-team-work-modal</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>team-work-modal.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./team-work-modal.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addUserForBrowse">addUserForBrowse</a>
+                            </li>
+                            <li>
+                                <a href="#addUserInTeam">addUserInTeam</a>
+                            </li>
+                            <li>
+                                <a href="#browseUserEmail">browseUserEmail</a>
+                            </li>
+                            <li>
+                                <a href="#itemElement">itemElement</a>
+                            </li>
+                            <li>
+                                <a href="#project">project</a>
+                            </li>
+                            <li>
+                                <a href="#teamUserEmail">teamUserEmail</a>
+                            </li>
+                            <li>
+                                <a href="#visible">visible</a>
+                            </li>
+                            <li>
+                                <a href="#visibleAnimate">visibleAnimate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addBrowseUser">addBrowseUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addTeamUser">addTeamUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addUserToGroup">addUserToGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addUserToTeam">addUserToTeam</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addViewerUser">addViewerUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#close">close</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteUserFromTeam">deleteUserFromTeam</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hide">hide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#moveUserFromTeamToBrouse">moveUserFromTeamToBrouse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onContainerClicked">onContainerClicked</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#saveDatainDataBase">saveDatainDataBase</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dataValue">dataValue</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(projectService: <a href="../injectables/ProjectService.html">ProjectService</a>, usersService: <a href="../injectables/UsersService.html">UsersService</a>, flashMessage: FlashMessagesService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>projectService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ProjectService.html" target="_self" >ProjectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>usersService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>flashMessage</td>
+                                                  
+                                                        <td>
+                                                                    <code>FlashMessagesService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="dataValue"></a>
+                        <code>dataValue</code>
+                    </td>
+                    <td class="col-md-10">
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="title"></a>
+                        <code>title</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addBrowseUser"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            addBrowseUser
+                            </b>
+                            <a href="#addBrowseUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>addBrowseUser(browseEmail: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="194" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:194</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>browseEmail</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addTeamUser"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            addTeamUser
+                            </b>
+                            <a href="#addTeamUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>addTeamUser(addTeamUser: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, itemProject: <a href="../interfaces/IProject.html">IProject</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Method to display a modal window with a form where the user
+can specify the user&#39;s email with which he wants to continue working on his project</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>addTeamUser</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>boolean flag for display to the user necessary part</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>itemProject</td>
+                                                        <td>
+                                                                    <code><a href="../interfaces/IProject.html" target="_self" >IProject</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>item project fron project.component.ts</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addUserToGroup"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            addUserToGroup
+                            </b>
+                            <a href="#addUserToGroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>addUserToGroup(isFolower: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:63</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Default value</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>isFolower</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code>false</code>
+                                                        </td>
+
+                                                </tr>
+                                                <tr>
+                                                        <td>email</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addUserToTeam"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            addUserToTeam
+                            </b>
+                            <a href="#addUserToTeam"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>addUserToTeam(userEmail: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:150</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userEmail</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addViewerUser"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            addViewerUser
+                            </b>
+                            <a href="#addViewerUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>addViewerUser(addTeamUser: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, itemProject: <a href="../interfaces/IProject.html">IProject</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The method of displaying a modal window with a form in which the user can specify
+the email address of the user to whom he wants to provide
+the ability to view data about the project without editing them</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>addTeamUser</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>boolean flag to for display to the user the necessary part</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>itemProject</td>
+                                                        <td>
+                                                                    <code><a href="../interfaces/IProject.html" target="_self" >IProject</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="close"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            close
+                            </b>
+                            <a href="#close"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>close()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="241" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:241</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Method for closing a modal window and clearing all values in inputs</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteUserFromTeam"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deleteUserFromTeam
+                            </b>
+                            <a href="#deleteUserFromTeam"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>deleteUserFromTeam(userEmail: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:81</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userEmail</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hide"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            hide
+                            </b>
+                            <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>hide()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="218" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:218</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="moveUserFromTeamToBrouse"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            moveUserFromTeamToBrouse
+                            </b>
+                            <a href="#moveUserFromTeamToBrouse"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>moveUserFromTeamToBrouse(userEmail: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:107</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userEmail</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onContainerClicked"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            onContainerClicked
+                            </b>
+                            <a href="#onContainerClicked"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>onContainerClicked(event: MouseEvent)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="232" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:232</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The method of tracking mouse clicks outside the modal window</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code>MouseEvent</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>keeps track of the mouse</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saveDatainDataBase"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            saveDatainDataBase
+                            </b>
+                            <a href="#saveDatainDataBase"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>saveDatainDataBase(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, project: <a href="../interfaces/IProject.html">IProject</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:133</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>project</td>
+                                                        <td>
+                                                                    <code><a href="../interfaces/IProject.html" target="_self" >IProject</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addUserForBrowse"></a>
+                        <span class="name">
+                            <b>
+                            addUserForBrowse
+                            </b>
+                            <a href="#addUserForBrowse"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>addUserForBrowse:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addUserInTeam"></a>
+                        <span class="name">
+                            <b>
+                            addUserInTeam
+                            </b>
+                            <a href="#addUserInTeam"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>addUserInTeam:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="browseUserEmail"></a>
+                        <span class="name">
+                            <b>
+                            browseUserEmail
+                            </b>
+                            <a href="#browseUserEmail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>browseUserEmail:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="itemElement"></a>
+                        <span class="name">
+                            <b>
+                            itemElement
+                            </b>
+                            <a href="#itemElement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>itemElement:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="project"></a>
+                        <span class="name">
+                            <b>
+                            project
+                            </b>
+                            <a href="#project"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>project:     <code><a href="../interfaces/IProject.html" target="_self" >IProject</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/IProject.html" target="_self" >IProject</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="teamUserEmail"></a>
+                        <span class="name">
+                            <b>
+                            teamUserEmail
+                            </b>
+                            <a href="#teamUserEmail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>teamUserEmail:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visible"></a>
+                        <span class="name">
+                            <b>
+                            visible
+                            </b>
+                            <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>visible:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visibleAnimate"></a>
+                        <span class="name">
+                            <b>
+                            visibleAnimate
+                            </b>
+                            <a href="#visibleAnimate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>visibleAnimate:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IProject } from &#x27;./../../../models/IProject&#x27;;
+import { Component, Input } from &#x27;@angular/core&#x27;;
+import { ProjectService } from &#x27;../../../services/project.service&#x27;;
+import { UsersService } from &#x27;../../../services/users.service&#x27;;
+import { FlashMessagesService } from &#x27;angular2-flash-messages&#x27;;
+
+@Component({
+  selector: &#x27;app-team-work-modal&#x27;,
+  templateUrl: &#x27;./team-work-modal.component.html&#x27;,
+  styleUrls: [&#x27;./team-work-modal.component.css&#x27;]
+})
+export class TeamWorkModalComponent {
+  @Input() dataValue;
+  @Input() title: string;
+
+  teamUserEmail: string;
+  browseUserEmail: string;
+  itemElement: string;
+  project: IProject;
+  visible &#x3D; false;
+  addUserInTeam &#x3D; false;
+  addUserForBrowse &#x3D; false;
+  visibleAnimate &#x3D; false;
+
+  constructor(
+    private projectService: ProjectService,
+    private usersService: UsersService,
+    private flashMessage: FlashMessagesService
+  ) { }
+
+/**
+   * Method to display a modal window with a form where the user
+   * can specify the user&#x27;s email with which he wants to continue working on his project
+ * @param addTeamUser boolean flag for display to the user necessary part
+ * @param itemProject item project fron project.component.ts
+ */
+  public addTeamUser(addTeamUser: boolean, itemProject: IProject): void {
+    this.addUserInTeam &#x3D; addTeamUser;
+    this.project &#x3D; itemProject;
+    this.visible &#x3D; true;
+    setTimeout(() &#x3D;&gt; this.visibleAnimate &#x3D; true, 100);
+  }
+
+  /**
+   * The method of displaying a modal window with a form in which the user can specify
+   * the email address of the user to whom he wants to provide
+   * the ability to view data about the project without editing them
+   * @param addTeamUser boolean flag to for display to the user the necessary part
+   * @param itemProject
+   */
+  public addViewerUser(addTeamUser: boolean, itemProject: IProject) {
+    this.addUserForBrowse &#x3D; addTeamUser;
+    this.project &#x3D; itemProject;
+    this.visible &#x3D; true;
+    setTimeout(() &#x3D;&gt; this.visibleAnimate &#x3D; true, 100);
+  }
+
+  /**
+   *
+   * @param isFolower
+   * @param email
+   */
+  public addUserToGroup(isFolower: boolean &#x3D; false, email: string): void {
+    const userEmeil &#x3D; email;
+    const projectId &#x3D; this.project._id;
+    const project &#x3D; this.project;
+    if (!isFolower) {
+      project.team_project.push(userEmeil);
+    } else if (isFolower) {
+      project.brows_team_project.push(userEmeil);
+    }
+    this.saveDatainDataBase(projectId, project);
+    this.teamUserEmail &#x3D; null;
+    setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
+  }
+
+  /**
+   *
+   * @param userEmail
+   */
+  public deleteUserFromTeam(userEmail: string): void {
+    const projectId &#x3D; this.project._id;
+    const projectTeamData &#x3D; this.project.team_project;
+    const itemTeamUserEmail &#x3D; userEmail;
+    for (let i &#x3D; 0; i &lt; projectTeamData.length; ++i) {
+      const itemTeamPlayer &#x3D; projectTeamData[i];
+      debugger;
+      if (itemTeamUserEmail &#x3D;&#x3D;&#x3D; itemTeamPlayer.email) {
+        projectTeamData.splice(i, 1);
+        this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
+        this.projectService.updateProject(projectId, this.project).subscribe(data &#x3D;&gt; {
+          if (data.success) {
+            console.log(&#x27;I hope it will work&#x27;);
+          } else {
+            console.error(&#x27;Somthing was wrang with delete team player&#x27;);
+          }
+        });
+        break;
+      }
+    }
+  }
+
+  /**
+   *
+   * @param userEmail
+   */
+  public moveUserFromTeamToBrouse(userEmail: string) {
+    const projectId &#x3D; this.project._id;
+    const projectTeamData &#x3D; this.project.team_project;
+    const projectBrowsData &#x3D; this.project.brows_team_project;
+    const itemTeamUserEmail &#x3D; userEmail;
+    for (let i &#x3D; 0; i &lt; projectTeamData.length; ++i) {
+      const itemTeamPlayer &#x3D; projectTeamData[i];
+      if (itemTeamUserEmail &#x3D;&#x3D;&#x3D; itemTeamPlayer) {
+        projectTeamData.splice(i, 1);
+        projectBrowsData.push(itemTeamUserEmail);
+        this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
+        /*
+        this.projectService.updateProject(projectId, this.project).subscribe(data &#x3D;&gt; {
+          if (data.success) {
+            console.log(&#x27;I hope it will work&#x27;);
+          } else {
+            console.error(&#x27;Somthing was wrang with delete team player&#x27;);
+          }
+        });
+        */
+        break;
+      }
+    }
+  }
+
+  // END REFACTORING PART
+  public saveDatainDataBase(projectId: string, project: IProject) {
+    this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
+/*
+    this.projectService.updateProject(projectId, project).subscribe(data &#x3D;&gt; {
+      if (data.success) {
+        console.log(&#x27;I hope it will work&#x27;);
+      } else {
+        console.error(&#x27;Somthing was wrang with update TEAM data&#x27;);
+      }
+    });
+    */
+  }
+
+  /**
+   *
+   * @param teamUser
+   */
+  public addUserToTeam(userEmail: string) {
+    for (let i &#x3D; 0; i &lt; this.project.team_project.length; ++i) {
+      const itemTeamWorker &#x3D; this.project.team_project[i];
+      if (itemTeamWorker.email &#x3D;&#x3D;&#x3D; userEmail) {
+        console.log(&#x27;User is already on this list.&#x27;);
+        this.flashMessage.show(&#x27;User is already on this list.&#x27;, { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 });
+        this.hide();
+      } else {
+        this.teamUserEmail &#x3D; userEmail;
+        this.usersService.getItemUserByEmail(this.teamUserEmail).subscribe(data &#x3D;&gt; {
+          if (data.guid) {
+            const teamUserData &#x3D; {guid: &#x27;&#x27;, email: &#x27;&#x27;};
+            teamUserData.guid &#x3D; data.guid;
+            teamUserData.email &#x3D; userEmail;
+            this.project.team_project.push(teamUserData);
+            console.log(this.project.team_project);
+            this.projectService.updateProject(this.project._id, this.project).subscribe(response &#x3D;&gt; {
+              if (response.status &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
+                console.log(&#x27;Data updated on the server&#x27;);
+                this.flashMessage.show(&#x27;Project has been updated.&#x27;, { cssClass: &#x27;alert-success&#x27;, timeout: 3000 });
+                this.hide();
+              } else {
+                console.error(&#x27;Something went wrong with updating the project data on the server&#x27;);
+                this.flashMessage.show(&#x27;Having trouble adding a user to a joint command.&#x27;, { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 });
+                this.hide();
+              }
+            });
+          } else {
+            // console.error(&#x27;Something went wrong with getting user guides from server&#x27;);
+            this.flashMessage.show(
+              &#x27;We did not find a registered user with such email on our website.&#x27;,
+              { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 }
+            );
+            this.hide();
+          }
+        });
+      }
+    }
+  }
+
+  /**
+   *
+   * @param browseEmail
+   */
+  public addBrowseUser (browseEmail: string) {
+    this.browseUserEmail &#x3D; browseEmail;
+    const projectId &#x3D; this.project._id;
+    if ( !this.project.brows_team_project) {
+      this.project.brows_team_project &#x3D; [];
+      this.project.brows_team_project.push(this.browseUserEmail);
+    } else {
+      this.project.brows_team_project.push(this.browseUserEmail);
+    }
+    this.projectService.updateProject(projectId, this.project).subscribe(data &#x3D;&gt; {
+      if (data.success) {
+        this.dataValue.push(this.project);
+      } else {
+        console.error(&#x27;Somthing was wrang&#x27;);
+      }
+    });
+    this.addUserInTeam &#x3D; false;
+    this.browseUserEmail &#x3D; null;
+    setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
+  }
+
+    /**
+   *
+   */
+  public hide(): void {
+    this.itemElement &#x3D; null;
+    this.project &#x3D; null;
+    this.addUserInTeam &#x3D; false;
+    this.addUserForBrowse &#x3D; false;
+    this.teamUserEmail &#x3D; null;
+    this.visible &#x3D; false;
+    // setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
+  }
+
+  /**
+   * The method of tracking mouse clicks outside the modal window
+   * @param event keeps track of the mouse
+   */
+  public onContainerClicked(event: MouseEvent): void {
+    if ((&lt;HTMLElement&gt;event.target).classList.contains(&#x27;modal&#x27;)) {
+      this.hide();
+    }
+  }
+
+  /**
+   * Method for closing a modal window and clearing all values in inputs
+   */
+  public close(): void {
+    this.hide();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;modal-padding&quot;
+     (click)&#x3D;&quot;onContainerClicked($event)&quot;
+     class&#x3D;&quot;modal fade&quot;
+     tabindex&#x3D;&quot;-1&quot;
+     [ngClass]&#x3D;&quot;{&#x27;in&#x27;: visibleAnimate}&quot;
+     [ngStyle]&#x3D;&quot;{&#x27;display&#x27;: visible ? &#x27;block&#x27; : &#x27;none&#x27;, &#x27;opacity&#x27;: visibleAnimate ? 1 : 0}&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot; aria-labelledby&#x3D;&quot;exampleModalLongTitle&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h4 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;exampleModalLongTitle&quot;&gt;{{title}}&lt;/h4&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;close()&quot;&gt;
+          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot; *ngIf&#x3D;&quot;addUserInTeam&quot;&gt;
+        &lt;div class&#x3D;&quot;form-inline&quot;&gt;
+          &lt;label class&#x3D;&quot;pr-2&quot;&gt;&lt;strong&gt;User e-mail: &lt;/strong&gt;&lt;/label&gt;
+          &lt;input class&#x3D;&quot;form-control&quot;
+                 name&#x3D;&quot;teamUserEmail&quot;
+                 [(ngModel)]&#x3D;&quot;teamUserEmail&quot;
+                 placeholder&#x3D;&#x27;Input email for team work&#x27;
+                 onfocus&#x3D;&quot;this.placeholder &#x3D; &#x27;&#x27;&quot;
+                 onblur&#x3D;&quot;this.placeholder &#x3D; &#x27;Input user email&#x27;&quot; 
+          /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class&#x3D;&quot;d-flex justify-content-center&quot;&gt;
+            &lt;div&gt;
+              &lt;span&gt; Your team&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;d-flex&quot; *ngFor&#x3D;&quot;let itemTeamUser of project.team_project&quot;&gt;
+            &lt;div class&#x3D;&quot;mr-auto p-2&quot;&gt;{{itemTeamUser.email}}&lt;/div&gt;
+            &lt;div class&#x3D;&quot;p-2&quot;&gt;
+              &lt;a class&#x3D;&quot;btn btn-danger&quot;
+                 data-toggle&#x3D;&quot;tooltip&quot;
+                 data-placement&#x3D;&quot;top&quot;
+                 title&#x3D;&quot;Delete project&quot;
+                 (click)&#x3D;&quot;deleteUserFromTeam(itemTeamUser)&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;p-2&quot;&gt;
+              &lt;a class&#x3D;&quot;btn btn-info&quot;
+                 data-toggle&#x3D;&quot;tooltip&quot;
+                 data-placement&#x3D;&quot;top&quot;
+                 title&#x3D;&quot;Move user to browse group&quot;
+                 (click)&#x3D;&quot;moveUserFromTeamToBrouse(itemTeamUser)&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-eye&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot; *ngIf&#x3D;&quot;addUserForBrowse&quot;&gt;
+        &lt;div class&#x3D;&quot;form-inline&quot;&gt;
+          &lt;label class&#x3D;&quot;pr-2&quot;&gt;&lt;strong&gt;User e-mail: &lt;/strong&gt;&lt;/label&gt;
+          &lt;input class&#x3D;&quot;form-control&quot;
+                 name&#x3D;&quot;browseUserEmail&quot;
+                 [(ngModel)]&#x3D;&quot;browseUserEmail&quot;
+                 placeholder&#x3D;&#x27;Input email for browse&#x27;
+                 onfocus&#x3D;&quot;this.placeholder &#x3D; &#x27;&#x27;&quot;
+                 onblur&#x3D;&quot;this.placeholder &#x3D; &#x27;Input user email&#x27;&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class&#x3D;&quot;d-flex justify-content-center&quot;&gt;
+            &lt;div&gt;
+              &lt;span&gt; Your folowers&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;d-flex&quot; *ngFor&#x3D;&quot;let itemTeamUser of project.brows_team_project&quot;&gt;
+            &lt;div class&#x3D;&quot;mr-auto p-2&quot;&gt;{{itemTeamUser.email}}&lt;/div&gt;
+            &lt;div class&#x3D;&quot;p-2&quot;&gt;
+              &lt;a class&#x3D;&quot;btn btn-danger&quot;
+                 data-toggle&#x3D;&quot;tooltip&quot;
+                 data-placement&#x3D;&quot;top&quot;
+                 title&#x3D;&quot;Disable user&quot;
+                 (click)&#x3D;&quot;deleteUserFromFolowers(itemTeamUser)&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;p-2&quot;&gt;
+              &lt;a class&#x3D;&quot;btn btn-info&quot;
+                 data-toggle&#x3D;&quot;tooltip&quot;
+                 data-placement&#x3D;&quot;top&quot;
+                 title&#x3D;&quot;Move user to team group&quot;
+                 (click)&#x3D;&quot;moveUserFromFoloversToTeam(itemTeamUser)&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-pencil-square-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;d-flex justify-content-end&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;addUserInTeam&quot; class&#x3D;&quot;form-group pr-1&quot;&gt;
+              &lt;button class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;addUserToTeam(teamUserEmail)&quot;&gt;Add user to team&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;addUserForBrowse&quot; class&#x3D;&quot;form-group pr-1&quot;&gt;
+              &lt;button class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;addUserToGroup(true, browseUserEmail)&quot;&gt;Add folower&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;pl-1 pr-2&quot;&gt;
+              &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;close()&quot;&gt;Close&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="modal-padding"     (click)="onContainerClicked($event)"     class="modal fade"     tabindex="-1"     [ngClass]="{\'in\': visibleAnimate}"     [ngStyle]="{\'display\': visible ? \'block\' : \'none\', \'opacity\': visibleAnimate ? 1 : 0}">  <div class="modal-dialog" aria-labelledby="exampleModalLongTitle">    <div class="modal-content">      <div class="modal-header">        <h4 class="modal-title" id="exampleModalLongTitle">{{title}}</h4>        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">          <span aria-hidden="true">&times;</span>        </button>      </div>      <div class="modal-body" *ngIf="addUserInTeam">        <div class="form-inline">          <label class="pr-2"><strong>User e-mail: </strong></label>          <input class="form-control"                 name="teamUserEmail"                 [(ngModel)]="teamUserEmail"                 placeholder=\'Input email for team work\'                 onfocus="this.placeholder = \'\'"                 onblur="this.placeholder = \'Input user email\'"           />        </div>        <div>          <div class="d-flex justify-content-center">            <div>              <span> Your team</span>            </div>          </div>          <div class="d-flex" *ngFor="let itemTeamUser of project.team_project">            <div class="mr-auto p-2">{{itemTeamUser.email}}</div>            <div class="p-2">              <a class="btn btn-danger"                 data-toggle="tooltip"                 data-placement="top"                 title="Delete project"                 (click)="deleteUserFromTeam(itemTeamUser)">                <i class="fa fa-trash-o" aria-hidden="true"></i>              </a>            </div>            <div class="p-2">              <a class="btn btn-info"                 data-toggle="tooltip"                 data-placement="top"                 title="Move user to browse group"                 (click)="moveUserFromTeamToBrouse(itemTeamUser)">                <i class="fa fa-eye" aria-hidden="true"></i>              </a>            </div>          </div>        </div>      </div>      <div class="modal-body" *ngIf="addUserForBrowse">        <div class="form-inline">          <label class="pr-2"><strong>User e-mail: </strong></label>          <input class="form-control"                 name="browseUserEmail"                 [(ngModel)]="browseUserEmail"                 placeholder=\'Input email for browse\'                 onfocus="this.placeholder = \'\'"                 onblur="this.placeholder = \'Input user email\'" />        </div>        <div>          <div class="d-flex justify-content-center">            <div>              <span> Your folowers</span>            </div>          </div>          <div class="d-flex" *ngFor="let itemTeamUser of project.brows_team_project">            <div class="mr-auto p-2">{{itemTeamUser.email}}</div>            <div class="p-2">              <a class="btn btn-danger"                 data-toggle="tooltip"                 data-placement="top"                 title="Disable user"                 (click)="deleteUserFromFolowers(itemTeamUser)">                <i class="fa fa-trash-o" aria-hidden="true"></i>              </a>            </div>            <div class="p-2">              <a class="btn btn-info"                 data-toggle="tooltip"                 data-placement="top"                 title="Move user to team group"                 (click)="moveUserFromFoloversToTeam(itemTeamUser)">                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>              </a>            </div>          </div>        </div>      </div>      <div class="modal-footer">        <div class="row">          <div class="d-flex justify-content-end">            <div *ngIf="addUserInTeam" class="form-group pr-1">              <button class="btn btn-success" (click)="addUserToTeam(teamUserEmail)">Add user to team</button>            </div>            <div *ngIf="addUserForBrowse" class="form-group pr-1">              <button class="btn btn-success" (click)="addUserToGroup(true, browseUserEmail)">Add folower</button>            </div>            <div class="pl-1 pr-2">              <button class="btn btn-primary" (click)="close()">Close</button>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TeamWorkModalComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TeamWorkModalComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <p class="h5"> Users list and their projects </p>
+  </div>
+  <div *ngIf="usersArr">
+    <div *ngFor="let itemUser of usersArr; let i = index">
+      <div class="d-flex flex-row">
+        <div class="p-2">{{itemUser.firstName}}</div>
+        <div class="p-2">{{itemUser.lastName}}</div>
+        <div class="p-2">{{itemUser.email}}</div>
+        <div class="p-2">{{itemUser.companyName}}</div>
+        <div class="p-2">{{itemUser.phone}}</div>
+        <div class="ml-auto p-2" [hidden]="isAdmin">
+          <a 
+            class="btn btn-danger"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Delete user"
+            (click)="deleteUser(itemUser._id, i, itemUser.email)"
+          >
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="d-flex flex-row" *ngFor="let itemProject of itemUser.projectList[0]">
+        <div class="d-flex flex-column">
+          <div class="p-2">
+            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="['/project', itemProject._id]">
+              <strong>
+                {{itemProject.title}}
+              </strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

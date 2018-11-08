@@ -1,0 +1,21 @@
+.breadcrumb {
+  background-color: white !important;
+}
+
+.text-style{
+  font-family: Roboto-Bolt!important;
+  color: #4c4c4c!important;
+}
+
+.temporary-text-style {
+  font-family: Roboto-Light!important;
+  color: #4c4c4c!important;
+}
+
+.disable-decoration {
+  text-decoration: none!important;
+}
+
+.cursor-style {
+  cursor: pointer;
+}

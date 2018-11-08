@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Roboto-Light";
+    src: url("../../../assets/fonts/Roboto-Light.ttf");
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  @font-face {
+    font-family: "Roboto-Bolt";
+    src: url("../../../assets/fonts/Roboto-Bold.ttf");
+    font-weight: bold;
+  }
+  .table-text-style{
+    font-family: Roboto-Bolt!important;
+    color: #4c4c4c!important;
+  }
+  
+  .disable-decoration {
+    text-decoration: none!important;
+  }
+  
+  .table-cursor {
+    cursor: pointer;
+  }
+  
+  thead th {
+    font-size: 0.6rem;
+  }
+  tbody tr td  {
+    font-size: 0.6rem;
+  }
+  .achievements-wrapper {
+    height: auto; 
+    overflow: auto;
+  }

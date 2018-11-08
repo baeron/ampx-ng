@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0c8a7511-a9f8-4bbf-abf0-786d9d193d7a}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>app.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="angular-src\src\app\components\admin\admin.component.css" />
+    <Content Include="angular-src\src\app\components\admin\admin.component.html" />
+    <Content Include="angular-src\src\app\components\modals\team-work-modal\team-work-modal.component.css" />
+    <Content Include="angular-src\src\app\components\modals\team-work-modal\team-work-modal.component.html" />
+    <Content Include="angular-src\src\app\components\superadmin\superadmin.component.css" />
+    <Content Include="angular-src\src\app\components\superadmin\superadmin.component.html" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Compile Include="app.js" />
+    <Content Include="angular-src\.angular-cli.json" />
+    <Content Include="angular-src\package-lock.json" />
+    <Content Include="angular-src\package.json" />
+    <Content Include="angular-src\tsconfig.json" />
+    <Content Include="angular-src\tslint.json" />
+    <Content Include="angular-src\README.md" />
+    <Compile Include="angular-src\karma.conf.js" />
+    <Compile Include="angular-src\protractor.conf.js" />
+    <Compile Include="config\database.js" />
+    <Compile Include="config\passport.js" />
+    <Compile Include="models\project.js" />
+    <Compile Include="models\user.js" />
+    <Compile Include="routes\project.js" />
+    <Compile Include="routes\users.js" />
+    <Content Include="angular-src\e2e\tsconfig.e2e.json" />
+    <TypeScriptCompile Include="angular-src\e2e\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="angular-src\e2e\app.po.ts" />
+    <Content Include="angular-src\src\index.html" />
+    <Content Include="angular-src\src\styles.css" />
+    <Content Include="angular-src\src\favicon.ico" />
+    <Content Include="angular-src\src\tsconfig.app.json" />
+    <Content Include="angular-src\src\tsconfig.spec.json" />
+    <TypeScriptCompile Include="angular-src\src\app\components\admin\admin.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\admin\admin.component.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\electrical-item\electrical.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="angular-src\src\app\components\electrical-list\electrical-short.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\team-work-modal\short-project.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\team-work-modal\team-work-modal.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\team-work-modal\team-work-modal.component.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\profile\profile.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="angular-src\src\app\components\project\project.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="angular-src\src\app\components\superadmin\superadmin.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\superadmin\superadmin.component.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\users.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\users.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\main.ts" />
+    <TypeScriptCompile Include="angular-src\src\polyfills.ts" />
+    <TypeScriptCompile Include="angular-src\src\test.ts" />
+    <TypeScriptCompile Include="angular-src\src\typings.d.ts" />
+    <Content Include="angular-src\dist\assets\images\homepage\carousel\Engenieering-Optimization.jpg" />
+    <Content Include="angular-src\dist\assets\images\homepage\carousel\LIfecycle-Solutionos.jpg" />
+    <Content Include="angular-src\dist\assets\images\homepage\carousel\Trusted-Experts.jpg" />
+    <Content Include="angular-src\src\app\app.component.html" />
+    <Content Include="angular-src\src\app\app.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\app.component.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\app.module.ts" />
+    <TypeScriptCompile Include="angular-src\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="angular-src\src\environments\environment.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\guards\auth.guard.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\auth.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\auth.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\cable.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\cable.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\contact-us.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\contact-us.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\controller.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\controller.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\electrical.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\electrical.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\excel.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\excel.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\instrumentation.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\instrumentation.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\io-assignment.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\io-assignment.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\project.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\project.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\sldschedule.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\sldschedule.service.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\validate.service.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\services\validate.service.ts" />
+    <Content Include="angular-src\src\app\components\about-us\about-us.component.html" />
+    <Content Include="angular-src\src\app\components\about-us\about-us.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\about-us\about-us.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\about-us\about-us.component.ts" />
+    <Content Include="angular-src\src\app\components\cable-item\cable-item.component.html" />
+    <Content Include="angular-src\src\app\components\cable-item\cable-item.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\cable-item\cable-item.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\cable-item\cable-item.component.ts" />
+    <Content Include="angular-src\src\app\components\cable-list\cable-list.component.html" />
+    <Content Include="angular-src\src\app\components\cable-list\cable-list.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\cable-list\cable-list.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\cable-list\cable-list.component.ts" />
+    <Content Include="angular-src\src\app\components\contact-us\contact-us.component.html" />
+    <Content Include="angular-src\src\app\components\contact-us\contact-us.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\contact-us\contact-us.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\contact-us\contact-us.component.ts" />
+    <Content Include="angular-src\src\app\components\controller-item\controller-item.component.html" />
+    <Content Include="angular-src\src\app\components\controller-item\controller-item.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\controller-item\controller-item.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\controller-item\controller-item.component.ts" />
+    <Content Include="angular-src\src\app\components\controllers-list\controllers-list.component.html" />
+    <Content Include="angular-src\src\app\components\controllers-list\controllers-list.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\controllers-list\controllers-list.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\controllers-list\controllers-list.component.ts" />
+    <Content Include="angular-src\src\app\components\drop-down\drop-down.component.html" />
+    <Content Include="angular-src\src\app\components\drop-down\drop-down.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\drop-down\drop-down.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\drop-down\drop-down.component.ts" />
+    <Content Include="angular-src\src\app\components\drop-down-dependent\drop-down-dependent.component.html" />
+    <Content Include="angular-src\src\app\components\drop-down-dependent\drop-down-dependent.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\drop-down-dependent\depended-item.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\drop-down-dependent\drop-down-dependent.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\drop-down-dependent\drop-down-dependent.component.ts" />
+    <Content Include="angular-src\src\app\components\electrical-item\electrical-item.component.html" />
+    <Content Include="angular-src\src\app\components\electrical-item\electrical-item.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\electrical-item\electrical-item.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\electrical-item\electrical-item.component.ts" />
+    <Content Include="angular-src\src\app\components\electrical-list\electrical-list.component.html" />
+    <Content Include="angular-src\src\app\components\electrical-list\electrical-list.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\electrical-list\electrical-list.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\electrical-list\electrical-list.component.ts" />
+    <Content Include="angular-src\src\app\components\home\home.component.html" />
+    <Content Include="angular-src\src\app\components\home\home.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\home\home.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\home\home.component.ts" />
+    <Content Include="angular-src\src\app\components\instrumentation-item\instrumentation-item.component.html" />
+    <Content Include="angular-src\src\app\components\instrumentation-item\instrumentation-item.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\instrumentation-item\instrumentation-item.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\instrumentation-item\instrumentation-item.component.ts" />
+    <Content Include="angular-src\src\app\components\instrumentation-list\instrumentation-list.component.html" />
+    <Content Include="angular-src\src\app\components\instrumentation-list\instrumentation-list.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\instrumentation-list\instrumentation-list.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\instrumentation-list\instrumentation-list.component.ts" />
+    <Content Include="angular-src\src\app\components\io-assignment\io-assignment.component.html" />
+    <Content Include="angular-src\src\app\components\io-assignment\io-assignment.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\io-assignment\io-assignment.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\io-assignment\io-assignment.component.ts" />
+    <Content Include="angular-src\src\app\components\login\login.component.html" />
+    <Content Include="angular-src\src\app\components\login\login.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\login\login.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\login\login.component.ts" />
+    <Content Include="angular-src\src\app\components\navbar\navbar.component.html" />
+    <Content Include="angular-src\src\app\components\navbar\navbar.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\navbar\navbar.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\navbar\navbar.component.ts" />
+    <Content Include="angular-src\src\app\components\profile\profile.component.html" />
+    <Content Include="angular-src\src\app\components\profile\profile.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\profile\profile.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\profile\profile.component.ts" />
+    <Content Include="angular-src\src\app\components\project\project.component.html" />
+    <Content Include="angular-src\src\app\components\project\project.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\project\project.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\project\project.component.ts" />
+    <Content Include="angular-src\src\app\components\project-dashboard\project-dashboard.component.html" />
+    <Content Include="angular-src\src\app\components\project-dashboard\project-dashboard.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\project-dashboard\project-dashboard.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\project-dashboard\project-dashboard.component.ts" />
+    <Content Include="angular-src\src\app\components\register\register.component.html" />
+    <Content Include="angular-src\src\app\components\register\register.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\register\register.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\register\register.component.ts" />
+    <Content Include="angular-src\src\app\components\services\services.component.html" />
+    <Content Include="angular-src\src\app\components\services\services.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\services\services.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\services\services.component.ts" />
+    <Content Include="angular-src\src\app\components\signin\signin.component.html" />
+    <Content Include="angular-src\src\app\components\signin\signin.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\signin\customVatidator.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\signin\matchOtherValidator.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\signin\signin.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\signin\signin.component.ts" />
+    <Content Include="angular-src\src\app\components\sld-schedule-item\sld-schedule-item.component.html" />
+    <Content Include="angular-src\src\app\components\sld-schedule-item\sld-schedule-item.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\sld-schedule-item\sld-schedule-item.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\sld-schedule-item\sld-schedule-item.component.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\sld-schedule-item\sld-schedule-item.ts" />
+    <Content Include="angular-src\src\app\components\sld-schedule-list\sld-schedule-list.component.html" />
+    <Content Include="angular-src\src\app\components\sld-schedule-list\sld-schedule-list.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\sld-schedule-list\sld-schedule-list.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\sld-schedule-list\sld-schedule-list.component.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\sld-schedule-list\sld-schedule.ts" />
+    <Content Include="angular-src\src\app\components\modals\controller-modal\controller-modal.component.html" />
+    <Content Include="angular-src\src\app\components\modals\controller-modal\controller-modal.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\controller-modal\controller-modal.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\controller-modal\controller-modal.component.ts" />
+    <Content Include="angular-src\src\app\components\modals\electricals-modal\electricals-modal.component.html" />
+    <Content Include="angular-src\src\app\components\modals\electricals-modal\electricals-modal.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\electricals-modal\electricals-modal.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\electricals-modal\electricals-modal.component.ts" />
+    <Content Include="angular-src\src\app\components\modals\multiple-modal\multiple-modal.component.html" />
+    <Content Include="angular-src\src\app\components\modals\multiple-modal\multiple-modal.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\multiple-modal\multiple-modal.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\multiple-modal\multiple-modal.component.ts" />
+    <Content Include="angular-src\src\app\components\modals\projects-modal\projects-modal.component.html" />
+    <Content Include="angular-src\src\app\components\modals\projects-modal\projects-modal.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\projects-modal\projects-modal.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\projects-modal\projects-modal.component.ts" />
+    <Content Include="angular-src\src\app\components\modals\simple-electrical-modal\simple-electrical-modal.component.html" />
+    <Content Include="angular-src\src\app\components\modals\simple-electrical-modal\simple-electrical-modal.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\simple-electrical-modal\simple-electrical-modal.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\simple-electrical-modal\simple-electrical-modal.component.ts" />
+    <Content Include="angular-src\src\app\components\modals\cabels-modals\cable-distance-modal\cable-distance-modal.component.html" />
+    <Content Include="angular-src\src\app\components\modals\cabels-modals\cable-distance-modal\cable-distance-modal.component.css" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\cabels-modals\cable-distance-modal\cable-distance-modal.component.spec.ts" />
+    <TypeScriptCompile Include="angular-src\src\app\components\modals\cabels-modals\cable-distance-modal\cable-distance-modal.component.ts" />
+    <Content Include="angular-src\src\assets\img\1024\home\Engenieering_Optimization_1024.jpg" />
+    <Content Include="angular-src\src\assets\img\1024\home\LIfecycle_Solutionos_1024.jpg" />
+    <Content Include="angular-src\src\assets\img\1024\home\Trusted_Experts_1024.jpg" />
+    <Content Include="angular-src\src\assets\img\1024\service\icons\calculator.png" />
+    <Content Include="angular-src\src\assets\img\1024\service\icons\gear.png" />
+    <Content Include="angular-src\src\assets\img\1024\service\icons\lighting.png" />
+    <Content Include="angular-src\src\assets\img\1024\service\icons\pumpjack.png" />
+    <Content Include="angular-src\src\assets\img\1024\service\icons\solar.png" />
+    <Content Include="angular-src\src\assets\img\1024\service\icons\tools.png" />
+    <Content Include="angular-src\src\assets\img\1024\service\Slider\Engineering_Analysis.jpg" />
+    <Content Include="angular-src\src\assets\img\1024\service\Slider\Field_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\1024\service\Slider\Oil_And_Gas.jpg" />
+    <Content Include="angular-src\src\assets\img\1024\service\Slider\Power_System.jpg" />
+    <Content Include="angular-src\src\assets\img\1024\service\Slider\Project_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\1024\service\Slider\Renewables.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\contactUs\contact_us.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\header\AMP-X-logo.png" />
+    <Content Include="angular-src\src\assets\img\1200\home\Engenieering_Optimization.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\home\Lifecycle_Solutionos.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\home\Trusted_Experts.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\aboutUs\icons\computer-icon.png" />
+    <Content Include="angular-src\src\assets\img\1200\aboutUs\icons\graphic-icon.png" />
+    <Content Include="angular-src\src\assets\img\1200\aboutUs\icons\lightbulb-icon.png" />
+    <Content Include="angular-src\src\assets\img\1200\aboutUs\Slider\firstImg.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\aboutUs\Slider\fourthImg.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\aboutUs\Slider\secondImg.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\aboutUs\Slider\thirdImg.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\service\icons\calculator.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\icons\gear.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\icons\lighting.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\icons\pumpjack.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\icons\solar.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\icons\tools.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\LogoLinks\csa.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\LogoLinks\iec.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\LogoLinks\ieee.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\LogoLinks\isa.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\LogoLinks\nec.png" />
+    <Content Include="angular-src\src\assets\img\1200\service\Slider\Engineering_Analysis.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\service\Slider\Field_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\service\Slider\Oil_And_Gas.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\service\Slider\Power_System.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\service\Slider\Project_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\1200\service\Slider\Renewables.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\home\Engenieering_Optimization_1366.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\home\LIfecycle_Solutionos_1366.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\home\Trusted_Experts_1366.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\Servises\Slider\Engineering_Analysis.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\Servises\Slider\Field_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\Servises\Slider\Oil_And_Gas.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\Servises\Slider\Power_System.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\Servises\Slider\Project_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\1366\Servises\Slider\Renewables.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\contactUs\contact_us.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\headerAndFooter\email_1920.png" />
+    <Content Include="angular-src\src\assets\img\1920\headerAndFooter\linkedin_1920.png" />
+    <Content Include="angular-src\src\assets\img\1920\headerAndFooter\phone_1920.png" />
+    <Content Include="angular-src\src\assets\img\1920\home\Engenieering_Optimization_1920.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\home\Lifecycle_Solutionos_1920.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\home\Trusted_Experts_1920.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\aboutUs\Icons\computer-icon.png" />
+    <Content Include="angular-src\src\assets\img\1920\aboutUs\Icons\graphic-icon.png" />
+    <Content Include="angular-src\src\assets\img\1920\aboutUs\Icons\lightbulb-icon.png" />
+    <Content Include="angular-src\src\assets\img\1920\aboutUs\LeaderImage\greg-img.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\aboutUs\Slider\firstImg.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\aboutUs\Slider\fourthImg.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\aboutUs\Slider\secondImg.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\aboutUs\Slider\thirdImg.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\home\LogoLinks\apega.png" />
+    <Content Include="angular-src\src\assets\img\1920\home\LogoLinks\aset.png" />
+    <Content Include="angular-src\src\assets\img\1920\home\LogoLinks\cc.png" />
+    <Content Include="angular-src\src\assets\img\1920\home\LogoLinks\ecaa.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\icons\calculator.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\icons\gear.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\icons\lighting.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\icons\pumpjack.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\icons\solar.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\icons\tools.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\LogoLinks\csa.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\LogoLinks\iec.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\LogoLinks\ieee.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\LogoLinks\isa.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\LogoLinks\nec.png" />
+    <Content Include="angular-src\src\assets\img\1920\service\Slider\Engineering_Analysis.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\service\Slider\Field_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\service\Slider\Oil_And_Gas.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\service\Slider\Power_System.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\service\Slider\Project_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\1920\service\Slider\Renewables.jpg" />
+    <Content Include="angular-src\src\assets\img\576\contactUs\contact_us.jpg" />
+    <Content Include="angular-src\src\assets\img\576\home\Engenieering_Optimization.jpg" />
+    <Content Include="angular-src\src\assets\img\576\home\Lifecycle_Solutionos.jpg" />
+    <Content Include="angular-src\src\assets\img\576\home\Trusted_Experts.jpg" />
+    <Content Include="angular-src\src\assets\img\576\aboutUs\icons\computer-icon.png" />
+    <Content Include="angular-src\src\assets\img\576\aboutUs\icons\graphic-icon.png" />
+    <Content Include="angular-src\src\assets\img\576\aboutUs\icons\lightbulb-icon.png" />
+    <Content Include="angular-src\src\assets\img\576\aboutUs\Slider\firstImg.jpg" />
+    <Content Include="angular-src\src\assets\img\576\aboutUs\Slider\fourthImg.jpg" />
+    <Content Include="angular-src\src\assets\img\576\aboutUs\Slider\secondImg.jpg" />
+    <Content Include="angular-src\src\assets\img\576\aboutUs\Slider\thirdImg.jpg" />
+    <Content Include="angular-src\src\assets\img\576\services\icons\calculator.png" />
+    <Content Include="angular-src\src\assets\img\576\services\icons\gear.png" />
+    <Content Include="angular-src\src\assets\img\576\services\icons\lighting.png" />
+    <Content Include="angular-src\src\assets\img\576\services\icons\pumpjack.png" />
+    <Content Include="angular-src\src\assets\img\576\services\icons\solar.png" />
+    <Content Include="angular-src\src\assets\img\576\services\icons\tools.png" />
+    <Content Include="angular-src\src\assets\img\576\services\LogoLinks\csa.png" />
+    <Content Include="angular-src\src\assets\img\576\services\LogoLinks\iec.png" />
+    <Content Include="angular-src\src\assets\img\576\services\LogoLinks\ieee.png" />
+    <Content Include="angular-src\src\assets\img\576\services\LogoLinks\isa.png" />
+    <Content Include="angular-src\src\assets\img\576\services\LogoLinks\nec.png" />
+    <Content Include="angular-src\src\assets\img\576\services\Slider\Engineering_Analysis.jpg" />
+    <Content Include="angular-src\src\assets\img\576\services\Slider\Field_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\576\services\Slider\Oil_And_Gas.jpg" />
+    <Content Include="angular-src\src\assets\img\576\services\Slider\Power_System.jpg" />
+    <Content Include="angular-src\src\assets\img\576\services\Slider\Project_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\576\services\Slider\Renewables.jpg" />
+    <Content Include="angular-src\src\assets\img\768\contactUs\contact_us.jpg" />
+    <Content Include="angular-src\src\assets\img\768\header\AMP-X-logo.png" />
+    <Content Include="angular-src\src\assets\img\768\home\Engenieering_Optimization.jpg" />
+    <Content Include="angular-src\src\assets\img\768\home\Lifecycle_Solutionos.jpg" />
+    <Content Include="angular-src\src\assets\img\768\home\Trusted_Experts.jpg" />
+    <Content Include="angular-src\src\assets\img\768\aboutUs\icons\computer-icon.png" />
+    <Content Include="angular-src\src\assets\img\768\aboutUs\icons\graphic-icon.png" />
+    <Content Include="angular-src\src\assets\img\768\aboutUs\icons\lightbulb-icon.png" />
+    <Content Include="angular-src\src\assets\img\768\aboutUs\Slider\firstImg.jpg" />
+    <Content Include="angular-src\src\assets\img\768\aboutUs\Slider\fourthImg.jpg" />
+    <Content Include="angular-src\src\assets\img\768\aboutUs\Slider\secondImg.jpg" />
+    <Content Include="angular-src\src\assets\img\768\aboutUs\Slider\thirdImg.jpg" />
+    <Content Include="angular-src\src\assets\img\768\services\icons\calculator.png" />
+    <Content Include="angular-src\src\assets\img\768\services\icons\gear.png" />
+    <Content Include="angular-src\src\assets\img\768\services\icons\lighting.png" />
+    <Content Include="angular-src\src\assets\img\768\services\icons\pumpjack.png" />
+    <Content Include="angular-src\src\assets\img\768\services\icons\solar.png" />
+    <Content Include="angular-src\src\assets\img\768\services\icons\tools.png" />
+    <Content Include="angular-src\src\assets\img\768\services\LogoLinks\csa.png" />
+    <Content Include="angular-src\src\assets\img\768\services\LogoLinks\iec.png" />
+    <Content Include="angular-src\src\assets\img\768\services\LogoLinks\ieee.png" />
+    <Content Include="angular-src\src\assets\img\768\services\LogoLinks\isa.png" />
+    <Content Include="angular-src\src\assets\img\768\services\LogoLinks\nec.png" />
+    <Content Include="angular-src\src\assets\img\768\services\Slider\Engineering_Analysis.jpg" />
+    <Content Include="angular-src\src\assets\img\768\services\Slider\Field_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\768\services\Slider\Oil_And_Gas.jpg" />
+    <Content Include="angular-src\src\assets\img\768\services\Slider\Power_System.jpg" />
+    <Content Include="angular-src\src\assets\img\768\services\Slider\Project_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\768\services\Slider\Renewables.jpg" />
+    <Content Include="angular-src\src\assets\img\992\contactUs\contact_us.jpg" />
+    <Content Include="angular-src\src\assets\img\992\home\Engenieering_Optimization.jpg" />
+    <Content Include="angular-src\src\assets\img\992\home\Lifecycle_Solutionos.jpg" />
+    <Content Include="angular-src\src\assets\img\992\home\Trusted_Experts.jpg" />
+    <Content Include="angular-src\src\assets\img\992\aboutUs\Slider\firstImg.jpg" />
+    <Content Include="angular-src\src\assets\img\992\aboutUs\Slider\fourthImg.jpg" />
+    <Content Include="angular-src\src\assets\img\992\aboutUs\Slider\secondImg.jpg" />
+    <Content Include="angular-src\src\assets\img\992\aboutUs\Slider\thirdImg.jpg" />
+    <Content Include="angular-src\src\assets\img\992\service\Slider\Engineering_Analysis.jpg" />
+    <Content Include="angular-src\src\assets\img\992\service\Slider\Field_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\992\service\Slider\Oil_And_Gas.jpg" />
+    <Content Include="angular-src\src\assets\img\992\service\Slider\Power_System.jpg" />
+    <Content Include="angular-src\src\assets\img\992\service\Slider\Project_Services.jpg" />
+    <Content Include="angular-src\src\assets\img\992\service\Slider\Renewables.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="angular-src" />
+    <Folder Include="angular-src\dist" />
+    <Folder Include="angular-src\dist\assets" />
+    <Folder Include="angular-src\dist\assets\images" />
+    <Folder Include="angular-src\dist\assets\images\homepage" />
+    <Folder Include="angular-src\dist\assets\images\homepage\carousel" />
+    <Folder Include="angular-src\e2e" />
+    <Folder Include="angular-src\src" />
+    <Folder Include="angular-src\src\app" />
+    <Folder Include="angular-src\src\app\components" />
+    <Folder Include="angular-src\src\app\components\about-us" />
+    <Folder Include="angular-src\src\app\components\admin\" />
+    <Folder Include="angular-src\src\app\components\cable-item" />
+    <Folder Include="angular-src\src\app\components\cable-list" />
+    <Folder Include="angular-src\src\app\components\contact-us" />
+    <Folder Include="angular-src\src\app\components\controller-item" />
+    <Folder Include="angular-src\src\app\components\controllers-list" />
+    <Folder Include="angular-src\src\app\components\drop-down" />
+    <Folder Include="angular-src\src\app\components\drop-down-dependent" />
+    <Folder Include="angular-src\src\app\components\electrical-item" />
+    <Folder Include="angular-src\src\app\components\electrical-list" />
+    <Folder Include="angular-src\src\app\components\home" />
+    <Folder Include="angular-src\src\app\components\instrumentation-item" />
+    <Folder Include="angular-src\src\app\components\instrumentation-list" />
+    <Folder Include="angular-src\src\app\components\io-assignment" />
+    <Folder Include="angular-src\src\app\components\login" />
+    <Folder Include="angular-src\src\app\components\modals" />
+    <Folder Include="angular-src\src\app\components\modals\cabels-modals" />
+    <Folder Include="angular-src\src\app\components\modals\cabels-modals\cable-distance-modal" />
+    <Folder Include="angular-src\src\app\components\modals\controller-modal" />
+    <Folder Include="angular-src\src\app\components\modals\electricals-modal" />
+    <Folder Include="angular-src\src\app\components\modals\multiple-modal" />
+    <Folder Include="angular-src\src\app\components\modals\projects-modal" />
+    <Folder Include="angular-src\src\app\components\modals\simple-electrical-modal" />
+    <Folder Include="angular-src\src\app\components\modals\team-work-modal\" />
+    <Folder Include="angular-src\src\app\components\navbar" />
+    <Folder Include="angular-src\src\app\components\profile" />
+    <Folder Include="angular-src\src\app\components\project" />
+    <Folder Include="angular-src\src\app\components\project-dashboard" />
+    <Folder Include="angular-src\src\app\components\register" />
+    <Folder Include="angular-src\src\app\components\services" />
+    <Folder Include="angular-src\src\app\components\signin" />
+    <Folder Include="angular-src\src\app\components\sld-schedule-item" />
+    <Folder Include="angular-src\src\app\components\sld-schedule-list" />
+    <Folder Include="angular-src\src\app\components\superadmin\" />
+    <Folder Include="angular-src\src\app\guards" />
+    <Folder Include="angular-src\src\app\services" />
+    <Folder Include="angular-src\src\assets" />
+    <Folder Include="angular-src\src\assets\fonts" />
+    <Folder Include="angular-src\src\assets\img" />
+    <Folder Include="angular-src\src\assets\img\1024" />
+    <Folder Include="angular-src\src\assets\img\1024\home" />
+    <Folder Include="angular-src\src\assets\img\1024\service" />
+    <Folder Include="angular-src\src\assets\img\1024\service\icons" />
+    <Folder Include="angular-src\src\assets\img\1024\service\Slider" />
+    <Folder Include="angular-src\src\assets\img\1200" />
+    <Folder Include="angular-src\src\assets\img\1200\aboutUs" />
+    <Folder Include="angular-src\src\assets\img\1200\aboutUs\icons" />
+    <Folder Include="angular-src\src\assets\img\1200\aboutUs\Slider" />
+    <Folder Include="angular-src\src\assets\img\1200\contactUs" />
+    <Folder Include="angular-src\src\assets\img\1200\header" />
+    <Folder Include="angular-src\src\assets\img\1200\home" />
+    <Folder Include="angular-src\src\assets\img\1200\service" />
+    <Folder Include="angular-src\src\assets\img\1200\service\icons" />
+    <Folder Include="angular-src\src\assets\img\1200\service\LogoLinks" />
+    <Folder Include="angular-src\src\assets\img\1200\service\Slider" />
+    <Folder Include="angular-src\src\assets\img\1366" />
+    <Folder Include="angular-src\src\assets\img\1366\home" />
+    <Folder Include="angular-src\src\assets\img\1366\Servises" />
+    <Folder Include="angular-src\src\assets\img\1366\Servises\Slider" />
+    <Folder Include="angular-src\src\assets\img\1920" />
+    <Folder Include="angular-src\src\assets\img\1920\aboutUs" />
+    <Folder Include="angular-src\src\assets\img\1920\aboutUs\Icons" />
+    <Folder Include="angular-src\src\assets\img\1920\aboutUs\LeaderImage" />
+    <Folder Include="angular-src\src\assets\img\1920\aboutUs\Slider" />
+    <Folder Include="angular-src\src\assets\img\1920\contactUs" />
+    <Folder Include="angular-src\src\assets\img\1920\headerAndFooter" />
+    <Folder Include="angular-src\src\assets\img\1920\home" />
+    <Folder Include="angular-src\src\assets\img\1920\home\LogoLinks" />
+    <Folder Include="angular-src\src\assets\img\1920\service" />
+    <Folder Include="angular-src\src\assets\img\1920\service\icons" />
+    <Folder Include="angular-src\src\assets\img\1920\service\LogoLinks" />
+    <Folder Include="angular-src\src\assets\img\1920\service\Slider" />
+    <Folder Include="angular-src\src\assets\img\576" />
+    <Folder Include="angular-src\src\assets\img\576\aboutUs" />
+    <Folder Include="angular-src\src\assets\img\576\aboutUs\icons" />
+    <Folder Include="angular-src\src\assets\img\576\aboutUs\Slider" />
+    <Folder Include="angular-src\src\assets\img\576\contactUs" />
+    <Folder Include="angular-src\src\assets\img\576\home" />
+    <Folder Include="angular-src\src\assets\img\576\services" />
+    <Folder Include="angular-src\src\assets\img\576\services\icons" />
+    <Folder Include="angular-src\src\assets\img\576\services\LogoLinks" />
+    <Folder Include="angular-src\src\assets\img\576\services\Slider" />
+    <Folder Include="angular-src\src\assets\img\768" />
+    <Folder Include="angular-src\src\assets\img\768\aboutUs" />
+    <Folder Include="angular-src\src\assets\img\768\aboutUs\icons" />
+    <Folder Include="angular-src\src\assets\img\768\aboutUs\Slider" />
+    <Folder Include="angular-src\src\assets\img\768\contactUs" />
+    <Folder Include="angular-src\src\assets\img\768\header" />
+    <Folder Include="angular-src\src\assets\img\768\home" />
+    <Folder Include="angular-src\src\assets\img\768\services" />
+    <Folder Include="angular-src\src\assets\img\768\services\icons" />
+    <Folder Include="angular-src\src\assets\img\768\services\LogoLinks" />
+    <Folder Include="angular-src\src\assets\img\768\services\Slider" />
+    <Folder Include="angular-src\src\assets\img\992" />
+    <Folder Include="angular-src\src\assets\img\992\aboutUs" />
+    <Folder Include="angular-src\src\assets\img\992\aboutUs\Slider" />
+    <Folder Include="angular-src\src\assets\img\992\contactUs" />
+    <Folder Include="angular-src\src\assets\img\992\home" />
+    <Folder Include="angular-src\src\assets\img\992\service" />
+    <Folder Include="angular-src\src\assets\img\992\service\Slider" />
+    <Folder Include="angular-src\src\environments" />
+    <Folder Include="config" />
+    <Folder Include="models" />
+    <Folder Include="ngAmpxVS" />
+    <Folder Include="ngAmpxVS\ngAmpxVS" />
+    <Folder Include="routes" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

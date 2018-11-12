@@ -101,7 +101,7 @@ const appRoutes: Routes = [
   // registration and authentication
 
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  // { path: 'login', component: LoginComponent },
   { path: 'signin', component: SigninComponent },
   // projects
   { path: 'project', component: ProjectComponent, canActivate: [AuthGuard] },

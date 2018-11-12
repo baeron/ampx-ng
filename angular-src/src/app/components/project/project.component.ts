@@ -56,8 +56,6 @@ export class ProjectComponent implements OnInit, DoCheck {
     // this.spinnerService.show();
     this.projectService.getTeamProject(this.userGuid).subscribe(teamProjectList => {
       this.teamProjects = teamProjectList;
-      // this.teamProjectLength = teamProjectList.length || 0;
-      // console.log(this.teamProjects);
       // this.spinnerService.hide();
     },
       err => {
@@ -67,8 +65,6 @@ export class ProjectComponent implements OnInit, DoCheck {
     // this.spinnerService.show();
     this.projectService.getBrowsingProject(this.userGuid).subscribe(browsingProjectList => {
       this.browsingProjects = browsingProjectList;
-      // this.browsingProjectLength = browsingProjectList.length || 0;
-      // console.log(this.browsingProjects);
       // this.spinnerService.hide();
     },
       err => {

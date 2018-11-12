@@ -291,7 +291,7 @@
                         data-toggle="tooltip"
                         data-placement="top"
                         title="Drop selected item"
-                        (click)="voltageModal.showDropModal(dropElementFlag)"
+                        (click)="voltageModal.showDropModal(true)"
                         [disabled]="productsAfterChangeEvent.length == 0"></button>
               </div>
             </div>
@@ -545,7 +545,7 @@
                             data-toggle="tooltip"
                             data-placement="top"
                             title="Drop selected item"
-                            (click)="hazlocZoneModal.showDropModal(dropElementFlag)"
+                            (click)="hazlocZoneModal.showDropModal(true)"
                             [disabled]="electricalItem.hazlocZone.length == 0 || !electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'"></button>
                   </div>
                 </div>
@@ -603,7 +603,7 @@
                           data-toggle="tooltip"
                           data-placement="top"
                           title="Drop selected item"
-                          (click)="hazlocTemperatureModal.showDropModal(dropElementFlag)"
+                          (click)="hazlocTemperatureModal.showDropModal(true)"
                           [disabled]="electricalItem.hazlocTemperature.length == 0 || !electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'"
                     >
                     </button>
@@ -814,8 +814,8 @@
     </span>
   </div>
   <!--START MODALS-->
-  <app-electricals-modal [dataValue]="productsAfterChangeEvent" [selectedValue]="electricalItem?.selectedVoltage?.name" [title]="voltage" #voltageModal></app-electricals-modal>
-  <app-electricals-modal [dataValue]="electricalItem?.hazlocZone" [selectedValue]="electricalItem?.selectedHazlocZone" [title]="hazlocZone" #hazlocZoneModal></app-electricals-modal>
-  <app-electricals-modal [dataValue]="electricalItem?.hazlocTemperature" [selectedValue]="electricalItem?.selectedHazlocTemperature" [title]="hazlocTemperature" #hazlocTemperatureModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="productsAfterChangeEvent" [selectedValue]="electricalItem?.selectedVoltage?.name" [title]="'Voltage'" #voltageModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="electricalItem?.hazlocZone" [selectedValue]="electricalItem?.selectedHazlocZone" [title]="'Hazloc Zone'" #hazlocZoneModal></app-electricals-modal>
+  <app-electricals-modal [dataValue]="electricalItem?.hazlocTemperature" [selectedValue]="electricalItem?.selectedHazlocTemperature" [title]="'Hazloc Temperature'" #hazlocTemperatureModal></app-electricals-modal>
   <!-- END MODALS -->
 </div>

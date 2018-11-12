@@ -164,6 +164,14 @@ export class TeamWorkModalComponent {
    * @param teamUser
    */
   public addUserToTeam(userEmail: string) {
+    if (userEmail === this.project.creatorEmail) {
+      this.flashMessage.show(
+        'You cannot add yourself to a group to collaborate on a project.',
+        { cssClass: 'alert-danger', timeout: 3000 }
+      );
+      this.hide();
+      return;
+    }
     const isUserInTeamGroup = this.isUserInItemGroup(this.project.brows_team_project, userEmail);
     if (isUserInTeamGroup) {
       this.hide();
@@ -197,6 +205,14 @@ export class TeamWorkModalComponent {
    * @param browseEmail
    */
   public addBrowseUser (browseEmail: string): void {
+    if (browseEmail === this.project.creatorEmail) {
+      this.flashMessage.show(
+        'You can not add yourself to the list of users to view the project.',
+        { cssClass: 'alert-danger', timeout: 3000 }
+      );
+      this.hide();
+      return;
+    }
     const isUserInTeamGroup = this.isUserInItemGroup(this.project.brows_team_project, browseEmail);
     if (isUserInTeamGroup) {
       this.hide();

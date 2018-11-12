@@ -50,8 +50,6 @@ export class ElectricalService {
    * @param userGuid unique identifier assigned user during registration
    */
   createElectrical(projectId: string, electrical: Electrical, userGuid: string): Observable<any> {
-    // const newElectrical = new electrical();
-    // console.log(electrical);
     params.delete('guid');
     params.append('guid', userGuid);
     const createElectricalUrl = this.baseUrl + 'project/' + projectId + '/electrical-create';
@@ -81,10 +79,6 @@ export class ElectricalService {
   updateElectricalItem(projectId: string, electricalId: string, electricalItem: any, userGuid: string): Observable<any> {
     params.delete('guid');
     params.append('guid', userGuid);
-    console.log(electricalItem);
-    debugger;
-    console.log(userGuid);
-    console.log(electricalItem);
     const updateElectricalByIdUrl = this.baseUrl + 'project/' + projectId + '/electrical-update/' + electricalId;
       return this.http.patch(updateElectricalByIdUrl, electricalItem, { headers: headers, params: params })
         .map(res => res.json());

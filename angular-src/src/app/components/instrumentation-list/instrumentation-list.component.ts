@@ -94,7 +94,6 @@ export class InstrumentationListComponent implements OnInit {
   ];
   const projectArray = [];
   for (let i = 0; i < this.instrumentation.length; ++i) {
-    // console.log(this.instrumentation[i]._id);
     projectArray.push(this.instrumentation[i]._id);
   }
   const queryString = 'instrumentations-item-list';
@@ -115,7 +114,6 @@ export class InstrumentationListComponent implements OnInit {
   puchToInstrumentationArray(element) {
     if (!element.isChecked) {
       this.instrumentationArrayList.push(element._id);
-      // console.log(this.instrumentationArrayList);
     } else {
       this.instrumentationArrayList.pop();
     }

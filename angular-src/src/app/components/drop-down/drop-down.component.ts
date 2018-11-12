@@ -19,6 +19,8 @@ export class DropDownComponent {
     this.onChanged.emit(selectedEquipmentType);
   }
   newChanged(selectedEquipmentType: any) {
+    debugger;
     this.newOnChanged.emit(selectedEquipmentType);
+    debugger;
   }
 }

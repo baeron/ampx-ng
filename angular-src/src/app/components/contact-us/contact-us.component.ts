@@ -29,6 +29,7 @@ export class ContactUsComponent implements OnInit {
   textValue = 'Message';
 // Size window
   sizeWindow: any;
+  isSubmit: false;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {

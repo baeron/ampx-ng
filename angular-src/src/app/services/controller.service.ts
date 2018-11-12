@@ -42,7 +42,6 @@ export class ControllerService {
    */
   createController(id: string, controller: any): Observable<any> {
     const createControllerUrl = this.baseUrl + 'project/' + id + '/controller-create';
-    debugger;
     return this.http.post(createControllerUrl, controller, { headers: headers })
       .map(res => res.json());
   }

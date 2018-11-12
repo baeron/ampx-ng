@@ -19,7 +19,6 @@ export class IoAssignmentService {
    */
   getIoAssignmentList(id: string): Observable<any> {
     const getIoAssignmentListUrl = this.baseUrl + 'project/' + id + '/ioassignments';
-    debugger;
       return this.http.get(getIoAssignmentListUrl, {headers: headers})
         .map(res => res.json());
   }
@@ -31,8 +30,7 @@ export class IoAssignmentService {
    */
   createIoAssignment(id: string, ioAssignment: any): Observable<any> {
     const createIOAssignmentUrl = this.baseUrl + 'project/' + id + '/io_assignment-create';
-    debugger;
-        return this.http.post(createIOAssignmentUrl, ioAssignment, {headers: headers})
+      return this.http.post(createIOAssignmentUrl, ioAssignment, {headers: headers})
           .map(res => res.json());
   }
 
@@ -43,7 +41,7 @@ export class IoAssignmentService {
    */
   updateIOAssignment(projectId: string, data: any): Observable<any> {
     const updateIOAssignmentUrl = this.baseUrl + 'project/' + projectId + '/io_assignment-update/';
-        return this.http.patch(updateIOAssignmentUrl, data, {headers: headers})
-          .map(res => res.json());
+      return this.http.patch(updateIOAssignmentUrl, data, {headers: headers})
+        .map(res => res.json());
   }
 }

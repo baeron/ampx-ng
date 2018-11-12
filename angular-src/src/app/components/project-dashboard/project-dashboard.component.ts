@@ -58,7 +58,6 @@ export class ProjectDashboardComponent implements OnInit {
   }
 
   createIOAssignment() {
-    console.log('call createIOAssignment method');
     this.spinnerService.show();
     this.ioAssignment = {};
     this.ioAssignment.length = 0;

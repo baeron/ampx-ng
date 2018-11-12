@@ -37,7 +37,7 @@ export class ElectricalListComponent implements OnInit {
   userGuid: string;
   teamWork = true;
   //
-  project: any;
+  project: IProject;
   isAdmin: boolean;
   userEmail: string;
 
@@ -71,11 +71,27 @@ export class ElectricalListComponent implements OnInit {
 
     this.spinnerService.show();
     this.electricalService.getElectricals(this.projectId).subscribe(electricalList => {
-      /* if (electricalList.electricals.length < 1) {
+      /*
+      if (electricalList.electricals.length < 1) {
          this.spinnerService.hide();
         return;
        } else {
-        */
+      */
+        this.projectServise.getCommunityData(this.projectId).subscribe(itemProject => {
+          const projectElement = itemProject;
+          if (projectElement.creator === this.userGuid) {
+            this.isCanChange = true;
+            console.log(this.isCanChange);
+            debugger;
+          } else {
+            const canChange = Availability.CanUserChange(projectElement.team_project, this.userGuid);
+            const canView = Availability.CanUserView(projectElement.brows_team_project, this.userGuid);
+            this.isCanChange = canChange || canView || this.isAdmin;
+            console.log(this.isCanChange);
+            debugger;
+          }
+        });
+        /*
         this.projectServise.getProjectById(this.projectId).subscribe(itemProject => {
           this.project = itemProject;
           if (itemProject.creator === this.userGuid) {
@@ -86,8 +102,8 @@ export class ElectricalListComponent implements OnInit {
             this.isCanChange = canChange || canView || this.isAdmin;
           }
         });
+        */
         this.electricals = electricalList;
-        // console.log(this.electricals);
         this.recalculationParentValeu(electricalList);
         this.spinnerService.hide();
       // }
@@ -144,7 +160,6 @@ export class ElectricalListComponent implements OnInit {
       type: 'binary',
       cellStyles: true
     });
-    // console.log(wbout);
     function s2ab(s) {
       const buf = new ArrayBuffer(s.length);
       const view = new Uint8Array(buf);
@@ -203,7 +218,6 @@ export class ElectricalListComponent implements OnInit {
         const electricalLength = electricalList.electricals.length;
         const lastElectrical = electricalLength - 1;
         const responseId = electricalList.electricals[lastElectrical]['_id'];
-        // console.log(responseId);
         const routeToElectricalItem = '/project/' + this.route.snapshot.params['id'] + '/electricals/' + responseId;
         this.spinnerService.hide();
         this.router.navigate([routeToElectricalItem]);
@@ -267,7 +281,6 @@ export class ElectricalListComponent implements OnInit {
         electricalItem.scenarioFirstKW = Math.ceil(electricalItem.scenarioFirstKW * 100) / 100;
         electricalItem.scenarioFirstKVAR = Math.ceil(electricalItem.scenarioFirstKVAR * 100) / 100;
         electricalItem.scenarioFirstKVA = Math.ceil(electricalItem.scenarioFirstKVA * 100) / 100;
-        // console.log(electricalItem.totalDemandFLA);
         electricalItem.totalPF = Math.ceil((electricalItem.totalPF / electricalItem.chiildList.length) * 100) / 100;
         electricalItem.totalEFF = Math.ceil((electricalItem.totalEFF / electricalItem.chiildList.length) * 100) / 100;
         electricalItem.loadFactor = Math.ceil((electricalItem.loadFactor / electricalItem.chiildList.length) * 100) / 100;

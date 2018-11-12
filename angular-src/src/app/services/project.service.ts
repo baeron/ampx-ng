@@ -1,9 +1,9 @@
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 // tslint:disable-next-line:import-blacklist
-import { Observable } from 'rxjs';
 import { IProject } from '../models/IProject';
 
 const headers = new Headers();
@@ -15,6 +15,18 @@ const params = new URLSearchParams();
 export class ProjectService {
   baseUrl = environment.baseUrl;
   constructor(private http: Http) { }
+
+  /**
+   *
+   * @param projectId
+   */
+  getCommunityData(projectId: string) {
+    params.delete('guid');
+    const projectCommunityUrl = this.baseUrl + 'project/' + projectId + '/project-community';
+    const communityProjects = this.http.get(projectCommunityUrl, { headers: headers })
+      .map(community => community.json());
+      return communityProjects;
+  }
 
   /**
    * GET method to get all projects created by a specific user.

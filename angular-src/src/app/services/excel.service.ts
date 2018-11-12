@@ -48,56 +48,46 @@ export class ExcelService {
       // tslint:disable-next-line:max-line-length
       this.instrumentationService.getInstrumentationsCheckList2(projectId, selectedArrayElements, queryString).subscribe(instrupentations => {
         arrayList = instrupentations[0];
-        console.log(arrayList);
         const tmp = [];
         for (let index = 0; index < arrayList.length; ++index) {
           tmp.push(arrayList[index].instrumentationItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else if (controllerName === 'Controllers') {
       this.controllerService.getControllersCheckList(projectId, selectedArrayElements, queryString).subscribe(controllersItem => {
         arrayList = controllersItem[0];
-        console.log(arrayList);
         const tmp = [];
         for (let index = 0; index < arrayList.length; ++index) {
           tmp.push(arrayList[index].controllerItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else if (controllerName === 'Sldshadule') {
       this.sldsheduleService.getSldSheduleExcelList(projectId, selectedArrayElements, queryString).subscribe(sldsheduleItem => {
         arrayList = sldsheduleItem[0];
-        console.log(arrayList);
         const tmp = [];
         for (let index = 0; index < arrayList.length; ++index) {
           tmp.push(arrayList[index].sldsheduleItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else if (controllerName === 'Cabel') {
       this.cableService.getCabelExcelList(projectId, selectedArrayElements, queryString).subscribe(cableItem => {
         arrayList = cableItem[0];
-        console.log(arrayList);
         const tmp = [];
         for (let index = 0; index < arrayList.length; ++index) {
           tmp.push(arrayList[index].cableItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else if (controllerName === 'Electrical') {
       this.electricalService.getElectricalExcelList(projectId, selectedArrayElements, queryString).subscribe(electricalItem => {
         arrayList = electricalItem[0];
-        console.log(arrayList);
         const tmp = [];
         for (let index = 0; index < arrayList.length; ++index) {
           tmp.push(arrayList[index].electricalItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else {

@@ -96,10 +96,8 @@ export class ProjectsModalComponent {
     for (const key in this.dataValue) {
       if (this.dataValue[key]._id === project._id) {
         this.dataValue[key].title = projectTitle;
-        // console.log(this.dataValue[key].title);
         this.projectService.updateProject(project._id, this.dataValue[key]).subscribe(data => {
           if (data.status === 'success') {
-            console.log('Project name was update');
           } else {
             console.error(data.message);
           }

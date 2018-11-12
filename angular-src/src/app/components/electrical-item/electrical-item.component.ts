@@ -1,15 +1,17 @@
-import { Component, OnInit, ViewChild, HostListener, DoCheck, SimpleChanges } from '@angular/core';
+import { Availability } from './../../shared/Availability';
+// core modules
+import { Component, OnInit, ViewChild, HostListener, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgModel } from '@angular/forms';
-
-import { ElectricalService } from '../../services/electrical.service';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-// import { IMyDpOptions } from 'mydatepicker';
-
+// helper classes and functions
+// import { Availability } from '../../shared/Availability';
+// models
+import { IProject } from '../../models/IProject';
+// servises
 import { ProjectService } from '../../services/project.service';
-import { Availability } from '../../shared/Availability';
-
-import { environment } from '../../../environments/environment';
+import { ElectricalService } from '../../services/electrical.service';
+// external packages
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-electrical-item',
@@ -17,43 +19,27 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./electrical-item.component.css']
 })
 export class ElectricalItemComponent implements OnInit, DoCheck {
-  projectId: any;
-  electricalId: any;
+  // users access part
+  isAdmin: boolean;
+  isCreator: boolean;
+  isCanChange: boolean;
+  userEmail: string;
+  userGuid: string;
+  projectId: string;
+  project: IProject;
+  // electrical item part
+  electricalId: string;
   electricalItem: any;
-  sizeWindow: any;
+  //
+  sizeWindow: number;
   productsAfterChangeEvent = [];
   //
   selectedItemVoltage: any;
   //
-  project: any;
   parentList: any;
   presetParentTag: any;
   //
-  date: any;
-  isAdmin: boolean;
-  userEmail: string;
-  //
-  dropElementFlag = true;
-  //
-  equipmentType = 'Equipment Type';
-  pidDraving = 'Pid Drawing';
-  layoutDrawing = 'Layout Drawing';
-  sldDraving = 'SLD Drawing';
-  locationArea = 'Location/Area';
-  equipmentDescription = 'Equipment Description';
-  voltage = 'Voltage';
-  hazlocZone = 'Hazloc Zone';
-  hazlocTemperature = 'Hazloc Temperature';
-  isCanChange = false;
-  //
-  /*
-  myDatePickerOptions: IMyDpOptions = {
-    // other options...
-    dateFormat: 'dd.mm.yyyy',
-  };
-  */
-  userGuid: string;
-  teamWork: Boolean = true;
+  date: string;
   //
   @ViewChild('selectedHazlocZone') private selectedHazlocZone: NgModel;
   @ViewChild('selectedHazlocTemperature') private selectedHazlocTemperature: NgModel;
@@ -62,8 +48,6 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    // tslint:disable-next-line:no-unused-expression
-    event.target.innerWidth;
     this.sizeWindow = event.target.innerWidth;
   }
 
@@ -80,60 +64,47 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this.isAdmin = false;
-    const superAdminEmail = environment.sadmin;
-    const adminEmail = environment.admin;
+    this.spinnerService.show();
     if (window.localStorage) {
-      const user = localStorage.getItem('user');
-      const u = JSON.parse(user);
-      this.userGuid = u.guid;
-      this.userEmail = u.email;
-      //
-      const isItAdmin = (this.userEmail === adminEmail);
-      const isItSuperadmin = (this.userEmail === superAdminEmail);
-      this.isAdmin = isItAdmin || isItSuperadmin;
+      this.isAdmin = Availability.CheckIsAdmin(localStorage);
+      this.userGuid = Availability.GetUserGuid(localStorage);
+      // this.isCreator = Availability.CheckIsCreator(localStorage, this.userGuid);
     }
-    // this.spinnerService.show();
-    //
-    this.projectServise.getProjectById(this.projectId).subscribe(itemProject => {
-      this.project = itemProject;
-      // this.userGuid = itemProject.creator;
-      if (itemProject.creator === this.userGuid) {
+    // get user list who can change or view elements
+    this.projectServise.getCommunityData(this.projectId).subscribe(itemProject => {
+      const projectElement = itemProject;
+      if (projectElement.creator === this.userGuid) {
         this.isCanChange = true;
+        console.log(this.isCanChange);
+        debugger;
       } else {
-        const canChange = Availability.CanUserChange(this.project.team_project, this.userGuid);
-        const canView = Availability.CanUserView(this.project.brows_team_project, this.userGuid);
+        const canChange = Availability.CanUserChange(projectElement.team_project, this.userGuid);
+        const canView = Availability.CanUserView(projectElement.brows_team_project, this.userGuid);
         this.isCanChange = canChange || canView || this.isAdmin;
+        console.log(this.isCanChange);
+        debugger;
       }
-      /*
-      for (let i = 0; i < this.project.team_project.length; ++i) {
-        const teamWorker = this.project.team_project[i];
-        if (this.project.creator === this.userEmail || teamWorker === this.userEmail) {
-          this.teamWork = true;
-        } else {
-          this.teamWork = false;
-        }
-      }
-      */
     });
-    //
+    // get itemElectricalElement
     this.electricalService.getElectricalItem(this.projectId, this.electricalId).subscribe(electricals => {
       this.electricalItem = electricals.electrical;
       this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
-      // console.log(tempDate.toLocaleDateString());
-      // tslint:disable-next-line:max-line-length
       if (this.electricalItem.selectedPowerSystem) {
-        this.productsAfterChangeEvent = electricals.electrical.voltage.filter(p => p.powerSystemType === electricals.electrical.selectedPowerSystem);
+        this.productsAfterChangeEvent = electricals.electrical.voltage.
+          filter(p => p.powerSystemType === electricals.electrical.selectedPowerSystem);
       } else {
         return;
       }
-    },
-      err => {
+      this.spinnerService.hide();
+    }, err => {
         console.log(err);
-        return false;
-      });
+        this.spinnerService.hide();
+        return;
+    });
+    //
     this.electricalService.getElectricals(this.projectId).subscribe(electricalList => {
       this.project = electricalList;
+      // console.log(this.project);
       this.parentList = [];
       for (const key in this.project.electricals) {
         if (this.project.electricals[key]._id === this.electricalId) {
@@ -141,25 +112,15 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
           this.parentList.push(this.project.electricals[key].equipmentTag);
         }
       }
-    },
-      err => {
+    }, err => {
         console.log(err);
-        return false;
-      });
-    /*
-        this.projectServise.getBrowsingProject(this.userEmail).subscribe(projectList => {
-          this.project = projectList;
-          this.teamWork = false;
-        });
         this.spinnerService.hide();
-    */
+        return;
+    });
+    this.spinnerService.hide();
   }
 
   onChanged(selectedElement: any, title: string): void {
-    // console.log('return selectedEquipmentType from onChanged method', selectedEquipmentType);
-    // console.log(title);
-    // this.electricalItem.selectedEquipmentType = selectedEquipmentType;
-    // debugger;
     const dropDownName = title;
     switch (dropDownName) {
       case 'Equipment Type': {
@@ -203,7 +164,6 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
    * @param title
    */
   newOnChanged(selectedElement: any, title: string): void {
-    debugger;
     const dropDownName = title;
     switch (dropDownName) {
       case 'Equipment Type': {
@@ -237,23 +197,13 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     }
   }
 
-  // tslint:disable-next-line:use-life-cycle-interface
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('Call ngOnChanges');
-  }
-
   onModelChange(event) {
     if (this.electricalItem.selectedEquipmentType !== event) {
-      console.log('some text');
     }
     this.electricalItem.selectedEquipmentType = event;
-    console.log('some new text');
   }
 
   ngDoCheck() {
-    // tslint:disable-next-line:max-line-length
-    // this.electricalItem.selectedEquipmentType = this.electricalItem.selectedEquipmentType || this.electricalItem.equipmentType[this.electricalItem.equipmentType.length-1];
-    // console.log(this.electricalItem.selectedEquipmentType);
     if (!this.electricalItem) {
       return;
     } else {
@@ -272,9 +222,9 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
             const childElement = tempElectricalItem.chiildList[j];
             if (childElement._id === this.electricalItem._id) {
               tempElectricalItem.chiildList.splice(j, 1);
-              // tslint:disable-next-line:max-line-length
-              this.electricalService.updateElectricalItem(this.projectId, tempElectricalItem._id, tempElectricalItem, this.userGuid).subscribe(res => {
-                // console.log(res);
+              this.electricalService
+                .updateElectricalItem(this.projectId, tempElectricalItem._id, tempElectricalItem, this.userGuid)
+                .subscribe(res => {
               }, (err) => {
                 console.log(err);
               });
@@ -283,11 +233,11 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
           if (tempElectricalItem.equipmentTag === this.electricalItem.selectedParentTag) {
             this.project.electricals[i].chiildList.push(this.electricalItem);
             const temp = this.project.electricals[i];
-            this.electricalService.updateElectricalItem(this.projectId, tempElectricalItem._id, temp, this.userGuid).subscribe(res => {
-              // console.log(res);
-            }, (err) => {
-              console.log(err);
-            });
+            this.electricalService
+              .updateElectricalItem(this.projectId, tempElectricalItem._id, temp, this.userGuid)
+              .subscribe(err => {
+                  console.log(err);
+              });
             return;
           }
         }
@@ -296,7 +246,6 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       return;
     }
   }
-
 
   optionChanged($event) {
     this.selectedHazlocZone.reset(null);
@@ -308,13 +257,13 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     if (!this.electricalItem) {
       return;
     } else {
-      // tslint:disable-next-line:max-line-length
-      this.productsAfterChangeEvent = this.electricalItem.voltage.filter(p => p.powerSystemType === this.electricalItem.selectedPowerSystem);
+      this.productsAfterChangeEvent = this.electricalItem.voltage
+        .filter(p => p.powerSystemType === this.electricalItem.selectedPowerSystem);
     }
   }
 
   saveElectrical(idElectrical, data) {
-    // this.spinnerService.show();
+    this.spinnerService.show();
     this.selectedItemVoltage = data.selectedVoltage;
     data.selectedVoltage = {};
     // ata.selectedVoltage.name = this.selectedItemVoltage;
@@ -358,27 +307,26 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     data.scenarioFirstKVA = this.electricalItem.scenarioFirstKVA || 0;
     //
     this.electricalService.updateElectricalItem(this.projectId, idElectrical, data, this.project.creator).subscribe(res => {
-      // this.spinnerService.hide();
+      this.spinnerService.hide();
       this.router.navigate(['project', this.projectId, 'electricals']);
     }, (err) => {
       console.log(err);
+      this.spinnerService.hide();
     });
     this.electricalChildList();
   }
 
   deleteElectrical(electricalItemId) {
-    // this.spinnerService.show();
+    this.spinnerService.show();
     if (this.electricalItem.chiildList.length >= 1) {
       for (let i = 0; i < this.project.electricals.length; ++i) {
         const temporaryElectricalItem = this.project.electricals[i];
         if (temporaryElectricalItem.selectedParentTag === this.electricalItem.equipmentTag) {
           temporaryElectricalItem.selectedParentTag = '';
-          // console.log(temporaryElectricalItem);
-          // tslint:disable-next-line:max-line-length
-          this.electricalService.updateElectricalItem(this.projectId, temporaryElectricalItem._id, temporaryElectricalItem, this.userGuid).subscribe(res => {
-            // console.log(res);
-          }, (err) => {
-            console.log(err);
+          this.electricalService
+            .updateElectricalItem(this.projectId, temporaryElectricalItem._id, temporaryElectricalItem, this.userGuid)
+            .subscribe( err => {
+              console.log(err);
           });
         }
       }
@@ -389,14 +337,13 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
         const temporalChildElement = electricalItemElment.chiildList[k];
         if (temporalChildElement._id === this.electricalItem._id) {
           electricalItemElment.chiildList.splice(j, 1);
-          // tslint:disable-next-line:max-line-length
-          this.electricalService.updateElectricalItem(this.projectId, electricalItemElment._id, electricalItemElment, this.userGuid).subscribe(res => {
-            // console.log(res);
-          }, (err) => {
-            console.log(err);
-          });
+          this.electricalService
+            .updateElectricalItem(this.projectId, electricalItemElment._id, electricalItemElment, this.userGuid)
+            .subscribe( err => {
+              this.spinnerService.hide();
+              console.log(err);
+            });
         }
-        // console.log(electricalItemElment);
       }
     }
     this.electricalService.deleteElectricalItem(this.projectId, electricalItemId).subscribe(res => {
@@ -404,7 +351,9 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       this.router.navigate(['project', this.projectId, 'electricals']);
     }, (err) => {
       console.log(err);
+      this.spinnerService.hide();
     });
+    this.spinnerService.hide();
   }
 
   changeVoltageArrayObject(productsAfterChange, projectData) {

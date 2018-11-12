@@ -151,7 +151,6 @@ export class CableListComponent implements OnInit {
       */
     const projectArray = [];
     for (let i = 0; i < this.cables.cabels.length; ++i) {
-      // console.log(this.instrumentation[i]._id);
       projectArray.push(this.cables.cabels[i]._id);
     }
     const queryString = 'cable-item-list';
@@ -175,7 +174,6 @@ export class CableListComponent implements OnInit {
     ];
     const projectArray = [];
     for (let i = 0; i < this.cables.cabels.length; ++i) {
-      // console.log(this.instrumentation[i]._id);
       projectArray.push(this.cables.cabels[i]._id);
     }
     const queryString = 'cable-item';

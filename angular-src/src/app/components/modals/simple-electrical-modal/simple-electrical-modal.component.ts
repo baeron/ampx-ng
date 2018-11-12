@@ -41,20 +41,19 @@ export class SimpleElectricalModalComponent {
       this.hide();
     }
   }
-  //
+  // TODO: Что здесь происходит???
   newChanged(selectedEquipmentType: any) {
     if (!selectedEquipmentType) {
+      debugger;
       return;
     } else {
+      debugger;
       this.newOnChanged.emit(selectedEquipmentType);
-      //
-      // console.log(this.dataValue);
-      // console.log(this.selectedValue);
+      debugger;
     }
   }
   //
   public addItem(itenEl: string) {
-    // console.log(this.selectedValue);
     if (typeof this.dataValue[0] === 'string' || typeof this.dataValue[0] === 'undefined') {
       this.dataValue.push(itenEl);
       this.selectedValue = itenEl;
@@ -65,12 +64,10 @@ export class SimpleElectricalModalComponent {
     } else if (this.title === 'Equipment Type') {
       const elementArrayObject = {};
       elementArrayObject['name'] = itenEl;
-      // elementArrayObject['owner'] = this.dataValue[0].powerSystemType;
       this.dataValue.push(elementArrayObject);
       this.visible = false;
       setTimeout(() => this.visible = false, 300);
       this.itenElement = null;
-      // console.log(elementArrayObject);
       this.newChanged(elementArrayObject);
       //
     } else {
@@ -81,7 +78,6 @@ export class SimpleElectricalModalComponent {
       this.visible = false;
       setTimeout(() => this.visible = false, 300);
       this.itenElement = null;
-      // console.log(elementArrayObject);
       this.newChanged(elementArrayObject);
     }
   }
@@ -100,6 +96,7 @@ export class SimpleElectricalModalComponent {
   }
 
   public close() {
+    debugger;
     this.visible = false;
     setTimeout(() => this.visible = false, 300);
     this.modalFlag = false;

@@ -41,12 +41,9 @@ export class ElectricalsModalComponent {
   }
 
   public addItem(itenEl: string): string {
-    console.log(this.selectedValue);
     if (typeof this.dataValue[0] === 'string' || typeof this.dataValue[0] === 'undefined') {
       this.dataValue.push(itenEl);
       this.selectedValue = itenEl;
-      // console.log(this.selectedValue);
-      // console.log(this.dataValue);
       this.visible = false;
       setTimeout(() => this.visible = false, 300);
       this.itenElement = null;

@@ -95,3 +95,23 @@ span.footer-text {
   margin-right:0px!important;
   margin-left:0px!important
 }
+
+.contsct-us__submit-btn__block {
+  height: 4.5rem;
+}
+
+.contsct-us__submit-btn__stile {
+  background: #ffb248;
+  color: #FFFFFF!important;
+  border-radius: 5px;
+  padding: 8px 20px;
+  width: 180px;
+  border: 0;
+}
+.contsct-us__submit-btn__stile:hover {
+  text-decoration: none!important;
+}
+
+.float-right {
+  float: right!important;
+}

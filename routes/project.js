@@ -99,6 +99,24 @@ router.get('/browsing-project', function (req, res) {
         });
     }
 });
+//
+router.get('/:id/project-community', function(req, res) {
+    if (req.params.id) {
+        const projectId = req.params.id;
+        Project.findById(projectId, 'creator team_project brows_team_project creatorEmail', function (err, project) {
+            if(err) {
+                res.send(err);
+            } else {
+                res.json(project);
+            }
+        });
+    } else {
+        sendJSONresponse(res, 404, {
+            "message": "No project in team space"
+        });
+    }
+});
+//
 router.get('/creating-project', function (req, res) {
     if (req.params) {
         const creator = req.query.email;
@@ -441,8 +459,6 @@ router.patch('/:id/electrical-update/:electricalid', function (req, res) {
         const projectId = req.params.id;
         const electricalId = req.params.electricalid;
         const electricalData = req.body;
-        console.log(electricalData);
-        debugger;
         Project
             .find({ creator: userGuid })
             .exec( function (err, project) {
@@ -498,7 +514,6 @@ router.delete('/:id/electricals/:electricalid', function (req, res) {
                 }
                 if (project.electricals && project.electricals.length > 0) {
                     project.electricals.id(req.params.electricalid).remove();
-                    //console.log(project);
                     project.save(function (err) {
                         if (err) {
                             res.json({ success: false, msg: 'Failed get electrical item' });
@@ -866,7 +881,6 @@ router.get('/:id/sldshedule-item/:sldscheduleId', function (req, res) {
                     }
                     if (project.sldschedules && project.sldschedules.length > 0) {
                         sldshedule = project.sldschedules.id(req.params.sldscheduleId);
-                        //console.log(instrumentation);
                         sldsheduleItem['MAJOR EQUIPMENT DEVICE'] = sldshedule.selectedMajorEquipmentDevice || 'N/A';
                         sldsheduleItem['EQUIPMENT DESCRIPTION'] = sldshedule.selectedEquipmentDescriptionForMajorEquipmentDevice || 'N/A';
                         sldsheduleItem['MAJOR EQUIPMENT TAG'] = sldshedule.selectedMajorEquipmentTag || 'N/A';

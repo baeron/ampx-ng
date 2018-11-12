@@ -64,7 +64,6 @@ export class SldScheduleListComponent implements OnInit {
           const canChange = Availability.CanUserChange(this.project.team_project, this.userGuid);
           const canView = Availability.CanUserView(this.project.brows_team_project, this.userGuid);
           this.isCanChange = canChange || canView || this.isAdmin;
-          debugger;
         }
         /*
         for (let i = 0; i < this.project.team_project.length; ++i) {
@@ -86,7 +85,6 @@ export class SldScheduleListComponent implements OnInit {
       });
     this.projectServise.getProjectNameById(this.projectId).subscribe(project => {
       this.projectName = project;
-      // console.log(this.projectName);
     }, err => {
       this.spinnerService.hide();
       console.log(err);
@@ -98,7 +96,6 @@ export class SldScheduleListComponent implements OnInit {
   puchToSldSheduleArray(element) {
     if (!element.isChecked) {
       this.sldSheduleArrayList.push(element._id);
-      // console.log(this.instrumentationArrayList);
     } else {
       this.sldSheduleArrayList.pop();
     }
@@ -134,7 +131,6 @@ export class SldScheduleListComponent implements OnInit {
     ];
     const projectArray = [];
     for (let i = 0; i < this.sldSchedules.length; ++i) {
-      // console.log(this.instrumentation[i]._id);
       projectArray.push(this.sldSchedules[i]._id);
     }
     const queryString = 'sldshedule-item-list';
@@ -162,7 +158,6 @@ export class SldScheduleListComponent implements OnInit {
     ];
     const projectArray = [];
     for (let i = 0; i < this.sldSchedules.length; ++i) {
-      // console.log(this.instrumentation[i]._id);
       projectArray.push(this.sldSchedules[i]._id);
     }
     const queryString = 'sldshedule-item';

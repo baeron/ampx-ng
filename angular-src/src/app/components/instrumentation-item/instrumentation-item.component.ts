@@ -102,14 +102,10 @@ export class InstrumentationItemComponent implements OnInit {
         this.project = itemProject;
         if (itemProject.creator === this.userGuid) {
           this.isCanChange = true;
-          console.log(this.isCanChange);
-          debugger;
         } else {
           const canChange = Availability.CanUserChange(this.project.team_project, this.userGuid);
           const canView = Availability.CanUserView(this.project.brows_team_project, this.userGuid);
           this.isCanChange = canChange || canView || this.isAdmin;
-          console.log(this.isCanChange);
-          debugger;
         }
       });
       //

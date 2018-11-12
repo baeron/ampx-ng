@@ -35,7 +35,7 @@
               <button *ngIf="!modalFlag" class="btn btn-success" (click)="addItem(itenElement); newChanged(itenElement)" [disabled]="!itenElement">Add</button>
             </div>
             <div class="pl-1 pr-2">
-              <button class="btn btn-primary" (click)="close()">Close</button>
+              <button class="btn btn-primary" (click)="close(); $event.preventDefault()">Close</button>
             </div>
           </div>
         </div>

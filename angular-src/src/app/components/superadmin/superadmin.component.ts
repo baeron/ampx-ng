@@ -77,7 +77,6 @@ export class SuperadminComponent implements OnInit {
     });
     this.projectService.deleteProjectByUserGuid(userGuid).subscribe(req => {
       if (req.success) {
-        console.log('It is work');
       }
     }, err => {
       console.error(err);

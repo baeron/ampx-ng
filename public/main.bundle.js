@@ -248,6 +248,8 @@ var appRoutes = [
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_15__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
     // Superadmin page
     { path: 'superadmin', component: __WEBPACK_IMPORTED_MODULE_52__components_superadmin_superadmin_component__["a" /* SuperadminComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
+    // Page not found
+    { path: '**', redirectTo: '/' }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -2039,9 +2041,7 @@ var DropDownComponent = (function () {
         this.onChanged.emit(selectedEquipmentType);
     };
     DropDownComponent.prototype.newChanged = function (selectedEquipmentType) {
-        debugger;
         this.newOnChanged.emit(selectedEquipmentType);
-        debugger;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
@@ -2164,14 +2164,12 @@ var ElectricalItemComponent = (function () {
             if (projectElement.creator === _this.userGuid) {
                 _this.isCanChange = true;
                 console.log(_this.isCanChange);
-                debugger;
             }
             else {
                 var canChange = __WEBPACK_IMPORTED_MODULE_0__shared_Availability__["a" /* Availability */].CanUserChange(projectElement.team_project, _this.userGuid);
                 var canView = __WEBPACK_IMPORTED_MODULE_0__shared_Availability__["a" /* Availability */].CanUserView(projectElement.brows_team_project, _this.userGuid);
                 _this.isCanChange = canChange || canView || _this.isAdmin;
                 console.log(_this.isCanChange);
-                debugger;
             }
         });
         // get itemElectricalElement
@@ -2780,14 +2778,12 @@ var ElectricalListComponent = (function () {
                 if (projectElement.creator === _this.userGuid) {
                     _this.isCanChange = true;
                     console.log(_this.isCanChange);
-                    debugger;
                 }
                 else {
                     var canChange = __WEBPACK_IMPORTED_MODULE_9__shared_Availability__["a" /* Availability */].CanUserChange(projectElement.team_project, _this.userGuid);
                     var canView = __WEBPACK_IMPORTED_MODULE_9__shared_Availability__["a" /* Availability */].CanUserView(projectElement.brows_team_project, _this.userGuid);
                     _this.isCanChange = canChange || canView || _this.isAdmin;
                     console.log(_this.isCanChange);
-                    debugger;
                 }
             });
             /*
@@ -4878,11 +4874,9 @@ var ProjectsModalComponent = (function () {
     };
     ProjectsModalComponent.prototype.showChangeProjectModal = function (chengeProject, itemProject) {
         var _this = this;
-        debugger;
         this.changeFlag = chengeProject;
         this.project = itemProject;
         this.visible = true;
-        debugger;
         setTimeout(function () { return _this.visibleAnimate = true; }, 100);
     };
     ProjectsModalComponent.prototype.hide = function () {
@@ -4908,8 +4902,8 @@ var ProjectsModalComponent = (function () {
         var _this = this;
         var userProject = {};
         userProject['title'] = projectName;
-        userProject['date_create'] = new Date().toLocaleDateString();
-        userProject['updated_date'] = new Date().toLocaleDateString();
+        userProject['date_create'] = new Date().getMilliseconds;
+        userProject['updated_date'] = new Date().getMilliseconds;
         userProject['creator'] = this.userGuid;
         userProject['creatorEmail'] = this.creatorEmail;
         this.projectService.postProject(userProject).subscribe(function (data) {
@@ -4931,7 +4925,6 @@ var ProjectsModalComponent = (function () {
      * @returns HTTP success status or error message from project.servise.ts
      */
     ProjectsModalComponent.prototype.changeItem = function (project, projectTitle) {
-        debugger;
         for (var key in this.dataValue) {
             if (this.dataValue[key]._id === project._id) {
                 this.dataValue[key].title = projectTitle;
@@ -5090,13 +5083,10 @@ var SimpleElectricalModalComponent = (function () {
     // TODO: Что здесь происходит???
     SimpleElectricalModalComponent.prototype.newChanged = function (selectedEquipmentType) {
         if (!selectedEquipmentType) {
-            debugger;
             return;
         }
         else {
-            debugger;
             this.newOnChanged.emit(selectedEquipmentType);
-            debugger;
         }
     };
     //
@@ -5145,7 +5135,6 @@ var SimpleElectricalModalComponent = (function () {
     };
     SimpleElectricalModalComponent.prototype.close = function () {
         var _this = this;
-        debugger;
         this.visible = false;
         setTimeout(function () { return _this.visible = false; }, 300);
         this.modalFlag = false;

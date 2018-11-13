@@ -128,8 +128,8 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   // Superadmin page
   { path: 'superadmin', component: SuperadminComponent, canActivate: [AuthGuard] },
-  // Admin page
-  // { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
+  // Page not found
+  {path: '**', redirectTo: '/'}
 ];
 
 @NgModule({

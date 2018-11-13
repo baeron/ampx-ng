@@ -44,12 +44,9 @@ export class SimpleElectricalModalComponent {
   // TODO: Что здесь происходит???
   newChanged(selectedEquipmentType: any) {
     if (!selectedEquipmentType) {
-      debugger;
       return;
     } else {
-      debugger;
       this.newOnChanged.emit(selectedEquipmentType);
-      debugger;
     }
   }
   //
@@ -96,7 +93,6 @@ export class SimpleElectricalModalComponent {
   }
 
   public close() {
-    debugger;
     this.visible = false;
     setTimeout(() => this.visible = false, 300);
     this.modalFlag = false;

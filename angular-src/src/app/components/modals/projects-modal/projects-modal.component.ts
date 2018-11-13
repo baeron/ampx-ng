@@ -41,11 +41,9 @@ export class ProjectsModalComponent {
   }
 
   public showChangeProjectModal(chengeProject, itemProject) {
-    debugger;
     this.changeFlag = chengeProject;
     this.project = itemProject;
     this.visible = true;
-    debugger;
     setTimeout(() => this.visibleAnimate = true, 100);
   }
 
@@ -72,8 +70,8 @@ export class ProjectsModalComponent {
   public addNewProject(projectName: string) {
     const userProject = {};
     userProject['title'] = projectName;
-    userProject['date_create'] = new Date().toLocaleDateString();
-    userProject['updated_date'] = new Date().toLocaleDateString();
+    userProject['date_create'] = new Date().getMilliseconds;
+    userProject['updated_date'] = new Date().getMilliseconds;
     userProject['creator'] = this.userGuid;
     userProject['creatorEmail'] = this.creatorEmail;
     this.projectService.postProject(userProject).subscribe(data => {
@@ -95,7 +93,6 @@ export class ProjectsModalComponent {
    * @returns HTTP success status or error message from project.servise.ts
    */
   public changeItem(project: IProject, projectTitle: string) {
-    debugger;
     for (const key in this.dataValue) {
       if (this.dataValue[key]._id === project._id) {
         this.dataValue[key].title = projectTitle;

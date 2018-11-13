@@ -82,13 +82,11 @@ export class ElectricalListComponent implements OnInit {
           if (projectElement.creator === this.userGuid) {
             this.isCanChange = true;
             console.log(this.isCanChange);
-            debugger;
           } else {
             const canChange = Availability.CanUserChange(projectElement.team_project, this.userGuid);
             const canView = Availability.CanUserView(projectElement.brows_team_project, this.userGuid);
             this.isCanChange = canChange || canView || this.isAdmin;
             console.log(this.isCanChange);
-            debugger;
           }
         });
         /*

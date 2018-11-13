@@ -32,7 +32,7 @@ export class CableService {
   }
 
   /**
-   *
+   * Method to get the Cable list
    * @param id
    */
   getCables(id: string): Observable<any> {
@@ -63,7 +63,7 @@ export class CableService {
   }
 
   /**
-   *
+   * Method to get a specific Cable by ID
    * @param projectId
    * @param cableId
    */
@@ -74,7 +74,7 @@ export class CableService {
   }
 
   /**
-   *
+   * Method to update Cable item by unique identifier
    * @param projectId
    * @param cabelId
    * @param cabelItem
@@ -86,7 +86,7 @@ export class CableService {
   }
 
   /**
-   *
+   * Method for deleting an item by unique identifier
    * @param projectId
    * @param cableId
    */

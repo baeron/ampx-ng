@@ -17,11 +17,7 @@ export class AuthService {
   authToken: any;
   user: IUser;
   baseUrl = environment.baseUrl;
-  superAdmin: string;
-  admin: string;
   constructor(private http: Http) {
-    this.superAdmin = 'superAdmin@ampx.ca';
-    this.admin = 'admin@ampx.ca';
   }
 
   /**
@@ -48,7 +44,7 @@ export class AuthService {
   }
 
   /**
-   *
+   * A method for obtaining data about a registered user profile.
    */
   getProfile() {
     this.loadToken();
@@ -59,7 +55,7 @@ export class AuthService {
   }
 
   /**
-   *
+   * Setting values to local storage
    * @param token
    * @param user
    */
@@ -71,7 +67,7 @@ export class AuthService {
   }
 
   /**
-   *
+   * Loading id_token from local storage
    */
   loadToken() {
     const token = localStorage.getItem('id_token');
@@ -79,21 +75,21 @@ export class AuthService {
   }
 
   /**
-   *
+   * id_token check method
    */
   loggedIn() {
     return tokenNotExpired('id_token');
   }
 
   /**
-   *
+   * Method to check if the user is an administrator or superadmin
    */
   masterLogedIn() {
     if (window.localStorage) {
       const user = localStorage.getItem('user');
       const u = JSON.parse(user);
       const userEmail = u.email;
-      if (userEmail === this.superAdmin || userEmail === this.admin) {
+      if (userEmail === environment.sadmin || userEmail === environment.admin) {
         return true;
       }
     } else {
@@ -103,7 +99,7 @@ export class AuthService {
   }
 
   /**
-   *
+   * Method to clear all fields (authToken and user)
    */
   logout() {
     this.authToken = null;

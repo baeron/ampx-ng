@@ -1,3 +1,5 @@
+// TODO: move database string to envirovment for prod and dev
+
 module.exports = {
   // for dev
   // database: 'mongodb://localhost:27017/ngampx',

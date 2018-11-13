@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
+// import 'rxjs/add/operator/mergeMap';
 import { InstrumentationService } from './instrumentation.service';
 import { ControllerService } from './controller.service';
 import { SldscheduleService } from './sldschedule.service';

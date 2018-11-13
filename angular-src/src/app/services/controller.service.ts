@@ -17,31 +17,31 @@ export class ControllerService {
 
   /**
    *
-   * @param id
+   * @param projectId
    */
-  getControllersList(id: string): Observable<any> {
-    const getControllersListUrl = this.baseUrl + 'project/' + id + '/controllers-list';
+  getControllersList(projectId: string): Observable<any> {
+    const getControllersListUrl = this.baseUrl + 'project/' + projectId + '/controllers-list';
     return this.http.get(getControllersListUrl, { headers: headers })
       .map(res => res.json());
   }
 
   /**
    *
-   * @param id
+   * @param projectId
    */
-  getControllers(id: string): Observable<any> {
-    const getControllersUrl = this.baseUrl + 'project/' + id + '/controllers';
+  getControllers(projectId: string): Observable<any> {
+    const getControllersUrl = this.baseUrl + 'project/' + projectId + '/controllers';
     return this.http.get(getControllersUrl, { headers: headers })
       .map(res => res.json());
   }
 
   /**
    *
-   * @param id
+   * @param projectId
    * @param controller
    */
-  createController(id: string, controller: any): Observable<any> {
-    const createControllerUrl = this.baseUrl + 'project/' + id + '/controller-create';
+  createController(projectId: string, controller: any): Observable<any> {
+    const createControllerUrl = this.baseUrl + 'project/' + projectId + '/controller-create';
     return this.http.post(createControllerUrl, controller, { headers: headers })
       .map(res => res.json());
   }
@@ -88,9 +88,7 @@ export class ControllerService {
       observableBatch.push(this.http.get('http://localhost:3000/project/'+id+'/'+queryString+'/'+key).map((res) => res.json()));
       */
       // for deploy
-      /*
       observableBatch.push(this.http.get('project/' + id + '/' + queryString + '/' + key).map((res) => res.json()));
-      */
     });
     return Observable.forkJoin(observableBatch);
   }

@@ -16,14 +16,15 @@
       <div class="modal-body">
         <div *ngIf="dropFlag == true">
           <div>
-            <p>Are you sure you want to delete <strong>{{project.title}}</strong> project</p>
+            <p>Are you sure you want to delete 
+              <strong>{{project.title}}</strong> project
+            </p>
           </div>
         </div>
         <div class="form-inline" *ngIf="changeFlag == true">
             <label class="pr-2"><strong>Project name: </strong></label>
             <input 
               class="form-control" 
-              name="itemElement"
               [maxLength]="projectNameLength"
               [(ngModel)]="project.title" 
             />

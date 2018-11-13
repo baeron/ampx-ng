@@ -17,7 +17,7 @@ export class InstrumentationService {
   constructor(private http: Http) { }
 
   /**
-   *
+   * Method to get a short data of Instrumental list elements
    * @param id
    */
   getInstrumentationsList(id: string): Observable<any> {
@@ -27,7 +27,7 @@ export class InstrumentationService {
   }
 
   /**
-   *
+   * Method to get a full data of Instrumental list elements
    * @param id
    */
   getInstrumentations(id: string): Observable<any> {
@@ -37,7 +37,7 @@ export class InstrumentationService {
   }
 
   /**
-   *
+   * Method to create a new instrument element
    * @param id
    * @param instrumentation
    */
@@ -48,7 +48,7 @@ export class InstrumentationService {
   }
 
   /**
-   *
+   * Method for getting a specific Instrumental element by unique identifier.
    * @param projectId
    * @param instrumentationId
    */
@@ -66,7 +66,7 @@ export class InstrumentationService {
    */
   getObjectsById(id: string, arrayList: any, queryString: string): Observable<any> {
     const observableBatch = [];
-    const getObjectsByIdUrl = 'project/' + id + '/' + queryString + '/';
+    const getObjectsByIdUrl = environment.baseUrl + 'project/' + id + '/' + queryString + '/';
     arrayList.forEach((key) => {
       observableBatch.push(this.http.get(getObjectsByIdUrl + key).map((res) => res.json()));
     });
@@ -86,7 +86,7 @@ export class InstrumentationService {
   }
 
   /**
-   *
+   * Method for updating a specific Instrumental element by unique identifier.
    * @param projectId
    * @param instrumentationId
    * @param instrumentationItem
@@ -98,7 +98,7 @@ export class InstrumentationService {
   }
 
   /**
-   *
+   * Method for deleting a specific Instrumental element by unique identifier.
    * @param projectId
    * @param instrumentationId
    */

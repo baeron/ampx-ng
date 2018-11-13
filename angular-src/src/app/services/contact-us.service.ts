@@ -10,6 +10,11 @@ headers.append('Content-Type', 'application/json');
 export class ContactUsService {
   baseUrl = environment.baseUrl;
   constructor(private http: Http) { }
+
+  /**
+   *
+   * @param user
+   */
   sendContactUsEmail(user) {
     const sendMessageUrl = this.baseUrl + 'users/contacts';
     return this.http.post(sendMessageUrl, user, {headers: headers})

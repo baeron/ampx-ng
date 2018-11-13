@@ -14,28 +14,28 @@ export class IoAssignmentService {
   constructor(private http: Http) { }
 
   /**
-   *
-   * @param id
+   * Method to get the list of elements of the IO Assignment
+   * @param projectId
    */
-  getIoAssignmentList(id: string): Observable<any> {
-    const getIoAssignmentListUrl = this.baseUrl + 'project/' + id + '/ioassignments';
+  getIoAssignmentList(projectId: string): Observable<any> {
+    const getIoAssignmentListUrl = this.baseUrl + 'project/' + projectId + '/ioassignments';
       return this.http.get(getIoAssignmentListUrl, {headers: headers})
         .map(res => res.json());
   }
 
   /**
-   *
-   * @param id
+   * Method for creating a specific element of the IO Assignment
+   * @param projectId
    * @param ioAssignment
    */
-  createIoAssignment(id: string, ioAssignment: any): Observable<any> {
-    const createIOAssignmentUrl = this.baseUrl + 'project/' + id + '/io_assignment-create';
+  createIoAssignment(projectId: string, ioAssignment: any): Observable<any> {
+    const createIOAssignmentUrl = this.baseUrl + 'project/' + projectId + '/io_assignment-create';
       return this.http.post(createIOAssignmentUrl, ioAssignment, {headers: headers})
           .map(res => res.json());
   }
 
   /**
-   *
+   * Method for updating a specific element of the IO Assignment
    * @param projectId
    * @param data
    */

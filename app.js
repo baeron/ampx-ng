@@ -26,6 +26,8 @@ mongoose.connection.on('error', (err) => {
 const users = require('./routes/users');
 const project = require('./routes/project');
 
+//TODO: move to envirovment for prod and dev
+
 // Port Number
 // const port = 3000;
 

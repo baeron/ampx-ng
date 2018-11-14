@@ -40,7 +40,7 @@
           <input
             class="form-control"
             [maxLength]="projectNameLength"
-            [(ngModel)]='project.title'
+            [(ngModel)]='projectName'
           />
         </div>
         <div class="form-inline" *ngIf="createFlag == true">
@@ -61,7 +61,7 @@
           <div class="d-flex justify-content-end">
             <div class="form-group pr-1">
               <button *ngIf="dropFlag == true" class="btn btn-danger" (click)="deleteItem(project)">Delete</button>
-              <button *ngIf="changeFlag == true" class="btn btn-success" (click)="changeItem(project, project.title)" [disabled]="!project.title">Change</button>
+              <button *ngIf="changeFlag == true" class="btn btn-success" (click)="changeItem(project, projectName)" [disabled]="!projectName">Change</button>
               <button *ngIf="createFlag == true" class="btn btn-success" (click)="addNewProject(itemElement)" [disabled]="!itemElement">Add</button>
             </div>
             <div class="pl-1 pr-2">

@@ -6,7 +6,7 @@
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.app.json -w -s",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --target production --build-optimizer --vendor-chunk",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

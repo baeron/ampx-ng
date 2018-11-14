@@ -52,7 +52,7 @@ export class ProjectsModalComponent {
   }
 
   /**
-   *
+   * Method to display to the user a modal window for changing the project name.
    * @param chengeProject
    * @param itemProject
    */
@@ -86,7 +86,6 @@ export class ProjectsModalComponent {
     });
   }
 
-  // TODO: separate to two colection Title element
   /**
    * Method to change the name of the project
    * @param project

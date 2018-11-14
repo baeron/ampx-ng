@@ -1,3 +1,4 @@
+// import { error } from 'util';
 import { Component, Input } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
 import { IProject } from '../../../models/IProject';
@@ -17,6 +18,7 @@ export class ProjectsModalComponent {
   @Input() title: string;
 
   itemElement: string;
+  projectName: string;
   visible = false;
   dropFlag = false;
   changeFlag = false;
@@ -24,47 +26,47 @@ export class ProjectsModalComponent {
   visibleAnimate = false;
 
   constructor(private projectService: ProjectService) {
-   }
-
-  public showAddModal(flag): void {
     this.projectNameLength = 40;
-    this.createFlag = flag;
+  }
+
+  /**
+   * Method for displaying ADD modal window to a user.
+   * @param createElementFlag
+   */
+  public showAddModal(createElementFlag: boolean): void {
+    this.createFlag = createElementFlag;
     this.visible = true;
     setTimeout(() => this.visibleAnimate = true, 100);
   }
 
-  public showDropModal(flag, itemProject): void {
-    this.dropFlag = flag;
+  /**
+   * Method for displaying DELETE modal window to a user
+   * @param deleteElementFlag
+   * @param itemProject
+   */
+  public showDropModal(deleteElementFlag: boolean, itemProject: any): void {
+    this.dropFlag = deleteElementFlag;
     this.project = itemProject;
     this.visible = true;
     setTimeout(() => this.visibleAnimate = true, 100);
   }
 
-  public showChangeProjectModal(chengeProject, itemProject) {
+  /**
+   *
+   * @param chengeProject
+   * @param itemProject
+   */
+  public showChangeProjectModal(chengeProject: boolean, itemProject: any) {
     this.changeFlag = chengeProject;
     this.project = itemProject;
+    this.projectName = itemProject.title;
     this.visible = true;
     setTimeout(() => this.visibleAnimate = true, 100);
-  }
-
-  public hide(): void {
-    this.visibleAnimate = false;
-    setTimeout(() => this.visible = false, 300);
-    this.dropFlag = false;
-    this.changeFlag = false;
-    this.createFlag = false;
-    this.itemElement = null;
-  }
-
-  public onContainerClicked(event: MouseEvent): void {
-    if ((<HTMLElement>event.target).classList.contains('modal')) {
-      this.hide();
-    }
   }
 
   /**
    * Add a new project for a previously registered user.
-   * @param {string} projectName Data received from the user using input
+   * @param projectName Data received from the user using input
    * @returns Return data from project.service.ts
    */
   public addNewProject(projectName: string) {
@@ -80,34 +82,29 @@ export class ProjectsModalComponent {
       } else {
         console.error(data.message);
       }
+      this.clearVariables();
     });
-    this.visible = false;
-    this.createFlag = false;
-    this.itemElement = null;
   }
 
+  // TODO: separate to two colection Title element
   /**
    * Method to change the name of the project
    * @param project
    * @param projectTitle Data received from the user using input
    * @returns HTTP success status or error message from project.servise.ts
    */
-  public changeItem(project: IProject, projectTitle: string) {
+  public changeItem(project: any, projectTitle: string) {
     for (const key in this.dataValue) {
       if (this.dataValue[key]._id === project._id) {
         this.dataValue[key].title = projectTitle;
         this.projectService.updateProject(project._id, this.dataValue[key]).subscribe(data => {
-          if (data.status === 'success') {
-          } else {
+          if (data.status !== 'success') {
             console.error(data.message);
           }
+          this.clearVariables();
         });
       }
     }
-    this.visible = false;
-    this.changeFlag = false;
-    this.createFlag = false;
-    this.itemElement = null;
   }
 
   /**
@@ -121,25 +118,38 @@ export class ProjectsModalComponent {
       if (data.status === 'success') {
         this.dataValue.splice(0, 1);
       } else {
-        // console.log(false);
+        console.log(data.error);
       }
+      this.clearVariables();
     });
-    this.visible = false;
-    this.dropFlag = false;
-    this.changeFlag = false;
-    this.createFlag = false;
-    this.itemElement = null;
   }
 
   /**
    * Method for closing a modal window and cleaning a form
    */
   public close(): void {
+    if (this.project) {
+      this.project.title = this.projectName;
+    }
+   this.clearVariables();
+  }
+
+  /**
+   * Method to reset all local variables
+   */
+  public clearVariables() {
     this.visible = false;
-    // setTimeout(() => this.visible = false, 300);
     this.dropFlag = false;
     this.changeFlag = false;
     this.createFlag = false;
     this.itemElement = null;
+    this.project = null;
   }
+   /*
+  public onContainerClicked(event: MouseEvent): void {
+    if ((<HTMLElement>event.target).classList.contains('modal')) {
+      this.hide();
+    }
+  }
+  */
 }

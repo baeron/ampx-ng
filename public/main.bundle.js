@@ -147,6 +147,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// import { UiSwitchModule } from 'angular2-ui-switch';
 // MAIN PROJECT COMPONENT
 
 // NAVIGATION COMPONENT
@@ -210,7 +211,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-// import { AdminComponent } from './components/admin/admin.component';
 // SUPERADMIN and ADMIN part
 
 // TODO move to separate component
@@ -222,7 +222,6 @@ var appRoutes = [
     { path: 'contact_us', component: __WEBPACK_IMPORTED_MODULE_13__components_contact_us_contact_us_component__["a" /* ContactUsComponent */] },
     // registration and authentication
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_21__components_register_register_component__["a" /* RegisterComponent */] },
-    // { path: 'login', component: LoginComponent },
     { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_12__components_signin_signin_component__["a" /* SigninComponent */] },
     // projects
     { path: 'project', component: __WEBPACK_IMPORTED_MODULE_23__components_project_project_component__["a" /* ProjectComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
@@ -291,11 +290,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_50__components_drop_down_dependent_drop_down_dependent_component__["a" /* DropDownDependentComponent */],
                 __WEBPACK_IMPORTED_MODULE_51__components_modals_multiple_modal_multiple_modal_component__["a" /* MultipleModalComponent */],
                 __WEBPACK_IMPORTED_MODULE_52__components_superadmin_superadmin_component__["a" /* SuperadminComponent */]
-                // AdminComponent
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                // UiSwitchModule,
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
@@ -4827,7 +4824,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/modals/projects-modal/projects-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div\n  class=\"modal-padding\"\n  (click)=\"onContainerClicked($event)\"\n  class=\"modal fade\"\n  tabindex=\"-1\"\n  [ngClass]=\"{'in': visibleAnimate}\"\n  [ngStyle]=\"{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\" id=\"myModalLabel\">{{title}}</h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"close()\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <div *ngIf=\"dropFlag == true\">\n          <div>\n            <p>Are you sure you want to delete \n              <strong>{{project.title}}</strong> project\n            </p>\n          </div>\n        </div>\n        <div class=\"form-inline\" *ngIf=\"changeFlag == true\">\n            <label class=\"pr-2\"><strong>Project name: </strong></label>\n            <input \n              class=\"form-control\" \n              [maxLength]=\"projectNameLength\"\n              [(ngModel)]=\"project.title\" \n            />\n        </div>\n        <div class=\"form-inline\" *ngIf=\"createFlag == true\">\n          <label class=\"pr-2\"><strong>Project name: </strong></label>\n          <input \n            class=\"form-control\" \n            name=\"itemElement\" \n            [(ngModel)]=\"itemElement\" \n            placeholder='Input new project name'\n            [maxLength]=\"projectNameLength\"\n            onfocus=\"this.placeholder = ''\"\n            onblur=\"this.placeholder = 'Input new project name'\"  \n          />\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <div class=\"row\">\n          <div class=\"d-flex justify-content-end\">\n            <div class=\"form-group pr-1\">\n              <button *ngIf=\"dropFlag == true\" class=\"btn btn-danger\" (click)=\"deleteItem(project)\">Delete</button>\n              <button *ngIf=\"changeFlag == true\" class=\"btn btn-success\" (click)=\"changeItem(project, project.title)\">Change</button>\n              <button *ngIf=\"createFlag == true\" class=\"btn btn-success\" (click)=\"addNewProject(itemElement)\" [disabled]=\"!itemElement\">Add</button>\n            </div>\n            <div class=\"pl-1 pr-2\">\n              <button class=\"btn btn-primary\" (click)=\"close()\">Close</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<!--  (click)=\"onContainerClicked($event)\" -->\n<div\n  class=\"modal-padding\"\n  class=\"modal fade\"\n  tabindex=\"-1\"\n  [ngClass]=\"{'in': visibleAnimate}\"\n  [ngStyle]=\"{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\" id=\"myModalLabel\">{{title}}</h4>\n        <div *ngIf=\"changeFlag == true\">\n          <div *ngIf=\"project.title\">\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"close()\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n        </div>\n        <div *ngIf=\"createFlag == true\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"close()\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div *ngIf=\"dropFlag == true\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"close()\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n      </div>\n      <div class=\"modal-body\">\n        <div *ngIf=\"dropFlag == true\">\n          <div>\n            <p>Are you sure you want to delete \n              <strong>{{project.title}}</strong> project\n            </p>\n          </div>\n        </div>\n        <div class=\"form-inline\" *ngIf=\"changeFlag == true\">\n          <label class=\"pr-2\"><strong>Project name: </strong></label>\n          <input\n            class=\"form-control\"\n            [maxLength]=\"projectNameLength\"\n            [(ngModel)]='project.title'\n          />\n        </div>\n        <div class=\"form-inline\" *ngIf=\"createFlag == true\">\n          <label class=\"pr-2\"><strong>Project name: </strong></label>\n          <input \n            class=\"form-control\" \n            name=\"itemElement\" \n            [(ngModel)]=\"itemElement\" \n            placeholder='Input new project name'\n            [maxLength]=\"projectNameLength\"\n            onfocus=\"this.placeholder = ''\"\n            onblur=\"this.placeholder = 'Input new project name'\"  \n          />\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <div class=\"row\">\n          <div class=\"d-flex justify-content-end\">\n            <div class=\"form-group pr-1\">\n              <button *ngIf=\"dropFlag == true\" class=\"btn btn-danger\" (click)=\"deleteItem(project)\">Delete</button>\n              <button *ngIf=\"changeFlag == true\" class=\"btn btn-success\" (click)=\"changeItem(project, project.title)\" [disabled]=\"!project.title\">Change</button>\n              <button *ngIf=\"createFlag == true\" class=\"btn btn-success\" (click)=\"addNewProject(itemElement)\" [disabled]=\"!itemElement\">Add</button>\n            </div>\n            <div class=\"pl-1 pr-2\">\n              <div *ngIf=\"createFlag == true\">\n                    <button class=\"btn btn-primary\" (click)=\"close()\">Close</button>\n                  </div>\n              <div *ngIf=\"project\">\n                <button class=\"btn btn-primary\" [disabled]=\"!project.title\" (click)=\"close()\">Close</button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -4847,6 +4844,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// import { error } from 'util';
 
 
 var ProjectsModalComponent = (function () {
@@ -4857,45 +4855,46 @@ var ProjectsModalComponent = (function () {
         this.changeFlag = false;
         this.createFlag = false;
         this.visibleAnimate = false;
-    }
-    ProjectsModalComponent.prototype.showAddModal = function (flag) {
-        var _this = this;
         this.projectNameLength = 40;
-        this.createFlag = flag;
+    }
+    /**
+     * Method for displaying ADD modal window to a user.
+     * @param createElementFlag
+     */
+    ProjectsModalComponent.prototype.showAddModal = function (createElementFlag) {
+        var _this = this;
+        this.createFlag = createElementFlag;
         this.visible = true;
         setTimeout(function () { return _this.visibleAnimate = true; }, 100);
     };
-    ProjectsModalComponent.prototype.showDropModal = function (flag, itemProject) {
+    /**
+     * Method for displaying DELETE modal window to a user
+     * @param deleteElementFlag
+     * @param itemProject
+     */
+    ProjectsModalComponent.prototype.showDropModal = function (deleteElementFlag, itemProject) {
         var _this = this;
-        this.dropFlag = flag;
+        this.dropFlag = deleteElementFlag;
         this.project = itemProject;
         this.visible = true;
         setTimeout(function () { return _this.visibleAnimate = true; }, 100);
     };
+    /**
+     *
+     * @param chengeProject
+     * @param itemProject
+     */
     ProjectsModalComponent.prototype.showChangeProjectModal = function (chengeProject, itemProject) {
         var _this = this;
         this.changeFlag = chengeProject;
         this.project = itemProject;
+        this.projectName = itemProject.title;
         this.visible = true;
         setTimeout(function () { return _this.visibleAnimate = true; }, 100);
     };
-    ProjectsModalComponent.prototype.hide = function () {
-        var _this = this;
-        this.visibleAnimate = false;
-        setTimeout(function () { return _this.visible = false; }, 300);
-        this.dropFlag = false;
-        this.changeFlag = false;
-        this.createFlag = false;
-        this.itemElement = null;
-    };
-    ProjectsModalComponent.prototype.onContainerClicked = function (event) {
-        if (event.target.classList.contains('modal')) {
-            this.hide();
-        }
-    };
     /**
      * Add a new project for a previously registered user.
-     * @param {string} projectName Data received from the user using input
+     * @param projectName Data received from the user using input
      * @returns Return data from project.service.ts
      */
     ProjectsModalComponent.prototype.addNewProject = function (projectName) {
@@ -4913,11 +4912,10 @@ var ProjectsModalComponent = (function () {
             else {
                 console.error(data.message);
             }
+            _this.clearVariables();
         });
-        this.visible = false;
-        this.createFlag = false;
-        this.itemElement = null;
     };
+    // TODO: separate to two colection Title element
     /**
      * Method to change the name of the project
      * @param project
@@ -4925,22 +4923,18 @@ var ProjectsModalComponent = (function () {
      * @returns HTTP success status or error message from project.servise.ts
      */
     ProjectsModalComponent.prototype.changeItem = function (project, projectTitle) {
+        var _this = this;
         for (var key in this.dataValue) {
             if (this.dataValue[key]._id === project._id) {
                 this.dataValue[key].title = projectTitle;
                 this.projectService.updateProject(project._id, this.dataValue[key]).subscribe(function (data) {
-                    if (data.status === 'success') {
-                    }
-                    else {
+                    if (data.status !== 'success') {
                         console.error(data.message);
                     }
+                    _this.clearVariables();
                 });
             }
         }
-        this.visible = false;
-        this.changeFlag = false;
-        this.createFlag = false;
-        this.itemElement = null;
     };
     /**
      * Method to delete a project
@@ -4955,25 +4949,30 @@ var ProjectsModalComponent = (function () {
                 _this.dataValue.splice(0, 1);
             }
             else {
-                // console.log(false);
+                console.log(data.error);
             }
+            _this.clearVariables();
         });
-        this.visible = false;
-        this.dropFlag = false;
-        this.changeFlag = false;
-        this.createFlag = false;
-        this.itemElement = null;
     };
     /**
      * Method for closing a modal window and cleaning a form
      */
     ProjectsModalComponent.prototype.close = function () {
+        if (this.project) {
+            this.project.title = this.projectName;
+        }
+        this.clearVariables();
+    };
+    /**
+     * Method to reset all local variables
+     */
+    ProjectsModalComponent.prototype.clearVariables = function () {
         this.visible = false;
-        // setTimeout(() => this.visible = false, 300);
         this.dropFlag = false;
         this.changeFlag = false;
         this.createFlag = false;
         this.itemElement = null;
+        this.project = null;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),

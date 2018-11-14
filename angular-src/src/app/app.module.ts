@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { MyDatePickerModule } from 'mydatepicker';
-import { UiSwitchModule } from 'angular2-ui-switch';
+// import { UiSwitchModule } from 'angular2-ui-switch';
 
 // MAIN PROJECT COMPONENT
 import { AppComponent } from './app.component';
@@ -85,7 +85,6 @@ import { SimpleElectricalModalComponent } from './components/modals/simple-elect
 import { DropDownDependentComponent } from './components/drop-down-dependent/drop-down-dependent.component';
 import { MultipleModalComponent } from './components/modals/multiple-modal/multiple-modal.component';
 import { SuperadminComponent } from './components/superadmin/superadmin.component';
-// import { AdminComponent } from './components/admin/admin.component';
 
 // SUPERADMIN and ADMIN part
 import { UsersService } from './services/users.service';
@@ -99,9 +98,7 @@ const appRoutes: Routes = [
   { path: 'contact_us', component: ContactUsComponent },
 
   // registration and authentication
-
   { path: 'register', component: RegisterComponent },
-  // { path: 'login', component: LoginComponent },
   { path: 'signin', component: SigninComponent },
   // projects
   { path: 'project', component: ProjectComponent, canActivate: [AuthGuard] },
@@ -168,11 +165,9 @@ const appRoutes: Routes = [
     DropDownDependentComponent,
     MultipleModalComponent,
     SuperadminComponent
-    // AdminComponent
   ],
   imports: [
     BrowserModule,
-    // UiSwitchModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,

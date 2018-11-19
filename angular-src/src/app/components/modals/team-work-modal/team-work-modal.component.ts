@@ -278,6 +278,7 @@ export class TeamWorkModalComponent {
    * The method of cleaning the form fields and hiding the modal window
    */
   public hide(): void {
+    this.browseUserEmail = null;
     this.itemElement = null;
     this.project = null;
     this.addUserInTeam = false;

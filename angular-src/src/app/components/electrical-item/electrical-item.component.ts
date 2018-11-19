@@ -3,8 +3,6 @@ import { Availability } from './../../shared/Availability';
 import { Component, OnInit, ViewChild, HostListener, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgModel } from '@angular/forms';
-// helper classes and functions
-// import { Availability } from '../../shared/Availability';
 // models
 import { IProject } from '../../models/IProject';
 // servises
@@ -40,6 +38,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
   presetParentTag: any;
   //
   date: string;
+  today: number = Date.now();
   //
   @ViewChild('selectedHazlocZone') private selectedHazlocZone: NgModel;
   @ViewChild('selectedHazlocTemperature') private selectedHazlocTemperature: NgModel;
@@ -86,7 +85,10 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     // get itemElectricalElement
     this.electricalService.getElectricalItem(this.projectId, this.electricalId).subscribe(electricals => {
       this.electricalItem = electricals.electrical;
+      debugger;
+      console.log(this.electricalItem.dateCreate);
       this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
+      debugger;
       if (this.electricalItem.selectedPowerSystem) {
         this.productsAfterChangeEvent = electricals.electrical.voltage.
           filter(p => p.powerSystemType === electricals.electrical.selectedPowerSystem);
@@ -273,8 +275,12 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       data.voltage = this.changeVoltageArrayObject(this.productsAfterChangeEvent, this.electricalItem.voltage);
     }
 */
+    data.dateCreate = this.electricalItem.dateCreate;
+console.log(data.dateCreate);
+debugger;
     data.selectedVoltage.powerSystemType = data.selectedPowerSystem;
-    data.dateCreate = this.date;
+    // data.dateCreate = this.date;
+
     // console.log(data.dateCreate);
     data.equipmentType = this.electricalItem.equipmentType;
     data.selectedEquipmentType = this.electricalItem.selectedEquipmentType;

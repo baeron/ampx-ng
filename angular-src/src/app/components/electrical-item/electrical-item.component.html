@@ -18,7 +18,13 @@
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="dateCreate">Date added</label>
-              <input type="text" class="form-control" [(ngModel)]="date" name="dateCreate" disabled>
+              <input
+                type="text"
+                class="form-control"
+                [ngModel]="electricalItem.dateCreate | date:'yyyy-MM-dd'" 
+                name="dateCreate"
+                disabled
+              >
             </div>
           </div>
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">

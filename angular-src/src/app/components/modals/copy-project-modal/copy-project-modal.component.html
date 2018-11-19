@@ -1,0 +1,49 @@
+<div
+  class="modal-padding"
+  class="modal fade"
+  tabindex="-1"
+  [ngClass]="{'in': isAnimateVisible}"
+  [ngStyle]="{'display': isVisible ? 'block' : 'none', 'opacity': isAnimateVisible ? 1 : 0}">
+  <ng-container *ngIf="projectData">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>{{title}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-inline">
+            <label class="pr-2"><strong>Name of selected project: </strong></label>
+            <input
+              class="form-control"
+              [ngModel]='projectData.title'
+              disabled
+            />
+          </div>
+          <div class="form-inline">
+            <label class="pr-2"><strong>Name for the cloned Project: </strong></label>
+            <input
+              class="form-control"
+              [maxLength]="projectNameLength"
+              [(ngModel)]='nameCopiedProject'
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="row">
+            <div class="d-flex justify-content-end">
+              <div class="pr-1">
+                <button class="btn btn-success" (click)="simpleCopyProject(nameCopiedProject)" [disabled]="!nameCopiedProject">Copy project</button>
+              </div>
+              <div class="pl-1 pr-2">
+                <button class="btn btn-primary" (click)="close()" [disabled]="!nameCopiedProject">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -68,6 +68,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#baseUrl">baseUrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -124,7 +138,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/instrumentation.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/instrumentation.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -182,7 +196,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>createInstrumentstion(id: , instrumentation: )</code>
+<code>createInstrumentstion(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, instrumentation: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
@@ -196,6 +210,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method to create a new instrument element</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -203,12 +219,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -218,6 +238,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>instrumentation</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -231,7 +254,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -256,20 +279,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>deleteInstrumentationItem(projectId: , instrumentationId: )</code>
+<code>deleteInstrumentationItem(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, instrumentationId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/services/instrumentation.service.ts:108</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/services/instrumentation.service.ts:105</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method for deleting a specific Instrumental element by unique identifier.</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -277,12 +302,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -292,6 +321,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>instrumentationId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -305,7 +337,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -330,20 +362,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getInstrumentationItem(projectId: , instrumentationId: )</code>
+<code>getInstrumentationItem(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, instrumentationId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/services/instrumentation.service.ts:59</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/services/instrumentation.service.ts:55</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method for getting a specific Instrumental element by unique identifier.</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -351,12 +385,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -366,6 +404,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>instrumentationId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -379,7 +420,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -404,20 +445,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getInstrumentations(id: )</code>
+<code>getInstrumentations(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/instrumentation.service.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/instrumentation.service.ts:33</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method to get a full data of Instrumental list elements</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -425,12 +468,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -444,7 +491,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -469,14 +516,14 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getInstrumentationsCheckList2(id: , array: , queryString: )</code>
+<code>getInstrumentationsCheckList2(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, array: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, queryString: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/services/instrumentation.service.ts:86</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/services/instrumentation.service.ts:82</a></div>
                             </td>
                         </tr>
 
@@ -490,12 +537,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -505,6 +556,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>array</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -514,6 +568,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>queryString</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -552,20 +609,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getInstrumentationsList(id: )</code>
+<code>getInstrumentationsList(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/instrumentation.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/instrumentation.service.ts:23</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method to get a short data of Instrumental list elements</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -573,12 +632,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -592,7 +655,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -617,14 +680,14 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getObjectsById(id: , arrayList: , queryString: )</code>
+<code>getObjectsById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, arrayList: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, queryString: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/services/instrumentation.service.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/services/instrumentation.service.ts:67</a></div>
                             </td>
                         </tr>
 
@@ -638,12 +701,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -653,6 +720,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>arrayList</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -662,6 +732,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>queryString</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -675,7 +748,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -700,20 +773,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>updateInstrumentationItem(projectId: , instrumentationId: , instrumentationItem: )</code>
+<code>updateInstrumentationItem(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, instrumentationId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, instrumentationItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/services/instrumentation.service.ts:92</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/services/instrumentation.service.ts:94</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method for updating a specific Instrumental element by unique identifier.</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -721,12 +796,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -736,6 +815,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>instrumentationId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -745,6 +827,9 @@
                                                 </tr>
                                                 <tr>
                                                         <td>instrumentationItem</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -758,7 +843,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -770,6 +855,45 @@
         </table>
 </section>
 
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="baseUrl"></a>
+                        <span class="name">
+                            <b>
+                            baseUrl
+                            </b>
+                            <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>baseUrl:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.baseUrl</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/instrumentation.service.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
     </div>
 
@@ -782,119 +906,107 @@ import &#x27;rxjs/add/operator/map&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import &#x27;rxjs/add/operator/map&#x27;;
 import &#x27;rxjs/add/operator/mergeMap&#x27;;
+import { environment } from &#x27;../../environments/environment&#x27;;
+
+const headers &#x3D; new Headers();
+headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
+const params &#x3D; new URLSearchParams();
 
 @Injectable()
 export class InstrumentationService {
-
+  baseUrl &#x3D; environment.baseUrl;
   constructor(private http: Http) { }
 
-  getInstrumentationsList(id) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    
-          return this.http.get(&#x27;http://localhost:3000/project/&#x27;+id+&#x27;/instrumentations-list&#x27;, {headers: headers})
-            .map(res &#x3D;&gt; res.json());
-    
-    // for deploy
-    /*
-    return this.http.get(&#x27;project/&#x27; + id + &#x27;/instrumentations-list&#x27;, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
+  /**
+   * Method to get a short data of Instrumental list elements
+   * @param id
+   */
+  getInstrumentationsList(id: string): Observable&lt;any&gt; {
+    const getInstrumentationListUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + id + &#x27;/instrumentations-list&#x27;;
+      return this.http.get(getInstrumentationListUrl, {headers: headers})
+        .map(res &#x3D;&gt; res.json());
   }
 
-  getInstrumentations(id) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    
-        return this.http.get(&#x27;http://localhost:3000/project/&#x27; + id + &#x27;/instrumentations&#x27;, {headers: headers})
-          .map(res &#x3D;&gt; res.json());
-    
-    // for deploy
-    /*
-    return this.http.get(&#x27;project/&#x27; + id + &#x27;/instrumentations&#x27;, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
+  /**
+   * Method to get a full data of Instrumental list elements
+   * @param id
+   */
+  getInstrumentations(id: string): Observable&lt;any&gt; {
+    const getInstrumentationsListUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + id + &#x27;/instrumentations&#x27;;
+      return this.http.get(getInstrumentationsListUrl, {headers: headers})
+        .map(res &#x3D;&gt; res.json());
   }
 
-  createInstrumentstion(id, instrumentation) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    
-        return this.http.post(&#x27;http://localhost:3000/project/&#x27;+id+&#x27;/instrumentation-create/&#x27;, instrumentation, {headers: headers})
-          .map(res &#x3D;&gt; res.json());
-    
-    // for deploy
-  /*
-    return this.http.post(&#x27;project/&#x27; + id + &#x27;/instrumentation-create/&#x27;, instrumentation, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
+  /**
+   * Method to create a new instrument element
+   * @param id
+   * @param instrumentation
+   */
+  createInstrumentstion(id: string, instrumentation: any): Observable&lt;any&gt; {
+    const createInstrumentationUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + id + &#x27;/instrumentation-create/&#x27;;
+      return this.http.post(createInstrumentationUrl, instrumentation, {headers: headers})
+        .map(res &#x3D;&gt; res.json());
   }
 
-  getInstrumentationItem(projectId, instrumentationId) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    
-        return this.http.get(&#x27;http://localhost:3000/project/&#x27;+projectId+&#x27;/instrumentations/&#x27;+instrumentationId, {headers: headers})
-          .map(res &#x3D;&gt; res.json());
-    
-    // for deploy
-    /*
-    return this.http.get(&#x27;project/&#x27; + projectId + &#x27;/instrumentations/&#x27; + instrumentationId, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
+  /**
+   * Method for getting a specific Instrumental element by unique identifier.
+   * @param projectId
+   * @param instrumentationId
+   */
+  getInstrumentationItem(projectId: string, instrumentationId: string): Observable&lt;any&gt; {
+    const getInstrumentationItemUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/instrumentations/&#x27; + instrumentationId;
+      return this.http.get(getInstrumentationItemUrl, {headers: headers})
+        .map(res &#x3D;&gt; res.json());
   }
 
-  getObjectsById(id, arrayList, queryString) {
+  /**
+   *
+   * @param id
+   * @param arrayList
+   * @param queryString
+   */
+  getObjectsById(id: string, arrayList: any, queryString: string): Observable&lt;any&gt; {
     const observableBatch &#x3D; [];
-
+    const getObjectsByIdUrl &#x3D; environment.baseUrl + &#x27;project/&#x27; + id + &#x27;/&#x27; + queryString + &#x27;/&#x27;;
     arrayList.forEach((key) &#x3D;&gt; {
-      // for dev
-      // observableBatch.push(this.http.get(&#x27;http://localhost:3000/project/&#x27;+id+&#x27;/&#x27;+queryString+&#x27;/&#x27;+key).map((res) &#x3D;&gt; res.json()));
-      // for deploy
-      observableBatch.push(this.http.get(&#x27;project/&#x27; + id + &#x27;/&#x27; + queryString + &#x27;/&#x27; + key).map((res) &#x3D;&gt; res.json()));
+      observableBatch.push(this.http.get(getObjectsByIdUrl + key).map((res) &#x3D;&gt; res.json()));
     });
     return Observable.forkJoin(observableBatch);
   }
 
-  getInstrumentationsCheckList2(id, array, queryString): Observable&lt;any&gt; {
+  /**
+   *
+   * @param id
+   * @param array
+   * @param queryString
+   */
+  getInstrumentationsCheckList2(id: string, array: any, queryString: string): Observable&lt;any&gt; {
     return Observable.forkJoin(
       this.getObjectsById(id, array, queryString)
     );
   }
 
-  updateInstrumentationItem(projectId, instrumentationId, instrumentationItem) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    
-    return this.http.patch(&#x27;http://localhost:3000/project/&#x27;+ projectId+&#x27;/instrumentation-update/&#x27;
-    +instrumentationId, instrumentationItem, {headers: headers})
-          .map(res &#x3D;&gt; res.json());
-    
-    // for deploy
-    /*
-    return this.http.patch(&#x27;project/&#x27; + projectId + &#x27;/instrumentation-update/&#x27; + instrumentationId, instrumentationItem, { headers: headers })
+  /**
+   * Method for updating a specific Instrumental element by unique identifier.
+   * @param projectId
+   * @param instrumentationId
+   * @param instrumentationItem
+   */
+  updateInstrumentationItem(projectId: string, instrumentationId: string, instrumentationItem: any): Observable&lt;any&gt; {
+    const updateInstrumentationItemUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/instrumentation-update/&#x27; + instrumentationId;
+    return this.http.patch(updateInstrumentationItemUrl, instrumentationItem, {headers: headers})
       .map(res &#x3D;&gt; res.json());
-      */
   }
 
-  deleteInstrumentationItem(projectId, instrumentationId) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    
-        return this.http.delete(&#x27;http://localhost:3000/project/&#x27; + projectId + &#x27;/instrumentations/&#x27; + instrumentationId, {headers: headers})
-          .map(res &#x3D;&gt; res.json());
-    
-    // for deploy
-    /*
-    return this.http.delete(&#x27;project/&#x27; + projectId + &#x27;/instrumentations/&#x27; + instrumentationId, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
+  /**
+   * Method for deleting a specific Instrumental element by unique identifier.
+   * @param projectId
+   * @param instrumentationId
+   */
+  deleteInstrumentationItem(projectId: string, instrumentationId: string): Observable&lt;any&gt; {
+    const deleteInstrumentationItemUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/instrumentations/&#x27; + instrumentationId;
+      return this.http.delete(deleteInstrumentationItemUrl, {headers: headers})
+        .map(res &#x3D;&gt; res.json());
   }
 }
 </code></pre>

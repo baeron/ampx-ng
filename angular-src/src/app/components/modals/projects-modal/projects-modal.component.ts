@@ -1,4 +1,3 @@
-// import { error } from 'util';
 import { Component, Input } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
 import { IProject } from '../../../models/IProject';
@@ -144,7 +143,8 @@ export class ProjectsModalComponent {
     this.itemElement = null;
     this.project = null;
   }
-   /*
+
+  /*
   public onContainerClicked(event: MouseEvent): void {
     if ((<HTMLElement>event.target).classList.contains('modal')) {
       this.hide();

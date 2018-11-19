@@ -200,17 +200,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, ValidationErrors } from &quot;@angular/forms&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 
 export class CustomValidators {
-    static confirmEmail( control: AbstractControl, otherController: AbstractControl ) :ValidationErrors | null {
-        if((control.value) !&#x3D;&#x3D; (otherController.value)){
-            return { confirmEmail: true}
+    static confirmEmail( control: AbstractControl, otherController: AbstractControl ): ValidationErrors | null {
+        if ((control.value) !&#x3D;&#x3D; (otherController.value)) {
+            return { confirmEmail: true};
         } else {
             return null;
         }
     }
-}</code></pre>
+}
+</code></pre>
     </div>
 </div>
 

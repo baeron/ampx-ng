@@ -20,6 +20,7 @@ export class ProjectComponent implements OnInit, DoCheck {
   createProject: Boolean = true;
   dropProject: Boolean = true;
   chengeProject: Boolean = true;
+  copyProjectFlag: Boolean = true;
   addTeamUser: Boolean = false;
   addViewerUser: Boolean = false;
   userGuid: string;

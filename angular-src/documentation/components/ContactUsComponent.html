@@ -145,6 +145,9 @@
                                 <a href="#emailImg">emailImg</a>
                             </li>
                             <li>
+                                <a href="#isSubmit">isSubmit</a>
+                            </li>
+                            <li>
                                 <a href="#linkedInImg">linkedInImg</a>
                             </li>
                             <li>
@@ -220,7 +223,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -325,7 +328,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -361,7 +364,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:75</a></div>
                             </td>
                         </tr>
 
@@ -430,7 +433,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:63</a></div>
                             </td>
                         </tr>
 
@@ -468,7 +471,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:83</a></div>
                             </td>
                         </tr>
 
@@ -733,6 +736,34 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="isSubmit"></a>
+                        <span class="name">
+                            <b>
+                            isSubmit
+                            </b>
+                            <a href="#isSubmit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>isSubmit:     <code></code>
+</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/contact-us/contact-us.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="linkedInImg"></a>
                         <span class="name">
                             <b>
@@ -975,6 +1006,7 @@ export class ContactUsComponent implements OnInit {
   textValue &#x3D; &#x27;Message&#x27;;
 // Size window
   sizeWindow: any;
+  isSubmit: false;
 
   @HostListener(&#x27;window:resize&#x27;, [&#x27;$event&#x27;])
   onResize(event) {
@@ -1113,7 +1145,12 @@ export class ContactUsComponent implements OnInit {
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
- 
+      &lt;div class&#x3D;&quot;row contsct-us__submit-btn__block&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12&quot;&gt;
+          &lt;!--&lt;a href&#x3D;&quot;/&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-warning btn-lg btn-block&quot;&gt;Submit&lt;/a&gt; --&gt;
+          &lt;a class&#x3D;&quot;contsct-us__submit-btn__stile text-center float-right&quot; routerLink&#x3D;&quot;/&quot;&gt; Submit &lt;span class&#x3D;&quot;sr-only&quot;&gt; Submit &lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/form&gt;
   &lt;/div&gt;
   &lt;footer *ngIf&#x3D;&quot;sizeWindow &gt; 992; else werticalFooter&quot;&gt;
@@ -1226,8 +1263,8 @@ export class ContactUsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div>  <div class="img-block">    <picture>      <source media="(min-width: 1200px)" [srcset]="contactUsImg_1920">      <source media="(min-width: 992px)" [srcset]="contactUsImg_1200">      <source media="(min-width: 768px)" [srcset]="contactUsImg_992">      <source media="(min-width: 576px)" [srcset]="contactUsImg_768">      <source [srcset]="contactUsImg_576">      <img class="d-block img-fluid" [src]="contactUsImg_1920" alt="contactUs" sr-only="Contact Us">    </picture>    <div class="img-captcha">        <div class="img-captcha-fone"></div>        <div class="d-flex align-items-start flex-column max-height">          <p class="carousel-caption-header-text pl-4 mt-auto mb-auto captcha-header"><strong>How can we help you?</strong></p>          <hr class="mb-auto ml-4 mt-auto">          <p class="pl-4 pr-4 mt-auto mb-auto captcha-footer">            We are eager to help your business. Please contact us directly via telephone or email, or submit an inquiry using the form below.          </p>        </div>    </div>  </div>  <div class="container">    <form [formGroup]="contactUsForm" novalidate (ngSubmit)="submit()">      <div class="row justify-content-center mt-5">        <div class="col-12 col-md-6 col-lg-4 col-xl-6">          <div class="row">            <div class="col-12 form-element-height">              <div class="form-group">                <input class="form-control" type="text" name="userName" formControlName="userName" placeholder="Name" />                <div class="form-control-feedback validate-message" *ngIf="contactUsForm.controls[\'userName\'].invalid && contactUsForm.controls[\'userName\'].touched">                  <span>Name is required</span>                </div>              </div>            </div>          </div>          <div class="row">            <div class="col-12 form-element-height">              <div class="form-group">                <input class="form-control" type="email" name="userEmail" formControlName="userEmail" placeholder="Email" />                <div class="form-control-feedback validate-message" *ngIf="contactUsForm.controls[\'userEmail\'].invalid && contactUsForm.controls[\'userEmail\'].touched">                  Invalid email address                </div>              </div>            </div>          </div>          <div class="row">            <div class="col-12 form-element-height">              <div class="form-group">                <input class="form-control" type="text" name="userPhone" formControlName="userPhone" (keypress)="keyPress($event)" placeholder="Phone number (optional)" />                <div class="form-control-feedback validate-message" *ngIf="contactUsForm.controls[\'userPhone\'].invalid">                    Invalid phone number                  </div>              </div>            </div>          </div>        </div>        <div class="col-12 col-md-6 col-lg-4 col-xl-6">          <div class="form-group" class="form-text-block">            <textarea class="form-control" formControlName="message" rows="7"></textarea>          </div>        </div>      </div>     </form>  </div>  <footer *ngIf="sizeWindow > 992; else werticalFooter">    <div class="custom-footer">        <div class="d-flex align-items-center justify-content-around custom-footer-link max-height">            <div class="p-1 bd-highlight">              <div class="row align-items-center">                <div class="col-4">                  <img class="d-block" [src]="phoneImg" alt="phone:" sr-only="phone number">                </div>                <div class="col-8">                  <span> <a href="tel:1.403.863.0893" class="footer_href">1.403.863.0893</a></span>                </div>              </div>            </div>            <div class="p-1 bd-highlight">              <div class="row align-items-center">                <div class="col-4">                  <img class="d-block" [src]="emailImg" alt="email address" sr-only="email">                </div>                <div class="col-8">                  <span><a class="footer_href" href="mailto:info@ampx.ca">info@ampx.ca</a></span>                </div>              </div>            </div>            <div class="p-1 bd-highlight">              <div class="row align-items-center">                <div class="col-3">                  <img class="d-block" [src]="linkedInImg" alt="linkedIn" sr-only="linked in account">                </div>                <div class="col-9">                  <span class="footer-text">Follow us on <a href="https://www.linkedin.com/company/amp-x-consulting-inc.?trk=top_nav_home" target="_blank" class="footer_href"><strong>LinkedIn</strong></a></span>                </div>              </div>            </div>            <div class="p-1 bd-highlight">                <span class="footer-text">AMP X Consulting Inc. &copy; {{year}} | All Rights Reserved</span>            </div>          </div>        </div>  </footer>  <ng-template class="template-footer" #werticalFooter>    <div class="custom-footer">      <div class="d-flex flex-column">        <div class="row mt-2 footer-row">          <div class="col-6">            <div class="float-right">              <img class="d-block" [src]="phoneImg" alt="phone:" sr-only="phone number">            </div>          </div>          <div class="col-6 mr-a">            <span> <a href="tel:1.403.863.0893" class="footer_href">1.403.863.0893</a></span>          </div>        </div>        <div class="row mt-2 footer-row">          <div class="col-6">            <div class="float-right">              <img class="d-block" [src]="emailImg" alt="email address" sr-only="email">            </div>          </div>          <div class="col-6">            <span><a class="footer_href" href="mailto:info@ampx.ca">info@ampx.ca</a></span>          </div>        </div>        <div class="row mt-2 footer-row">          <div class="col-6">            <div class="float-right">              <img class="d-block" [src]="linkedInImg" alt="linkedIn" sr-only="linked in account">            </div>          </div>          <div class="col-6">            <span class="footer-text">Follow us on <a href="https://www.linkedin.com/company/amp-x-consulting-inc.?trk=top_nav_home" target="_blank" class="footer_href"><strong>LinkedIn</strong></a></span>          </div>        </div>        <div class="row mt-2 footer-row">          <div class="col-12">            <div class="d-flex justify-content-center">              <span class="footer-text text-center">AMP X Consulting Inc. &copy; {{year}} | All Rights Reserved</span>            </div>          </div>        </div>      </div>    </div>  </ng-template></div></div>'
-    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+        var COMPONENT_TEMPLATE = '<div><div>  <div class="img-block">    <picture>      <source media="(min-width: 1200px)" [srcset]="contactUsImg_1920">      <source media="(min-width: 992px)" [srcset]="contactUsImg_1200">      <source media="(min-width: 768px)" [srcset]="contactUsImg_992">      <source media="(min-width: 576px)" [srcset]="contactUsImg_768">      <source [srcset]="contactUsImg_576">      <img class="d-block img-fluid" [src]="contactUsImg_1920" alt="contactUs" sr-only="Contact Us">    </picture>    <div class="img-captcha">        <div class="img-captcha-fone"></div>        <div class="d-flex align-items-start flex-column max-height">          <p class="carousel-caption-header-text pl-4 mt-auto mb-auto captcha-header"><strong>How can we help you?</strong></p>          <hr class="mb-auto ml-4 mt-auto">          <p class="pl-4 pr-4 mt-auto mb-auto captcha-footer">            We are eager to help your business. Please contact us directly via telephone or email, or submit an inquiry using the form below.          </p>        </div>    </div>  </div>  <div class="container">    <form [formGroup]="contactUsForm" novalidate (ngSubmit)="submit()">      <div class="row justify-content-center mt-5">        <div class="col-12 col-md-6 col-lg-4 col-xl-6">          <div class="row">            <div class="col-12 form-element-height">              <div class="form-group">                <input class="form-control" type="text" name="userName" formControlName="userName" placeholder="Name" />                <div class="form-control-feedback validate-message" *ngIf="contactUsForm.controls[\'userName\'].invalid && contactUsForm.controls[\'userName\'].touched">                  <span>Name is required</span>                </div>              </div>            </div>          </div>          <div class="row">            <div class="col-12 form-element-height">              <div class="form-group">                <input class="form-control" type="email" name="userEmail" formControlName="userEmail" placeholder="Email" />                <div class="form-control-feedback validate-message" *ngIf="contactUsForm.controls[\'userEmail\'].invalid && contactUsForm.controls[\'userEmail\'].touched">                  Invalid email address                </div>              </div>            </div>          </div>          <div class="row">            <div class="col-12 form-element-height">              <div class="form-group">                <input class="form-control" type="text" name="userPhone" formControlName="userPhone" (keypress)="keyPress($event)" placeholder="Phone number (optional)" />                <div class="form-control-feedback validate-message" *ngIf="contactUsForm.controls[\'userPhone\'].invalid">                    Invalid phone number                  </div>              </div>            </div>          </div>        </div>        <div class="col-12 col-md-6 col-lg-4 col-xl-6">          <div class="form-group" class="form-text-block">            <textarea class="form-control" formControlName="message" rows="7"></textarea>          </div>        </div>      </div>      <div class="row contsct-us__submit-btn__block">        <div class="col-12">          <!--<a href="/" type="button" class="btn btn-warning btn-lg btn-block">Submit</a> -->          <a class="contsct-us__submit-btn__stile text-center float-right" routerLink="/"> Submit <span class="sr-only"> Submit </span></a>        </div>      </div>    </form>  </div>  <footer *ngIf="sizeWindow > 992; else werticalFooter">    <div class="custom-footer">        <div class="d-flex align-items-center justify-content-around custom-footer-link max-height">            <div class="p-1 bd-highlight">              <div class="row align-items-center">                <div class="col-4">                  <img class="d-block" [src]="phoneImg" alt="phone:" sr-only="phone number">                </div>                <div class="col-8">                  <span> <a href="tel:1.403.863.0893" class="footer_href">1.403.863.0893</a></span>                </div>              </div>            </div>            <div class="p-1 bd-highlight">              <div class="row align-items-center">                <div class="col-4">                  <img class="d-block" [src]="emailImg" alt="email address" sr-only="email">                </div>                <div class="col-8">                  <span><a class="footer_href" href="mailto:info@ampx.ca">info@ampx.ca</a></span>                </div>              </div>            </div>            <div class="p-1 bd-highlight">              <div class="row align-items-center">                <div class="col-3">                  <img class="d-block" [src]="linkedInImg" alt="linkedIn" sr-only="linked in account">                </div>                <div class="col-9">                  <span class="footer-text">Follow us on <a href="https://www.linkedin.com/company/amp-x-consulting-inc.?trk=top_nav_home" target="_blank" class="footer_href"><strong>LinkedIn</strong></a></span>                </div>              </div>            </div>            <div class="p-1 bd-highlight">                <span class="footer-text">AMP X Consulting Inc. &copy; {{year}} | All Rights Reserved</span>            </div>          </div>        </div>  </footer>  <ng-template class="template-footer" #werticalFooter>    <div class="custom-footer">      <div class="d-flex flex-column">        <div class="row mt-2 footer-row">          <div class="col-6">            <div class="float-right">              <img class="d-block" [src]="phoneImg" alt="phone:" sr-only="phone number">            </div>          </div>          <div class="col-6 mr-a">            <span> <a href="tel:1.403.863.0893" class="footer_href">1.403.863.0893</a></span>          </div>        </div>        <div class="row mt-2 footer-row">          <div class="col-6">            <div class="float-right">              <img class="d-block" [src]="emailImg" alt="email address" sr-only="email">            </div>          </div>          <div class="col-6">            <span><a class="footer_href" href="mailto:info@ampx.ca">info@ampx.ca</a></span>          </div>        </div>        <div class="row mt-2 footer-row">          <div class="col-6">            <div class="float-right">              <img class="d-block" [src]="linkedInImg" alt="linkedIn" sr-only="linked in account">            </div>          </div>          <div class="col-6">            <span class="footer-text">Follow us on <a href="https://www.linkedin.com/company/amp-x-consulting-inc.?trk=top_nav_home" target="_blank" class="footer_href"><strong>LinkedIn</strong></a></span>          </div>        </div>        <div class="row mt-2 footer-row">          <div class="col-12">            <div class="d-flex justify-content-center">              <span class="footer-text text-center">AMP X Consulting Inc. &copy; {{year}} | All Rights Reserved</span>            </div>          </div>        </div>      </div>    </div>  </ng-template></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ContactUsComponent'};
 </script>

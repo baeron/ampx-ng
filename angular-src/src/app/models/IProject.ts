@@ -1,5 +1,6 @@
 export interface IProject {
     _id?: string;
+    guid?: string;
     title?: string;
     creator?: string;
     creatorEmail?: string;

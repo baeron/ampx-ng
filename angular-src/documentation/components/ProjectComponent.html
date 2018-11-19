@@ -140,6 +140,9 @@
                                 <a href="#createProject">createProject</a>
                             </li>
                             <li>
+                                <a href="#creatorEmail">creatorEmail</a>
+                            </li>
+                            <li>
                                 <a href="#dropProject">dropProject</a>
                             </li>
                             <li>
@@ -195,7 +198,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/project/project.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/project/project.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -288,7 +291,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/components/project/project.component.ts:78</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/components/project/project.component.ts:76</a></div>
                             </td>
                         </tr>
 
@@ -326,7 +329,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/project/project.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/project/project.component.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -543,6 +546,40 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="creatorEmail"></a>
+                        <span class="name">
+                            <b>
+                            creatorEmail
+                            </b>
+                            <a href="#creatorEmail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>creatorEmail:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/project/project.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="dropProject"></a>
                         <span class="name">
                             <b>
@@ -745,6 +782,7 @@ export class ProjectComponent implements OnInit, DoCheck {
   addTeamUser: Boolean &#x3D; false;
   addViewerUser: Boolean &#x3D; false;
   userGuid: string;
+  creatorEmail: string;
 
   constructor(
     private projectService: ProjectService,
@@ -761,6 +799,7 @@ export class ProjectComponent implements OnInit, DoCheck {
       const user &#x3D; localStorage.getItem(&#x27;user&#x27;);
       const u &#x3D; JSON.parse(user);
       this.userGuid &#x3D; u.guid;
+      this.creatorEmail &#x3D; u.email;
     }
     // this.spinnerService.show();
     this.projectService.getProject(this.userGuid).subscribe(projectList &#x3D;&gt; {
@@ -774,10 +813,8 @@ export class ProjectComponent implements OnInit, DoCheck {
       });
     //
     // this.spinnerService.show();
-    this.projectService.getTeamProject().subscribe(teamProjectList &#x3D;&gt; {
+    this.projectService.getTeamProject(this.userGuid).subscribe(teamProjectList &#x3D;&gt; {
       this.teamProjects &#x3D; teamProjectList;
-      // this.teamProjectLength &#x3D; teamProjectList.length || 0;
-      // console.log(this.teamProjects);
       // this.spinnerService.hide();
     },
       err &#x3D;&gt; {
@@ -785,10 +822,8 @@ export class ProjectComponent implements OnInit, DoCheck {
         return false;
       });
     // this.spinnerService.show();
-    this.projectService.getBrowsingProject().subscribe(browsingProjectList &#x3D;&gt; {
+    this.projectService.getBrowsingProject(this.userGuid).subscribe(browsingProjectList &#x3D;&gt; {
       this.browsingProjects &#x3D; browsingProjectList;
-      // this.browsingProjectLength &#x3D; browsingProjectList.length || 0;
-      // console.log(this.browsingProjects);
       // this.spinnerService.hide();
     },
       err &#x3D;&gt; {
@@ -836,7 +871,7 @@ export class ProjectComponent implements OnInit, DoCheck {
       &lt;/a&gt;
     &lt;/h1&gt;
   &lt;/div&gt;
-  &lt;div *ngIf&#x3D;&quot;project.length &gt; 0&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;project.length&quot;&gt;
     &lt;table class&#x3D;&quot;table table-sm table-text-style&quot;&gt;
       &lt;thead&gt;
         &lt;tr&gt;
@@ -846,7 +881,14 @@ export class ProjectComponent implements OnInit, DoCheck {
       &lt;/thead&gt;
       &lt;tbody&gt;
         &lt;tr *ngFor&#x3D;&quot;let itemProject of project&quot;&gt;
-          &lt;td&gt;&lt;a class&#x3D;&quot;table-link table-cursor disable-decoration table-text-style&quot; [routerLink]&#x3D;&quot;[&#x27;/project&#x27;, itemProject._id]&quot;&gt;&lt;strong&gt;{{itemProject.title}}&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;
+            &lt;a 
+              class&#x3D;&quot;table-link table-cursor disable-decoration table-text-style&quot;
+              [routerLink]&#x3D;&quot;[&#x27;/project&#x27;, itemProject._id]&quot;
+            &gt;
+              &lt;strong&gt;{{itemProject.title}}&lt;/strong&gt;
+            &lt;/a&gt;
+          &lt;/td&gt;
           &lt;td&gt;
             &lt;div class&#x3D;&quot;row&quot;&gt;
               &lt;div class&#x3D;&quot;col-3&quot;&gt;
@@ -891,7 +933,8 @@ export class ProjectComponent implements OnInit, DoCheck {
       &lt;/tbody&gt;
     &lt;/table&gt;
   &lt;/div&gt;
-  &lt;div *ngIf&#x3D;&quot;teamProjects.length &gt; 0&quot;&gt;
+  &lt;!----&gt;
+  &lt;div *ngIf&#x3D;&quot;teamProjects.length&quot;&gt;
     &lt;div class&#x3D;&quot;d-flex justify-content-center&quot;&gt;
       &lt;h1&gt;List of projects for teamwork&lt;/h1&gt;
     &lt;/div&gt;
@@ -908,15 +951,14 @@ export class ProjectComponent implements OnInit, DoCheck {
             &lt;a class&#x3D;&quot;table-link table-cursor disable-decoration table-text-style&quot; [routerLink]&#x3D;&quot;[&#x27;/project&#x27;, teamItemProject._id]&quot;&gt;&lt;strong&gt;{{teamItemProject.title}}&lt;/strong&gt;&lt;/a&gt;
           &lt;/td&gt;
           &lt;td&gt;
-            &lt;strong&gt;{{teamItemProject.creator}}&lt;/strong&gt;
+            &lt;strong&gt;{{teamItemProject.creatorEmail}}&lt;/strong&gt;
           &lt;/td&gt;
         &lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
   &lt;/div&gt;
-  &lt;div&gt;
-  &lt;/div&gt;
-  &lt;div *ngIf&#x3D;&quot;browsingProjects.length &gt; 0&quot;&gt;
+  &lt;!----&gt;
+  &lt;div *ngIf&#x3D;&quot;browsingProjects.length&quot;&gt;
     &lt;div class&#x3D;&quot;d-flex justify-content-center&quot;&gt;
       &lt;h1&gt;List of projects to view&lt;/h1&gt;
     &lt;/div&gt;
@@ -933,7 +975,7 @@ export class ProjectComponent implements OnInit, DoCheck {
             &lt;a class&#x3D;&quot;table-link table-cursor disable-decoration table-text-style&quot; [routerLink]&#x3D;&quot;[&#x27;/project&#x27;, browsingItemProject._id]&quot;&gt;&lt;strong&gt;{{browsingItemProject.title}}&lt;/strong&gt;&lt;/a&gt;
           &lt;/td&gt;
           &lt;td&gt;
-            &lt;strong&gt;{{browsingItemProject.creator}}&lt;/strong&gt;
+            &lt;strong&gt;{{browsingItemProject.creatorEmail}}&lt;/strong&gt;
           &lt;/td&gt;
         &lt;/tr&gt;
       &lt;/tbody&gt;
@@ -959,9 +1001,23 @@ export class ProjectComponent implements OnInit, DoCheck {
         &lt;/tbody&gt;
     &lt;/div&gt;
   --&gt;
-  &lt;app-projects-modal [dataValue]&#x3D;&quot;project&quot; [userGuid]&#x3D;&quot;userGuid&quot; [title]&#x3D;&quot;&#x27;Project functionality&#x27;&quot; #addProjectModal&gt;&lt;/app-projects-modal&gt;
-  &lt;app-team-work-modal [dataValue]&#x3D;&quot;project&quot; [title]&#x3D;&quot;&#x27;Team work functionality&#x27;&quot; #addTeamWorkModal&gt;&lt;/app-team-work-modal&gt;
-  &lt;app-team-work-modal [dataValue]&#x3D;&quot;project&quot; [title]&#x3D;&quot;&#x27;Team work functionality&#x27;&quot; #addViewerUser&gt;&lt;/app-team-work-modal&gt;
+  &lt;app-projects-modal
+    [dataValue]&#x3D;&quot;project&quot;
+    [userGuid]&#x3D;&quot;userGuid&quot;
+    [creatorEmail]&#x3D;&quot;creatorEmail&quot;
+    [title]&#x3D;&quot;&#x27;Project functionality&#x27;&quot;
+    #addProjectModal
+  &gt;&lt;/app-projects-modal&gt;
+  &lt;app-team-work-modal
+    [dataValue]&#x3D;&quot;project&quot;
+    [title]&#x3D;&quot;&#x27;Team work functionality&#x27;&quot;
+    #addTeamWorkModal
+  &gt;&lt;/app-team-work-modal&gt;
+  &lt;app-team-work-modal
+    [dataValue]&#x3D;&quot;project&quot;
+    [title]&#x3D;&quot;&#x27;Team work functionality&#x27;&quot;
+    #addViewerUser
+  &gt;&lt;/app-team-work-modal&gt;
 &lt;/div&gt;
 &lt;!--
 &lt;div class&#x3D;&quot;container&quot;&gt;
@@ -1133,8 +1189,8 @@ export class ProjectComponent implements OnInit, DoCheck {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="d-flex justify-content-center">    <h1>      List of projects      <a class="btn btn-primary"         data-toggle="tooltip"         data-placement="top"         title="Add new project"         (click)="addProjectModal.showAddModal(createProject)">        <i class="fa fa-plus" aria-hidden="true"></i>      </a>    </h1>  </div>  <div *ngIf="project.length > 0">    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Action</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let itemProject of project">          <td><a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', itemProject._id]"><strong>{{itemProject.title}}</strong></a></td>          <td>            <div class="row">              <div class="col-3">                <a class="btn btn-success"                   data-toggle="tooltip"                   data-placement="top"                   title="Change project"                   (click)="addProjectModal.showChangeProjectModal(chengeProject, itemProject)">                  <i class="fa fa-pencil" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a class="btn btn-danger"                   data-toggle="tooltip"                   data-placement="top"                   title="Delete project"                   (click)="addProjectModal.showDropModal(dropProject, itemProject)">                  <i class="fa fa-trash-o" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a class="btn btn-primary"                   data-toggle="tooltip"                   data-placement="top"                   title="Add team user"                   (click)="addTeamWorkModal.addTeamUser(true, itemProject)">                  <i class="fa fa-pencil" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a class="btn btn-info"                   data-toggle="tooltip"                   data-placement="top"                   title="Add user for view"                   (click)="addTeamWorkModal.addViewerUser(true, itemProject)">                  <i class="fa fa-eye" aria-hidden="true"></i>                </a>              </div>            </div>          </td>        </tr>      </tbody>    </table>  </div>  <div *ngIf="teamProjects.length > 0">    <div class="d-flex justify-content-center">      <h1>List of projects for teamwork</h1>    </div>    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Creator</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let teamItemProject of teamProjects">          <td>            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', teamItemProject._id]"><strong>{{teamItemProject.title}}</strong></a>          </td>          <td>            <strong>{{teamItemProject.creator}}</strong>          </td>        </tr>      </tbody>    </table>  </div>  <div>  </div>  <div *ngIf="browsingProjects.length > 0">    <div class="d-flex justify-content-center">      <h1>List of projects to view</h1>    </div>    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Creator</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let browsingItemProject of browsingProjects">          <td>            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', browsingItemProject._id]"><strong>{{browsingItemProject.title}}</strong></a>          </td>          <td>            <strong>{{browsingItemProject.creator}}</strong>          </td>        </tr>      </tbody>    </table>  </div>  <!---    <div *ngIf="teamProjects">      <table class="table table-sm table-text-style">        <thead>          <tr>            <th>Title</th>            <th>Action</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let itemTeamProject of teamProjects">            <td>              <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', itemTeamProject._id]">                <strong>{{itemTeamProject.title}}</strong>              </a>            </td>          </tr>        </tbody>    </div>  -->  <app-projects-modal [dataValue]="project" [userGuid]="userGuid" [title]="\'Project functionality\'" #addProjectModal></app-projects-modal>  <app-team-work-modal [dataValue]="project" [title]="\'Team work functionality\'" #addTeamWorkModal></app-team-work-modal>  <app-team-work-modal [dataValue]="project" [title]="\'Team work functionality\'" #addViewerUser></app-team-work-modal></div><!--<div class="container">  <div *ngIf="userProjectList">    <div class="d-flex justify-content-center">      <h1>Your list of projects        <a          class="btn btn-primary"          data-toggle="tooltip"          data-placement="top"          title="Add new project"        >          <i class="fa fa-plus" aria-hidden="true"></i>        </a>      </h1>    </div>  </div>  <div *ngIf="project">    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Action</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let itemProject of project">          <td>            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', itemProject._id]">            <strong>{{itemProject.title}}</strong>            </a>          </td>          <td>            <div class="row">              <div class="col-3">                <a                  class="btn btn-success"                  data-toggle="tooltip"                  data-placement="top"                  title="Change project"                >                  <i class="fa fa-pencil" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a                  class="btn btn-danger"                  data-toggle="tooltip"                  data-placement="top"                  title="Delete project"                >                  <i class="fa fa-trash-o" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a                  class="btn btn-primary"                  data-toggle="tooltip"                  data-placement="top"                  title="Add team user"                >                  <i class="fa fa-pencil" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a                  class="btn btn-info"                  data-toggle="tooltip"                  data-placement="top"                  title="Add user for view"                >                <i class="fa fa-eye" aria-hidden="true"></i>                </a>                </div>            </div>          </td>        </tr>      </tbody>    </table>  </div>  <hr/>  <div>    <div class="d-flex justify-content-center">      <h1>List of projects for teamwork</h1>    </div>  </div>  <div *ngIf="teamProjectList">    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Creator</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let teamItemProject of teamProjectList">          <td>            <strong>{{teamItemProject.title}}</strong>          </td>          <td>            <strong>{{teamItemProject.creator}}</strong>          </td>        </tr>      </tbody>    </table>  </div>  <div>    <div class="d-flex justify-content-center">      <h1>List of projects to view</h1>    </div>  </div>  <div *ngIf="teamViewingProjectList">    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Creator</th>          <th>Team</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let teamViewingItemProject of teamViewingProjectList">          <td>            <strong>{{teamViewingItemProject.title}}</strong>          </td>          <td>            <strong>{{teamViewingItemProject.creator}}</strong>          </td>          <td>            <ul>              <li *ngFor="let teamUser of teamViewingItemProject.team">                <strong>                  {{teamUser.email}}                </strong>              </li>            </ul>          </td>        </tr>      </tbody>    </table>  </div></div>--></div>'
-    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="d-flex justify-content-center">    <h1>      List of projects      <a class="btn btn-primary"         data-toggle="tooltip"         data-placement="top"         title="Add new project"         (click)="addProjectModal.showAddModal(createProject)">        <i class="fa fa-plus" aria-hidden="true"></i>      </a>    </h1>  </div>  <div *ngIf="project.length">    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Action</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let itemProject of project">          <td>            <a               class="table-link table-cursor disable-decoration table-text-style"              [routerLink]="[\'/project\', itemProject._id]"            >              <strong>{{itemProject.title}}</strong>            </a>          </td>          <td>            <div class="row">              <div class="col-3">                <a class="btn btn-success"                   data-toggle="tooltip"                   data-placement="top"                   title="Change project"                   (click)="addProjectModal.showChangeProjectModal(chengeProject, itemProject)">                  <i class="fa fa-pencil" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a class="btn btn-danger"                   data-toggle="tooltip"                   data-placement="top"                   title="Delete project"                   (click)="addProjectModal.showDropModal(dropProject, itemProject)">                  <i class="fa fa-trash-o" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a class="btn btn-primary"                   data-toggle="tooltip"                   data-placement="top"                   title="Add team user"                   (click)="addTeamWorkModal.addTeamUser(true, itemProject)">                  <i class="fa fa-pencil" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a class="btn btn-info"                   data-toggle="tooltip"                   data-placement="top"                   title="Add user for view"                   (click)="addTeamWorkModal.addViewerUser(true, itemProject)">                  <i class="fa fa-eye" aria-hidden="true"></i>                </a>              </div>            </div>          </td>        </tr>      </tbody>    </table>  </div>  <!---->  <div *ngIf="teamProjects.length">    <div class="d-flex justify-content-center">      <h1>List of projects for teamwork</h1>    </div>    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Creator</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let teamItemProject of teamProjects">          <td>            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', teamItemProject._id]"><strong>{{teamItemProject.title}}</strong></a>          </td>          <td>            <strong>{{teamItemProject.creatorEmail}}</strong>          </td>        </tr>      </tbody>    </table>  </div>  <!---->  <div *ngIf="browsingProjects.length">    <div class="d-flex justify-content-center">      <h1>List of projects to view</h1>    </div>    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Creator</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let browsingItemProject of browsingProjects">          <td>            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', browsingItemProject._id]"><strong>{{browsingItemProject.title}}</strong></a>          </td>          <td>            <strong>{{browsingItemProject.creatorEmail}}</strong>          </td>        </tr>      </tbody>    </table>  </div>  <!---    <div *ngIf="teamProjects">      <table class="table table-sm table-text-style">        <thead>          <tr>            <th>Title</th>            <th>Action</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let itemTeamProject of teamProjects">            <td>              <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', itemTeamProject._id]">                <strong>{{itemTeamProject.title}}</strong>              </a>            </td>          </tr>        </tbody>    </div>  -->  <app-projects-modal    [dataValue]="project"    [userGuid]="userGuid"    [creatorEmail]="creatorEmail"    [title]="\'Project functionality\'"    #addProjectModal  ></app-projects-modal>  <app-team-work-modal    [dataValue]="project"    [title]="\'Team work functionality\'"    #addTeamWorkModal  ></app-team-work-modal>  <app-team-work-modal    [dataValue]="project"    [title]="\'Team work functionality\'"    #addViewerUser  ></app-team-work-modal></div><!--<div class="container">  <div *ngIf="userProjectList">    <div class="d-flex justify-content-center">      <h1>Your list of projects        <a          class="btn btn-primary"          data-toggle="tooltip"          data-placement="top"          title="Add new project"        >          <i class="fa fa-plus" aria-hidden="true"></i>        </a>      </h1>    </div>  </div>  <div *ngIf="project">    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Action</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let itemProject of project">          <td>            <a class="table-link table-cursor disable-decoration table-text-style" [routerLink]="[\'/project\', itemProject._id]">            <strong>{{itemProject.title}}</strong>            </a>          </td>          <td>            <div class="row">              <div class="col-3">                <a                  class="btn btn-success"                  data-toggle="tooltip"                  data-placement="top"                  title="Change project"                >                  <i class="fa fa-pencil" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a                  class="btn btn-danger"                  data-toggle="tooltip"                  data-placement="top"                  title="Delete project"                >                  <i class="fa fa-trash-o" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a                  class="btn btn-primary"                  data-toggle="tooltip"                  data-placement="top"                  title="Add team user"                >                  <i class="fa fa-pencil" aria-hidden="true"></i>                </a>              </div>              <div class="col-3">                <a                  class="btn btn-info"                  data-toggle="tooltip"                  data-placement="top"                  title="Add user for view"                >                <i class="fa fa-eye" aria-hidden="true"></i>                </a>                </div>            </div>          </td>        </tr>      </tbody>    </table>  </div>  <hr/>  <div>    <div class="d-flex justify-content-center">      <h1>List of projects for teamwork</h1>    </div>  </div>  <div *ngIf="teamProjectList">    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Creator</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let teamItemProject of teamProjectList">          <td>            <strong>{{teamItemProject.title}}</strong>          </td>          <td>            <strong>{{teamItemProject.creator}}</strong>          </td>        </tr>      </tbody>    </table>  </div>  <div>    <div class="d-flex justify-content-center">      <h1>List of projects to view</h1>    </div>  </div>  <div *ngIf="teamViewingProjectList">    <table class="table table-sm table-text-style">      <thead>        <tr>          <th>Title</th>          <th>Creator</th>          <th>Team</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let teamViewingItemProject of teamViewingProjectList">          <td>            <strong>{{teamViewingItemProject.title}}</strong>          </td>          <td>            <strong>{{teamViewingItemProject.creator}}</strong>          </td>          <td>            <ul>              <li *ngFor="let teamUser of teamViewingItemProject.team">                <strong>                  {{teamUser.email}}                </strong>              </li>            </ul>          </td>        </tr>      </tbody>    </table>  </div></div>--></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ProjectComponent'};
 </script>

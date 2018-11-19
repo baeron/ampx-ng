@@ -195,6 +195,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method to remove user from application</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -204,6 +206,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -218,6 +221,10 @@
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique user id</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -225,7 +232,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -432,27 +439,14 @@ export class UsersService {
   }
 
   /**
-   *
-   * @param userId
+   * Method to remove user from application
+   * @param userId unique user id
    */
-  deleteUser(userId: string) {
+  deleteUser(userId: string): Observable&lt;any&gt; {
     const deleteUserUrl &#x3D; this.baseUrl + &#x27;users/&#x27; + userId;
     return this.http.delete(deleteUserUrl, {headers: headers})
       .map(res &#x3D;&gt; res.json());
   }
-
-  // TODO: Do this abstraction level to call server
-  // call(contentType, auth, params) {
-  //   const headers &#x3D; new Headers();
-  //   if (contentType) {
-  //     headers.append(&#x27;Content-Type&#x27;, contentType || &#x27;application/json&#x27;);
-  //   }
-  //   const params &#x3D; new URLSearchParams();
-  //   params.append(&#x27;email&#x27;, userEmail);
-  //   const token &#x3D; localStorage.getItem(&#x27;id_token&#x27;);
-  //   headers.append(&#x27;Authorization&#x27;, token);
-  //   const options &#x3D; new RequestOptions({ headers: headers, params: params });
-  // }
 }
 </code></pre>
     </div>

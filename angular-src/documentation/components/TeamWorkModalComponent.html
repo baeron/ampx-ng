@@ -163,10 +163,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#addUserToGroup">addUserToGroup</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#addUserToTeam">addUserToTeam</a>
                             </li>
                             <li>
@@ -178,12 +174,22 @@
                                 <a href="#close">close</a>
                             </li>
                             <li>
+                                <a href="#deleteUserFromFolowers">deleteUserFromFolowers</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#deleteUserFromTeam">deleteUserFromTeam</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#hide">hide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isUserInItemGroup">isUserInItemGroup</a>
+                            </li>
+                            <li>
+                                <a href="#moveUserFromFoloversToTeam">moveUserFromFoloversToTeam</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -195,7 +201,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#saveDatainDataBase">saveDatainDataBase</a>
+                                <a href="#updateProject">updateProject</a>
                             </li>
                         </ul>
                     </td>
@@ -372,13 +378,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="194" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:194</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:207</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The method of adding a user to a group that can view the selected project without editing it.</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -518,95 +526,6 @@ can specify the user&#39;s email with which he wants to continue working on his 
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="addUserToGroup"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            addUserToGroup
-                            </b>
-                            <a href="#addUserToGroup"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>addUserToGroup(isFolower: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:63</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Default value</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>isFolower</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                        <td>
-                                                                <code>false</code>
-                                                        </td>
-
-                                                </tr>
-                                                <tr>
-                                                        <td>email</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                        <td>
-                                                        </td>
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="addUserToTeam"></a>
                         <span class="name">
                             <b>
@@ -627,13 +546,15 @@ can specify the user&#39;s email with which he wants to continue working on his 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:150</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:166</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method of adding a user to a group to collaborate on a project</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -792,7 +713,7 @@ the ability to view data about the project without editing them</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="241" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:241</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="302" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:302</a></div>
                             </td>
                         </tr>
 
@@ -814,6 +735,98 @@ the ability to view data about the project without editing them</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="deleteUserFromFolowers"></a>
+                        <span class="name">
+                            <b>
+                            deleteUserFromFolowers
+                            </b>
+                            <a href="#deleteUserFromFolowers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteUserFromFolowers(isTeam: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, userGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:113</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Method to remove a user from a collaborative group</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>isTeam</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>boolean flag for separate team and view grop</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userGuid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>unic user identifier</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="deleteUserFromTeam"></a>
                         <span class="name">
                             <b>
@@ -827,20 +840,22 @@ the ability to view data about the project without editing them</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>deleteUserFromTeam(userEmail: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <code>deleteUserFromTeam(userguid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:81</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:63</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method to remove a user from a project collaboration team</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -850,11 +865,12 @@ the ability to view data about the project without editing them</p>
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>userEmail</td>
+                                                        <td>userguid</td>
                                                         <td>
                                                                     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
@@ -864,6 +880,10 @@ the ability to view data about the project without editing them</p>
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique user guid</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -875,7 +895,8 @@ the ability to view data about the project without editing them</p>
 
                             </div>
                                 <div class="io-description">
-                                    
+                                    <p>HTTP response code or error message</p>
+
                                 </div>
                     </td>
                 </tr>
@@ -905,18 +926,180 @@ the ability to view data about the project without editing them</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="218" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:218</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="280" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:280</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The method of cleaning the form fields and hiding the modal window</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isUserInItemGroup"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            isUserInItemGroup
+                            </b>
+                            <a href="#isUserInItemGroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>isUserInItemGroup(groupUserList: , userEmail: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="249" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:249</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Method for checking the availability of the specified user in the group</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>groupUserList</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>array userGroup {email; guid}</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userEmail</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>user email entered in text field</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="moveUserFromFoloversToTeam"></a>
+                        <span class="name">
+                            <b>
+                            moveUserFromFoloversToTeam
+                            </b>
+                            <a href="#moveUserFromFoloversToTeam"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>moveUserFromFoloversToTeam(itemViewerUser: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:137</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Method for moving a user from a view group to a project editing group</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>itemViewerUser</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -938,20 +1121,22 @@ the ability to view data about the project without editing them</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>moveUserFromTeamToBrouse(userEmail: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <code>moveUserFromTeamToBrouse(teamUser: )</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:107</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:83</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method of moving a user from an editing group to a project viewing group</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -959,22 +1144,23 @@ the ability to view data about the project without editing them</p>
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
-                                                    <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>userEmail</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
+                                                        <td>teamUser</td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>user data email and guid</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -1016,7 +1202,7 @@ the ability to view data about the project without editing them</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="232" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:232</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="293" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:293</a></div>
                             </td>
                         </tr>
 
@@ -1074,33 +1260,35 @@ the ability to view data about the project without editing them</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="saveDatainDataBase"></a>
+                        <a name="updateProject"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            saveDatainDataBase
+                            updateProject
                             </b>
-                            <a href="#saveDatainDataBase"><span class="icon ion-ios-link"></span></a>
+                            <a href="#updateProject"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>saveDatainDataBase(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, project: <a href="../interfaces/IProject.html">IProject</a>)</code>
+                        <code>updateProject(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, project: <a href="../interfaces/IProject.html">IProject</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:133</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="265" class="link-to-prism">src/app/components/modals/team-work-modal/team-work-modal.component.ts:265</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method of sending updated data to the Project Service</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -1492,164 +1680,226 @@ export class TeamWorkModalComponent {
   }
 
   /**
-   *
-   * @param isFolower
-   * @param email
+   * Method to remove a user from a project collaboration team
+   * @param userguid unique user guid
+   * @returns HTTP response code or error message
    */
-  public addUserToGroup(isFolower: boolean &#x3D; false, email: string): void {
-    const userEmeil &#x3D; email;
-    const projectId &#x3D; this.project._id;
-    const project &#x3D; this.project;
-    if (!isFolower) {
-      project.team_project.push(userEmeil);
-    } else if (isFolower) {
-      project.brows_team_project.push(userEmeil);
-    }
-    this.saveDatainDataBase(projectId, project);
-    this.teamUserEmail &#x3D; null;
-    setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
-  }
-
-  /**
-   *
-   * @param userEmail
-   */
-  public deleteUserFromTeam(userEmail: string): void {
+  public deleteUserFromTeam(userguid: string): void {
     const projectId &#x3D; this.project._id;
     const projectTeamData &#x3D; this.project.team_project;
-    const itemTeamUserEmail &#x3D; userEmail;
+    const itemTeamUserGuid &#x3D; userguid;
     for (let i &#x3D; 0; i &lt; projectTeamData.length; ++i) {
       const itemTeamPlayer &#x3D; projectTeamData[i];
-      debugger;
-      if (itemTeamUserEmail &#x3D;&#x3D;&#x3D; itemTeamPlayer.email) {
+      if ( itemTeamUserGuid &#x3D;&#x3D;&#x3D; itemTeamPlayer.guid) {
         projectTeamData.splice(i, 1);
         this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
-        this.projectService.updateProject(projectId, this.project).subscribe(data &#x3D;&gt; {
-          if (data.success) {
-            console.log(&#x27;I hope it will work&#x27;);
-          } else {
-            console.error(&#x27;Somthing was wrang with delete team player&#x27;);
-          }
-        });
-        break;
+        this.updateProject(projectId, this.project);
+        this.hide();
+        return;
       }
     }
   }
 
   /**
-   *
-   * @param userEmail
+   * Method of moving a user from an editing group to a project viewing group
+   * @param teamUser user data email and guid
    */
-  public moveUserFromTeamToBrouse(userEmail: string) {
+  public moveUserFromTeamToBrouse(teamUser) {
     const projectId &#x3D; this.project._id;
     const projectTeamData &#x3D; this.project.team_project;
     const projectBrowsData &#x3D; this.project.brows_team_project;
-    const itemTeamUserEmail &#x3D; userEmail;
+    const teamUserData &#x3D; teamUser;
     for (let i &#x3D; 0; i &lt; projectTeamData.length; ++i) {
       const itemTeamPlayer &#x3D; projectTeamData[i];
-      if (itemTeamUserEmail &#x3D;&#x3D;&#x3D; itemTeamPlayer) {
-        projectTeamData.splice(i, 1);
-        projectBrowsData.push(itemTeamUserEmail);
-        this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
-        /*
-        this.projectService.updateProject(projectId, this.project).subscribe(data &#x3D;&gt; {
-          if (data.success) {
-            console.log(&#x27;I hope it will work&#x27;);
-          } else {
-            console.error(&#x27;Somthing was wrang with delete team player&#x27;);
+      if (teamUserData.guid &#x3D;&#x3D;&#x3D; itemTeamPlayer.guid) {
+        for (let k &#x3D; 0; k &lt; projectBrowsData.length; ++k) {
+          const itemBrowsingProjectData &#x3D; projectBrowsData[k];
+          if (itemBrowsingProjectData.guid &#x3D;&#x3D;&#x3D; teamUser.guid) {
+            this.hide();
+            return;
           }
-        });
-        */
-        break;
+        }
+        projectTeamData.splice(i, 1);
+        projectBrowsData.push(teamUserData);
+        this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
+        this.updateProject(projectId, this.project);
+        this.hide();
+        return;
       }
     }
   }
 
-  // END REFACTORING PART
-  public saveDatainDataBase(projectId: string, project: IProject) {
-    this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
-/*
-    this.projectService.updateProject(projectId, project).subscribe(data &#x3D;&gt; {
-      if (data.success) {
-        console.log(&#x27;I hope it will work&#x27;);
-      } else {
-        console.error(&#x27;Somthing was wrang with update TEAM data&#x27;);
+  /**
+   * Method to remove a user from a collaborative group
+   * @param isTeam boolean flag for separate team and view grop
+   * @param userGuid unic user identifier
+   */
+  deleteUserFromFolowers(isTeam: boolean, userGuid: string): void {
+    let projectTeamData &#x3D; null;
+    const projectId &#x3D; this.project._id;
+    if (isTeam) {
+      projectTeamData &#x3D; this.project.team_project;
+    } else {
+      projectTeamData &#x3D; this.project.brows_team_project;
+    }
+    for ( let i &#x3D; 0; i &lt; projectTeamData.length; ++i) {
+      const itemTeamData &#x3D; projectTeamData[i];
+      if (itemTeamData.guid &#x3D;&#x3D;&#x3D; userGuid) {
+        projectTeamData.splice(i, 1);
+        this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
+        this.updateProject(projectId, this.project);
+        this.hide();
+        return;
       }
-    });
-    */
+    }
   }
 
   /**
-   *
+   * Method for moving a user from a view group to a project editing group
+   * @param itemViewerUser
+   */
+  moveUserFromFoloversToTeam(itemViewerUser) {
+    const projectId &#x3D; this.project._id;
+    const projectTeamData &#x3D; this.project.team_project;
+    const projectBrowsData &#x3D; this.project.brows_team_project;
+    const viewerUserData &#x3D; itemViewerUser;
+    for (let i &#x3D; 0; i &lt; projectBrowsData.length; ++i) {
+      const itemBrowsingUser &#x3D; projectBrowsData[i];
+      if (viewerUserData.guid &#x3D;&#x3D;&#x3D; itemBrowsingUser.guid) {
+        for (let k &#x3D; 0; k &lt; projectTeamData.length; ++k) {
+          const itemTeamProjectData &#x3D; projectTeamData[k];
+          if (itemTeamProjectData.guid &#x3D;&#x3D;&#x3D; itemViewerUser.guid) {
+            this.hide();
+            return;
+          }
+        }
+        projectBrowsData.splice(i, 1);
+        projectTeamData.push(itemViewerUser);
+        this.project[&#x27;updated_date&#x27;] &#x3D; new Date().toLocaleDateString();
+        this.updateProject(projectId, this.project);
+        this.hide();
+        return;
+      }
+    }
+  }
+
+  /**
+   * Method of adding a user to a group to collaborate on a project
    * @param teamUser
    */
   public addUserToTeam(userEmail: string) {
-    for (let i &#x3D; 0; i &lt; this.project.team_project.length; ++i) {
-      const itemTeamWorker &#x3D; this.project.team_project[i];
-      if (itemTeamWorker.email &#x3D;&#x3D;&#x3D; userEmail) {
-        console.log(&#x27;User is already on this list.&#x27;);
-        this.flashMessage.show(&#x27;User is already on this list.&#x27;, { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 });
-        this.hide();
+    if (userEmail &#x3D;&#x3D;&#x3D; this.project.creatorEmail) {
+      this.flashMessage.show(
+        &#x27;You cannot add yourself to a group to collaborate on a project.&#x27;,
+        { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 }
+      );
+      this.hide();
+      return;
+    }
+    const isUserInTeamGroup &#x3D; this.isUserInItemGroup(this.project.brows_team_project, userEmail);
+    if (isUserInTeamGroup) {
+      this.hide();
+      return;
+    }
+    const isUserInBrowsingTeam &#x3D; this.isUserInItemGroup(this.project.team_project, userEmail);
+    if (isUserInBrowsingTeam) {
+      this.hide();
+      return;
+    }
+    this.teamUserEmail &#x3D; userEmail;
+    this.usersService.getItemUserByEmail(this.teamUserEmail).subscribe(data &#x3D;&gt; {
+      if (data.guid) {
+        const teamUserData &#x3D; {guid: &#x27;&#x27;, email: &#x27;&#x27;};
+        teamUserData.guid &#x3D; data.guid;
+        teamUserData.email &#x3D; userEmail;
+        this.project.team_project.push(teamUserData);
+        this.updateProject(this.project._id, this.project);
       } else {
-        this.teamUserEmail &#x3D; userEmail;
-        this.usersService.getItemUserByEmail(this.teamUserEmail).subscribe(data &#x3D;&gt; {
-          if (data.guid) {
-            const teamUserData &#x3D; {guid: &#x27;&#x27;, email: &#x27;&#x27;};
-            teamUserData.guid &#x3D; data.guid;
-            teamUserData.email &#x3D; userEmail;
-            this.project.team_project.push(teamUserData);
-            console.log(this.project.team_project);
-            this.projectService.updateProject(this.project._id, this.project).subscribe(response &#x3D;&gt; {
-              if (response.status &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
-                console.log(&#x27;Data updated on the server&#x27;);
-                this.flashMessage.show(&#x27;Project has been updated.&#x27;, { cssClass: &#x27;alert-success&#x27;, timeout: 3000 });
-                this.hide();
-              } else {
-                console.error(&#x27;Something went wrong with updating the project data on the server&#x27;);
-                this.flashMessage.show(&#x27;Having trouble adding a user to a joint command.&#x27;, { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 });
-                this.hide();
-              }
-            });
-          } else {
-            // console.error(&#x27;Something went wrong with getting user guides from server&#x27;);
-            this.flashMessage.show(
-              &#x27;We did not find a registered user with such email on our website.&#x27;,
-              { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 }
-            );
-            this.hide();
-          }
-        });
+        this.flashMessage.show(
+          &#x27;We did not find a registered user with such email on our website.&#x27;,
+          { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 }
+        );
+        this.hide();
       }
+    });
+  }
+
+  /**
+   * The method of adding a user to a group that can view the selected project without editing it.
+   * @param browseEmail
+   */
+  public addBrowseUser (browseEmail: string): void {
+    if (browseEmail &#x3D;&#x3D;&#x3D; this.project.creatorEmail) {
+      this.flashMessage.show(
+        &#x27;You can not add yourself to the list of users to view the project.&#x27;,
+        { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 }
+      );
+      this.hide();
+      return;
+    }
+    const isUserInTeamGroup &#x3D; this.isUserInItemGroup(this.project.brows_team_project, browseEmail);
+    if (isUserInTeamGroup) {
+      this.hide();
+      return;
+    }
+    const isUserInBrowsingTeam &#x3D; this.isUserInItemGroup(this.project.team_project, browseEmail);
+    if (isUserInBrowsingTeam) {
+      this.hide();
+      return;
+    }
+    this.browseUserEmail &#x3D; browseEmail;
+    this.usersService.getItemUserByEmail(this.browseUserEmail).subscribe(data &#x3D;&gt; {
+      if (data.guid) {
+        const viewerUserData &#x3D; {guid: &#x27;&#x27;, email: &#x27;&#x27;};
+        viewerUserData.email &#x3D; this.browseUserEmail;
+        viewerUserData.guid &#x3D; data.guid;
+        this.project.brows_team_project.push(viewerUserData);
+        this.updateProject(this.project._id, this.project);
+      } else {
+        this.flashMessage.show(
+          &#x27;We did not find a registered user with such email on our website.&#x27;,
+          { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 }
+        );
+        this.hide();
+      }
+    });
+  }
+
+  /**
+   * Method for checking the availability of the specified user in the group
+   * @param groupUserList array userGroup {email; guid}
+   * @param userEmail user email entered in text field
+   */
+  public isUserInItemGroup(groupUserList, userEmail: string) {
+    for (let i &#x3D; 0; i &lt; groupUserList.length; ++i) {
+      const itemViewerUser &#x3D; groupUserList[i];
+      if (itemViewerUser.email &#x3D;&#x3D;&#x3D; userEmail) {
+        this.flashMessage.show(&#x27;User is already on this list.&#x27;, { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 });
+        return true;
+      }
+      return false;
     }
   }
 
   /**
-   *
-   * @param browseEmail
+   * Method of sending updated data to the Project Service
+   * @param projectId
+   * @param project
    */
-  public addBrowseUser (browseEmail: string) {
-    this.browseUserEmail &#x3D; browseEmail;
-    const projectId &#x3D; this.project._id;
-    if ( !this.project.brows_team_project) {
-      this.project.brows_team_project &#x3D; [];
-      this.project.brows_team_project.push(this.browseUserEmail);
-    } else {
-      this.project.brows_team_project.push(this.browseUserEmail);
-    }
-    this.projectService.updateProject(projectId, this.project).subscribe(data &#x3D;&gt; {
-      if (data.success) {
-        this.dataValue.push(this.project);
+  public updateProject(projectId: string, project: IProject) {
+    this.projectService.updateProject(projectId, project).subscribe(response &#x3D;&gt; {
+      if (response.status &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
+        this.flashMessage.show(&#x27;Project has been updated.&#x27;, { cssClass: &#x27;alert-success&#x27;, timeout: 3000 });
+        this.hide();
       } else {
-        console.error(&#x27;Somthing was wrang&#x27;);
+        this.flashMessage.show(&#x27;Project has not been updated.&#x27;, { cssClass: &#x27;alert-danger&#x27;, timeout: 3000 });
+        this.hide();
       }
     });
-    this.addUserInTeam &#x3D; false;
-    this.browseUserEmail &#x3D; null;
-    setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
   }
 
-    /**
-   *
+  /**
+   * The method of cleaning the form fields and hiding the modal window
    */
   public hide(): void {
     this.itemElement &#x3D; null;
@@ -1658,7 +1908,6 @@ export class TeamWorkModalComponent {
     this.addUserForBrowse &#x3D; false;
     this.teamUserEmail &#x3D; null;
     this.visible &#x3D; false;
-    // setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
   }
 
   /**
@@ -1682,13 +1931,17 @@ export class TeamWorkModalComponent {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;modal-padding&quot;
+        <pre class="line-numbers"><code class="language-html">&lt;!--
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;exampleModalCenter&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;exampleModalCenterTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+--&gt;
+
+&lt;div class&#x3D;&quot;modal fade&quot;
      (click)&#x3D;&quot;onContainerClicked($event)&quot;
-     class&#x3D;&quot;modal fade&quot;
      tabindex&#x3D;&quot;-1&quot;
+     role&#x3D;&quot;dialog&quot;
      [ngClass]&#x3D;&quot;{&#x27;in&#x27;: visibleAnimate}&quot;
      [ngStyle]&#x3D;&quot;{&#x27;display&#x27;: visible ? &#x27;block&#x27; : &#x27;none&#x27;, &#x27;opacity&#x27;: visibleAnimate ? 1 : 0}&quot;&gt;
-  &lt;div class&#x3D;&quot;modal-dialog&quot; aria-labelledby&#x3D;&quot;exampleModalLongTitle&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered&quot; aria-labelledby&#x3D;&quot;exampleModalLongTitle&quot;&gt;
     &lt;div class&#x3D;&quot;modal-content&quot;&gt;
       &lt;div class&#x3D;&quot;modal-header&quot;&gt;
         &lt;h4 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;exampleModalLongTitle&quot;&gt;{{title}}&lt;/h4&gt;
@@ -1700,11 +1953,13 @@ export class TeamWorkModalComponent {
         &lt;div class&#x3D;&quot;form-inline&quot;&gt;
           &lt;label class&#x3D;&quot;pr-2&quot;&gt;&lt;strong&gt;User e-mail: &lt;/strong&gt;&lt;/label&gt;
           &lt;input class&#x3D;&quot;form-control&quot;
+                 type&#x3D;&quot;email&quot;
                  name&#x3D;&quot;teamUserEmail&quot;
                  [(ngModel)]&#x3D;&quot;teamUserEmail&quot;
                  placeholder&#x3D;&#x27;Input email for team work&#x27;
                  onfocus&#x3D;&quot;this.placeholder &#x3D; &#x27;&#x27;&quot;
-                 onblur&#x3D;&quot;this.placeholder &#x3D; &#x27;Input user email&#x27;&quot; 
+                 onblur&#x3D;&quot;this.placeholder &#x3D; &#x27;Input user email&#x27;&quot;
+                 required
           /&gt;
         &lt;/div&gt;
         &lt;div&gt;
@@ -1720,7 +1975,7 @@ export class TeamWorkModalComponent {
                  data-toggle&#x3D;&quot;tooltip&quot;
                  data-placement&#x3D;&quot;top&quot;
                  title&#x3D;&quot;Delete project&quot;
-                 (click)&#x3D;&quot;deleteUserFromTeam(itemTeamUser)&quot;&gt;
+                 (click)&#x3D;&quot;deleteUserFromFolowers(isTeam&#x3D;true, itemTeamUser.guid)&quot;&gt;
                 &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
               &lt;/a&gt;
             &lt;/div&gt;
@@ -1758,8 +2013,8 @@ export class TeamWorkModalComponent {
               &lt;a class&#x3D;&quot;btn btn-danger&quot;
                  data-toggle&#x3D;&quot;tooltip&quot;
                  data-placement&#x3D;&quot;top&quot;
-                 title&#x3D;&quot;Disable user&quot;
-                 (click)&#x3D;&quot;deleteUserFromFolowers(itemTeamUser)&quot;&gt;
+                 title&#x3D;&quot;Delete user&quot;
+                 (click)&#x3D;&quot;deleteUserFromFolowers(isTeam&#x3D;false, itemTeamUser.guid)&quot;&gt;
                 &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
               &lt;/a&gt;
             &lt;/div&gt;
@@ -1782,7 +2037,7 @@ export class TeamWorkModalComponent {
               &lt;button class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;addUserToTeam(teamUserEmail)&quot;&gt;Add user to team&lt;/button&gt;
             &lt;/div&gt;
             &lt;div *ngIf&#x3D;&quot;addUserForBrowse&quot; class&#x3D;&quot;form-group pr-1&quot;&gt;
-              &lt;button class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;addUserToGroup(true, browseUserEmail)&quot;&gt;Add folower&lt;/button&gt;
+              &lt;button class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;addBrowseUser(browseUserEmail)&quot;&gt;Add folower&lt;/button&gt;
             &lt;/div&gt;
             &lt;div class&#x3D;&quot;pl-1 pr-2&quot;&gt;
               &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;close()&quot;&gt;Close&lt;/button&gt;
@@ -1821,8 +2076,8 @@ export class TeamWorkModalComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="modal-padding"     (click)="onContainerClicked($event)"     class="modal fade"     tabindex="-1"     [ngClass]="{\'in\': visibleAnimate}"     [ngStyle]="{\'display\': visible ? \'block\' : \'none\', \'opacity\': visibleAnimate ? 1 : 0}">  <div class="modal-dialog" aria-labelledby="exampleModalLongTitle">    <div class="modal-content">      <div class="modal-header">        <h4 class="modal-title" id="exampleModalLongTitle">{{title}}</h4>        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">          <span aria-hidden="true">&times;</span>        </button>      </div>      <div class="modal-body" *ngIf="addUserInTeam">        <div class="form-inline">          <label class="pr-2"><strong>User e-mail: </strong></label>          <input class="form-control"                 name="teamUserEmail"                 [(ngModel)]="teamUserEmail"                 placeholder=\'Input email for team work\'                 onfocus="this.placeholder = \'\'"                 onblur="this.placeholder = \'Input user email\'"           />        </div>        <div>          <div class="d-flex justify-content-center">            <div>              <span> Your team</span>            </div>          </div>          <div class="d-flex" *ngFor="let itemTeamUser of project.team_project">            <div class="mr-auto p-2">{{itemTeamUser.email}}</div>            <div class="p-2">              <a class="btn btn-danger"                 data-toggle="tooltip"                 data-placement="top"                 title="Delete project"                 (click)="deleteUserFromTeam(itemTeamUser)">                <i class="fa fa-trash-o" aria-hidden="true"></i>              </a>            </div>            <div class="p-2">              <a class="btn btn-info"                 data-toggle="tooltip"                 data-placement="top"                 title="Move user to browse group"                 (click)="moveUserFromTeamToBrouse(itemTeamUser)">                <i class="fa fa-eye" aria-hidden="true"></i>              </a>            </div>          </div>        </div>      </div>      <div class="modal-body" *ngIf="addUserForBrowse">        <div class="form-inline">          <label class="pr-2"><strong>User e-mail: </strong></label>          <input class="form-control"                 name="browseUserEmail"                 [(ngModel)]="browseUserEmail"                 placeholder=\'Input email for browse\'                 onfocus="this.placeholder = \'\'"                 onblur="this.placeholder = \'Input user email\'" />        </div>        <div>          <div class="d-flex justify-content-center">            <div>              <span> Your folowers</span>            </div>          </div>          <div class="d-flex" *ngFor="let itemTeamUser of project.brows_team_project">            <div class="mr-auto p-2">{{itemTeamUser.email}}</div>            <div class="p-2">              <a class="btn btn-danger"                 data-toggle="tooltip"                 data-placement="top"                 title="Disable user"                 (click)="deleteUserFromFolowers(itemTeamUser)">                <i class="fa fa-trash-o" aria-hidden="true"></i>              </a>            </div>            <div class="p-2">              <a class="btn btn-info"                 data-toggle="tooltip"                 data-placement="top"                 title="Move user to team group"                 (click)="moveUserFromFoloversToTeam(itemTeamUser)">                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>              </a>            </div>          </div>        </div>      </div>      <div class="modal-footer">        <div class="row">          <div class="d-flex justify-content-end">            <div *ngIf="addUserInTeam" class="form-group pr-1">              <button class="btn btn-success" (click)="addUserToTeam(teamUserEmail)">Add user to team</button>            </div>            <div *ngIf="addUserForBrowse" class="form-group pr-1">              <button class="btn btn-success" (click)="addUserToGroup(true, browseUserEmail)">Add folower</button>            </div>            <div class="pl-1 pr-2">              <button class="btn btn-primary" (click)="close()">Close</button>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+        var COMPONENT_TEMPLATE = '<div><!--<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">--><div class="modal fade"     (click)="onContainerClicked($event)"     tabindex="-1"     role="dialog"     [ngClass]="{\'in\': visibleAnimate}"     [ngStyle]="{\'display\': visible ? \'block\' : \'none\', \'opacity\': visibleAnimate ? 1 : 0}">  <div class="modal-dialog modal-dialog-centered" aria-labelledby="exampleModalLongTitle">    <div class="modal-content">      <div class="modal-header">        <h4 class="modal-title" id="exampleModalLongTitle">{{title}}</h4>        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">          <span aria-hidden="true">&times;</span>        </button>      </div>      <div class="modal-body" *ngIf="addUserInTeam">        <div class="form-inline">          <label class="pr-2"><strong>User e-mail: </strong></label>          <input class="form-control"                 type="email"                 name="teamUserEmail"                 [(ngModel)]="teamUserEmail"                 placeholder=\'Input email for team work\'                 onfocus="this.placeholder = \'\'"                 onblur="this.placeholder = \'Input user email\'"                 required          />        </div>        <div>          <div class="d-flex justify-content-center">            <div>              <span> Your team</span>            </div>          </div>          <div class="d-flex" *ngFor="let itemTeamUser of project.team_project">            <div class="mr-auto p-2">{{itemTeamUser.email}}</div>            <div class="p-2">              <a class="btn btn-danger"                 data-toggle="tooltip"                 data-placement="top"                 title="Delete project"                 (click)="deleteUserFromFolowers(isTeam=true, itemTeamUser.guid)">                <i class="fa fa-trash-o" aria-hidden="true"></i>              </a>            </div>            <div class="p-2">              <a class="btn btn-info"                 data-toggle="tooltip"                 data-placement="top"                 title="Move user to browse group"                 (click)="moveUserFromTeamToBrouse(itemTeamUser)">                <i class="fa fa-eye" aria-hidden="true"></i>              </a>            </div>          </div>        </div>      </div>      <div class="modal-body" *ngIf="addUserForBrowse">        <div class="form-inline">          <label class="pr-2"><strong>User e-mail: </strong></label>          <input class="form-control"                 name="browseUserEmail"                 [(ngModel)]="browseUserEmail"                 placeholder=\'Input email for browse\'                 onfocus="this.placeholder = \'\'"                 onblur="this.placeholder = \'Input user email\'" />        </div>        <div>          <div class="d-flex justify-content-center">            <div>              <span> Your folowers</span>            </div>          </div>          <div class="d-flex" *ngFor="let itemTeamUser of project.brows_team_project">            <div class="mr-auto p-2">{{itemTeamUser.email}}</div>            <div class="p-2">              <a class="btn btn-danger"                 data-toggle="tooltip"                 data-placement="top"                 title="Delete user"                 (click)="deleteUserFromFolowers(isTeam=false, itemTeamUser.guid)">                <i class="fa fa-trash-o" aria-hidden="true"></i>              </a>            </div>            <div class="p-2">              <a class="btn btn-info"                 data-toggle="tooltip"                 data-placement="top"                 title="Move user to team group"                 (click)="moveUserFromFoloversToTeam(itemTeamUser)">                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>              </a>            </div>          </div>        </div>      </div>      <div class="modal-footer">        <div class="row">          <div class="d-flex justify-content-end">            <div *ngIf="addUserInTeam" class="form-group pr-1">              <button class="btn btn-success" (click)="addUserToTeam(teamUserEmail)">Add user to team</button>            </div>            <div *ngIf="addUserForBrowse" class="form-group pr-1">              <button class="btn btn-success" (click)="addBrowseUser(browseUserEmail)">Add folower</button>            </div>            <div class="pl-1 pr-2">              <button class="btn btn-primary" (click)="close()">Close</button>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TeamWorkModalComponent'};
 </script>

@@ -10,6 +10,7 @@ const config = require('./config/database');
 
 const app = express();
 mongoose.Promise = global.Promise;
+
 // Connect To Database
 mongoose.connect(config.database);
 

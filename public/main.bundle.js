@@ -133,6 +133,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_modals_multiple_modal_multiple_modal_component__ = __webpack_require__("../../../../../src/app/components/modals/multiple-modal/multiple-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_superadmin_superadmin_component__ = __webpack_require__("../../../../../src/app/components/superadmin/superadmin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_modals_copy_project_modal_copy_project_modal_component__ = __webpack_require__("../../../../../src/app/components/modals/copy-project-modal/copy-project-modal.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -213,6 +214,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // SUPERADMIN and ADMIN part
 
+
 // TODO move to separate component
 var appRoutes = [
     // main pages
@@ -289,7 +291,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_49__components_modals_simple_electrical_modal_simple_electrical_modal_component__["a" /* SimpleElectricalModalComponent */],
                 __WEBPACK_IMPORTED_MODULE_50__components_drop_down_dependent_drop_down_dependent_component__["a" /* DropDownDependentComponent */],
                 __WEBPACK_IMPORTED_MODULE_51__components_modals_multiple_modal_multiple_modal_component__["a" /* MultipleModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_52__components_superadmin_superadmin_component__["a" /* SuperadminComponent */]
+                __WEBPACK_IMPORTED_MODULE_52__components_superadmin_superadmin_component__["a" /* SuperadminComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__components_modals_copy_project_modal_copy_project_modal_component__["a" /* CopyProjectModalComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -2005,7 +2008,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/drop-down/drop-down.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"form-group\" *ngIf=\"equipmentType\">\n  <div class=\"d-flex flex-row\">\n    <select \n      [disabled]=\"equipmentType.length == 0\"\n      id=\"selectedEquipmentType\"\n      class=\"form-control selectForOpenModal\"\n      [(ngModel)]=\"selectedEquipmentType\"\n      (click)=\"change(selectedEquipmentType)\"\n      name=\"selectedEquipmentType\"\n    >\n      <option\n        *ngFor=\"let currentEquipmentType of equipmentType\" \n        [ngValue]=\"currentEquipmentType\"\n      >\n          {{currentEquipmentType}}\n      </option>\n    </select>\n    <button\n      type=\"button\"\n      class=\"btn btn-outline-secondary btnPlus fa fa-plus\"\n      data-toggle=\"tooltip\"\n      data-placement=\"top\"\n      title=\"Add new item\"\n      (click)=\"equipmentTypeModal.showAddModal()\"\n    ></button>\n    <button\n      type=\"button\"\n      class=\"btn btn-outline-secondary btnMinus fa fa-minus\"\n      data-toggle=\"tooltip\"\n      data-placement=\"top\"\n      title=\"Drop selected item\"\n      (click)=\"equipmentTypeModal.showDropModal(dropElementFlag)\"\n      [disabled]=\"equipmentType.length == 0\"\n    ></button>\n  </div>\n</div>\n\n<app-simple-electrical-modal\n  [dataValue]=\"equipmentType\"\n  [selectedValue]=\"selectedEquipmentType\"\n  [title]=\"dropDownName\"\n  (newOnChanged)=\"newChanged($event)\"\n  #equipmentTypeModal\n>\n</app-simple-electrical-modal>"
+module.exports = "<div class=\"form-group\" *ngIf=\"equipmentType\">\n  <div class=\"d-flex flex-row\">\n    <select \n      [disabled]=\"equipmentType.length == 0\"\n      id=\"selectedEquipmentType\"\n      class=\"form-control selectForOpenModal\"\n      [(ngModel)]=\"selectedEquipmentType\"\n      (click)=\"change(selectedEquipmentType)\"\n      name=\"selectedEquipmentType\"\n    >\n      <option\n        *ngFor=\"let currentEquipmentType of equipmentType\" \n        [ngValue]=\"currentEquipmentType\"\n      >\n        {{currentEquipmentType}}\n      </option>\n    </select>\n    <button\n      type=\"button\"\n      class=\"btn btn-outline-secondary btnPlus fa fa-plus\"\n      data-toggle=\"tooltip\"\n      data-placement=\"top\"\n      title=\"Add new item\"\n      (click)=\"equipmentTypeModal.showAddModal()\"\n    ></button>\n    <button\n      type=\"button\"\n      class=\"btn btn-outline-secondary btnMinus fa fa-minus\"\n      data-toggle=\"tooltip\"\n      data-placement=\"top\"\n      title=\"Drop selected item\"\n      (click)=\"equipmentTypeModal.showDropModal(dropElementFlag)\"\n      [disabled]=\"equipmentType.length == 0\"\n    ></button>\n  </div>\n</div>\n\n<app-simple-electrical-modal\n  [dataValue]=\"equipmentType\"\n  [selectedValue]=\"selectedEquipmentType\"\n  [title]=\"dropDownName\"\n  (newOnChanged)=\"newChanged($event)\"\n  #equipmentTypeModal\n>\n</app-simple-electrical-modal>"
 
 /***/ }),
 
@@ -4515,6 +4518,130 @@ var ControllerModalComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/modals/copy-project-modal/copy-project-modal.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".modal {\r\n    background: rgba(0,0,0,0.6);\r\n    padding-top: 3rem;\r\n  }\r\n  \r\n  .modal-dialog {\r\n    max-width: 350px!important;\r\n  }\r\n  input::-webkit-input-placeholder {\r\n    color: gray;\r\n    font-style: italic;\r\n  }\r\n  input:-ms-input-placeholder {\r\n    color: gray;\r\n    font-style: italic;\r\n  }\r\n  input::placeholder {\r\n    color: gray;\r\n    font-style: italic;\r\n  }\r\n  .modal-padding {\r\n    padding-top: 10rem;\r\n  }\r\n  \r\n  input:focus::-webkit-input-placeholder { color:transparent; }\r\n  input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */\r\n  input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */\r\n  input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/modals/copy-project-modal/copy-project-modal.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div\n  class=\"modal-padding\"\n  class=\"modal fade\"\n  tabindex=\"-1\"\n  [ngClass]=\"{'in': isAnimateVisible}\"\n  [ngStyle]=\"{'display': isVisible ? 'block' : 'none', 'opacity': isAnimateVisible ? 1 : 0}\">\n  <ng-container *ngIf=\"projectData\">\n    <div class=\"modal-dialog modal-dialog-centered\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4>{{title}}</h4>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"close()\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <div class=\"form-inline\">\n            <label class=\"pr-2\"><strong>Name of selected project: </strong></label>\n            <input\n              class=\"form-control\"\n              [ngModel]='projectData.title'\n              disabled\n            />\n          </div>\n          <div class=\"form-inline\">\n            <label class=\"pr-2\"><strong>Name for the cloned Project: </strong></label>\n            <input\n              class=\"form-control\"\n              [maxLength]=\"projectNameLength\"\n              [(ngModel)]='nameCopiedProject'\n            />\n          </div>\n        </div>\n        <div class=\"modal-footer\">\n          <div class=\"row\">\n            <div class=\"d-flex justify-content-end\">\n              <div class=\"pr-1\">\n                <button class=\"btn btn-success\" (click)=\"simpleCopyProject(nameCopiedProject)\" [disabled]=\"!nameCopiedProject\">Copy project</button>\n              </div>\n              <div class=\"pl-1 pr-2\">\n                <button class=\"btn btn-primary\" (click)=\"close()\" [disabled]=\"!nameCopiedProject\">Close</button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </ng-container>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/modals/copy-project-modal/copy-project-modal.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CopyProjectModalComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_project_service__ = __webpack_require__("../../../../../src/app/services/project.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CopyProjectModalComponent = (function () {
+    function CopyProjectModalComponent(projectService) {
+        this.projectService = projectService;
+        this.projectNameLength = 40;
+    }
+    /**
+     * Display a modal window for copying a user-created project.
+     * @param itemProject
+     */
+    CopyProjectModalComponent.prototype.showSimpleCopyModal = function (copyProjectFlag, itemProject) {
+        var _this = this;
+        this.copyFlag = copyProjectFlag;
+        this.isVisible = true;
+        this.projectData = itemProject;
+        setTimeout(function () { return _this.isAnimateVisible = true; }, 100);
+    };
+    /**
+     * Method to copy the project selected by the user
+     * @param nameForCopiedProject name for the copied project
+     */
+    CopyProjectModalComponent.prototype.simpleCopyProject = function (nameForCopiedProject) {
+        var _this = this;
+        var projectNameId = {
+            _id: this.projectData._id,
+            name: nameForCopiedProject,
+            creator: this.projectData.creator,
+            guid: this.guid
+        };
+        this.projectService.postCopiedProject(projectNameId).subscribe(function (data) {
+            if (data.status === 'created') {
+                _this.dataValue.push(data.project);
+            }
+            else {
+                console.error(data.message);
+            }
+            _this.clearVariables();
+        });
+    };
+    /**
+     * Method to close the modal window
+     */
+    CopyProjectModalComponent.prototype.close = function () {
+        this.clearVariables();
+    };
+    /**
+    * Method to reset all local variables
+    */
+    CopyProjectModalComponent.prototype.clearVariables = function () {
+        this.isVisible = false;
+        this.isAnimateVisible = false;
+        this.copyFlag = false;
+        this.projectData = null;
+        this.nameCopiedProject = null;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], CopyProjectModalComponent.prototype, "title", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], CopyProjectModalComponent.prototype, "dataValue", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], CopyProjectModalComponent.prototype, "guid", void 0);
+    CopyProjectModalComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-copy-project-modal',
+            template: __webpack_require__("../../../../../src/app/components/modals/copy-project-modal/copy-project-modal.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/modals/copy-project-modal/copy-project-modal.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */]])
+    ], CopyProjectModalComponent);
+    return CopyProjectModalComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/modals/electricals-modal/electricals-modal.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4844,7 +4971,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// import { error } from 'util';
 
 
 var ProjectsModalComponent = (function () {
@@ -5804,7 +5930,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/project/project.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"container\">\r\n  <div class=\"d-flex justify-content-center\">\r\n    <h1>\r\n      List of projects\r\n      <a class=\"btn btn-primary\"\r\n         data-toggle=\"tooltip\"\r\n         data-placement=\"top\"\r\n         title=\"Add new project\"\r\n         (click)=\"addProjectModal.showAddModal(createProject)\">\r\n        <i class=\"fa fa-plus\" aria-hidden=\"true\"></i>\r\n      </a>\r\n    </h1>\r\n  </div>\r\n  <div *ngIf=\"project.length\">\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Action</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let itemProject of project\">\r\n          <td>\r\n            <a \r\n              class=\"table-link table-cursor disable-decoration table-text-style\"\r\n              [routerLink]=\"['/project', itemProject._id]\"\r\n            >\r\n              <strong>{{itemProject.title}}</strong>\r\n            </a>\r\n          </td>\r\n          <td>\r\n            <div class=\"row\">\r\n              <div class=\"col-3\">\r\n                <a class=\"btn btn-success\"\r\n                   data-toggle=\"tooltip\"\r\n                   data-placement=\"top\"\r\n                   title=\"Change project\"\r\n                   (click)=\"addProjectModal.showChangeProjectModal(chengeProject, itemProject)\">\r\n                  <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a class=\"btn btn-danger\"\r\n                   data-toggle=\"tooltip\"\r\n                   data-placement=\"top\"\r\n                   title=\"Delete project\"\r\n                   (click)=\"addProjectModal.showDropModal(dropProject, itemProject)\">\r\n                  <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a class=\"btn btn-primary\"\r\n                   data-toggle=\"tooltip\"\r\n                   data-placement=\"top\"\r\n                   title=\"Add team user\"\r\n                   (click)=\"addTeamWorkModal.addTeamUser(true, itemProject)\">\r\n                  <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a class=\"btn btn-info\"\r\n                   data-toggle=\"tooltip\"\r\n                   data-placement=\"top\"\r\n                   title=\"Add user for view\"\r\n                   (click)=\"addTeamWorkModal.addViewerUser(true, itemProject)\">\r\n                  <i class=\"fa fa-eye\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n            </div>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <!---->\r\n  <div *ngIf=\"teamProjects.length\">\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>List of projects for teamwork</h1>\r\n    </div>\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Creator</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let teamItemProject of teamProjects\">\r\n          <td>\r\n            <a class=\"table-link table-cursor disable-decoration table-text-style\" [routerLink]=\"['/project', teamItemProject._id]\"><strong>{{teamItemProject.title}}</strong></a>\r\n          </td>\r\n          <td>\r\n            <strong>{{teamItemProject.creatorEmail}}</strong>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <!---->\r\n  <div *ngIf=\"browsingProjects.length\">\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>List of projects to view</h1>\r\n    </div>\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Creator</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let browsingItemProject of browsingProjects\">\r\n          <td>\r\n            <a class=\"table-link table-cursor disable-decoration table-text-style\" [routerLink]=\"['/project', browsingItemProject._id]\"><strong>{{browsingItemProject.title}}</strong></a>\r\n          </td>\r\n          <td>\r\n            <strong>{{browsingItemProject.creatorEmail}}</strong>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <!---\r\n    <div *ngIf=\"teamProjects\">\r\n      <table class=\"table table-sm table-text-style\">\r\n        <thead>\r\n          <tr>\r\n            <th>Title</th>\r\n            <th>Action</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let itemTeamProject of teamProjects\">\r\n            <td>\r\n              <a class=\"table-link table-cursor disable-decoration table-text-style\" [routerLink]=\"['/project', itemTeamProject._id]\">\r\n                <strong>{{itemTeamProject.title}}</strong>\r\n              </a>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n    </div>\r\n  -->\r\n  <app-projects-modal\r\n    [dataValue]=\"project\"\r\n    [userGuid]=\"userGuid\"\r\n    [creatorEmail]=\"creatorEmail\"\r\n    [title]=\"'Project functionality'\"\r\n    #addProjectModal\r\n  ></app-projects-modal>\r\n  <app-team-work-modal\r\n    [dataValue]=\"project\"\r\n    [title]=\"'Team work functionality'\"\r\n    #addTeamWorkModal\r\n  ></app-team-work-modal>\r\n  <app-team-work-modal\r\n    [dataValue]=\"project\"\r\n    [title]=\"'Team work functionality'\"\r\n    #addViewerUser\r\n  ></app-team-work-modal>\r\n</div>\r\n<!--\r\n<div class=\"container\">\r\n  <div *ngIf=\"userProjectList\">\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>Your list of projects\r\n        <a\r\n          class=\"btn btn-primary\"\r\n          data-toggle=\"tooltip\"\r\n          data-placement=\"top\"\r\n          title=\"Add new project\"\r\n        >\r\n          <i class=\"fa fa-plus\" aria-hidden=\"true\"></i>\r\n        </a>\r\n      </h1>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"project\">\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Action</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let itemProject of project\">\r\n          <td>\r\n            <a class=\"table-link table-cursor disable-decoration table-text-style\" [routerLink]=\"['/project', itemProject._id]\">\r\n            <strong>{{itemProject.title}}</strong>\r\n            </a>\r\n          </td>\r\n          <td>\r\n            <div class=\"row\">\r\n              <div class=\"col-3\">\r\n                <a\r\n                  class=\"btn btn-success\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Change project\"\r\n                >\r\n                  <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a\r\n                  class=\"btn btn-danger\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Delete project\"\r\n                >\r\n                  <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a\r\n                  class=\"btn btn-primary\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Add team user\"\r\n                >\r\n                  <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a\r\n                  class=\"btn btn-info\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Add user for view\"\r\n                >\r\n                <i class=\"fa fa-eye\" aria-hidden=\"true\"></i>\r\n                </a>\r\n                </div>\r\n            </div>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <hr/>\r\n  <div>\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>List of projects for teamwork</h1>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"teamProjectList\">\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Creator</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let teamItemProject of teamProjectList\">\r\n          <td>\r\n            <strong>{{teamItemProject.title}}</strong>\r\n          </td>\r\n          <td>\r\n            <strong>{{teamItemProject.creator}}</strong>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div>\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>List of projects to view</h1>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"teamViewingProjectList\">\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Creator</th>\r\n          <th>Team</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let teamViewingItemProject of teamViewingProjectList\">\r\n          <td>\r\n            <strong>{{teamViewingItemProject.title}}</strong>\r\n          </td>\r\n          <td>\r\n            <strong>{{teamViewingItemProject.creator}}</strong>\r\n          </td>\r\n          <td>\r\n            <ul>\r\n              <li *ngFor=\"let teamUser of teamViewingItemProject.team\">\r\n                <strong>\r\n                  {{teamUser.email}}\r\n                </strong>\r\n              </li>\r\n            </ul>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n</div>\r\n-->\r\n"
+module.exports = "\r\n<div class=\"container\">\r\n  <div class=\"d-flex justify-content-center\">\r\n    <h1>\r\n      List of projects\r\n      <a class=\"btn btn-primary\"\r\n         data-toggle=\"tooltip\"\r\n         data-placement=\"top\"\r\n         title=\"Add new project\"\r\n         (click)=\"addProjectModal.showAddModal(createProject)\">\r\n        <i class=\"fa fa-plus\" aria-hidden=\"true\"></i>\r\n      </a>\r\n    </h1>\r\n  </div>\r\n  <div *ngIf=\"project.length\">\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Action</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let itemProject of project\">\r\n          <td>\r\n            <a \r\n              class=\"table-link table-cursor disable-decoration table-text-style\"\r\n              [routerLink]=\"['/project', itemProject._id]\"\r\n            >\r\n              <strong>{{itemProject.title}}</strong>\r\n            </a>\r\n          </td>\r\n          <td>\r\n            <div class=\"row\">\r\n              <div class=\"col-2\">\r\n                <a class=\"btn btn-success\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Change project\"\r\n                  (click)=\"addProjectModal.showChangeProjectModal(chengeProject, itemProject)\">\r\n                  <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-2\">\r\n                <a class=\"btn btn-warning\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Copy project\"\r\n                  (click)=\"copyProjectModal.showSimpleCopyModal(copyProjectFlag, itemProject)\">\r\n                <i class=\"fa fa-clone\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-2\">\r\n                <a class=\"btn btn-danger\"\r\n                   data-toggle=\"tooltip\"\r\n                   data-placement=\"top\"\r\n                   title=\"Delete project\"\r\n                   (click)=\"addProjectModal.showDropModal(dropProject, itemProject)\">\r\n                  <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-2\">\r\n                <a class=\"btn btn-primary\"\r\n                   data-toggle=\"tooltip\"\r\n                   data-placement=\"top\"\r\n                   title=\"Add team user\"\r\n                   (click)=\"addTeamWorkModal.addTeamUser(true, itemProject)\">\r\n                  <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-2\">\r\n                <a class=\"btn btn-info\"\r\n                   data-toggle=\"tooltip\"\r\n                   data-placement=\"top\"\r\n                   title=\"Add user for view\"\r\n                   (click)=\"addTeamWorkModal.addViewerUser(true, itemProject)\">\r\n                  <i class=\"fa fa-eye\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n            </div>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div *ngIf=\"teamProjects.length\">\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>List of projects for teamwork</h1>\r\n    </div>\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Creator</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let teamItemProject of teamProjects\">\r\n          <td>\r\n            <a class=\"table-link table-cursor disable-decoration table-text-style\" [routerLink]=\"['/project', teamItemProject._id]\"><strong>{{teamItemProject.title}}</strong></a>\r\n          </td>\r\n          <td>\r\n            <strong>{{teamItemProject.creatorEmail}}</strong>\r\n          </td>\r\n          <td>\r\n            <a class=\"btn btn-warning\"\r\n              data-toggle=\"tooltip\"\r\n              data-placement=\"top\"\r\n              title=\"Copy project\"\r\n              (click)=\"copyProjectModal.showSimpleCopyModal(copyProjectFlag, teamItemProject)\">\r\n              <i class=\"fa fa-clone\" aria-hidden=\"true\"></i>\r\n            </a>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div *ngIf=\"browsingProjects.length\">\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>List of projects to view</h1>\r\n    </div>\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Creator</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let browsingItemProject of browsingProjects\">\r\n          <td>\r\n            <a class=\"table-link table-cursor disable-decoration table-text-style\" [routerLink]=\"['/project', browsingItemProject._id]\"><strong>{{browsingItemProject.title}}</strong></a>\r\n          </td>\r\n          <td>\r\n            <strong>{{browsingItemProject.creatorEmail}}</strong>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <!---\r\n    <div *ngIf=\"teamProjects\">\r\n      <table class=\"table table-sm table-text-style\">\r\n        <thead>\r\n          <tr>\r\n            <th>Title</th>\r\n            <th>Action</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let itemTeamProject of teamProjects\">\r\n            <td>\r\n              <a class=\"table-link table-cursor disable-decoration table-text-style\" [routerLink]=\"['/project', itemTeamProject._id]\">\r\n                <strong>{{itemTeamProject.title}}</strong>\r\n              </a>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n    </div>\r\n  -->\r\n  <app-projects-modal\r\n    [dataValue]=\"project\"\r\n    [userGuid]=\"userGuid\"\r\n    [creatorEmail]=\"creatorEmail\"\r\n    [title]=\"'Project functionality'\"\r\n    #addProjectModal\r\n  ></app-projects-modal>\r\n  <app-team-work-modal\r\n    [dataValue]=\"project\"\r\n    [title]=\"'Team work functionality'\"\r\n    #addTeamWorkModal\r\n  ></app-team-work-modal>\r\n  <app-team-work-modal\r\n    [dataValue]=\"project\"\r\n    [title]=\"'Team work functionality'\"\r\n    #addViewerUser\r\n  ></app-team-work-modal>\r\n  <app-copy-project-modal\r\n    #copyProjectModal\r\n    [guid]=\"userGuid\"\r\n    [dataValue]=\"project\"\r\n    [title]=\"'Clone project'\"\r\n  ></app-copy-project-modal>\r\n</div>\r\n<!--\r\n<div class=\"container\">\r\n  <div *ngIf=\"userProjectList\">\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>Your list of projects\r\n        <a\r\n          class=\"btn btn-primary\"\r\n          data-toggle=\"tooltip\"\r\n          data-placement=\"top\"\r\n          title=\"Add new project\"\r\n        >\r\n          <i class=\"fa fa-plus\" aria-hidden=\"true\"></i>\r\n        </a>\r\n      </h1>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"project\">\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Action</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let itemProject of project\">\r\n          <td>\r\n            <a class=\"table-link table-cursor disable-decoration table-text-style\" [routerLink]=\"['/project', itemProject._id]\">\r\n            <strong>{{itemProject.title}}</strong>\r\n            </a>\r\n          </td>\r\n          <td>\r\n            <div class=\"row\">\r\n              <div class=\"col-3\">\r\n                <a\r\n                  class=\"btn btn-success\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Change project\"\r\n                >\r\n                  <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a\r\n                  class=\"btn btn-danger\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Delete project\"\r\n                >\r\n                  <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a\r\n                  class=\"btn btn-primary\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Add team user\"\r\n                >\r\n                  <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                </a>\r\n              </div>\r\n              <div class=\"col-3\">\r\n                <a\r\n                  class=\"btn btn-info\"\r\n                  data-toggle=\"tooltip\"\r\n                  data-placement=\"top\"\r\n                  title=\"Add user for view\"\r\n                >\r\n                <i class=\"fa fa-eye\" aria-hidden=\"true\"></i>\r\n                </a>\r\n                </div>\r\n            </div>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <hr/>\r\n  <div>\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>List of projects for teamwork</h1>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"teamProjectList\">\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Creator</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let teamItemProject of teamProjectList\">\r\n          <td>\r\n            <strong>{{teamItemProject.title}}</strong>\r\n          </td>\r\n          <td>\r\n            <strong>{{teamItemProject.creator}}</strong>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div>\r\n    <div class=\"d-flex justify-content-center\">\r\n      <h1>List of projects to view</h1>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"teamViewingProjectList\">\r\n    <table class=\"table table-sm table-text-style\">\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Creator</th>\r\n          <th>Team</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let teamViewingItemProject of teamViewingProjectList\">\r\n          <td>\r\n            <strong>{{teamViewingItemProject.title}}</strong>\r\n          </td>\r\n          <td>\r\n            <strong>{{teamViewingItemProject.creator}}</strong>\r\n          </td>\r\n          <td>\r\n            <ul>\r\n              <li *ngFor=\"let teamUser of teamViewingItemProject.team\">\r\n                <strong>\r\n                  {{teamUser.email}}\r\n                </strong>\r\n              </li>\r\n            </ul>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n</div>\r\n-->\r\n"
 
 /***/ }),
 
@@ -5840,6 +5966,7 @@ var ProjectComponent = (function () {
         this.createProject = true;
         this.dropProject = true;
         this.chengeProject = true;
+        this.copyProjectFlag = true;
         this.addTeamUser = false;
         this.addViewerUser = false;
         this.project = [];
@@ -8070,6 +8197,17 @@ var ProjectService = (function () {
         params.delete('guid');
         var postProjectsUrl = this.baseUrl + 'project/project-create';
         return this.http.post(postProjectsUrl, project, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // TODO: move path to separate file
+    /**
+     * HTTP method for sending data to the server to save the copied project.
+     * @param copiedProjectData
+     */
+    ProjectService.prototype.postCopiedProject = function (copiedProjectData) {
+        params.delete('guid');
+        var copiedProjectUrl = this.baseUrl + 'project/create-project-copy';
+        return this.http.post(copiedProjectUrl, copiedProjectData, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     /**

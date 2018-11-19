@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const _ = require("lodash");
 const router = express.Router();
 // const config = require('../config/database');
@@ -158,6 +159,53 @@ router.post('/project-create', (req, res) => {
         });
     }
 });
+/**
+ * create-project-copy
+*/
+// TODO: move req.body to variable
+router.post('/create-project-copy', (req, res) => {
+    if(req.params) {
+        const projectId = req.body._id;
+        const projectName = req.body.name;
+        Project.findById(projectId).exec(
+            function(err, copiedProject) {
+                if(req.body.guid !== req.body.creator){
+                    copiedProject.creator = req.body.guid;
+                    for(let i=0; i<copiedProject.team_project.length; ++i) {
+                        let teamItemUser = copiedProject.team_project[i];
+                        if(req.body.guid === teamItemUser.guid) {
+                            copiedProject.team_project.splice(i, 1);
+                        }
+                    }
+                }
+                copiedProject._id = mongoose.Types.ObjectId();
+                copiedProject.title = projectName;
+                copiedProject.isNew = true;
+                Project.addProject(copiedProject, (err) => {
+                    if (err) {
+                        sendJSONresponse(res, 404, {
+                            "message": err.message
+                        });
+                    }
+                    sendJSONresponse(res, 201, {
+                        "status": "created",
+                        "project": {
+                            creator: copiedProject.creator,
+                            creatorEmail: copiedProject.creatorEmail,
+                            _id: copiedProject._id,
+                            title: copiedProject.title
+                        }
+                    });
+                })
+            }
+        );
+    } else {
+        sendJSONresponse(res, 400, {
+            "message": "Some problem with request params, please check parametrs from client side service"
+        })
+    }
+});
+
 /*UPDATE Project*/
 router.put('/:id', function (req, res) {
     if (req.params.id) {

@@ -10,7 +10,6 @@ const headers = new Headers();
 headers.append('Content-Type', 'application/json');
 const params = new URLSearchParams();
 
-
 @Injectable()
 export class ProjectService {
   baseUrl = environment.baseUrl;
@@ -88,6 +87,18 @@ export class ProjectService {
     params.delete('guid');
     const postProjectsUrl = this.baseUrl + 'project/project-create';
     return this.http.post(postProjectsUrl, project, {headers: headers})
+      .map(res => res.json());
+  }
+
+  // TODO: move path to separate file
+  /**
+   * HTTP method for sending data to the server to save the copied project.
+   * @param copiedProjectData
+   */
+  postCopiedProject(copiedProjectData: IProject): Observable<any> {
+    params.delete('guid');
+    const copiedProjectUrl = this.baseUrl + 'project/create-project-copy';
+    return this.http.post(copiedProjectUrl, copiedProjectData, {headers: headers})
       .map(res => res.json());
   }
 

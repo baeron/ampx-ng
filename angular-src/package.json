@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.app.json -w -s",
+    "compodoc": "compodoc -p tsconfig.json -s -w",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --target production --build-optimizer --vendor-chunk",

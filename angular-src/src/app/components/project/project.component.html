@@ -32,16 +32,25 @@
           </td>
           <td>
             <div class="row">
-              <div class="col-3">
+              <div class="col-2">
                 <a class="btn btn-success"
-                   data-toggle="tooltip"
-                   data-placement="top"
-                   title="Change project"
-                   (click)="addProjectModal.showChangeProjectModal(chengeProject, itemProject)">
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Change project"
+                  (click)="addProjectModal.showChangeProjectModal(chengeProject, itemProject)">
                   <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a>
               </div>
-              <div class="col-3">
+              <div class="col-2">
+                <a class="btn btn-warning"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Copy project"
+                  (click)="copyProjectModal.showSimpleCopyModal(copyProjectFlag, itemProject)">
+                <i class="fa fa-clone" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="col-2">
                 <a class="btn btn-danger"
                    data-toggle="tooltip"
                    data-placement="top"
@@ -50,7 +59,7 @@
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </a>
               </div>
-              <div class="col-3">
+              <div class="col-2">
                 <a class="btn btn-primary"
                    data-toggle="tooltip"
                    data-placement="top"
@@ -59,7 +68,7 @@
                   <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a>
               </div>
-              <div class="col-3">
+              <div class="col-2">
                 <a class="btn btn-info"
                    data-toggle="tooltip"
                    data-placement="top"
@@ -74,7 +83,6 @@
       </tbody>
     </table>
   </div>
-  <!---->
   <div *ngIf="teamProjects.length">
     <div class="d-flex justify-content-center">
       <h1>List of projects for teamwork</h1>
@@ -94,11 +102,19 @@
           <td>
             <strong>{{teamItemProject.creatorEmail}}</strong>
           </td>
+          <td>
+            <a class="btn btn-warning"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Copy project"
+              (click)="copyProjectModal.showSimpleCopyModal(copyProjectFlag, teamItemProject)">
+              <i class="fa fa-clone" aria-hidden="true"></i>
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <!---->
   <div *ngIf="browsingProjects.length">
     <div class="d-flex justify-content-center">
       <h1>List of projects to view</h1>
@@ -159,6 +175,12 @@
     [title]="'Team work functionality'"
     #addViewerUser
   ></app-team-work-modal>
+  <app-copy-project-modal
+    #copyProjectModal
+    [guid]="userGuid"
+    [dataValue]="project"
+    [title]="'Clone project'"
+  ></app-copy-project-modal>
 </div>
 <!--
 <div class="container">

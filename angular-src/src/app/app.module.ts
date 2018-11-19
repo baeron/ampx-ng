@@ -88,6 +88,7 @@ import { SuperadminComponent } from './components/superadmin/superadmin.componen
 
 // SUPERADMIN and ADMIN part
 import { UsersService } from './services/users.service';
+import { CopyProjectModalComponent } from './components/modals/copy-project-modal/copy-project-modal.component';
 
 // TODO move to separate component
 const appRoutes: Routes = [
@@ -164,7 +165,8 @@ const appRoutes: Routes = [
     SimpleElectricalModalComponent,
     DropDownDependentComponent,
     MultipleModalComponent,
-    SuperadminComponent
+    SuperadminComponent,
+    CopyProjectModalComponent
   ],
   imports: [
     BrowserModule,

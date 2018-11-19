@@ -30,7 +30,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -39,9 +39,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>IoAssignmentService</li>
+  <li>Classes</li>
+  <li>Availability</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,8 +63,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/services/io-assignment.service.ts</code>
+            <code>src/app/shared/Availability.ts</code>
         </p>
+
+
 
 
 
@@ -68,20 +74,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#baseUrl">baseUrl</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -92,13 +84,20 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#createIoAssignment">createIoAssignment</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#CanUserChange">CanUserChange</a>
                             </li>
                             <li>
-                                <a href="#getIoAssignmentList">getIoAssignmentList</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#CanUserView">CanUserView</a>
                             </li>
                             <li>
-                                <a href="#updateIOAssignment">updateIOAssignment</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#CheckIsAdmin">CheckIsAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#GetUserGuid">GetUserGuid</a>
                             </li>
                         </ul>
                     </td>
@@ -112,54 +111,7 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/http/Http" target="_blank">Http</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/io-assignment.service.ts:13</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>http</td>
-                                                  
-                                                        <td>
-                                                                    <code><a href="https://angular.io/api/http/Http" target="_blank" >Http</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -170,33 +122,33 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="createIoAssignment"></a>
+                        <a name="CanUserChange"></a>
                         <span class="name">
                             <b>
-                            createIoAssignment
+                                <span class="modifier">Static</span>
+                            CanUserChange
                             </b>
-                            <a href="#createIoAssignment"><span class="icon ion-ios-link"></span></a>
+                            <a href="#CanUserChange"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>createIoAssignment(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, ioAssignment: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>CanUserChange(teamList: , userGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/services/io-assignment.service.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/shared/Availability.ts:4</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Method for creating a specific element of the IO Assignment</p>
-</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -210,7 +162,18 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>projectId</td>
+                                                        <td>teamList</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>userGuid</td>
                                                         <td>
                                                                     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
@@ -221,8 +184,149 @@
                                                     
 
                                                 </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CanUserView"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            CanUserView
+                            </b>
+                            <a href="#CanUserView"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>CanUserView(viewersList: , userGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/shared/Availability.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                                 <tr>
-                                                        <td>ioAssignment</td>
+                                                        <td>viewersList</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>userGuid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CheckIsAdmin"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            CheckIsAdmin
+                            </b>
+                            <a href="#CheckIsAdmin"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>CheckIsAdmin(localStorage: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/Availability.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>localStorage</td>
                                                         <td>
                                                                     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                                         </td>
@@ -239,7 +343,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -253,33 +357,33 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="getIoAssignmentList"></a>
+                        <a name="GetUserGuid"></a>
                         <span class="name">
                             <b>
-                            getIoAssignmentList
+                                <span class="modifier">Static</span>
+                            GetUserGuid
                             </b>
-                            <a href="#getIoAssignmentList"><span class="icon ion-ios-link"></span></a>
+                            <a href="#GetUserGuid"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getIoAssignmentList(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>GetUserGuid(localStorage: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/io-assignment.service.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/shared/Availability.ts:37</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Method to get the list of elements of the IO Assignment</p>
-</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -293,90 +397,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>projectId</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="updateIOAssignment"></a>
-                        <span class="name">
-                            <b>
-                            updateIOAssignment
-                            </b>
-                            <a href="#updateIOAssignment"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>updateIOAssignment(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/services/io-assignment.service.ts:42</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Method for updating a specific element of the IO Assignment</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>projectId</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                                <tr>
-                                                        <td>data</td>
+                                                        <td>localStorage</td>
                                                         <td>
                                                                     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                                         </td>
@@ -393,7 +414,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -405,105 +426,60 @@
         </table>
 </section>
 
-            <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="baseUrl"></a>
-                        <span class="name">
-                            <b>
-                            baseUrl
-                            </b>
-                            <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>baseUrl:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>environment.baseUrl</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/io-assignment.service.ts:13</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-</section>
+
+
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs/Observable&#x27;;
-import { Injectable } from &#x27;@angular/core&#x27;;
-import { Http, Headers } from &#x27;@angular/http&#x27;;
-import &#x27;rxjs/add/operator/map&#x27;;
-import { environment } from &#x27;../../environments/environment&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { environment } from &#x27;../../environments/environment&#x27;;
 
-const headers &#x3D; new Headers();
-headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-const params &#x3D; new URLSearchParams();
+export class Availability {
+    static CanUserChange(teamList, userGuid: string): boolean {
+        for (let i &#x3D; 0; i &lt; teamList.length; ++i) {
+            const itemUser &#x3D; teamList[i];
+            if (itemUser.guid &#x3D;&#x3D;&#x3D; userGuid) {
+              return true;
+            }
+        }
+        return false;
+    }
+    static CanUserView (viewersList, userGuid: string): boolean {
+        for (let i &#x3D; 0; i &lt; viewersList.length; ++i) {
+            const itemViewer &#x3D; viewersList[i];
+            if (itemViewer.guid &#x3D;&#x3D;&#x3D; userGuid) {
+                return false;
+            }
+        }
+        return false;
+    }
+    static CheckIsAdmin (localStorage: any): boolean {
+        let isAdmin &#x3D; false;
+        const superAdminEmail &#x3D; environment.sadmin;
+        const adminEmail &#x3D; environment.admin;
+        const user &#x3D; localStorage.getItem(&#x27;user&#x27;);
+        const u &#x3D; JSON.parse(user);
+        const userGuid &#x3D; u.guid;
+        const userEmail &#x3D; u.email;
 
-@Injectable()
-export class IoAssignmentService {
-  baseUrl &#x3D; environment.baseUrl;
-  constructor(private http: Http) { }
+        const isItAdmin &#x3D; (userGuid &#x3D;&#x3D;&#x3D; adminEmail);
+        const isItSuperadmin &#x3D; (userEmail &#x3D;&#x3D;&#x3D; superAdminEmail);
+        isAdmin &#x3D; isItAdmin || isItSuperadmin;
+        return isAdmin;
+    }
 
-  /**
-   * Method to get the list of elements of the IO Assignment
-   * @param projectId
-   */
-  getIoAssignmentList(projectId: string): Observable&lt;any&gt; {
-    const getIoAssignmentListUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/ioassignments&#x27;;
-      return this.http.get(getIoAssignmentListUrl, {headers: headers})
-        .map(res &#x3D;&gt; res.json());
-  }
-
-  /**
-   * Method for creating a specific element of the IO Assignment
-   * @param projectId
-   * @param ioAssignment
-   */
-  createIoAssignment(projectId: string, ioAssignment: any): Observable&lt;any&gt; {
-    const createIOAssignmentUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/io_assignment-create&#x27;;
-      return this.http.post(createIOAssignmentUrl, ioAssignment, {headers: headers})
-          .map(res &#x3D;&gt; res.json());
-  }
-
-  /**
-   * Method for updating a specific element of the IO Assignment
-   * @param projectId
-   * @param data
-   */
-  updateIOAssignment(projectId: string, data: any): Observable&lt;any&gt; {
-    const updateIOAssignmentUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/io_assignment-update/&#x27;;
-      return this.http.patch(updateIOAssignmentUrl, data, {headers: headers})
-        .map(res &#x3D;&gt; res.json());
-  }
+    static GetUserGuid (localStorage: any): string {
+        const user &#x3D; localStorage.getItem(&#x27;user&#x27;);
+        const u &#x3D; JSON.parse(user);
+        return u.guid;
+    }
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -527,8 +503,8 @@ export class IoAssignmentService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'IoAssignmentService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'Availability.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

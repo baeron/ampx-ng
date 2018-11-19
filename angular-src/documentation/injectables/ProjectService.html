@@ -101,6 +101,9 @@
                                 <a href="#getBrowsingProject">getBrowsingProject</a>
                             </li>
                             <li>
+                                <a href="#getCommunityData">getCommunityData</a>
+                            </li>
+                            <li>
                                 <a href="#getProject">getProject</a>
                             </li>
                             <li>
@@ -141,7 +144,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/project.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/project.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -206,7 +209,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/services/project.service.ts:97</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/services/project.service.ts:112</a></div>
                             </td>
                         </tr>
 
@@ -250,7 +253,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -283,7 +286,161 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/services/project.service.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/app/services/project.service.ts:124</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Method of deleting a project from a specific user database</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>creatorGuid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>unique user id</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    <p>return JSON with status and message from server-side.</p>
+
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getBrowsingProject"></a>
+                        <span class="name">
+                            <b>
+                            getBrowsingProject
+                            </b>
+                            <a href="#getBrowsingProject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getBrowsingProject(userGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/services/project.service.ts:64</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>GET method to get all the projects created by another user, but available for viewing to the currently registered user</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userGuid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>unique user id</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    <p>return an array of projects created other user, but editable by this user</p>
+
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCommunityData"></a>
+                        <span class="name">
+                            <b>
+                            getCommunityData
+                            </b>
+                            <a href="#getCommunityData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCommunityData(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/project.service.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -303,7 +460,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>creatorGuid</td>
+                                                        <td>projectId</td>
                                                         <td>
                                                                     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
@@ -334,52 +491,6 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="getBrowsingProject"></a>
-                        <span class="name">
-                            <b>
-                            getBrowsingProject
-                            </b>
-                            <a href="#getBrowsingProject"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>getBrowsingProject()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/services/project.service.ts:50</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>GET method to get all the projects created by another user, but available for viewing to the currently registered user</p>
-</div>
-
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
-
-                            </div>
-                                <div class="io-description">
-                                    <p>return an array of projects created other user, but editable by this user</p>
-
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="getProject"></a>
                         <span class="name">
                             <b>
@@ -398,7 +509,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/project.service.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/services/project.service.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -468,14 +579,14 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getProjectById(id: )</code>
+<code>getProjectById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/services/project.service.ts:110</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/services/project.service.ts:135</a></div>
                             </td>
                         </tr>
 
@@ -489,12 +600,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -508,7 +623,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -533,14 +648,14 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getProjectNameById(id: )</code>
+<code>getProjectNameById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/services/project.service.ts:116</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/app/services/project.service.ts:146</a></div>
                             </td>
                         </tr>
 
@@ -554,12 +669,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -573,7 +692,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -598,14 +717,14 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getTeamProject()</code>
+<code>getTeamProject(userGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/services/project.service.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/services/project.service.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -615,6 +734,37 @@
                             <div class="io-description"><p>GET method to getting all the projects available for collaboration of this user with other users of the app</p>
 </div>
 
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userGuid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>unique user id</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
                             <div>
                             </div>
                             <div class="io-description">
@@ -651,7 +801,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/services/project.service.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/services/project.service.ts:87</a></div>
                             </td>
                         </tr>
 
@@ -685,7 +835,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>Get data from user, inherits IBaseProject interface</p>
+                                                                <code><p>Get data from user, inherits IProject interface</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -728,7 +878,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/services/project.service.ts:86</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/services/project.service.ts:100</a></div>
                             </td>
                         </tr>
 
@@ -832,7 +982,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/project.service.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/project.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -845,12 +995,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs/Observable&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
 import { Http, Headers, URLSearchParams, RequestOptions, Response } from &#x27;@angular/http&#x27;;
 import &#x27;rxjs/add/operator/map&#x27;;
 import { environment } from &#x27;../../environments/environment&#x27;;
 // tslint:disable-next-line:import-blacklist
-import { Observable } from &#x27;rxjs&#x27;;
 import { IProject } from &#x27;../models/IProject&#x27;;
 
 const headers &#x3D; new Headers();
@@ -864,42 +1014,56 @@ export class ProjectService {
   constructor(private http: Http) { }
 
   /**
+   *
+   * @param projectId
+   */
+  getCommunityData(projectId: string) {
+    params.delete(&#x27;guid&#x27;);
+    const projectCommunityUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/project-community&#x27;;
+    const communityProjects &#x3D; this.http.get(projectCommunityUrl, { headers: headers })
+      .map(community &#x3D;&gt; community.json());
+      return communityProjects;
+  }
+
+  /**
    * GET method to get all projects created by a specific user.
    * @param userGuid Unique identifier assigned user during registration
    * @returns return an array of projects created by the user with a unique GUID identifier from server side
    */
   getProject(userGuid: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
     params.append(&#x27;guid&#x27;, userGuid);
     const options &#x3D; new RequestOptions({ headers: headers, params: params });
     const prjectUrl &#x3D; this.baseUrl + &#x27;project&#x27;;
-    return this.http.get(prjectUrl, options)
+    const allProjects &#x3D;  this.http.get(prjectUrl, options)
       .map(res &#x3D;&gt; res.json());
+      return allProjects;
   }
 
   /**
    * GET method to getting all the projects available for collaboration of this user with other users of the app
+   * @param userGuid unique user id
    * @returns return an array of projects created other user, but editable by this user
    */
-  getTeamProject(): Observable&lt;any&gt; {
-    if (params) {
+  getTeamProject(userGuid: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
+    params.append(&#x27;guid&#x27;, userGuid);
       const teamPrjectUrl &#x3D; this.baseUrl + &#x27;project/team-project&#x27;;
       return this.http.get(teamPrjectUrl, { headers: headers, params: params })
         .map(res &#x3D;&gt; res.json());
-    }
-    return;
   }
 
   /**
    * GET method to get all the projects created by another user, but available for viewing to the currently registered user
+   * @param userGuid unique user id
    * @returns return an array of projects created other user, but editable by this user
    */
-  getBrowsingProject(): Observable&lt;any&gt; {
-    if (params) {
+  getBrowsingProject(userGuid: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
+    params.append(&#x27;guid&#x27;, userGuid);
     const browsingProjectUrl &#x3D; this.baseUrl + &#x27;project/browsing-project&#x27;;
-    return this.http.get(browsingProjectUrl, { headers: headers, params: params })
-      .map(res &#x3D;&gt; res.json());
-    }
-    return;
+      return this.http.get(browsingProjectUrl, { headers: headers, params: params })
+        .map(res &#x3D;&gt; res.json());
   }
 
   /*
@@ -914,10 +1078,11 @@ export class ProjectService {
 
   /**
    * POST method to create a new project by the current user
-   * @param project Get data from user, inherits IBaseProject interface
+   * @param project Get data from user, inherits IProject interface
    * @returns return JSON with status and message from server-side.
    */
   postProject(project: IProject): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
     const postProjectsUrl &#x3D; this.baseUrl + &#x27;project/project-create&#x27;;
     return this.http.post(postProjectsUrl, project, {headers: headers})
       .map(res &#x3D;&gt; res.json());
@@ -930,6 +1095,7 @@ export class ProjectService {
    * @returns return JSON with status and message from server-side.
    */
   updateProject(id: string, project: IProject) {
+    params.delete(&#x27;guid&#x27;);
     const updateProjectUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + id;
     return this.http.put(updateProjectUrl, project, {headers: headers})
       .map(res &#x3D;&gt; res.json());
@@ -940,26 +1106,42 @@ export class ProjectService {
    * @param id project identifier as a string variable
    * @returns return JSON with status and message from server-side.
    */
-  deleteProject(id: string) {
+  deleteProject(id: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
     const deleteProjectUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + id;
-    debugger;
       return this.http.delete(deleteProjectUrl, {headers: headers})
         .map(res &#x3D;&gt; res.json());
   }
 
-  deleteProjectByUserGuid(creatorGuid: string) {
+  /**
+   * Method of deleting a project from a specific user database
+   * @param creatorGuid unique user id
+   * @returns return JSON with status and message from server-side.
+   */
+  deleteProjectByUserGuid(creatorGuid: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
     const deleteProjectUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + creatorGuid;
     return this.http.delete(deleteProjectUrl, {headers: headers})
       .map(res &#x3D;&gt; res.json());
   }
 
-  getProjectById(id) {
+  /**
+   *
+   * @param id
+   */
+  getProjectById(id: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
     const projectByIdUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + id;
       return this.http.get(projectByIdUrl, {headers: headers})
         .map(res &#x3D;&gt; res.json());
   }
 
-  getProjectNameById(id) {
+  /**
+   *
+   * @param id
+   */
+  getProjectNameById(id: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
     const projectNameByIdUrl &#x3D; this.baseUrl + &#x27;project/project-name/&#x27; + id;
       return this.http.get(projectNameByIdUrl, {headers: headers})
         .map(res &#x3D;&gt; res.json());

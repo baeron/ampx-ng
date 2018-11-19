@@ -351,7 +351,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/modals/simple-electrical-modal/simple-electrical-modal.component.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/components/modals/simple-electrical-modal/simple-electrical-modal.component.ts:53</a></div>
                             </td>
                         </tr>
 
@@ -422,7 +422,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/components/modals/simple-electrical-modal/simple-electrical-modal.component.ts:103</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/components/modals/simple-electrical-modal/simple-electrical-modal.component.ts:95</a></div>
                             </td>
                         </tr>
 
@@ -462,7 +462,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/components/modals/simple-electrical-modal/simple-electrical-modal.component.ts:90</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/modals/simple-electrical-modal/simple-electrical-modal.component.ts:82</a></div>
                             </td>
                         </tr>
 
@@ -989,20 +989,16 @@ export class SimpleElectricalModalComponent {
       this.hide();
     }
   }
-  //
+  // TODO: Что здесь происходит???
   newChanged(selectedEquipmentType: any) {
     if (!selectedEquipmentType) {
       return;
     } else {
       this.newOnChanged.emit(selectedEquipmentType);
-      //
-      console.log(this.dataValue);
-      console.log(this.selectedValue);
     }
   }
   //
   public addItem(itenEl: string) {
-    console.log(this.selectedValue);
     if (typeof this.dataValue[0] &#x3D;&#x3D;&#x3D; &#x27;string&#x27; || typeof this.dataValue[0] &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;) {
       this.dataValue.push(itenEl);
       this.selectedValue &#x3D; itenEl;
@@ -1011,15 +1007,12 @@ export class SimpleElectricalModalComponent {
       this.itenElement &#x3D; null;
       this.newChanged(this.selectedValue);
     } else if (this.title &#x3D;&#x3D;&#x3D; &#x27;Equipment Type&#x27;) {
-      //
       const elementArrayObject &#x3D; {};
       elementArrayObject[&#x27;name&#x27;] &#x3D; itenEl;
-      elementArrayObject[&#x27;owner&#x27;] &#x3D; this.dataValue[0].powerSystemType;
       this.dataValue.push(elementArrayObject);
       this.visible &#x3D; false;
       setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
       this.itenElement &#x3D; null;
-      console.log(elementArrayObject);
       this.newChanged(elementArrayObject);
       //
     } else {
@@ -1030,7 +1023,6 @@ export class SimpleElectricalModalComponent {
       this.visible &#x3D; false;
       setTimeout(() &#x3D;&gt; this.visible &#x3D; false, 300);
       this.itenElement &#x3D; null;
-      console.log(elementArrayObject);
       this.newChanged(elementArrayObject);
     }
   }
@@ -1095,7 +1087,7 @@ export class SimpleElectricalModalComponent {
               &lt;button *ngIf&#x3D;&quot;!modalFlag&quot; class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;addItem(itenElement); newChanged(itenElement)&quot; [disabled]&#x3D;&quot;!itenElement&quot;&gt;Add&lt;/button&gt;
             &lt;/div&gt;
             &lt;div class&#x3D;&quot;pl-1 pr-2&quot;&gt;
-              &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;close()&quot;&gt;Close&lt;/button&gt;
+              &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;close(); $event.preventDefault()&quot;&gt;Close&lt;/button&gt;
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -1131,8 +1123,8 @@ export class SimpleElectricalModalComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="modal-padding"(click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{\'in\': visibleAnimate}"[ngStyle]="{\'display\': visible ? \'block\' : \'none\', \'opacity\': visibleAnimate ? 1 : 0}">  <div class="modal-dialog">    <div class="modal-content">      <div class="modal-header">        <h4 class="modal-title" id="myModalLabel">{{title}}</h4>        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">          <span aria-hidden="true">&times;</span>        </button>      </div>      <div class="modal-body">        <div *ngIf="modalFlag">          <div>            <p>Are you sure you want to delete <strong>{{selectedValue}}</strong> item</p>          </div>        </div>        <div *ngIf="!modalFlag" class="form-inline">          <label class="pr-2"><strong>Item name:</strong></label>          <input             class="form-control"             name="itenElement"             [(ngModel)]="itenElement"             placeholder=\'Input new name value\'            onfocus="this.placeholder = \'\'"            onblur="this.placeholder = \'Input new name value\'"          />        </div>      </div>      <div class="modal-footer">        <div class="row">          <div class="d-flex justify-content-end">            <div class="form-group pr-1">              <button *ngIf="modalFlag" class="btn btn-danger" (click)="deleteItem(selectedValue)">Delete</button>              <button *ngIf="!modalFlag" class="btn btn-success" (click)="addItem(itenElement); newChanged(itenElement)" [disabled]="!itenElement">Add</button>            </div>            <div class="pl-1 pr-2">              <button class="btn btn-primary" (click)="close()">Close</button>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
+        var COMPONENT_TEMPLATE = '<div><div class="modal-padding"(click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{\'in\': visibleAnimate}"[ngStyle]="{\'display\': visible ? \'block\' : \'none\', \'opacity\': visibleAnimate ? 1 : 0}">  <div class="modal-dialog">    <div class="modal-content">      <div class="modal-header">        <h4 class="modal-title" id="myModalLabel">{{title}}</h4>        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">          <span aria-hidden="true">&times;</span>        </button>      </div>      <div class="modal-body">        <div *ngIf="modalFlag">          <div>            <p>Are you sure you want to delete <strong>{{selectedValue}}</strong> item</p>          </div>        </div>        <div *ngIf="!modalFlag" class="form-inline">          <label class="pr-2"><strong>Item name:</strong></label>          <input             class="form-control"             name="itenElement"             [(ngModel)]="itenElement"             placeholder=\'Input new name value\'            onfocus="this.placeholder = \'\'"            onblur="this.placeholder = \'Input new name value\'"          />        </div>      </div>      <div class="modal-footer">        <div class="row">          <div class="d-flex justify-content-end">            <div class="form-group pr-1">              <button *ngIf="modalFlag" class="btn btn-danger" (click)="deleteItem(selectedValue)">Delete</button>              <button *ngIf="!modalFlag" class="btn btn-success" (click)="addItem(itenElement); newChanged(itenElement)" [disabled]="!itenElement">Add</button>            </div>            <div class="pl-1 pr-2">              <button class="btn btn-primary" (click)="close(); $event.preventDefault()">Close</button>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDistanceModalComponent', 'selector': 'app-cable-distance-modal'},{'name': 'CableItemComponent', 'selector': 'app-cable-item'},{'name': 'CableListComponent', 'selector': 'app-cable-list'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'ControllerItemComponent', 'selector': 'app-controller-item'},{'name': 'ControllerModalComponent', 'selector': 'app-controller-modal'},{'name': 'ControllersListComponent', 'selector': 'app-controllers-list'},{'name': 'DropDownComponent', 'selector': 'app-drop-down'},{'name': 'DropDownDependentComponent', 'selector': 'app-drop-down-dependent'},{'name': 'ElectricalItemComponent', 'selector': 'app-electrical-item'},{'name': 'ElectricalListComponent', 'selector': 'app-electrical-list'},{'name': 'ElectricalsModalComponent', 'selector': 'app-electricals-modal'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InstrumentationItemComponent', 'selector': 'app-instrumentation-item'},{'name': 'InstrumentationListComponent', 'selector': 'app-instrumentation-list'},{'name': 'IoAssignmentComponent', 'selector': 'app-io-assignment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MultipleModalComponent', 'selector': 'app-multiple-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProjectComponent', 'selector': 'app-project'},{'name': 'ProjectDashboardComponent', 'selector': 'app-project-dashboard'},{'name': 'ProjectsModalComponent', 'selector': 'app-projects-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ServicesComponent', 'selector': 'app-services'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SimpleElectricalModalComponent', 'selector': 'app-simple-electrical-modal'},{'name': 'SldScheduleItemComponent', 'selector': 'app-sld-schedule-item'},{'name': 'SldScheduleListComponent', 'selector': 'app-sld-schedule-list'},{'name': 'SuperadminComponent', 'selector': 'app-superadmin'},{'name': 'TeamWorkModalComponent', 'selector': 'app-team-work-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SimpleElectricalModalComponent'};
 </script>

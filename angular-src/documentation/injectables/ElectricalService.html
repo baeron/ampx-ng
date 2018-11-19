@@ -68,6 +68,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#baseUrl">baseUrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -121,7 +135,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/electrical.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/electrical.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -179,20 +193,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>createElectrical(id: , electrical: , userEmail: )</code>
+<code>createElectrical(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, electrical: <a href="../classes/Electrical.html">Electrical</a>, userGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/services/electrical.service.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/services/electrical.service.ts:52</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method to create a new electrical item</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -200,36 +216,59 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>id</td>
+                                                        <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier for the project item</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>electrical</td>
+                                                        <td>
+                                                                    <code><a href="../classes/Electrical.html" target="_self" >Electrical</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>updated electrical model</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
-                                                        <td>userEmail</td>
+                                                        <td>userGuid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier assigned user during registration</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -237,7 +276,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -262,20 +301,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>deleteElectricalItem(projectId: , electricalId: )</code>
+<code>deleteElectricalItem(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, electricalId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/services/electrical.service.ts:100</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/services/electrical.service.ts:92</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method for removing item electric element</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -283,27 +324,43 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier for the project item</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>electricalId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier for the electrical item</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -311,7 +368,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -343,7 +400,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/services/electrical.service.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/electrical.service.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -419,20 +476,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getElectricalItem(projectId: , electricalId: )</code>
+<code>getElectricalItem(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, electricalId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/services/electrical.service.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/services/electrical.service.ts:65</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method to get the selected electrical item</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -440,27 +499,43 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier for the project item</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>electricalId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier for the electrical item</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -468,7 +543,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -493,20 +568,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getElectricals(id: )</code>
+<code>getElectricals(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/electrical.service.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/services/electrical.service.ts:39</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method to get the selected electrical item</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -514,18 +591,27 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>id</td>
+                                                        <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier for the project item</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -533,7 +619,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -565,7 +651,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/electrical.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/electrical.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -641,20 +727,22 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>updateElectricalItem(projectId: , electricalId: , electricalItem: , userEmail: )</code>
+<code>updateElectricalItem(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, electricalId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, electricalItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, userGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/services/electrical.service.ts:75</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/services/electrical.service.ts:79</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Method for updating electric item element</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -662,45 +750,75 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
                                                         <td>projectId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier for the project item</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>electricalId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier for the electrical item</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>electricalItem</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>updated electrical model</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
-                                                        <td>userEmail</td>
+                                                        <td>userGuid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>unique identifier assigned user during registration</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -708,7 +826,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -720,33 +838,74 @@
         </table>
 </section>
 
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="baseUrl"></a>
+                        <span class="name">
+                            <b>
+                            baseUrl
+                            </b>
+                            <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>baseUrl:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.baseUrl</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/electrical.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { Http, Headers, URLSearchParams, RequestOptions } from &#x27;@angular/http&#x27;;
-import &#x27;rxjs/add/operator/map&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Electrical } from &#x27;./../models/Electrical&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import { Http, Headers, URLSearchParams } from &#x27;@angular/http&#x27;;
+import { environment } from &#x27;../../environments/environment&#x27;;
 // tslint:disable-next-line:import-blacklist
 import { Observable } from &#x27;rxjs&#x27;;
-import &#x27;rxjs/add/operator/map&#x27;;
 import &#x27;rxjs/add/operator/mergeMap&#x27;;
+import &#x27;rxjs/add/operator/map&#x27;;
+import { IElectrical } from &#x27;../models/IElectrical&#x27;;
 
+const headers &#x3D; new Headers();
+headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
+const params &#x3D; new URLSearchParams();
 
 @Injectable()
 export class ElectricalService {
+  baseUrl &#x3D; environment.baseUrl;
   constructor(private http: Http) { }
 
   getObjectsById(id, arrayList, queryString) {
     const observableBatch &#x3D; [];
     arrayList.forEach((key) &#x3D;&gt; {
-      // for dev
-        observableBatch.push(this.http.get(&#x27;http://localhost:3000/project/&#x27; + id + &#x27;/&#x27; + queryString + &#x27;/&#x27; + key).map((res) &#x3D;&gt; res.json()));
-      // for deploy
-      /*
-      observableBatch.push(this.http.get(&#x27;project/&#x27; + id + &#x27;/&#x27; + queryString + &#x27;/&#x27; + key).map((res) &#x3D;&gt; res.json()));
-      */
+      const objectByIdUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + id + &#x27;/&#x27; + queryString + &#x27;/&#x27; + key;
+        observableBatch.push(this.http.get(objectByIdUrl).map((res) &#x3D;&gt; res.json()));
     });
     return Observable.forkJoin(observableBatch);
   }
@@ -757,84 +916,68 @@ export class ElectricalService {
     );
   }
 
-  getElectricals(id) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    return this.http.get(&#x27;http://localhost:3000/project/&#x27; + id + &#x27;/electricals&#x27;, {headers: headers})
+  /**
+   * Method to get the selected electrical item
+   * @param projectId unique identifier for the project item
+   */
+  getElectricals(projectId: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
+    const electricalItemUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/electricals&#x27;;
+    return this.http.get(electricalItemUrl, {headers: headers})
       .map(res &#x3D;&gt; res.json());
-    // for deploy
-    /*
-    return this.http.get(&#x27;project/&#x27; + id + &#x27;/electricals&#x27;, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
   }
 
-  createElectrical(id, electrical, userEmail) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    const params &#x3D; new URLSearchParams();
-    params.append(&#x27;email&#x27;, userEmail);
-    const options &#x3D; new RequestOptions({ headers: headers, params: params });
-    // for dev use
-    return this.http.post(&#x27;http://localhost:3000/project/&#x27; + id + &#x27;/electrical-create/&#x27;, electrical, options)
+  /**
+   * Method to create a new electrical item
+   * @param projectId unique identifier for the project item
+   * @param electrical updated electrical model
+   * @param userGuid unique identifier assigned user during registration
+   */
+  createElectrical(projectId: string, electrical: Electrical, userGuid: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
+    params.append(&#x27;guid&#x27;, userGuid);
+    const createElectricalUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/electrical-create&#x27;;
+    return this.http.post(createElectricalUrl, electrical, { headers: headers, params: params })
       .map(res &#x3D;&gt; res.json());
-    // for deploy
-    /*
-    return this.http.post(&#x27;project/&#x27; + id + &#x27;/electrical-create/&#x27;, electrical, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
   }
 
-  getElectricalItem(projectId, electricalId) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    return this.http.get(&#x27;http://localhost:3000/project/&#x27; + projectId + &#x27;/electricals/&#x27; + electricalId, {headers: headers})
+  /**
+   * Method to get the selected electrical item
+   * @param projectId unique identifier for the project item
+   * @param electricalId unique identifier for the electrical item
+   */
+  getElectricalItem(projectId: string, electricalId: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
+    const getElectricalByIdUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/electricals/&#x27; + electricalId;
+    return this.http.get(getElectricalByIdUrl, {headers: headers})
       .map(res &#x3D;&gt; res.json());
-    // for deploy
-    /*
-    return this.http.get(&#x27;project/&#x27; + projectId + &#x27;/electricals/&#x27; + electricalId, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
   }
 
-  updateElectricalItem(projectId, electricalId, electricalItem, userEmail) {
-    //
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    const params &#x3D; new URLSearchParams();
-    params.append(&#x27;email&#x27;, userEmail);
-    const options &#x3D; new RequestOptions({ headers: headers, params: params });
-    // for dev use
-    //  return this.http.get(&#x27;http://localhost:3000/project/team-project&#x27;, options)
-    //    .map(res &#x3D;&gt; res.json());
-    //
-    // const email &#x3D; userEmail;
-    // const headers &#x3D; new Headers();
-    // headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-    // tslint:disable-next-line:max-line-length
-        return this.http.patch(&#x27;http://localhost:3000/project/&#x27; + projectId + &#x27;/electrical-update/&#x27; + electricalId, electricalItem, options)
-          .map(res &#x3D;&gt; res.json());
-    // for deploy
-    /*
-    return this.http.patch(&#x27;project/&#x27; + projectId + &#x27;/electrical-update/&#x27; + electricalId, electricalItem, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
+  /**
+   * Method for updating electric item element
+   * @param projectId unique identifier for the project item
+   * @param electricalId unique identifier for the electrical item
+   * @param electricalItem updated electrical model
+   * @param userGuid unique identifier assigned user during registration
+   */
+  updateElectricalItem(projectId: string, electricalId: string, electricalItem: any, userGuid: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
+    params.append(&#x27;guid&#x27;, userGuid);
+    const updateElectricalByIdUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/electrical-update/&#x27; + electricalId;
+      return this.http.patch(updateElectricalByIdUrl, electricalItem, { headers: headers, params: params })
+        .map(res &#x3D;&gt; res.json());
   }
 
-  deleteElectricalItem(projectId, electricalId) {
-    const headers &#x3D; new Headers();
-    headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
-    // for dev use
-        return this.http.delete(&#x27;http://localhost:3000/project/&#x27; + projectId + &#x27;/electricals/&#x27; + electricalId, {headers: headers})
-          .map(res &#x3D;&gt; res.json());
-    // for deploy
-    /*
-    return this.http.delete(&#x27;project/&#x27; + projectId + &#x27;/electricals/&#x27; + electricalId, { headers: headers })
-      .map(res &#x3D;&gt; res.json());
-      */
+  /**
+   * Method for removing item electric element
+   * @param projectId unique identifier for the project item
+   * @param electricalId unique identifier for the electrical item
+   */
+  deleteElectricalItem(projectId: string, electricalId: string): Observable&lt;any&gt; {
+    params.delete(&#x27;guid&#x27;);
+    const deleteElectricalByIdUrl &#x3D; this.baseUrl + &#x27;project/&#x27; + projectId + &#x27;/electricals/&#x27; + electricalId;
+      return this.http.delete(deleteElectricalByIdUrl, {headers: headers})
+        .map(res &#x3D;&gt; res.json());
   }
 }
 </code></pre>

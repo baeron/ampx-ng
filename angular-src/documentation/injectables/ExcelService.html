@@ -106,7 +106,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/excel.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/excel.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -231,7 +231,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/services/excel.service.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/services/excel.service.ts:45</a></div>
                             </td>
                         </tr>
 
@@ -359,7 +359,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/excel.service.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/services/excel.service.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -447,17 +447,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { Http, Headers } from &#x27;@angular/http&#x27;;
-// import &#x27;rxjs/add/operator/map&#x27;;
-// import { Observable } from &#x27;rxjs&#x27;;
 import &#x27;rxjs/add/operator/map&#x27;;
-import &#x27;rxjs/add/operator/mergeMap&#x27;;
+// import &#x27;rxjs/add/operator/mergeMap&#x27;;
 import { InstrumentationService } from &#x27;./instrumentation.service&#x27;;
 import { ControllerService } from &#x27;./controller.service&#x27;;
 import { SldscheduleService } from &#x27;./sldschedule.service&#x27;;
 import { CableService } from &#x27;./cable.service&#x27;;
 import { ElectricalService } from &#x27;./electrical.service&#x27;;
 import { saveAs as importedSaveAs } from &#x27;file-saver&#x27;;
-
 import * as XLSX from &#x27;xlsx&#x27;;
 
 @Injectable()
@@ -474,77 +471,70 @@ export class ExcelService {
   }
 
   xlsxSaver(tmp, sheetName, fileName, projectName, wscols) {
-    var ws &#x3D; XLSX.utils.json_to_sheet(tmp, { cellDates: true });
+    const ws &#x3D; XLSX.utils.json_to_sheet(tmp, { cellDates: true });
     ws[&#x27;!cols&#x27;] &#x3D; wscols;
-    let wb &#x3D; XLSX.utils.book_new();
+    const wb &#x3D; XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, sheetName);
-    let wbout &#x3D; XLSX.write(wb, { bookType: &#x27;xlsx&#x27;, type: &#x27;binary&#x27;, cellStyles: true });
+    const wbout &#x3D; XLSX.write(wb, { bookType: &#x27;xlsx&#x27;, type: &#x27;binary&#x27;, cellStyles: true });
     function s2ab(s) {
-      let buf &#x3D; new ArrayBuffer(s.length);
-      let view &#x3D; new Uint8Array(buf);
-      for (let i &#x3D; 0; i !&#x3D; s.length; ++i) view[i] &#x3D; s.charCodeAt(i) &amp; 0xFF;
+      const buf &#x3D; new ArrayBuffer(s.length);
+      const view &#x3D; new Uint8Array(buf);
+      // tslint:disable-next-line:curly
+      for (let i &#x3D; 0; i !&#x3D;&#x3D; s.length; ++i) view[i] &#x3D; s.charCodeAt(i) &amp; 0xFF;
       return buf;
     }
     const options &#x3D; { day: &#x27;numeric&#x27;, month: &#x27;numeric&#x27;, year: &#x27;numeric&#x27;, hour: &#x27;numeric&#x27;, minute: &#x27;numeric&#x27;, second: &#x27;numeric&#x27; };
     const dateNow &#x3D; new Date();
-    importedSaveAs(new Blob([s2ab(wbout)], { type: &quot;application/octet-stream&quot; }), fileName + &quot; FROM PROJECT &#x27;&quot; + projectName + &quot;&#x27; - &quot; + dateNow.toLocaleDateString(&quot;en-US&quot;, options) + &quot;.xlsx&quot;);
+    // tslint:disable-next-line:max-line-length
+    importedSaveAs(new Blob([s2ab(wbout)], { type: &#x27;application/octet-stream&#x27; }), fileName + &quot; FROM PROJECT &#x27;&quot; + projectName + &quot;&#x27; - &quot; + dateNow.toLocaleDateString(&#x27;en-US&#x27;, options) + &#x27;.xlsx&#x27;);
   }
 
   exportToExcell(projectId, projectName, selectedArrayElements, queryString, sheetName, fileName, controllerName, wscols) {
     let arrayList &#x3D; [];
     if (controllerName &#x3D;&#x3D;&#x3D; &#x27;Instrumentations&#x27;) {
+      // tslint:disable-next-line:max-line-length
       this.instrumentationService.getInstrumentationsCheckList2(projectId, selectedArrayElements, queryString).subscribe(instrupentations &#x3D;&gt; {
         arrayList &#x3D; instrupentations[0];
-        console.log(arrayList);
-        let tmp &#x3D; [];
+        const tmp &#x3D; [];
         for (let index &#x3D; 0; index &lt; arrayList.length; ++index) {
           tmp.push(arrayList[index].instrumentationItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else if (controllerName &#x3D;&#x3D;&#x3D; &#x27;Controllers&#x27;) {
       this.controllerService.getControllersCheckList(projectId, selectedArrayElements, queryString).subscribe(controllersItem &#x3D;&gt; {
         arrayList &#x3D; controllersItem[0];
-        console.log(arrayList);
-        let tmp &#x3D; [];
+        const tmp &#x3D; [];
         for (let index &#x3D; 0; index &lt; arrayList.length; ++index) {
           tmp.push(arrayList[index].controllerItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else if (controllerName &#x3D;&#x3D;&#x3D; &#x27;Sldshadule&#x27;) {
       this.sldsheduleService.getSldSheduleExcelList(projectId, selectedArrayElements, queryString).subscribe(sldsheduleItem &#x3D;&gt; {
         arrayList &#x3D; sldsheduleItem[0];
-        console.log(arrayList);
-        let tmp &#x3D; [];
+        const tmp &#x3D; [];
         for (let index &#x3D; 0; index &lt; arrayList.length; ++index) {
           tmp.push(arrayList[index].sldsheduleItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else if (controllerName &#x3D;&#x3D;&#x3D; &#x27;Cabel&#x27;) {
       this.cableService.getCabelExcelList(projectId, selectedArrayElements, queryString).subscribe(cableItem &#x3D;&gt; {
         arrayList &#x3D; cableItem[0];
-        console.log(arrayList);
         const tmp &#x3D; [];
         for (let index &#x3D; 0; index &lt; arrayList.length; ++index) {
           tmp.push(arrayList[index].cableItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else if (controllerName &#x3D;&#x3D;&#x3D; &#x27;Electrical&#x27;) {
       this.electricalService.getElectricalExcelList(projectId, selectedArrayElements, queryString).subscribe(electricalItem &#x3D;&gt; {
         arrayList &#x3D; electricalItem[0];
-        console.log(arrayList);
         const tmp &#x3D; [];
         for (let index &#x3D; 0; index &lt; arrayList.length; ++index) {
           tmp.push(arrayList[index].electricalItem);
         }
-        console.log(tmp);
         this.xlsxSaver(tmp, sheetName, fileName, projectName, wscols);
       });
     } else {

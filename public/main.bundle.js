@@ -5068,7 +5068,6 @@ var ProjectsModalComponent = (function () {
      */
     ProjectsModalComponent.prototype.deleteItem = function (project) {
         var _this = this;
-        debugger;
         var elementIndex = project._id;
         this.projectService.deleteProject(elementIndex).subscribe(function (data) {
             if (data.status === 'success') {
@@ -5084,7 +5083,6 @@ var ProjectsModalComponent = (function () {
      * Method for closing a modal window and cleaning a form
      */
     ProjectsModalComponent.prototype.close = function () {
-        debugger;
         if (this.project) {
             this.project.title = this.projectName;
         }
@@ -5100,7 +5098,6 @@ var ProjectsModalComponent = (function () {
         this.createFlag = false;
         this.itemElement = null;
         this.project = null;
-        debugger;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),

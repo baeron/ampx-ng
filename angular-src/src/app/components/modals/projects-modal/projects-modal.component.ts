@@ -111,6 +111,7 @@ export class ProjectsModalComponent {
    * @returns HTTP success status or error message from project.servise.ts
    */
   public deleteItem(project: IProject) {
+    debugger;
     const elementIndex = project._id;
     this.projectService.deleteProject(elementIndex).subscribe(data => {
       if (data.status === 'success') {
@@ -126,6 +127,7 @@ export class ProjectsModalComponent {
    * Method for closing a modal window and cleaning a form
    */
   public close(): void {
+    debugger;
     if (this.project) {
       this.project.title = this.projectName;
     }
@@ -142,6 +144,7 @@ export class ProjectsModalComponent {
     this.createFlag = false;
     this.itemElement = null;
     this.project = null;
+    debugger;
   }
 
   /*

@@ -66,10 +66,13 @@
             </div>
             <div class="pl-1 pr-2">
               <div *ngIf="createFlag == true">
-                    <button class="btn btn-primary" (click)="close()">Close</button>
-                  </div>
-              <div *ngIf="project">
-                <button class="btn btn-primary" [disabled]="!project.title" (click)="close()">Close</button>
+                <button class="btn btn-primary" (click)="close()">Close</button>
+              </div>
+              <div *ngIf="changeFlag == true">
+                <button class="btn btn-primary" [disabled]="!project.title" (click)="clearVariables()">Close</button>
+              </div>
+              <div *ngIf="dropFlag == true">
+                <button class="btn btn-primary" (click)="clearVariables()">Close</button>
               </div>
             </div>
           </div>

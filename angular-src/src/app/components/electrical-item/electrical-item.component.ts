@@ -85,10 +85,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     // get itemElectricalElement
     this.electricalService.getElectricalItem(this.projectId, this.electricalId).subscribe(electricals => {
       this.electricalItem = electricals.electrical;
-      debugger;
-      console.log(this.electricalItem.dateCreate);
-      this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
-      debugger;
+      // this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
       if (this.electricalItem.selectedPowerSystem) {
         this.productsAfterChangeEvent = electricals.electrical.voltage.
           filter(p => p.powerSystemType === electricals.electrical.selectedPowerSystem);
@@ -276,8 +273,6 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     }
 */
     data.dateCreate = this.electricalItem.dateCreate;
-console.log(data.dateCreate);
-debugger;
     data.selectedVoltage.powerSystemType = data.selectedPowerSystem;
     // data.dateCreate = this.date;
 

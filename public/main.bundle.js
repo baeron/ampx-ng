@@ -2176,10 +2176,7 @@ var ElectricalItemComponent = (function () {
         // get itemElectricalElement
         this.electricalService.getElectricalItem(this.projectId, this.electricalId).subscribe(function (electricals) {
             _this.electricalItem = electricals.electrical;
-            debugger;
-            console.log(_this.electricalItem.dateCreate);
-            _this.date = (new Date(_this.electricalItem.dateCreate)).toLocaleDateString();
-            debugger;
+            // this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
             if (_this.electricalItem.selectedPowerSystem) {
                 _this.productsAfterChangeEvent = electricals.electrical.voltage.
                     filter(function (p) { return p.powerSystemType === electricals.electrical.selectedPowerSystem; });
@@ -2367,8 +2364,6 @@ var ElectricalItemComponent = (function () {
         }
     */
         data.dateCreate = this.electricalItem.dateCreate;
-        console.log(data.dateCreate);
-        debugger;
         data.selectedVoltage.powerSystemType = data.selectedPowerSystem;
         // data.dateCreate = this.date;
         // console.log(data.dateCreate);

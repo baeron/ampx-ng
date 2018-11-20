@@ -70,7 +70,6 @@ router.get('/team-project', function (req, res) {
     if (req.params) {
         const userGuidForTeam = req.query.guid;
         Project.find({ 'team_project.guid': userGuidForTeam }, 'title creator updated_date date_create team_project brows_team_project creatorEmail', function (err, project) {
-        // Project.find({ userGuidForTeam: {$in: team_project.guid} } , 'title creator updated_date date_create team_project brows_team_project', function (err, project) {
             if (err) {
                 sendJSONresponse(res, 404, {
                     "message": err.message
@@ -178,6 +177,8 @@ router.post('/create-project-copy', (req, res) => {
                         }
                     }
                 }
+                copiedProject.team_project = [];
+                copiedProject.brows_team_project = [];
                 copiedProject._id = mongoose.Types.ObjectId();
                 copiedProject.title = projectName;
                 copiedProject.isNew = true;

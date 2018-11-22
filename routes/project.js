@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const _ = require("lodash");
+// const _ = require("lodash");
 const router = express.Router();
 // const config = require('../config/database');
 const Project = require('../models/project');
@@ -521,7 +521,8 @@ router.patch('/:id/electrical-update/:electricalid', function (req, res) {
                                 let itemElectrical = itemProject.electricals[k];
                                 if(itemElectrical.id === electricalId) {
                                     project[i].electricals[k] = electricalData;
-                                    let temp = project[i];
+                                    // let temp = project[i];
+                                    electricalData.selectedParentTag = undefined;
                                     project[i].save(function (err, updatedItem) {
                                         if (err) {
                                             console.error(err.stack);

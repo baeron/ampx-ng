@@ -94,7 +94,13 @@
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="equipmentTag">Equipment Tag</label>
-              <input type="text" class="form-control" [(ngModel)]="electricalItem.equipmentTag" name="equipmentTag" placeholder="New Electrical">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="electricalItem.equipmentTag"
+                name="equipmentTag"
+                placeholder="New Electrical"
+                autocomplete="off">
             </div>
           </div>
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
@@ -154,13 +160,65 @@
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="cloneTag">Clone Tag</label>
+              <select [disabled]="cloneList?.length == 0"
+                      id="selectedCloneTag"
+                      class="form-control selectForOpenModal"
+                      [(ngModel)]="currentCloneTag"
+                      name="selectedParentTag">
+                <option *ngFor="let itemCloneTag of cloneList"
+                        [ngValue]="itemCloneTag"
+                >
+                  {{itemCloneTag.equipmentTag}}
+                </option>
+              </select>
+<!--
+  [selected]="currentCloneTag.equipmentTag==electricalItem.selectedParentTag"
+-->
+<!--
               <input type="text" class="form-control" [(ngModel)]="electricalItem.cloneTag" name="cloneTag" disabled>
+-->            
             </div>
           </div>
+          <!--
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="newTag">New Tag</label>
               <input type="text" class="form-control" [(ngModel)]="electricalItem.newTag" name="newTag">
+            </div>
+          </div>
+          -->
+          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+            <div class="form-group">
+              <label for="newTag">New Tag</label>
+              <div class="d-flex flex-row">
+                  <input  type="text"
+                          style="border-radius: 5px 0px 0px 5px;"
+                          class="form-control selectForOpenModal"
+                          [(ngModel)]="newTag"
+                          name="newTag">
+                <!--
+                <select id="selectedVoltage"
+                        class="form-control selectForOpenModal"
+                        [(ngModel)]="electricalItem.selectedVoltage.name"
+                        name="selectedVoltage"
+                        [disabled]="!electricalItem.selectedPowerSystem">
+                  <option *ngFor="let currentVoltage of productsAfterChangeEvent"
+                          [ngValue]="currentVoltage.name"
+                          [selected]="currentVoltage.name == electricalItem.selectedVoltage.name">
+                    {{currentVoltage.name}}
+                  </option>
+                </select>
+                -->
+                <button type="button"
+                        style="border-radius: 0px 5px 5px 0px;"
+                        class="btn btn-outline-secondary fa fa-clone"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Duplicate item"
+                        (click)="onDublicateElectricalItem(currentCloneTag, newTag)"
+                        [disabled]="!currentCloneTag || !newTag">
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -291,14 +349,16 @@
                         data-placement="top"
                         title="Add new item"
                         (click)="voltageModal.showAddModal()"
-                        [disabled]="!electricalItem.selectedPowerSystem"></button>
+                        [disabled]="!electricalItem.selectedPowerSystem">
+                </button>
                 <button type="button"
                         class="btn btn-outline-secondary btnMinus fa fa-minus"
                         data-toggle="tooltip"
                         data-placement="top"
                         title="Drop selected item"
                         (click)="voltageModal.showDropModal(true)"
-                        [disabled]="productsAfterChangeEvent.length == 0"></button>
+                        [disabled]="productsAfterChangeEvent.length == 0">
+                </button>
               </div>
             </div>
           </div>

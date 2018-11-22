@@ -35,10 +35,15 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
   selectedItemVoltage: any;
   //
   parentList: any;
+  cloneList: any;
   presetParentTag: any;
   //
   date: string;
   today: number = Date.now();
+  //
+  nativeId: any;
+  currentCloneTag: any;
+  newTag: string;
   //
   @ViewChild('selectedHazlocZone') private selectedHazlocZone: NgModel;
   @ViewChild('selectedHazlocTemperature') private selectedHazlocTemperature: NgModel;
@@ -74,17 +79,18 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       const projectElement = itemProject;
       if (projectElement.creator === this.userGuid) {
         this.isCanChange = true;
-        console.log(this.isCanChange);
+        // console.log(this.isCanChange);
       } else {
         const canChange = Availability.CanUserChange(projectElement.team_project, this.userGuid);
         const canView = Availability.CanUserView(projectElement.brows_team_project, this.userGuid);
         this.isCanChange = canChange || canView || this.isAdmin;
-        console.log(this.isCanChange);
+        // console.log(this.isCanChange);
       }
     });
     // get itemElectricalElement
     this.electricalService.getElectricalItem(this.projectId, this.electricalId).subscribe(electricals => {
       this.electricalItem = electricals.electrical;
+      // this.nativeId = electricals.electrical.electricalId;
       // this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
       if (this.electricalItem.selectedPowerSystem) {
         this.productsAfterChangeEvent = electricals.electrical.voltage.
@@ -103,10 +109,20 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       this.project = electricalList;
       // console.log(this.project);
       this.parentList = [];
+      this.cloneList = [];
       for (const key in this.project.electricals) {
         if (this.project.electricals[key]._id === this.electricalId) {
         } else {
           this.parentList.push(this.project.electricals[key].equipmentTag);
+          //
+          // this.cloneList.id = this.project.electricals[key]._id;
+          // this.cloneList.equipmentTag = this.project.electricals[key].equipmentTag;
+          this.cloneList.push({
+            id: this.project.electricals[key]._id,
+            equipmentTag: this.project.electricals[key].equipmentTag
+          });
+          // console.log(this.cloneList);
+          // debugger;
         }
       }
     }, err => {
@@ -250,6 +266,32 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     this.selectedHazlocGroup.reset(null);
   }
 
+  onDublicateElectricalItem(data, newTagName) {
+    this.spinnerService.show();
+    this.electricalService.getElectricalItem(this.projectId, data.id).subscribe(electricals => {
+      this.electricalItem = electricals.electrical;
+      // this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
+      console.log(this.electricalItem);
+      this.electricalItem._id = this.electricalId;
+      this.electricalItem.equipmentTag = newTagName;
+      this.electricalItem.newTag = undefined;
+      if (this.electricalItem.selectedPowerSystem) {
+        this.productsAfterChangeEvent = electricals.electrical.voltage.
+          filter(p => p.powerSystemType === electricals.electrical.selectedPowerSystem);
+      } else {
+        // return;
+      }
+      this.newTag = undefined;
+      this.recalculationDependentValues();
+      this.spinnerService.hide();
+    }, err => {
+        console.log(err);
+        this.spinnerService.hide();
+        return;
+    });
+    this.spinnerService.hide();
+  }
+
   typeChanged() {
     if (!this.electricalItem) {
       return;
@@ -263,7 +305,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     this.spinnerService.show();
     this.selectedItemVoltage = data.selectedVoltage;
     data.selectedVoltage = {};
-    // ata.selectedVoltage.name = this.selectedItemVoltage;
+    data.selectedVoltage.name = this.selectedItemVoltage;
     /*
     if (this.productsAfterChangeEvent.length === 0) {
       console.log('call this');
@@ -271,7 +313,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     } else {
       data.voltage = this.changeVoltageArrayObject(this.productsAfterChangeEvent, this.electricalItem.voltage);
     }
-*/
+    */
     data.dateCreate = this.electricalItem.dateCreate;
     data.selectedVoltage.powerSystemType = data.selectedPowerSystem;
     // data.dateCreate = this.date;

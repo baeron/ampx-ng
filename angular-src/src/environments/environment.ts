@@ -9,5 +9,6 @@ export const environment = {
   production: false,
   baseUrl: '/',
   sadmin: 'superAdmin@ampx.ca',
-  admin: 'admin@ampx.ca'
+  admin: 'admin@ampx.ca',
+  inputMaxLength: 40
 };

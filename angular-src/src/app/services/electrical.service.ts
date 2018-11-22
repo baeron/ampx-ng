@@ -1,4 +1,6 @@
-import { Electrical } from './../models/Electrical';
+import { IElectrical } from './../models/IElectrical';
+// import { Electrical } from './../models/Electrical';
+// import { IElectrical}
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
@@ -6,7 +8,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
-import { IElectrical } from '../models/IElectrical';
+// import { IElectrical } from "../models/IElectrical";
 
 const headers = new Headers();
 headers.append('Content-Type', 'application/json');
@@ -49,11 +51,12 @@ export class ElectricalService {
    * @param electrical updated electrical model
    * @param userGuid unique identifier assigned user during registration
    */
-  createElectrical(projectId: string, electrical: Electrical, userGuid: string): Observable<any> {
+  createElectrical(projectId: string, equipmentTag: string, userGuid: string): Observable<any> {
     params.delete('guid');
     params.append('guid', userGuid);
+    const newElectrical = {equipmentTag: equipmentTag};
     const createElectricalUrl = this.baseUrl + 'project/' + projectId + '/electrical-create';
-    return this.http.post(createElectricalUrl, electrical, { headers: headers, params: params })
+    return this.http.post(createElectricalUrl, newElectrical, { headers: headers, params: params })
       .map(res => res.json());
   }
 

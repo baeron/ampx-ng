@@ -1,4 +1,3 @@
-import { IElectrical } from './../../models/IElectrical';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -10,14 +9,11 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { saveAs as importedSaveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
 import { IProject } from '../../models/IProject';
-import { Electrical } from '../../models/Electrical';
-import { IElectricals } from '../../models/IElectricals';
-import { from } from 'rxjs/observable/from';
-//
 import { Availability } from '../../shared/Availability';
 import { environment } from '../../../environments/environment';
 
-
+import { IElectricals } from './../../models/IElectricals';
+import { IElectrical } from './../../models/IElectrical';
 
 @Component({
   selector: 'app-electrical-list',
@@ -28,7 +24,7 @@ import { environment } from '../../../environments/environment';
 export class ElectricalListComponent implements OnInit {
   projectId: string;
   electricals: IElectricals;
-  electrical: Electrical = new Electrical();
+  electrical: IElectrical;
   projectName: any;
   isChecked = false;
   isViewOnly: boolean;
@@ -125,7 +121,10 @@ export class ElectricalListComponent implements OnInit {
    * Method to add all items to the list for export to Excell Electrical UI Data
    * @param isCheck boolean flag
    */
+
   changeFlag(isCheck: boolean) {
+    // TODO: fix it tomorrow
+    /*
     if (isCheck) {
       this.isChecked = false;
       for (let i = 0; i < this.electricals.electricals.length; ++i) {
@@ -139,6 +138,7 @@ export class ElectricalListComponent implements OnInit {
         this.electricalArrayList.push(this.electricals.electricals[i]._id);
       }
     }
+    */
   }
 
   saveToExcell() {
@@ -171,7 +171,10 @@ export class ElectricalListComponent implements OnInit {
     importedSaveAs(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), 'Report from project electricals ' + Date.now() + '.xlsx');
   }
 
+
   saveToExcellUIData() {
+    // TODO: fix it tommorow
+    /*
     const projectArray = [];
     const wscols = [
       // A        // B       // C       // D       // E      // F       // G       // H        // I       // J      // K       // L
@@ -203,15 +206,18 @@ export class ElectricalListComponent implements OnInit {
       controllerName,
       wscols
     );
+    */
   }
 
   createNewElectrical() {
     this.spinnerService.show();
-    const tempElectrical = this.electrical;
+    // const tempElectrical = this.electrical;
+    // tempElectrical =
     // console.log(tempElectrical);
     // tempElectrical.isChecked = true;
     // this.electrical = {};
-    this.electricalService.createElectrical(this.projectId, tempElectrical, this.userGuid).subscribe(
+    const equipmentTag = 'New Electrical';
+    this.electricalService.createElectrical(this.projectId, equipmentTag, this.userGuid).subscribe(
       electricalList => {
         const electricalLength = electricalList.electricals.length;
         const lastElectrical = electricalLength - 1;

@@ -10,6 +10,7 @@ import { ProjectService } from '../../services/project.service';
 import { ElectricalService } from '../../services/electrical.service';
 // external packages
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-electrical-item',
@@ -45,6 +46,8 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
   currentCloneTag: any;
   newTag: string;
   //
+  inputMaxLength: number;
+  //
   @ViewChild('selectedHazlocZone') private selectedHazlocZone: NgModel;
   @ViewChild('selectedHazlocTemperature') private selectedHazlocTemperature: NgModel;
   @ViewChild('selectedHazlocGroup') private selectedHazlocGroup: NgModel;
@@ -65,6 +68,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     this.projectId = this.route.snapshot.params['id'];
     this.electricalId = this.route.snapshot.params['electricalid'];
     this.sizeWindow = window.innerWidth;
+    this.inputMaxLength = environment.inputMaxLength;
   }
 
   ngOnInit() {
@@ -79,12 +83,10 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       const projectElement = itemProject;
       if (projectElement.creator === this.userGuid) {
         this.isCanChange = true;
-        // console.log(this.isCanChange);
       } else {
         const canChange = Availability.CanUserChange(projectElement.team_project, this.userGuid);
         const canView = Availability.CanUserView(projectElement.brows_team_project, this.userGuid);
         this.isCanChange = canChange || canView || this.isAdmin;
-        // console.log(this.isCanChange);
       }
     });
     // get itemElectricalElement
@@ -121,8 +123,6 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
             id: this.project.electricals[key]._id,
             equipmentTag: this.project.electricals[key].equipmentTag
           });
-          // console.log(this.cloneList);
-          // debugger;
         }
       }
     }, err => {
@@ -266,20 +266,16 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     this.selectedHazlocGroup.reset(null);
   }
 
-  onDublicateElectricalItem(data, newTagName) {
+  onDublicateElectricalItem(data, newTagName: string): void {
     this.spinnerService.show();
     this.electricalService.getElectricalItem(this.projectId, data.id).subscribe(electricals => {
       this.electricalItem = electricals.electrical;
-      // this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
-      console.log(this.electricalItem);
       this.electricalItem._id = this.electricalId;
       this.electricalItem.equipmentTag = newTagName;
       this.electricalItem.newTag = undefined;
       if (this.electricalItem.selectedPowerSystem) {
         this.productsAfterChangeEvent = electricals.electrical.voltage.
           filter(p => p.powerSystemType === electricals.electrical.selectedPowerSystem);
-      } else {
-        // return;
       }
       this.newTag = undefined;
       this.recalculationDependentValues();
@@ -585,3 +581,5 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     this.electricalItem.scenarioFirstKVA = Math.ceil(temporalScenarioFirstKVA * 100) / 100;
   }
 }
+
+// TODO: Total 585 code rows before review

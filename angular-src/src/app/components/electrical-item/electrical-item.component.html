@@ -30,13 +30,21 @@
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="revision">Revision</label>
-              <input type="text" class="form-control" [(ngModel)]="electricalItem.revision" name="revision">
+              <input  type="text"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.revision"
+                      name="revision"
+                      [maxLength]="inputMaxLength">
             </div>
           </div>
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="quantity">Quantity</label>
-              <input type="number" class="form-control" [(ngModel)]="electricalItem.quantity" name="quantity">
+              <input  type="number"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.quantity"
+                      name="quantity"
+                      [maxLength]="inputMaxLength">
             </div>
           </div>
         </div>
@@ -94,19 +102,23 @@
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="equipmentTag">Equipment Tag</label>
-              <input
-                type="text"
-                class="form-control"
-                [(ngModel)]="electricalItem.equipmentTag"
-                name="equipmentTag"
-                placeholder="New Electrical"
-                autocomplete="off">
+              <input  type="text"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.equipmentTag"
+                      name="equipmentTag"
+                      placeholder="New Electrical"
+                      [maxLength]="inputMaxLength">
             </div>
           </div>
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="equipmentTag2">Equipment Tag 2</label>
-              <input type="text" class="form-control" [(ngModel)]="electricalItem.equipmentTag2" name="equipmentTag2" placeholder="Equipment Tag 2">
+              <input  type="text"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.equipmentTag2"
+                      name="equipmentTag2"
+                      placeholder="Equipment Tag 2"
+                      [maxLength]="inputMaxLength">
             </div>
           </div>
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
@@ -128,7 +140,11 @@
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="equipmentNotes">Equipment Notes</label>
-              <input type="number" class="form-control" [(ngModel)]="electricalItem.equipmentNotes" name="equipmentNotes">
+              <input  type="number"
+                      class="form-control"
+                      [(ngModel)]="electricalItem.equipmentNotes"
+                      name="equipmentNotes"
+                      [maxLength]="inputMaxLength">
             </div>
           </div>
         </div>
@@ -170,23 +186,9 @@
                 >
                   {{itemCloneTag.equipmentTag}}
                 </option>
-              </select>
-<!--
-  [selected]="currentCloneTag.equipmentTag==electricalItem.selectedParentTag"
--->
-<!--
-              <input type="text" class="form-control" [(ngModel)]="electricalItem.cloneTag" name="cloneTag" disabled>
--->            
+              </select>      
             </div>
           </div>
-          <!--
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
-            <div class="form-group">
-              <label for="newTag">New Tag</label>
-              <input type="text" class="form-control" [(ngModel)]="electricalItem.newTag" name="newTag">
-            </div>
-          </div>
-          -->
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="newTag">New Tag</label>
@@ -195,20 +197,8 @@
                           style="border-radius: 5px 0px 0px 5px;"
                           class="form-control selectForOpenModal"
                           [(ngModel)]="newTag"
-                          name="newTag">
-                <!--
-                <select id="selectedVoltage"
-                        class="form-control selectForOpenModal"
-                        [(ngModel)]="electricalItem.selectedVoltage.name"
-                        name="selectedVoltage"
-                        [disabled]="!electricalItem.selectedPowerSystem">
-                  <option *ngFor="let currentVoltage of productsAfterChangeEvent"
-                          [ngValue]="currentVoltage.name"
-                          [selected]="currentVoltage.name == electricalItem.selectedVoltage.name">
-                    {{currentVoltage.name}}
-                  </option>
-                </select>
-                -->
+                          name="newTag"
+                          [maxLength]="inputMaxLength">
                 <button type="button"
                         style="border-radius: 0px 5px 5px 0px;"
                         class="btn btn-outline-secondary fa fa-clone"
@@ -317,20 +307,6 @@
           <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
             <div class="form-group">
               <label for="selectedVoltage">Voltage</label>
-              <!--
-                                <app-drop-down-dependent
-                                  (onChanged)="onChanged($event, 'Voltage')"
-                                  (newOnChanged)="newOnChanged($event, 'Voltage')"
-                                  [dropDownName] = "'Voltage'"
-                                  [itemType] = 'productsAfterChangeEvent'
-                                  [selectedItemType] = 'electricalItem.selectedVoltage'
-                                  name="selectedVoltage"
-                                >
-                                </app-drop-down-dependent>
-                                <p>electricalItem.selectedVoltage</p>
-                                <div>{{ electricalItem?.selectedVoltage?.name }}</div>
-                                <div>{{ electricalItem?.selectedVoltage?.powerSystemType }}</div>
-              -->
               <div class="d-flex flex-row">
                 <select id="selectedVoltage"
                         class="form-control selectForOpenModal"
@@ -576,16 +552,6 @@
               <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
                 <div class="form-group">
                   <label for="selectedHazlocZone">Hazloc Zone</label>
-                  <!--
-                  <app-drop-down
-                    (onChanged)="onChanged($event, 'Hazloc Zone')"
-                    (newOnChanged)="newOnChanged($event, 'Hazloc Zone')"
-                    [dropDownName] = "'Hazloc Zone'"
-                    [equipmentType] = 'electricalItem.hazlocZone'
-                    [selectedEquipmentType] = 'electricalItem.selectedHazlocZone'
-                    name="selectedHazlocZone"
-                  ></app-drop-down>
-                  -->
                   <div class="d-flex flex-row">
                     <select [disabled]="electricalItem.selectedHazlocClass == electricalItem.hazlocClass[0] || !electricalItem.selectedHazlocClass"
                             id="selectedHazlocZone"
@@ -661,8 +627,7 @@
                             data-placement="top"
                             title="Add new item"
                             [disabled]="!electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'"
-                            (click)="hazlocTemperatureModal.showAddModal()"
-                    >
+                            (click)="hazlocTemperatureModal.showAddModal()">
                     </button>
                     <button type="button"
                           class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -670,8 +635,7 @@
                           data-placement="top"
                           title="Drop selected item"
                           (click)="hazlocTemperatureModal.showDropModal(true)"
-                          [disabled]="electricalItem.hazlocTemperature.length == 0 || !electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'"
-                    >
+                          [disabled]="electricalItem.hazlocTemperature.length == 0 || !electricalItem.selectedHazlocClass || electricalItem.selectedHazlocClass == 'General'">
                     </button>
                   </div>
                 </div>
@@ -731,7 +695,7 @@
               <td>{{electricalItem?.equipmentTag}}</td>                     <!-- Equipment Tag -->
               <td>{{electricalItem?.selectedEquipmentDescription}}</td>     <!-- Equipment Description -->
               <td>{{electricalItem?.selectedEquipmentType}}</td>            <!-- Load Type -->
-              <td>{{electricalItem?.selectedVoltage?.name}}</td>             <!-- System Voltage -->
+              <td>{{electricalItem?.selectedVoltage?.name}}</td>            <!-- System Voltage -->
               <td>{{electricalItem?.selectedPowerSystem}}</td>              <!-- Power System -->
               <td>{{electricalItem?.nameplateRating}}</td>                  <!-- Nameplate Rating -->
               <td>{{electricalItem?.selectedUnits}}</td>                    <!-- Units -->
@@ -748,12 +712,12 @@
               <td>{{electricalItem?.totalDemandFLA}}</td>                   <!-- Total Demand FLA -->
               <td>{{electricalItem?.totalDemandKW}}</td>                    <!-- Total Demand KW -->
               <td>{{electricalItem?.totalDemandKVAR}}</td>                  <!-- Total Demand KVAR -->
-              <td>{{electricalItem?.totalDemandKVA}}</td>                    <!-- Total Demand KVA -->
+              <td>{{electricalItem?.totalDemandKVA}}</td>                   <!-- Total Demand KVA -->
               <td>{{electricalItem?.scenarioFirstLoadFactor}}</td>          <!-- Total Scenario 1 Load Factor % -->
-              <td>{{electricalItem?.scenarioFirstFLA}}</td>                  <!-- Total Scenario 1 FLA -->
-              <td>{{electricalItem?.scenarioFirstKW}}</td>                   <!-- Total Scenario 1 KW -->
-              <td>{{electricalItem?.scenarioFirstKVAR}}</td>                 <!-- Total Scenario 1 KVAR -->
-              <td>{{electricalItem?.scenarioFirstKVA}}</td>                  <!-- Total Scenario 1 KVA -->
+              <td>{{electricalItem?.scenarioFirstFLA}}</td>                 <!-- Total Scenario 1 FLA -->
+              <td>{{electricalItem?.scenarioFirstKW}}</td>                  <!-- Total Scenario 1 KW -->
+              <td>{{electricalItem?.scenarioFirstKVAR}}</td>                <!-- Total Scenario 1 KVAR -->
+              <td>{{electricalItem?.scenarioFirstKVA}}</td>                 <!-- Total Scenario 1 KVA -->
             </tr>
           </tbody>
         </table>

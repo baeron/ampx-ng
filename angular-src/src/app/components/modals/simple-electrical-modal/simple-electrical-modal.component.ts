@@ -93,6 +93,7 @@ export class SimpleElectricalModalComponent {
   }
 
   public close() {
+    this.itenElement = null;
     this.visible = false;
     setTimeout(() => this.visible = false, 300);
     this.modalFlag = false;

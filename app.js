@@ -30,10 +30,10 @@ const project = require('./routes/project');
 //TODO: move to envirovment for prod and dev
 
 // Port Number
-const port = 3000;
+// const port = 3000;
 
 // for deploy
-// const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
 // CORS Middleware
 app.use(cors());

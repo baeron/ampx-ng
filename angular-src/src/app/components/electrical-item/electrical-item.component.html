@@ -1,4 +1,5 @@
-<div class="ml-3 mr-3" (window:resize)="onResize($event)" *ngIf="electricalItem">
+<ng-container *ngIf="electricalItem">
+<div class="ml-3 mr-3" (window:resize)="onResize($event)">
   <div class="d-flex justify-content-center pt-3">
     <h1>Electrical <strong>{{electricalItem?.equipmentTag || "New Electrical"}}</strong></h1>
   </div>
@@ -12,44 +13,47 @@
           <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="itemNumber">Item number</label>
-              <input type="text" class="form-control" name="itemNumber" disabled>
+              <input type="text"
+                     class="form-control"
+                     name="itemNumber"
+                     disabled>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="dateCreate">Date added</label>
-              <input
-                type="text"
-                class="form-control"
-                [ngModel]="electricalItem.dateCreate | date:'yyyy-MM-dd'" 
-                name="dateCreate"
-                disabled
-              >
+              <input type="text"
+                     class="form-control"
+                     [ngModel]="electricalItem.dateCreate | date:'yyyy-MM-dd'" 
+                     name="dateCreate"
+                     disabled>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="revision">Revision</label>
-              <input  type="text"
-                      class="form-control"
-                      [(ngModel)]="electricalItem.revision"
-                      name="revision"
-                      [maxLength]="inputMaxLength">
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="electricalItem.revision"
+                     name="revision"
+                     [maxLength]="inputMaxLength"
+                     autocomplete="off">
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="quantity">Quantity</label>
-              <input  type="number"
-                      class="form-control"
-                      [(ngModel)]="electricalItem.quantity"
-                      name="quantity"
-                      [maxLength]="inputMaxLength">
+              <input type="number"
+                     class="form-control"
+                     [(ngModel)]="electricalItem.quantity"
+                     name="quantity"
+                     [maxLength]="inputMaxLength"
+                     autocomplete="off">
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="equipmentType">Equipment Type</label>
               <app-drop-down (onChanged)="onChanged($event, 'Equipment Type')"
@@ -61,7 +65,7 @@
               </app-drop-down>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="selectedPidDrawing">Pid Drawing</label>
               <app-drop-down (onChanged)="onChanged($event, 'Pid Drawing')"
@@ -73,7 +77,7 @@
               </app-drop-down>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="layoutDrawing">Layout Drawing</label>
               <app-drop-down (onChanged)="onChanged($event, 'Layout Drawing')"
@@ -85,7 +89,7 @@
               </app-drop-down>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="sldDraving">SLD Drawing</label>
               <app-drop-down (onChanged)="onChanged($event, 'SLD Drawing')"
@@ -99,7 +103,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="equipmentTag">Equipment Tag</label>
               <input  type="text"
@@ -107,10 +111,11 @@
                       [(ngModel)]="electricalItem.equipmentTag"
                       name="equipmentTag"
                       placeholder="New Electrical"
-                      [maxLength]="inputMaxLength">
+                      [maxLength]="inputMaxLength"
+                      autocomplete="off">
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="equipmentTag2">Equipment Tag 2</label>
               <input  type="text"
@@ -118,10 +123,11 @@
                       [(ngModel)]="electricalItem.equipmentTag2"
                       name="equipmentTag2"
                       placeholder="Equipment Tag 2"
-                      [maxLength]="inputMaxLength">
+                      [maxLength]="inputMaxLength"
+                      autocomplete="off">
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="parentTag">Parent Tag</label>
               <select [disabled]="parentList?.length == 0"
@@ -130,26 +136,26 @@
                       [(ngModel)]="electricalItem.selectedParentTag"
                       name="selectedParentTag">
                 <option *ngFor="let currentParentTag of parentList"
-                        [ngValue]="currentParentTag"
-                        [selected]="currentParentTag==electricalItem.selectedParentTag">
-                  {{currentParentTag}}
+                        [ngValue]="currentParentTag.equipmentTag"
+                        [selected]="currentParentTag.equipmentTag==electricalItem.selectedParentTag">
+                  {{currentParentTag.equipmentTag}}
                 </option>
               </select>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="equipmentNotes">Equipment Notes</label>
-              <input  type="number"
-                      class="form-control"
-                      [(ngModel)]="electricalItem.equipmentNotes"
-                      name="equipmentNotes"
-                      [maxLength]="inputMaxLength">
+              <input type="number"
+                     class="form-control"
+                     [(ngModel)]="electricalItem.equipmentNotes"
+                     name="equipmentNotes"
+                     [maxLength]="inputMaxLength">
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="locationArea">Location/Area</label>
               <app-drop-down (onChanged)="onChanged($event, 'Location/Area')"
@@ -161,7 +167,7 @@
               </app-drop-down>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="selectedEquipmentDescription">Equipment Description</label>
               <app-drop-down (onChanged)="onChanged($event, 'Equipment Description')"
@@ -173,14 +179,14 @@
               </app-drop-down>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="cloneTag">Clone Tag</label>
               <select [disabled]="cloneList?.length == 0"
                       id="selectedCloneTag"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="currentCloneTag"
-                      name="selectedParentTag">
+                      name="selectedCloneTag">
                 <option *ngFor="let itemCloneTag of cloneList"
                         [ngValue]="itemCloneTag"
                 >
@@ -189,7 +195,7 @@
               </select>      
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="newTag">New Tag</label>
               <div class="d-flex flex-row">
@@ -213,7 +219,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-6 align-self-end">
             <div class="form-group">
               <div class="form-row">
                 <div class="col">
@@ -239,7 +245,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-6 align-self-end">
             <div class="form-group">
               <div class="form-row">
                 <div class="col">
@@ -269,13 +275,13 @@
         <div class="row">
         </div>
         <div class="row">
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="scenarioFirstLoadFactor">Scenario 1 Load Factor %</label>
               <input type="number" class="form-control" [(ngModel)]="electricalItem.scenarioFirstLoadFactor" name="scenarioFirstLoadFactor">
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="heatDissipation">Heat Dissipation (W)</label>
               <input type="number" class="form-control" [(ngModel)]="electricalItem.heatDissipation" name="heatDissipation">
@@ -288,7 +294,7 @@
           <span class="h4">General Rating</span>
         </div>
         <div class="row">
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="selectedPowerSystem">Power System</label>
               <select id="selectedPowerSystem"
@@ -299,24 +305,24 @@
                 <option *ngFor="let currentPowerSystem of electricalItem.powerSystem"
                         [ngValue]="currentPowerSystem"
                         [selected]="currentPowerSystem==electricalItem.selectedPowerSystem">
-                  {{currentPowerSystem}}
+                          {{currentPowerSystem}}
                 </option>
               </select>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
-              <label for="selectedVoltage">Voltage</label>
+              <label for="selectedVoltageName">Voltage</label>
               <div class="d-flex flex-row">
-                <select id="selectedVoltage"
+                <select id="selectedVoltageName"
                         class="form-control selectForOpenModal"
                         [(ngModel)]="electricalItem.selectedVoltage.name"
-                        name="selectedVoltage"
+                        name="selectedVoltageName"
                         [disabled]="!electricalItem.selectedPowerSystem">
                   <option *ngFor="let currentVoltage of productsAfterChangeEvent"
                           [ngValue]="currentVoltage.name"
                           [selected]="currentVoltage.name == electricalItem.selectedVoltage.name">
-                    {{currentVoltage.name}}
+                            {{currentVoltage.name}}
                   </option>
                 </select>
                 <button type="button"
@@ -338,13 +344,16 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="totalPF">Total % P.F.</label>
-              <input type="number" class="form-control" [(ngModel)]="electricalItem.totalPF" name="totalPF">
+              <input type="number"
+                     class="form-control"
+                     [(ngModel)]="electricalItem.totalPF"
+                     name="totalPF">
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="totalEFF">Total % EFF.</label>
               <input type="number" class="form-control" [(ngModel)]="electricalItem.totalEFF" name="totalEFF">
@@ -352,13 +361,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="nameplateRating">Nameplate Rating</label>
               <input type="number" class="form-control" [(ngModel)]="electricalItem.nameplateRating" name="nameplateRating">
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="units">Units</label>
               <select id="selectedUnits"
@@ -373,7 +382,7 @@
               </select>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="selectedMotorSF">Motor S.F.</label>
               <select id="selectedMotorSF"
@@ -388,7 +397,7 @@
               </select>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="motorCode">Motor Code</label>
               <select id="selectedMotorCode"
@@ -405,7 +414,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="selectedSccRating">SCC Rating</label>
               <select id="selectedSccRating"
@@ -420,7 +429,7 @@
               </select>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="selectedEnclosureRating">Enclosure Rating</label>
               <select id="selectedEnclosureRating"
@@ -435,13 +444,13 @@
               </select>
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="loadFactor">Load Factor (%)</label>
               <input type="number" class="form-control" [(ngModel)]="electricalItem.loadFactor" name="loadFactor">
             </div>
           </div>
-          <div class="col-12 col-sm-3 align-self-end" *ngIf="electricalItem">
+          <div class="col-12 col-sm-3 align-self-end">
             <div class="form-group">
               <label for="selectedLoadDuty">Load Duty</label>
               <select id="selectedLoadDuty"
@@ -460,13 +469,13 @@
         <div class="row">
           <div class="col-12 col-sm-6 align-self-end">
             <div class="row">
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="ambientTemp">Ambient Temp (°C)</label>
                   <input id="ambientTemp" type="number" class="form-control" [(ngModel)]="electricalItem.ambientTemp" name="ambientTemp">
                 </div>
               </div>
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="selectedTerminationTemp">Termination Temp (°C)</label>
                   <select id="selectedTerminationTemp"
@@ -483,13 +492,13 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="operationTempMin">Operating T Min.(°C)</label>
                   <input id="operationTempMin" type="number" class="form-control" [(ngModel)]="electricalItem.operationTempMin" name="operationTempMin">
                 </div>
               </div>
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="operationTempMax">Operating T Max.(°C)</label>
                   <input id="operationTempMax" type="number" class="form-control" [(ngModel)]="electricalItem.operationTempMax" name="operationTempMax">
@@ -497,7 +506,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="selectedInsulDescription">Insul. Designation</label>
                   <select id="selectedInsulDescription"
@@ -533,13 +542,13 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="selectedHazlocClass">Hazloc Class</label>
                   <select id="selectedHazlocClass"
                           class="form-control selectForOpenModal"
                           [(ngModel)]="electricalItem.selectedHazlocClass"
-                          (ngModelChange)="optionChanged($event)"
+                          (ngModelChange)="optionChanged()"
                           name="selectedHazlocClass">
                     <option *ngFor="let currentHazlocClass of electricalItem.hazlocClass"
                             [ngValue]="currentHazlocClass"
@@ -549,7 +558,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="selectedHazlocZone">Hazloc Zone</label>
                   <div class="d-flex flex-row">
@@ -584,7 +593,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="selectedHazlocGroup">Hazloc Group</label>
                   <select [disabled]="electricalItem.selectedHazlocClass == electricalItem.hazlocClass[0] || !electricalItem.selectedHazlocClass"
@@ -603,7 +612,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 align-self-end" *ngIf="electricalItem">
+              <div class="col-12 col-sm-6 align-self-end">
                 <div class="form-group">
                   <label for="selectedHazlocTemperature">Hazloc Temperature</label>
                   <div class="d-flex flex-row">
@@ -647,7 +656,7 @@
     </div>
     <div class="d-flex justify-content-end">
       <div class="mr-auto p-2">
-        <a routerLink="/project/{{projectId}}/electricals/" class="btn btn-primary">Back</a>
+        <button type="button" class="btn btn-primary" (click)="onReturnToElectricalList()">Back</button>
       </div>
       <div class="p-2 form-group">
         <span *ngIf="isCanChange">
@@ -849,3 +858,4 @@
   <app-electricals-modal [dataValue]="electricalItem?.hazlocTemperature" [selectedValue]="electricalItem?.selectedHazlocTemperature" [title]="'Hazloc Temperature'" #hazlocTemperatureModal></app-electricals-modal>
   <!-- END MODALS -->
 </div>
+</ng-container>

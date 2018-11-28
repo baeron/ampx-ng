@@ -17,13 +17,22 @@
               <div class="col-12">
                 <div class="form-group">
                   <label for="itemNumber">Item</label>
-                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.itemNumber" name="itemNumber" disabled>
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.itemNumber"
+                         name="itemNumber"
+                         disabled>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="instrumentationTag">Instrumentation Tag</label>
-                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.instrumentationTag" name="instrumentationTag" placeholder="New Instrumentation">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.instrumentationTag"
+                         name="instrumentationTag"
+                         placeholder="New Instrumentation"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12">
@@ -903,13 +912,21 @@
               <div class="col-12">
                 <div class="form-group">
                   <label for="dateInstrumentAdded">Date Instrument Added</label>
-                  <input type="text" class="form-control" [(ngModel)]="dateInstrumentAdded" name="dateInstrumentAdded" disabled>
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="dateInstrumentAdded"
+                         name="dateInstrumentAdded"
+                         disabled>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="cloneTag">Clone Tag</label>
-                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.cloneTag" name="cloneTag" disabled>
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.cloneTag"
+                         name="cloneTag"
+                         disabled>
                 </div>
               </div>
             </div>
@@ -919,19 +936,28 @@
               <div class="col-12">
                 <div class="form-group">
                   <label for="coordForX">X</label>
-                  <input type="number" class="form-control" [(ngModel)]="instrumentationItem.coordForX" name="coordForX">
+                  <input type="number"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.coordForX"
+                         name="coordForX">
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="coordForY">Y</label>
-                  <input type="number" class="form-control" [(ngModel)]="instrumentationItem.coordForY" name="coordForY">
+                  <input type="number"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.coordForY"
+                         name="coordForY">
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="coordForZ">Z</label>
-                  <input type="number" class="form-control" [(ngModel)]="instrumentationItem.coordForZ" name="coordForZ">
+                  <input type="number"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.coordForZ"
+                         name="coordForZ">
                 </div>
               </div>
               <div class="col-12">
@@ -943,8 +969,7 @@
                       id="selectedPowerSupply"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="instrumentationItem.selectedPowerSupply"
-                      name="selectedPowerSupply"
-                    >
+                      name="selectedPowerSupply">
                       <option
                         *ngFor="let currentPowerSupply of instrumentationItem.powerSupply" 
                         [ngValue]="currentPowerSupply"
@@ -958,8 +983,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="powerSupplyModal.showAddModal()"
-                    ></button>
+                      (click)="powerSupplyModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -967,8 +992,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="powerSupplyModal.showDropModal(dropElementFlag)"
-                      [disabled]="instrumentationItem.powerSupply.length == 0"
-                    ></button>
+                      [disabled]="instrumentationItem.powerSupply.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -996,8 +1021,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="instrumentFunctionModal.showAddModal()"
-                    ></button>
+                      (click)="instrumentFunctionModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -1005,21 +1030,29 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="instrumentFunctionModal.showDropModal(dropElementFlag)"
-                      [disabled]="instrumentationItem.instrumentFunction.length == 0"
-                    ></button>
+                      [disabled]="instrumentationItem.instrumentFunction.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="instrumentationNotes">Instrumentation Notes</label>
-                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.instrumentationNotes" name="instrumentationNotes">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.instrumentationNotes"
+                         name="instrumentationNotes"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="internalNotes">Internal Notes</label>
-                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.internalNotes" name="internalNotes">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.internalNotes"
+                         name="internalNotes"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12">
@@ -1046,8 +1079,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="instrumentDescriptionModal.showAddModal()"
-                    ></button>
+                      (click)="instrumentDescriptionModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -1055,15 +1088,19 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="instrumentDescriptionModal.showDropModal(dropElementFlag)"
-                      [disabled]="instrumentationItem.instrumentDescription.length == 0"
-                    ></button>
+                      [disabled]="instrumentationItem.instrumentDescription.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="newTag">New Tag</label>
-                  <input type="text" class="form-control" [(ngModel)]="instrumentationItem.newTag" name="newTag" disabled>
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="instrumentationItem.newTag"
+                         name="newTag"
+                         disabled>
                 </div>
               </div>
             </div>

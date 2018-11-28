@@ -14,16 +14,32 @@
               <label for="cableTag">Create Cable Tag</label>
               <div class="form-group row">
                 <div class="col-xl-3 cableTag">
-                  <input type="text" class="form-control" [(ngModel)]="cabelItem.cableTagFirst" name="cableTagFirst">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="cabelItem.cableTagFirst"
+                         name="cableTagFirst"
+                         autocomplete="off">
                 </div>
                 <div class="col-xl-3 cableTag">
-                  <input type="text" class="form-control" [(ngModel)]="cabelItem.cableTagSecond" name="cableTagSecond">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="cabelItem.cableTagSecond"
+                         name="cableTagSecond"
+                         autocomplete="off">
                 </div>
                 <div class="col-xl-3 cableTag">
-                  <input type="text" class="form-control" [(ngModel)]="cabelItem.cableTagThird" name="cableTagThird">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="cabelItem.cableTagThird"
+                         name="cableTagThird"
+                         autocomplete="off">
                 </div>
                 <div class="col-xl-3 cableTag">
-                  <input type="text" class="form-control" [(ngModel)]="cabelItem.cableTagFourth" name="cableTagFourth">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="cabelItem.cableTagFourth"
+                         name="cableTagFourth"
+                         autocomplete="off">
                 </div>
               </div>
             </div>
@@ -33,17 +49,6 @@
           <div class="col-12 align-self-end">
             <div class="form-group">
               <label for="equipmentType">Cable Type</label>
-              <!--
-                              <app-drop-down
-                                (onChanged) = "onChanged($event, 'Cable Type')"
-                                (newOnChanged) = "newOnChanged($event, 'Cable Type')"
-                                [dropDownName] = "'Cable Type'"
-                                [equipmentType] = 'cabelItem.cableTagIndex'
-                                [selectedEquipmentType] = 'cabelItem.selectedCableTagIndex'
-                                name="selectedCableTagIndex"
-                              >
-                              </app-drop-down>
-              -->
               <div class="d-flex flex-row">
                 <select [disabled]="cabelItem.cableTagIndex.length == 0"
                         id="selectedCableTagIndex"
@@ -53,7 +58,7 @@
                   <option *ngFor="let currentCableTagIndex of cabelItem.cableTagIndex"
                           [ngValue]="currentCableTagIndex"
                           [selected]="currentCableTagIndex==cabelItem.selectedCableTagIndex">
-                    {{currentCableTagIndex}}
+                            {{currentCableTagIndex}}
                   </option>
                 </select>
                 <button type="button"
@@ -88,7 +93,7 @@
                 <option *ngFor="let currentCableFrom of electricalList"
                         [ngValue]="currentCableFrom.equipmentTag"
                         [selected]="currentCableFrom.equipmentTag==cabelItem.selectedCableFrom">
-                  {{currentCableFrom.equipmentTag}}
+                          {{currentCableFrom.equipmentTag}}
                 </option>
               </select>
             </div>
@@ -108,7 +113,7 @@
                 <option *ngFor="let currentCableTo of electricalList"
                         [ngValue]="currentCableTo.equipmentTag"
                         [selected]="currentCableTo.equipmentTag==cabelItem.selectedCableTo">
-                  {{currentCableTo.equipmentTag}}
+                          {{currentCableTo.equipmentTag}}
                 </option>
               </select>
             </div>
@@ -126,7 +131,7 @@
                 <option *ngFor="let currentPowerSystem of cabelItem.powerSystem"
                         [ngValue]="currentPowerSystem"
                         [selected]="currentPowerSystem==cabelItem.selectedPowerSystem">
-                  {{currentPowerSystem}}
+                          {{currentPowerSystem}}
                 </option>
               </select>
             </div>
@@ -144,7 +149,7 @@
                 <option *ngFor="let currentConductorMaterial of conductorMaterialAfterChangePowerSystem"
                         [ngValue]="currentConductorMaterial.name"
                         [selected]="currentConductorMaterial.name == cabelItem.selectedConductorMaterial.name">
-                  {{currentConductorMaterial.name}}
+                          {{currentConductorMaterial.name}}
                 </option>
               </select>
             </div>
@@ -163,7 +168,7 @@
                   <option *ngFor="let currentVoltage of voltageAfterChangePowerSystem"
                           [ngValue]="currentVoltage.name"
                           [selected]="currentVoltage.name == cabelItem.selectedVoltage.name">
-                    {{currentVoltage.name}}
+                            {{currentVoltage.name}}
                   </option>
                 </select>
                 <button type="button"
@@ -194,7 +199,7 @@
                 <option *ngFor="let currentService of cabelItem.serviceArray"
                         [ngValue]="currentService"
                         [selected]="currentService==cabelItem.selectedService">
-                  {{currentService}}
+                          {{currentService}}
                 </option>
               </select>
             </div>
@@ -211,7 +216,7 @@
                 <option *ngFor="let currentMaxAmbientTemp of cabelItem.maxAmbientTempArray"
                         [ngValue]="currentMaxAmbientTemp"
                         [selected]="currentMaxAmbientTemp==cabelItem.selectedMaxAmbientTemp">
-                  {{currentMaxAmbientTemp}}
+                          {{currentMaxAmbientTemp}}
                 </option>
               </select>
             </div>
@@ -241,7 +246,11 @@
           <div class="col-12 col-sm-6 col-xl-6 align-self-end">
             <div class="form-group">
               <label for="outJacket">Out Jacket</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.outJacket" name="outJacket">
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.outJacket"
+                     name="outJacket"
+                     autocomplete="off">
             </div>
           </div>
         </div>
@@ -256,7 +265,7 @@
                 <option *ngFor="let currentInsulationVoltage of cabelItem.insulationVoltageArray"
                         [ngValue]="currentInsulationVoltage"
                         [selected]="currentInsulationVoltage==cabelItem.selectedInsulationVoltage">
-                  {{currentInsulationVoltage}}
+                          {{currentInsulationVoltage}}
                 </option>
               </select>
             </div>
@@ -425,7 +434,11 @@
           <div class="col-12 col-sm-6 col-xl-6 align-self-end">
             <div class="form-group">
               <label for="od">O.D.</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.od" name="od">
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.od"
+                     name="od"
+                     autocomplete="off">
             </div>
           </div>
         </div>
@@ -606,7 +619,11 @@
           <div class="col-12 align-self-end">
             <div class="form-group">
               <label for="cableLenth">Total Length</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.cableLenth" name="cableLenth" disabled>
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.cableLenth"
+                     name="cableLenth"
+                     disabled>
             </div>
           </div>
         </div>
@@ -614,7 +631,11 @@
           <div class="col-12 align-self-end">
             <div class="form-group">
               <label for="voltageDropPercent">Voltage Drop (%)</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.voltageDropPercent" name="voltageDropPercent" disabled>
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.voltageDropPercent"
+                     name="voltageDropPercent"
+                     disabled>
             </div>
           </div>
         </div>
@@ -629,7 +650,11 @@
           <div class="col-12 align-self-end">
             <div class="form-group">
               <label for="connectedFla">Connected FLA</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.connectedFLA" name="connectedFla" disabled>
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.connectedFLA"
+                     name="connectedFla"
+                     disabled>
             </div>
           </div>
         </div>
@@ -644,7 +669,7 @@
                 <option *ngFor="let currentAmpacityMultiplierArray of cabelItem.ampacityMultiplierArray"
                         [ngValue]="currentAmpacityMultiplierArray"
                         [selected]="currentAmpacityMultiplierArray==cabelItem.selectedAmpacityMultiplier">
-                  {{currentAmpacityMultiplierArray}}
+                          {{currentAmpacityMultiplierArray}}
                 </option>
               </select>
             </div>
@@ -654,7 +679,11 @@
           <div class="col-12 align-self-end">
             <div class="form-group">
               <label for="minCondAmp">Min. Cond. Amp.</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.minCondAmp" name="minCondAmp">
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.minCondAmp"
+                     name="minCondAmp"
+                     autocomplete="off">
             </div>
           </div>
         </div>
@@ -662,7 +691,11 @@
           <div class="col-12 align-self-end">
             <div class="form-group">
               <label for="condAmpacity">Cond. Ampacity</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.condAmpacity" name="condAmpacity">
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.condAmpacity"
+                     name="condAmpacity"
+                     autocomplete="off">
             </div>
           </div>
         </div>
@@ -670,7 +703,11 @@
           <div class="col-12 align-self-end">
             <div class="form-group">
               <label for="ocAmpRating">O/C Amp Rating</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.ocAmpRating" name="ocAmpRating">
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.ocAmpRating"
+                     name="ocAmpRating"
+                     autocomplete="off">
             </div>
           </div>
         </div>
@@ -678,7 +715,11 @@
           <div class="col-12 align-self-end">
             <div class="form-group">
               <label for="internalNotes">Internal Notes</label>
-              <input type="text" class="form-control" [(ngModel)]="cabelItem.internalNotes" name="internalNotes">
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="cabelItem.internalNotes"
+                     name="internalNotes"
+                     autocomplete="off">
             </div>
           </div>
         </div>
@@ -719,8 +760,8 @@
           </thead>
           <tbody>
             <tr>
-              <td></td>                         <!-- 1 Rev. -->
-              <td></td>                     <!-- 2 Cable Conduit Tag -->
+              <td></td>                                                      <!-- 1 Rev. -->
+              <td></td>                                                      <!-- 2 Cable Conduit Tag -->
               <td>{{cabelItem?.selectedService}}</td>     <!-- 3 Service -->
               <td></td>            <!-- 4 Load(A) -->
               <td>{{voltagePrefix}}</td>             <!-- 5 Volts -->

@@ -69,7 +69,8 @@
                              class="form-control"
                              [(ngModel)]="sldScheduleItem.selectedEquipmentDescriptionForMajorEquipmentTag"
                              name="selectedEquipmentDescriptionForMajorEquipmentTag"
-                             [readonly]="true">
+                             [readonly]="true"
+                             autocomplete="off">
                     </div>
                   </div>
                 </div>
@@ -77,7 +78,12 @@
                   <div class="col-12 align-self-end">
                     <div class="form-group">
                       <label for="majorEquipmentDeviceTag">Major Equipment Device Tag</label>
-                      <input type="text" class="form-control" [(ngModel)]="sldScheduleItem.majorEquipmentDeviceTag" name="majorEquipmentDeviceTag" placeholder="New SLD Schedule">
+                      <input type="text" 
+                             class="form-control"
+                             [(ngModel)]="sldScheduleItem.majorEquipmentDeviceTag"
+                             name="majorEquipmentDeviceTag"
+                             placeholder="New SLD Schedule"
+                             autocomplete="off">
                     </div>
                   </div>
                 </div>
@@ -89,7 +95,8 @@
                              class="form-control"
                              [(ngModel)]="sldScheduleItem.selectedSystemVoltage"
                              name="selectedSystemVoltage"
-                             [readonly]="true">
+                             [readonly]="true"
+                             autocomplete="off">
                     </div>
                   </div>
                 </div>
@@ -629,40 +636,6 @@
                                      [selectedEquipmentType]='sldScheduleItem.selectedFirstPanelValue'
                                      name="selectedFirstPanelValue">
                       </app-drop-down>
-                      <!--
-                      <div class="d-flex flex-row">
-                        <select [disabled]="sldScheduleItem.firstPanelValue.length == 0"
-                          id="selectedFirstPanelValue"
-                          class="form-control selectForOpenModal"
-                          [(ngModel)]="sldScheduleItem.selectedFirstPanelValue"
-                          name="selectedFirstPanelValue"
-                        >
-                          <option
-                            *ngFor="let currentFirstPanelValue of sldScheduleItem.firstPanelValue"
-                            [ngValue]="currentFirstPanelValue"
-                            [selected]="currentFirstPanelValue==sldScheduleItem.selectedFirstPanelValue">
-                              {{currentFirstPanelValue}}
-                          </option>
-                        </select>
-                          <button
-                            type="button"
-                            class="btn btn-outline-secondary btnPlus fa fa-plus"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            title="Add new item"
-                            (click)="firstPanelElementModal.showAddModal()"
-                          ></button>
-                          <button
-                            type="button"
-                            class="btn btn-outline-secondary btnMinus fa fa-minus"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            title="Drop selected item"
-                            (click)="firstPanelElementModal.showDropModal(dropElementFlag)"
-                            [disabled]="sldScheduleItem.firstPanelValue.length == 0"
-                          ></button>
-                        </div>
-                        -->
                     </div>
                   </div>
                   <div class="col-12 col-xl-6">
@@ -674,40 +647,6 @@
                                      [selectedEquipmentType]='sldScheduleItem.selectedSecondPanelValue'
                                      name="selectedSecondPanelValue">
                       </app-drop-down>
-                      <!--
-                      <div class="d-flex flex-row">
-                        <select [disabled]="sldScheduleItem.secondPanelValue.length == 0"
-                          id="selectedSecondPanelValue"
-                          class="form-control selectForOpenModal"
-                          [(ngModel)]="sldScheduleItem.selectedSecondPanelValue"
-                          name="selectedSecondPanelValue"
-                        >
-                          <option
-                            *ngFor="let currentSecondPanelValue of sldScheduleItem.secondPanelValue"
-                            [ngValue]="currentSecondPanelValue"
-                            [selected]="currentSecondPanelValue==sldScheduleItem.selectedSecondPanelValue">
-                              {{currentSecondPanelValue}}
-                          </option>
-                        </select>
-                        <button
-                          type="button"
-                          class="btn btn-outline-secondary btnPlus fa fa-plus"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Add new item"
-                          (click)="secondPanelElementModal.showAddModal()"
-                        ></button>
-                        <button
-                          type="button"
-                          class="btn btn-outline-secondary btnMinus fa fa-minus"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Drop selected item"
-                          (click)="secondPanelElementModal.showDropModal(dropElementFlag)"
-                          [disabled]="sldScheduleItem.secondPanelValue.length == 0"
-                        ></button>
-                      </div>
-                      -->
                     </div>
                   </div>
                 </div>
@@ -721,40 +660,6 @@
                                      [selectedEquipmentType]='sldScheduleItem.selectedThirdPanelValue'
                                      name="selectedSecondPanelValue">
                       </app-drop-down>
-                      <!--
-                      <div class="d-flex flex-row">
-                        <select [disabled]="sldScheduleItem.thirdPanelValue.length == 0"
-                          id="selectedThirdPanelValue"
-                          class="form-control selectForOpenModal"
-                          [(ngModel)]="sldScheduleItem.selectedThirdPanelValue"
-                          name="selectedThirdPanelValue"
-                        >
-                          <option
-                            *ngFor="let currentThirdPanelValue of sldScheduleItem.thirdPanelValue"
-                            [ngValue]="currentThirdPanelValue"
-                            [selected]="currentThirdPanelValue==sldScheduleItem.selectedThirdPanelValue">
-                              {{currentThirdPanelValue}}
-                          </option>
-                        </select>
-                        <button
-                          type="button"
-                          class="btn btn-outline-secondary btnPlus fa fa-plus"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Add new item"
-                          (click)="thirdPanelElementModal.showAddModal()"
-                        ></button>
-                        <button
-                          type="button"
-                          class="btn btn-outline-secondary btnMinus fa fa-minus"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Drop selected item"
-                          (click)="thirdPanelElementModal.showDropModal(dropElementFlag)"
-                          [disabled]="sldScheduleItem.thirdPanelValue.length == 0"
-                        ></button>
-                      </div>
-                      -->
                     </div>
                   </div>
                 </div>

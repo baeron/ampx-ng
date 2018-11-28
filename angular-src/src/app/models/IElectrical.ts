@@ -1,6 +1,8 @@
 import { IVoltage } from './IVoltage';
 
 export interface IElectrical {
+    _id: string;
+    isNewElectrical: boolean;
     isChecked: boolean;
     dateCreate: Date;
     revision: string;
@@ -14,7 +16,9 @@ export interface IElectrical {
     sldDraving: string[];
     selectedSldDraving: string;
     equipmentTag: string;
+    selectedParentTag: string;
     chiildList: string[];
+    newTag: string;
     equipmentNotes: string;
     locationArea: string[];
     selectedLocationArea: string;
@@ -33,6 +37,7 @@ export interface IElectrical {
     selectedPowerSystem: string;
     voltage: IVoltage[];
     selectedVoltage: IVoltage;
+    selectedVoltageName: string;
     totalPF: number;
     totalEFF: number;
     nameplateRating: number;
@@ -57,6 +62,7 @@ export interface IElectrical {
     insulDescription: string[];
     selectedInsulDescription: string;
     hazlocClass: string[];
+    hazlocZone: string[];
     selectedHazlocZone: string;
     hazlocGroup: string[];
     selectedHazlocGroup: string;

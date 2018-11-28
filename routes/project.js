@@ -392,6 +392,26 @@ router.get('/:id/electricals', function (req, res) {
         res.json({ success: false, msg: 'Failed get electrical item' });
     }
 });
+
+router.get('/:id/electricals-short', function (req, res) {
+    if (req.params) {
+        Project
+            .findById(req.params.id, 'electricals._id electricals.equipmentTag')
+            .exec(function ( err, shortElectrical ) {
+                if( !shortElectrical ) {
+                    res.json({ success: false, msg: 'Failed get short electricals data' });
+                } else if ( err ) {
+                    res.json({ success: false, msg: err });
+                }
+                res.json(shortElectrical)
+            });
+    } else {
+        sendJSONresponse(res, 404, {
+            "message": "Invalid data in request"
+        });
+    }
+});
+
 router.get('/:id/electrical', function (req, res) {
     if (req.params) {
         Project
@@ -409,6 +429,7 @@ router.get('/:id/electrical', function (req, res) {
         res.json({ success: false, msg: 'Failed get electrical item' });
     }
 });
+
 router.get('/:id/electrical-for-sld', function (req, res) {
     if (req.params) {
         Project
@@ -464,7 +485,9 @@ router.get('/:id/electricals/:electricalid', function (req, res) {
 /* CREATE NEW Electrical */
 router.post('/:id/electrical-create', function(req, res) {
     if (req.params && req.params.id) {
-        const newElectrical = req.body;
+        const newElectrical = {};
+        newElectrical.isNewElectrical = req.body.isNewElectrical;
+        newElectrical.equipmentTag = req.body.equipmentTag;
         Project
         .findById(req.params.id)
         .select('electricals')
@@ -541,7 +564,6 @@ router.patch('/:id/electrical-update/:electricalid', function (req, res) {
         sendJSONresponse(res, 404, {
             "message": "Not found, project or electrical id"
         });
-        return;
     }
 });
 /* DELETE Electrical by ID*/
@@ -1025,7 +1047,6 @@ router.get('/:id/sldshedule-item-list/:sldscheduleId', function (req, res) {
                     }
                     if (project.sldschedules && project.sldschedules.length > 0) {
                         sldshedule = project.sldschedules.id(req.params.sldscheduleId);
-                        //console.log(instrumentation);
                         sldsheduleItem['REV.'] = 'N/A';
                         sldsheduleItem['MAJOR EQUIPMENT DEVICE TAG'] = sldshedule.majorEquipmentDeviceTag || "";
                         sldsheduleItem['EQUIPMENT DESCRIPTION'] = 'N/A';
@@ -1339,7 +1360,6 @@ router.get('/:id/controllers-item/:controllerId', function (req, res) {
                     }
                     if (project.controllers && project.controllers.length > 0) {
                         controller = project.controllers.id(req.params.controllerId);
-                        //console.log(instrumentation);
                         controllerItem['ITEM NUMBER'] = controller.itemNumber || 'N/A';
                         controllerItem['REVISION'] = controller.revision || "New Instrumentation";
                         controllerItem['DATE ADDED'] = controller.dataAdded || 'N/A';
@@ -1772,7 +1792,6 @@ router.get('/:id/instrumentations-item-list/:instrumentationId', function (req, 
                     }
                     if (project.instrumentations && project.instrumentations.length > 0) {
                         instrumentation = project.instrumentations.id(req.params.instrumentationId);
-                        //console.log(instrumentation);
                         instrumentationItem['ITEM.'] = instrumentation.itemNumber || 'N/A';
                         instrumentationItem['INSTRUMENTATION TAG'] = instrumentation.instrumentationTag || "New Instrumentation";
                         instrumentationItem['INSTRUMENT DESCRIPTION'] = instrumentation.selectedInstrumentDescription || 'N/A';
@@ -2087,7 +2106,6 @@ router.get('/:id/ioassignments', function (req, res) {
                 } else if (err) {
                     res.json({ success: false, msg: 'Failed get ioassignment item' })
                 }
-                console.log(project);
                 res.json(project);
             });
     } else { }

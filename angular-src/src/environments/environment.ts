@@ -7,7 +7,7 @@
 // prod - '/'
 export const environment = {
   production: false,
-  baseUrl: '/',
+  baseUrl: 'http://localhost:3000/',
   sadmin: 'superAdmin@ampx.ca',
   admin: 'admin@ampx.ca',
   inputMaxLength: 40

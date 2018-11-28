@@ -8,6 +8,7 @@ var userTeamSchema = new mongoose.Schema({
 
 //ELECTRICAL SCHEMA
 var electrucalSchema = new mongoose.Schema({
+    isNewElectrical: Boolean,
     author: String,
     isChecked: { type: Boolean, default: false },
     itemNumber: String,

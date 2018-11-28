@@ -1,3 +1,4 @@
+import { IVoltage } from './../../models/IVoltage';
 import { Availability } from './../../shared/Availability';
 // core modules
 import { Component, OnInit, ViewChild, HostListener, DoCheck } from '@angular/core';
@@ -5,13 +6,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgModel } from '@angular/forms';
 // models
 import { IProject } from '../../models/IProject';
+import { IDublicateModel } from '../../models/IDublicateModel';
+import { IElectrical } from '../../models/IElectrical';
 // servises
 import { ProjectService } from '../../services/project.service';
 import { ElectricalService } from '../../services/electrical.service';
 // external packages
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { environment } from '../../../environments/environment';
-
+// import { analyzeAndValidateNgModules } from '@angular/compiler';
+//
+import _ from 'lodash';
 @Component({
   selector: 'app-electrical-item',
   templateUrl: './electrical-item.component.html',
@@ -24,11 +29,12 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
   isCanChange: boolean;
   userEmail: string;
   userGuid: string;
+  // project data part
   projectId: string;
   project: IProject;
   // electrical item part
   electricalId: string;
-  electricalItem: any;
+  electricalItem: IElectrical;
   //
   sizeWindow: number;
   productsAfterChangeEvent = [];
@@ -46,8 +52,8 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
   currentCloneTag: any;
   newTag: string;
   //
-  inputMaxLength: number;
-  //
+  inputMaxLength: number; // set max lenth for string from global environment
+
   @ViewChild('selectedHazlocZone') private selectedHazlocZone: NgModel;
   @ViewChild('selectedHazlocTemperature') private selectedHazlocTemperature: NgModel;
   @ViewChild('selectedHazlocGroup') private selectedHazlocGroup: NgModel;
@@ -73,12 +79,13 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.spinnerService.show();
+    // get data from local starage
     if (window.localStorage) {
       this.isAdmin = Availability.CheckIsAdmin(localStorage);
       this.userGuid = Availability.GetUserGuid(localStorage);
-      // this.isCreator = Availability.CheckIsCreator(localStorage, this.userGuid);
+      // set bool resalt for understand is user admin and get his unic guid
     }
-    // get user list who can change or view elements
+    // service return boolean flag for understanding whether this user can make changes to the project
     this.projectServise.getCommunityData(this.projectId).subscribe(itemProject => {
       const projectElement = itemProject;
       if (projectElement.creator === this.userGuid) {
@@ -89,50 +96,46 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
         this.isCanChange = canChange || canView || this.isAdmin;
       }
     });
-    // get itemElectricalElement
+
+    // get electrical item element
     this.electricalService.getElectricalItem(this.projectId, this.electricalId).subscribe(electricals => {
       this.electricalItem = electricals.electrical;
-      // this.nativeId = electricals.electrical.electricalId;
-      // this.date = (new Date(this.electricalItem.dateCreate)).toLocaleDateString();
       if (this.electricalItem.selectedPowerSystem) {
-        this.productsAfterChangeEvent = electricals.electrical.voltage.
-          filter(p => p.powerSystemType === electricals.electrical.selectedPowerSystem);
+        this.productsAfterChangeEvent = this.electricalItem.voltage.
+          filter(p => p.powerSystemType === this.electricalItem.selectedPowerSystem);
       } else {
         return;
       }
-      this.spinnerService.hide();
     }, err => {
         console.log(err);
         this.spinnerService.hide();
-        return;
     });
     //
     this.electricalService.getElectricals(this.projectId).subscribe(electricalList => {
       this.project = electricalList;
-      // console.log(this.project);
-      this.parentList = [];
-      this.cloneList = [];
-      for (const key in this.project.electricals) {
-        if (this.project.electricals[key]._id === this.electricalId) {
-        } else {
-          this.parentList.push(this.project.electricals[key].equipmentTag);
-          //
-          // this.cloneList.id = this.project.electricals[key]._id;
-          // this.cloneList.equipmentTag = this.project.electricals[key].equipmentTag;
-          this.cloneList.push({
-            id: this.project.electricals[key]._id,
-            equipmentTag: this.project.electricals[key].equipmentTag
-          });
-        }
-      }
     }, err => {
-        console.log(err);
-        this.spinnerService.hide();
-        return;
+      console.log(err);
+      this.spinnerService.hide();
+    });
+    // get all electricals equipmentTag and id
+    this.electricalService.getElectricalIdAndEquipmentTag(this.projectId).subscribe(electricalList => {
+      const electricalListShortData = electricalList.electricals;
+      const id = this.electricalId;
+      const elListShortData = _.filter(electricalListShortData, function(o) { return o._id !== id; });
+      this.parentList = elListShortData;
+      this.cloneList = elListShortData;
+    }, err => {
+      console.log(err);
+      this.spinnerService.hide();
     });
     this.spinnerService.hide();
   }
 
+  /**
+   *
+   * @param selectedElement
+   * @param title
+   */
   onChanged(selectedElement: any, title: string): void {
     const dropDownName = title;
     switch (dropDownName) {
@@ -210,18 +213,12 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     }
   }
 
-  onModelChange(event) {
-    if (this.electricalItem.selectedEquipmentType !== event) {
-    }
-    this.electricalItem.selectedEquipmentType = event;
-  }
 
   ngDoCheck() {
     if (!this.electricalItem) {
       return;
-    } else {
-      this.recalculationDependentValues();
     }
+    this.recalculationDependentValues();
   }
 
   electricalChildList() {
@@ -260,22 +257,27 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     }
   }
 
-  optionChanged($event) {
+  optionChanged() {
     this.selectedHazlocZone.reset(null);
     this.selectedHazlocTemperature.reset(null);
     this.selectedHazlocGroup.reset(null);
   }
 
-  onDublicateElectricalItem(data, newTagName: string): void {
+  /**
+   * Method for duplicating data from a previously created project
+   * @param dublicateModelData
+   * @param newTagName
+   */
+  onDublicateElectricalItem(dublicateModelData: IDublicateModel, newTagName: string): void {
     this.spinnerService.show();
-    this.electricalService.getElectricalItem(this.projectId, data.id).subscribe(electricals => {
+    this.electricalService.getElectricalItem(this.projectId, dublicateModelData.id).subscribe(electricals => {
       this.electricalItem = electricals.electrical;
       this.electricalItem._id = this.electricalId;
       this.electricalItem.equipmentTag = newTagName;
       this.electricalItem.newTag = undefined;
       if (this.electricalItem.selectedPowerSystem) {
         this.productsAfterChangeEvent = electricals.electrical.voltage.
-          filter(p => p.powerSystemType === electricals.electrical.selectedPowerSystem);
+          filter(byPower => byPower.powerSystemType === electricals.electrical.selectedPowerSystem);
       }
       this.newTag = undefined;
       this.recalculationDependentValues();
@@ -285,23 +287,42 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
         this.spinnerService.hide();
         return;
     });
-    this.spinnerService.hide();
   }
 
+  /**
+   * Method for sorting the electrical load by the power of the selected element
+   */
   typeChanged() {
     if (!this.electricalItem) {
       return;
+    }
+    this.productsAfterChangeEvent = this.electricalItem.voltage
+      .filter(byPower => byPower.powerSystemType === this.electricalItem.selectedPowerSystem);
+  }
+
+  /**
+   * Method for deleting or redirecting a user from the page for creating a new object.
+   */
+  onReturnToElectricalList() {
+    if (this.electricalItem.isNewElectrical) {
+      this.deleteElectrical(this.electricalItem._id);
     } else {
-      this.productsAfterChangeEvent = this.electricalItem.voltage
-        .filter(p => p.powerSystemType === this.electricalItem.selectedPowerSystem);
+      const routeToIOAssignment = '/project/' + this.route.snapshot.params['id'] + '/electricals/';
+      this.router.navigate([routeToIOAssignment]);
     }
   }
 
-  saveElectrical(idElectrical, data) {
+  /**
+   * The method for saving an instance of an electrician with data entered by the user.
+   * @param idElectrical
+   * @param electricalData
+   */
+  saveElectrical(idElectrical: string, electricalData: any): void {
+    // const tempFormData = electricalData;
     this.spinnerService.show();
-    this.selectedItemVoltage = data.selectedVoltage;
-    data.selectedVoltage = {};
-    data.selectedVoltage.name = this.selectedItemVoltage;
+    electricalData.selectedVoltage = {name: String, powerSystem: String};
+    electricalData.selectedVoltage.name = electricalData.selectedVoltageName;
+    electricalData.selectedVoltage.powerSystem = electricalData.selectedPowerSystem;
     /*
     if (this.productsAfterChangeEvent.length === 0) {
       console.log('call this');
@@ -310,50 +331,52 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       data.voltage = this.changeVoltageArrayObject(this.productsAfterChangeEvent, this.electricalItem.voltage);
     }
     */
-    data.dateCreate = this.electricalItem.dateCreate;
-    data.selectedVoltage.powerSystemType = data.selectedPowerSystem;
-    // data.dateCreate = this.date;
-
-    // console.log(data.dateCreate);
-    data.equipmentType = this.electricalItem.equipmentType;
-    data.selectedEquipmentType = this.electricalItem.selectedEquipmentType;
-    data.pidDrawing = this.electricalItem.pidDrawing;
-    data.selectedPidDrawing = this.electricalItem.selectedPidDrawing;
-    data.layoutDrawing = this.electricalItem.layoutDrawing;
-    data.selectedLayoutDrawing = this.electricalItem.selectedLayoutDrawing;
-    data.sldDraving = this.electricalItem.sldDraving;
-    data.selectedSldDraving = this.electricalItem.selectedSldDraving;
-    data.locationArea = this.electricalItem.locationArea;
-    data.selectedLocationArea = this.electricalItem.selectedLocationArea;
-    data.equipmentDescription = this.electricalItem.equipmentDescription;
-    data.selectedEquipmentDescription = this.electricalItem.selectedEquipmentDescription;
-    data.hazlocZone = this.electricalItem.hazlocZone;
-    data.hazlocTemperature = this.electricalItem.hazlocTemperature;
+    electricalData.dateCreate = this.electricalItem.dateCreate;
+    electricalData.isNewElectrical = false;
+    electricalData.equipmentType = this.electricalItem.equipmentType;
+    electricalData.selectedEquipmentType = this.electricalItem.selectedEquipmentType;
+    electricalData.pidDrawing = this.electricalItem.pidDrawing;
+    electricalData.selectedPidDrawing = this.electricalItem.selectedPidDrawing;
+    electricalData.layoutDrawing = this.electricalItem.layoutDrawing;
+    electricalData.selectedLayoutDrawing = this.electricalItem.selectedLayoutDrawing;
+    electricalData.sldDraving = this.electricalItem.sldDraving;
+    electricalData.selectedSldDraving = this.electricalItem.selectedSldDraving;
+    electricalData.locationArea = this.electricalItem.locationArea;
+    electricalData.selectedLocationArea = this.electricalItem.selectedLocationArea;
+    electricalData.equipmentDescription = this.electricalItem.equipmentDescription;
+    electricalData.selectedEquipmentDescription = this.electricalItem.selectedEquipmentDescription;
+    electricalData.hazlocZone = this.electricalItem.hazlocZone;
+    electricalData.hazlocTemperature = this.electricalItem.hazlocTemperature;
     //
-    data.totalConectedFla = this.electricalItem.totalConectedFla || 0;
-    data.totalConectedKW = this.electricalItem.totalConectedKW || 0;
-    data.totalConnectedKVAR = this.electricalItem.totalConnectedKVAR || 0;
-    data.totalConnectedKVA = this.electricalItem.totalConnectedKVA || 0;
-    data.totalDemandFLA = this.electricalItem.totalDemandFLA || 0;
-    data.totalDemandKW = this.electricalItem.totalDemandKW || 0;
-    data.totalDemandKVAR = this.electricalItem.totalDemandKVAR || 0;
-    data.totalDemandKVA = this.electricalItem.totalDemandKVA || 0;
-    data.scenarioFirstFLA = this.electricalItem.scenarioFirstFLA || 0;
-    data.scenarioFirstKW = this.electricalItem.scenarioFirstKW || 0;
-    data.scenarioFirstKVAR = this.electricalItem.scenarioFirstKVAR || 0;
-    data.scenarioFirstKVA = this.electricalItem.scenarioFirstKVA || 0;
+    electricalData.totalConectedFla = this.electricalItem.totalConectedFla || 0;
+    electricalData.totalConectedKW = this.electricalItem.totalConectedKW || 0;
+    electricalData.totalConnectedKVAR = this.electricalItem.totalConnectedKVAR || 0;
+    electricalData.totalConnectedKVA = this.electricalItem.totalConnectedKVA || 0;
+    electricalData.totalDemandFLA = this.electricalItem.totalDemandFLA || 0;
+    electricalData.totalDemandKW = this.electricalItem.totalDemandKW || 0;
+    electricalData.totalDemandKVAR = this.electricalItem.totalDemandKVAR || 0;
+    electricalData.totalDemandKVA = this.electricalItem.totalDemandKVA || 0;
+    electricalData.scenarioFirstFLA = this.electricalItem.scenarioFirstFLA || 0;
+    electricalData.scenarioFirstKW = this.electricalItem.scenarioFirstKW || 0;
+    electricalData.scenarioFirstKVAR = this.electricalItem.scenarioFirstKVAR || 0;
+    electricalData.scenarioFirstKVA = this.electricalItem.scenarioFirstKVA || 0;
     //
-    this.electricalService.updateElectricalItem(this.projectId, idElectrical, data, this.project.creator).subscribe(res => {
-      this.spinnerService.hide();
-      this.router.navigate(['project', this.projectId, 'electricals']);
-    }, (err) => {
-      console.log(err);
-      this.spinnerService.hide();
-    });
-    this.electricalChildList();
+    this.electricalService.updateElectricalItem(this.projectId, idElectrical, electricalData, this.project.creator)
+      .subscribe(res => {
+        this.spinnerService.hide();
+        this.router.navigate(['project', this.projectId, 'electricals']);
+      }, (err) => {
+        console.log(err);
+        this.spinnerService.hide();
+      });
+      this.electricalChildList();
   }
 
-  deleteElectrical(electricalItemId) {
+  /**
+   * The method for removing an electrical instance.
+   * @param electricalItemId unique value for each instance electrical
+   */
+  deleteElectrical(electricalItemId: string): void {
     this.spinnerService.show();
     if (this.electricalItem.chiildList.length >= 1) {
       for (let i = 0; i < this.project.electricals.length; ++i) {
@@ -384,7 +407,6 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       }
     }
     this.electricalService.deleteElectricalItem(this.projectId, electricalItemId).subscribe(res => {
-      // this.spinnerService.hide();
       this.router.navigate(['project', this.projectId, 'electricals']);
     }, (err) => {
       console.log(err);
@@ -434,12 +456,12 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       }
       switch (this.electricalItem.selectedUnits) {
         case this.electricalItem.units[0]:                                                              // A check+2
-          this.electricalItem.totalConectedFla = parseFloat(this.electricalItem.nameplateRating);
+          this.electricalItem.totalConectedFla = this.electricalItem.nameplateRating;
           break;
         case this.electricalItem.units[1]:                                                              // HP check+2
           if (this.electricalItem.selectedVoltage.name && this.electricalItem.totalPF !== 0 && this.electricalItem.totalEFF !== 0) {
             // tslint:disable-next-line:max-line-length
-            const temporalTotalConectedFla = (parseFloat(this.electricalItem.nameplateRating) * 746) / (parsingValue * 1.73 * this.electricalItem.totalPF * this.electricalItem.totalEFF) * 10000;
+            const temporalTotalConectedFla = (this.electricalItem.nameplateRating * 746) / (parsingValue * 1.73 * this.electricalItem.totalPF * this.electricalItem.totalEFF) * 10000;
             this.electricalItem.totalConectedFla = Math.ceil(temporalTotalConectedFla * 100) / 100;
           } else {
             this.electricalItem.totalConectedFla = 0;
@@ -448,7 +470,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
         case this.electricalItem.units[2]:                                                              // KW check+2
           if (this.electricalItem.selectedVoltage.name && this.electricalItem.totalPF !== 0) {
             // tslint:disable-next-line:max-line-length
-            const temporalTotalConectedFla = (parseFloat(this.electricalItem.nameplateRating) * 1000) / (parsingValue * 1.73 * this.electricalItem.totalPF / 100);
+            const temporalTotalConectedFla = (this.electricalItem.nameplateRating * 1000) / (parsingValue * 1.73 * this.electricalItem.totalPF / 100);
             this.electricalItem.totalConectedFla = Math.ceil(temporalTotalConectedFla * 100) / 100;
           } else {
             this.electricalItem.totalConectedFla = 0;
@@ -456,7 +478,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
           break;
         case this.electricalItem.units[3]:                                                              // KVA check+2
           if (this.electricalItem.selectedVoltage.name) {
-            const temporalTotalConectedFla = (parseFloat(this.electricalItem.nameplateRating) * 1000) / (parsingValue * 1.73);
+            const temporalTotalConectedFla = (this.electricalItem.nameplateRating * 1000) / (parsingValue * 1.73);
             this.electricalItem.totalConectedFla = Math.ceil(temporalTotalConectedFla * 100) / 100;
           }
           break;
@@ -483,12 +505,12 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       }
       switch (this.electricalItem.selectedUnits) {
         case this.electricalItem.units[0]:                                                          // A check+2
-          this.electricalItem.totalConectedFla = parseFloat(this.electricalItem.nameplateRating);
+          this.electricalItem.totalConectedFla = this.electricalItem.nameplateRating;
           break;
         case this.electricalItem.units[1]:                                                          // HP check+2
           if (this.electricalItem.selectedVoltage.name && this.electricalItem.totalPF !== 0 && this.electricalItem.totalEFF !== 0) {
             // tslint:disable-next-line:max-line-length
-            const temporalTotalConectedFla = (parseFloat(this.electricalItem.nameplateRating) * 746) / (parsingValue * this.electricalItem.totalPF * this.electricalItem.totalEFF) * 10000;
+            const temporalTotalConectedFla = (this.electricalItem.nameplateRating * 746) / (parsingValue * this.electricalItem.totalPF * this.electricalItem.totalEFF) * 10000;
             this.electricalItem.totalConectedFla = Math.ceil(temporalTotalConectedFla * 100) / 100;
           } else {
             this.electricalItem.totalConectedFla = 0;
@@ -497,7 +519,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
         case this.electricalItem.units[2]:                                                          // KW check+2
           if (this.electricalItem.selectedVoltage.name && this.electricalItem.totalPF !== 0) {
             // tslint:disable-next-line:max-line-length
-            const temporalTotalConectedFla = (parseFloat(this.electricalItem.nameplateRating) * 1000) / (parsingValue * this.electricalItem.totalPF / 100);
+            const temporalTotalConectedFla = (this.electricalItem.nameplateRating * 1000) / (parsingValue * this.electricalItem.totalPF / 100);
             this.electricalItem.totalConectedFla = Math.ceil(temporalTotalConectedFla * 100) / 100;
           } else {
             this.electricalItem.totalConectedFla = 0;
@@ -505,7 +527,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
           break;
         case this.electricalItem.units[3]:                                                          // KVA check+2
           if (this.electricalItem.selectedVoltage.name) {
-            const temporalTotalConectedFla = (parseFloat(this.electricalItem.nameplateRating) * 1000) / (parsingValue);
+            const temporalTotalConectedFla = (this.electricalItem.nameplateRating * 1000) / (parsingValue);
             this.electricalItem.totalConectedFla = Math.ceil(temporalTotalConectedFla * 100) / 100;
           }
           break;
@@ -526,14 +548,14 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
       }
       switch (this.electricalItem.selectedUnits) {
         case this.electricalItem.units[0]:                                                          // A check+2
-          this.electricalItem.totalConectedFla = parseFloat(this.electricalItem.nameplateRating);
+          this.electricalItem.totalConectedFla = this.electricalItem.nameplateRating;
           this.electricalItem.totalConnectedKVA = 0;
           this.electricalItem.totalConnectedKVAR = 0;
           break;
         case this.electricalItem.units[1]:                                                          // HP check+2
           if (this.electricalItem.selectedVoltage.name && this.electricalItem.totalEFF !== 0) {
             // tslint:disable-next-line:max-line-length
-            const temporalTotalConectedFla = (parseFloat(this.electricalItem.nameplateRating) * 746) / (parsingValue * this.electricalItem.totalEFF) * 100;
+            const temporalTotalConectedFla = (this.electricalItem.nameplateRating * 746) / (parsingValue * this.electricalItem.totalEFF) * 100;
             this.electricalItem.totalConectedFla = Math.ceil(temporalTotalConectedFla * 100) / 100;
           } else {
             this.electricalItem.totalConectedFla = 0;
@@ -543,7 +565,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
           break;
         case this.electricalItem.units[2]:                                                          // KW check+2
           if (this.electricalItem.selectedVoltage.name) {
-            const temporalTotalConectedFla = (parseFloat(this.electricalItem.nameplateRating) * 1000) / parsingValue;
+            const temporalTotalConectedFla = (this.electricalItem.nameplateRating * 1000) / parsingValue;
             this.electricalItem.totalConectedFla = Math.ceil(temporalTotalConectedFla * 100) / 100;
           } else {
             this.electricalItem.totalConectedFla = 0;
@@ -570,7 +592,7 @@ export class ElectricalItemComponent implements OnInit, DoCheck {
     const temporalTotalDemandKVA = (this.electricalItem.totalConnectedKVA * this.electricalItem.loadFactor) / 100;
     this.electricalItem.totalDemandKVA = Math.ceil(temporalTotalDemandKVA * 100) / 100;
 
-    const scenarioFirstLoadFactor = parseFloat(this.electricalItem.scenarioFirstLoadFactor);
+    const scenarioFirstLoadFactor = this.electricalItem.scenarioFirstLoadFactor;
     const temporalScenarioFirstFLA = (this.electricalItem.totalConectedFla * scenarioFirstLoadFactor) / 100;
     this.electricalItem.scenarioFirstFLA = Math.ceil(temporalScenarioFirstFLA * 100) / 100;
     const temporalScenarioFirstKW = (this.electricalItem.totalConectedKW * scenarioFirstLoadFactor) / 100;

@@ -14,6 +14,7 @@ import { environment } from '../../../environments/environment';
 
 import { IElectricals } from './../../models/IElectricals';
 import { IElectrical } from './../../models/IElectrical';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-electrical-list',
@@ -67,40 +68,19 @@ export class ElectricalListComponent implements OnInit {
 
     this.spinnerService.show();
     this.electricalService.getElectricals(this.projectId).subscribe(electricalList => {
-      /*
-      if (electricalList.electricals.length < 1) {
-         this.spinnerService.hide();
-        return;
-       } else {
-      */
         this.projectServise.getCommunityData(this.projectId).subscribe(itemProject => {
           const projectElement = itemProject;
           if (projectElement.creator === this.userGuid) {
             this.isCanChange = true;
-            console.log(this.isCanChange);
           } else {
             const canChange = Availability.CanUserChange(projectElement.team_project, this.userGuid);
             const canView = Availability.CanUserView(projectElement.brows_team_project, this.userGuid);
             this.isCanChange = canChange || canView || this.isAdmin;
-            console.log(this.isCanChange);
           }
         });
-        /*
-        this.projectServise.getProjectById(this.projectId).subscribe(itemProject => {
-          this.project = itemProject;
-          if (itemProject.creator === this.userGuid) {
-            this.isCanChange = true;
-          } else {
-            const canChange = Availability.CanUserChange(this.project.team_project, this.userGuid);
-            const canView = Availability.CanUserView(this.project.brows_team_project, this.userGuid);
-            this.isCanChange = canChange || canView || this.isAdmin;
-          }
-        });
-        */
         this.electricals = electricalList;
         this.recalculationParentValeu(electricalList);
         this.spinnerService.hide();
-      // }
     }, err => {
         console.log(err);
         this.spinnerService.hide();
@@ -216,8 +196,15 @@ export class ElectricalListComponent implements OnInit {
     // console.log(tempElectrical);
     // tempElectrical.isChecked = true;
     // this.electrical = {};
-    const equipmentTag = 'New Electrical';
-    this.electricalService.createElectrical(this.projectId, equipmentTag, this.userGuid).subscribe(
+    const newElectricalItem = {
+      equipmentTag: null as string,
+      isNewElectrical: null as boolean
+    };
+
+    newElectricalItem.equipmentTag = 'New Electrical';
+    newElectricalItem.isNewElectrical = true;
+
+    this.electricalService.createElectrical(this.projectId, newElectricalItem, this.userGuid).subscribe(
       electricalList => {
         const electricalLength = electricalList.electricals.length;
         const lastElectrical = electricalLength - 1;
@@ -227,6 +214,7 @@ export class ElectricalListComponent implements OnInit {
         this.router.navigate([routeToElectricalItem]);
       }, (err) => {
         console.error(err);
+        this.spinnerService.hide();
       }
     );
   }

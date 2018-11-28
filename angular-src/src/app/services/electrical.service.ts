@@ -46,15 +46,26 @@ export class ElectricalService {
   }
 
   /**
+   *
+   * @param projectId
+   */
+  getElectricalIdAndEquipmentTag(projectId: string): Observable<any> {
+    params.delete('guid');
+    const electricalShortItemUrl = this.baseUrl + 'project/' + projectId + '/electricals-short';
+    return this.http.get(electricalShortItemUrl, {headers: headers})
+      .map(res => res.json());
+  }
+
+  /**
    * Method to create a new electrical item
    * @param projectId unique identifier for the project item
    * @param electrical updated electrical model
    * @param userGuid unique identifier assigned user during registration
    */
-  createElectrical(projectId: string, equipmentTag: string, userGuid: string): Observable<any> {
+  createElectrical(projectId: string, newElectricalItem: any, userGuid: string): Observable<any> {
     params.delete('guid');
     params.append('guid', userGuid);
-    const newElectrical = {equipmentTag: equipmentTag};
+    const newElectrical = newElectricalItem;
     const createElectricalUrl = this.baseUrl + 'project/' + projectId + '/electrical-create';
     return this.http.post(createElectricalUrl, newElectrical, { headers: headers, params: params })
       .map(res => res.json());

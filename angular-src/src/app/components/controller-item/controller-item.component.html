@@ -15,35 +15,56 @@
           <div class="col-12 col-xl-6">
             <div class="row">
               <div class="col-12 col-sm-4">
-                  <div class="form-group">
-                      <label for="itemNumber">Item Number</label>
-                      <input type="text" class="form-control" [(ngModel)]="controllerItem.itemNumber" name="itemNumber" disabled>
-                    </div>
+                <div class="form-group">
+                  <label for="itemNumber">Item Number</label>
+                  <input type="text"
+                          class="form-control"
+                          [(ngModel)]="controllerItem.itemNumber"
+                          name="itemNumber"
+                          disabled>
+                </div>
               </div>
               <div class="col-12 col-sm-4">
-                  <div class="form-group">
-                      <label for="revision">Revision</label>
-                      <input type="text" class="form-control" [(ngModel)]="controllerItem.revision" name="revision">
-                    </div>
+                <div class="form-group">
+                  <label for="revision">Revision</label>
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.revision"
+                         name="revision"
+                         autocomplete="off">
+                </div>
               </div>
               <div class="col-12 col-sm-4">
-                  <div class="form-group">
-                      <label for="dataAdded">Date Added</label>
-                      <input type="text" class="form-control" [(ngModel)]="date" name="dataAdded" disabled>
-                    </div>
+                <div class="form-group">
+                  <label for="dataAdded">Date Added</label>
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="date"
+                         name="dataAdded"
+                         disabled>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label for="controlsEquipmentTagFirst">Controls Equipment Tag1</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.controlsEquipmentTagFirst" name="controlsEquipmentTagFirst" placeholder="New Controller">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.controlsEquipmentTagFirst"
+                         name="controlsEquipmentTagFirst"
+                         placeholder="New Controller"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label for="controlsEquipmentTagSecond">Controls Equipment Tag2</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.controlsEquipmentTagSecond" name="controlsEquipmentTagSecond">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.controlsEquipmentTagSecond"
+                         name="controlsEquipmentTagSecond"
+                         autocomplete="off">
                 </div>
               </div>
             </div>
@@ -57,14 +78,12 @@
                       id="selectedControlsEquipmentParentTag"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedControlsEquipmentParentTag"
-                      name="selectedControlsEquipmentParentTag"
-                    >
+                      name="selectedControlsEquipmentParentTag">
                       <option
                         *ngFor="let currentEquipmentParentTag of controllerItem.controlsEquipmentParentTag" 
                         [ngValue]="currentEquipmentParentTag"
-                        [selected]="currentEquipmentParentTag==controllerItem.selectedControlsEquipmentParentTag"
-                      >
-                        {{currentEquipmentParentTag}}
+                        [selected]="currentEquipmentParentTag==controllerItem.selectedControlsEquipmentParentTag">
+                          {{currentEquipmentParentTag}}
                       </option>
                     </select>
                     <button
@@ -73,8 +92,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="equipmentParentTagModal.showAddModal()"
-                    ></button>
+                      (click)="equipmentParentTagModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -82,8 +101,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="equipmentParentTagModal.showDropModal(dropElementFlag)"
-                      [disabled]="controllerItem.controlsEquipmentParentTag.length == 0"
-                    ></button>
+                      [disabled]="controllerItem.controlsEquipmentParentTag.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -92,7 +111,11 @@
               <div class="col-12">
                 <div class="form-group">
                   <label for="equipmentTag">New Tag</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.newTag" name="newTag">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.newTag"
+                         name="newTag"
+                         autocomplete="off">
                 </div>
               </div>
             </div>
@@ -106,14 +129,12 @@
                       id="selectedLocation"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedLocation"
-                      name="selectedLocation"
-                    >
+                      name="selectedLocation">
                       <option
                         *ngFor="let currentLocation of controllerItem.location" 
                         [ngValue]="currentLocation"
-                        [selected]="currentLocation==controllerItem.selectedLocation"
-                      >
-                        {{currentLocation}}
+                        [selected]="currentLocation==controllerItem.selectedLocation">
+                          {{currentLocation}}
                       </option>
                     </select>
                     <button
@@ -122,8 +143,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="locationModal.showAddModal()"
-                    ></button>
+                      (click)="locationModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -131,8 +152,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="locationModal.showDropModal(dropElementFlag)"
-                      [disabled]="controllerItem.location.length == 0"
-                    ></button>
+                      [disabled]="controllerItem.location.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -147,14 +168,12 @@
                       id="selectedDataSheetNumber"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedDataSheetNumber"
-                      name="selectedDataSheetNumber"
-                    >
+                      name="selectedDataSheetNumber">
                       <option
                         *ngFor="let currentDataSheetNumber of controllerItem.dataSheetNumber" 
                         [ngValue]="currentDataSheetNumber"
-                        [selected]="currentDataSheetNumber==controllerItem.selectedDataSheetNumber"
-                      >
-                        {{currentDataSheetNumber}}
+                        [selected]="currentDataSheetNumber==controllerItem.selectedDataSheetNumber">
+                          {{currentDataSheetNumber}}
                       </option>
                     </select>
                     <button
@@ -163,8 +182,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="dataSheetNumberModal.showAddModal()"
-                    ></button>
+                      (click)="dataSheetNumberModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -172,8 +191,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="dataSheetNumberModal.showDropModal(dropElementFlag)"
-                      [disabled]="controllerItem.dataSheetNumber.length == 0"
-                    ></button>
+                      [disabled]="controllerItem.dataSheetNumber.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -188,14 +207,12 @@
                       id="selectedLayoutDraving"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedLayoutDraving"
-                      name="selectedLayoutDraving"
-                    >
+                      name="selectedLayoutDraving">
                       <option
                         *ngFor="let currentLayoutDrawing of controllerItem.layoutDrawing" 
                         [ngValue]="currentLayoutDrawing"
-                        [selected]="currentLayoutDrawing==controllerItem.selectedLayoutDraving"
-                      >
-                        {{currentLayoutDrawing}}
+                        [selected]="currentLayoutDrawing==controllerItem.selectedLayoutDraving">
+                          {{currentLayoutDrawing}}
                       </option>
                     </select>
                     <button
@@ -204,8 +221,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="layoutDrawingModal.showAddModal()"
-                    ></button>
+                      (click)="layoutDrawingModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -213,8 +230,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="layoutDrawingModal.showDropModal(dropElementFlag)"
-                      [disabled]="controllerItem.layoutDrawing.length == 0"
-                    ></button>
+                      [disabled]="controllerItem.layoutDrawing.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -229,14 +246,12 @@
                       id="selectedSchematicDraving"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedSchematicDraving"
-                      name="selectedSchematicDraving"
-                    >
+                      name="selectedSchematicDraving">
                       <option
                         *ngFor="let currentSchematicDrawing of controllerItem.schematicDrawing" 
                         [ngValue]="currentSchematicDrawing"
-                        [selected]="currentSchematicDrawing==controllerItem.selectedSchematicDraving"
-                      >
-                        {{currentSchematicDrawing}}
+                        [selected]="currentSchematicDrawing==controllerItem.selectedSchematicDraving">
+                          {{currentSchematicDrawing}}
                       </option>
                     </select>
                     <button
@@ -245,8 +260,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="schematicDravingModal.showAddModal()"
-                    ></button>
+                      (click)="schematicDravingModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -254,8 +269,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="schematicDravingModal.showDropModal(dropElementFlag)"
-                      [disabled]="controllerItem.schematicDrawing.length == 0"
-                    ></button>
+                      [disabled]="controllerItem.schematicDrawing.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -284,13 +299,11 @@
                               changeRelayIOType();
                               changeIODescriptionRelay();
                               changeIOPerCard()"
-                    name="selectedEquipmentType"
-                  >
+                    name="selectedEquipmentType">
                     <option
                       *ngFor="let currentEquipmentType of controllerItem.equipmentType" 
                       [ngValue]="currentEquipmentType"
-                      [selected]="currentEquipmentType==controllerItem.selectedEquipmentType"
-                    >
+                      [selected]="currentEquipmentType==controllerItem.selectedEquipmentType">
                         {{currentEquipmentType}}
                     </option>
                   </select>
@@ -306,14 +319,12 @@
                       id="selectedControllerType"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedControllerType.name"
-                      name="selectedControllerType"
-                    >
+                      name="selectedControllerType">
                       <option
                         *ngFor="let currentControllerType of changeControllerTypeAfterChangeEquipmentType"
                         [ngValue]="currentControllerType.name"
-                        [selected]="currentControllerType.name == controllerItem.selectedControllerType.name"
-                      >
-                        {{currentControllerType.name}}
+                        [selected]="currentControllerType.name == controllerItem.selectedControllerType.name">
+                          {{currentControllerType.name}}
                       </option>
                     </select>
                     <button
@@ -322,8 +333,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="controllerTypeModal.showAddModal()"
-                    ></button>
+                      (click)="controllerTypeModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -331,8 +342,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="controllerTypeModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeControllerTypeAfterChangeEquipmentType.length == 0"
-                    ></button>
+                      [disabled]="changeControllerTypeAfterChangeEquipmentType.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -344,14 +355,12 @@
                       id="selectedControllerFunction"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedControllerFunction.name"
-                      name="selectedControllerFunction"
-                    >
+                      name="selectedControllerFunction">
                       <option
                         *ngFor="let currentControllerFunction of changeControllerFunctionAfterChangeEquipmentType"
                         [ngValue]="currentControllerFunction.name"
-                        [selected]="currentControllerFunction.name == controllerItem.selectedControllerFunction.name"
-                      >
-                        {{currentControllerFunction.name}}
+                        [selected]="currentControllerFunction.name == controllerItem.selectedControllerFunction.name">
+                          {{currentControllerFunction.name}}
                       </option>
                     </select>
                     <button
@@ -360,8 +369,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="controllerFunctionModal.showAddModal()"
-                    ></button>
+                      (click)="controllerFunctionModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -369,8 +378,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="controllerFunctionModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeControllerFunctionAfterChangeEquipmentType.length == 0"
-                    ></button>
+                      [disabled]="changeControllerFunctionAfterChangeEquipmentType.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -384,14 +393,12 @@
                       id="selectedControllerManufacturer"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedControllerManufacturer.name"
-                      name="selectedControllerManufacturer"
-                    >
+                      name="selectedControllerManufacturer">
                       <option
                         *ngFor="let currentControllerManufacturer of changeControllerManufactureAfterChangeEquipmentType"
                         [ngValue]="currentControllerManufacturer.name"
-                        [selected]="currentControllerManufacturer.name == controllerItem.selectedControllerManufacturer.name"
-                      >
-                        {{currentControllerManufacturer.name}}
+                        [selected]="currentControllerManufacturer.name == controllerItem.selectedControllerManufacturer.name">
+                          {{currentControllerManufacturer.name}}
                       </option>
                     </select>
                     <button
@@ -400,8 +407,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="controllerManufacturerModal.showAddModal()"
-                    ></button>
+                      (click)="controllerManufacturerModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -409,8 +416,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="controllerManufacturerModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeControllerManufactureAfterChangeEquipmentType.length == 0"
-                    ></button>
+                      [disabled]="changeControllerManufactureAfterChangeEquipmentType.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -422,14 +429,12 @@
                       id="selectedControllerSeries"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedControllerSeries.name"
-                      name="selectedControllerSeries"
-                    >
+                      name="selectedControllerSeries">
                       <option
                         *ngFor="let currentsControllerSeries of changeControllerSeriesAfterChangeEquipmentType"
                         [ngValue]="currentsControllerSeries.name"
-                        [selected]="currentsControllerSeries.name == controllerItem.selectedControllerSeries.name"
-                      >
-                        {{currentsControllerSeries.name}}
+                        [selected]="currentsControllerSeries.name == controllerItem.selectedControllerSeries.name">
+                          {{currentsControllerSeries.name}}
                       </option>
                     </select>
                     <button
@@ -438,8 +443,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="controllerSeriesModal.showAddModal()"
-                    ></button>
+                      (click)="controllerSeriesModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -447,8 +452,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="controllerSeriesModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeControllerSeriesAfterChangeEquipmentType.length == 0"
-                    ></button>
+                      [disabled]="changeControllerSeriesAfterChangeEquipmentType.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -468,14 +473,12 @@
                                   changeRelayIODescription();
                                   changeRelayIOType();
                                   changeIODescriptionRelay()"
-                      [disabled]="changeCloneEquipmentTypeAfterChangeEquipmentType.length == 0"
-                    >
+                      [disabled]="changeCloneEquipmentTypeAfterChangeEquipmentType.length == 0">
                       <option
                         *ngFor="let currentCloneEquipmentType of changeCloneEquipmentTypeAfterChangeEquipmentType" 
                         [ngValue]="currentCloneEquipmentType.name"
-                        [selected]="currentCloneEquipmentType.name == controllerItem.selectedCloneEquipmentType.name"
-                      >
-                        {{currentCloneEquipmentType.name}}
+                        [selected]="currentCloneEquipmentType.name == controllerItem.selectedCloneEquipmentType.name">
+                          {{currentCloneEquipmentType.name}}
                       </option>
                     </select>
                   </div>
@@ -493,14 +496,12 @@
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedEquipmentModel.name"
                       (change)="changeIOPerCard(controllerItem.selectedEquipmentModel.name)"
-                      name="selectedEquipmentModel"
-                    >
+                      name="selectedEquipmentModel">
                       <option
                         *ngFor="let currentEquipmentModel of changeEquipmentModelAfterChangeEquipmentType" 
                         [ngValue]="currentEquipmentModel.name"
-                        [selected]="currentEquipmentModel.name == controllerItem.selectedEquipmentModel.name"
-                      >
-                        {{currentEquipmentModel.name}}
+                        [selected]="currentEquipmentModel.name == controllerItem.selectedEquipmentModel.name">
+                          {{currentEquipmentModel.name}}
                       </option>
                     </select>
                     <button
@@ -509,8 +510,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="equipmentModelModal.showAddModal()"
-                    ></button>
+                      (click)="equipmentModelModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -518,8 +519,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="equipmentModelModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeEquipmentModelAfterChangeEquipmentType.length == 0"
-                    ></button>
+                      [disabled]="changeEquipmentModelAfterChangeEquipmentType.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -528,25 +529,41 @@
               <div class="col-12 col-sm-2">
                 <div class="form-group">
                   <label for="node">Node</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.node" name="node">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.node"
+                         name="node"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12 col-sm-2">
                 <div class="form-group">
                   <label for="chassis">Chassis</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.chassis" name="chassis">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.chassis"
+                         name="chassis"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12 col-sm-2">
                 <div class="form-group">
                   <label for="slot">Slot</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.slot" name="slot">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.slot"
+                         name="slot"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12 col-sm-2">
                 <div class="form-group">
                   <label for="data">Data</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.data" name="data">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.data"
+                         name="data"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12 col-sm-4">
@@ -558,14 +575,12 @@
                       id="selectedIPAdress"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedIPAdress.name"
-                      name="selectedIPAdress"
-                    >
+                      name="selectedIPAdress">
                       <option
                         *ngFor="let currentIpAdress of changeIpAdressAfterChangeEquipmentType" 
                         [ngValue]="currentIpAdress.name"
-                        [selected]="currentIpAdress.name==controllerItem.selectedIPAdress.name"
-                      >
-                        {{currentIpAdress.name}}
+                        [selected]="currentIpAdress.name==controllerItem.selectedIPAdress.name">
+                          {{currentIpAdress.name}}
                       </option>
                     </select>
                     <button
@@ -574,8 +589,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="ipAdressModal.showAddModal()"
-                    ></button>
+                      (click)="ipAdressModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -583,8 +598,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="ipAdressModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeIpAdressAfterChangeEquipmentType.length == 0"
-                    ></button>
+                      [disabled]="changeIpAdressAfterChangeEquipmentType.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -599,14 +614,12 @@
                       id="selectedIOPerCard"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedIOPerCard.name"
-                      name="selectedIOPerCard"
-                    >
+                      name="selectedIOPerCard">
                       <option
                         *ngFor="let currentIOPerCard of changeIOPerCardAfterChangeEquimpentTypeAndEquipmentModel" 
                         [ngValue]="currentIOPerCard.name"
-                        [selected]="currentIOPerCard.name == controllerItem.selectedIOPerCard.name"
-                      >
-                        {{currentIOPerCard.name}}
+                        [selected]="currentIOPerCard.name == controllerItem.selectedIOPerCard.name">
+                          {{currentIOPerCard.name}}
                       </option>
                     </select>
                     <button
@@ -615,8 +628,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="ioPerCardModal.showAddModal()"
-                    ></button>
+                      (click)="ioPerCardModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -624,15 +637,19 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="ioPerCardModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeIOPerCardAfterChangeEquimpentTypeAndEquipmentModel.length == 0"
-                    ></button>
+                      [disabled]="changeIOPerCardAfterChangeEquimpentTypeAndEquipmentModel.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label for="relayQuantity">Relay Quantity</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.relayQuantity" name="relayQuantity">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.relayQuantity"
+                         name="relayQuantity"
+                         autocomplete="off">
                 </div>
               </div>
             </div>
@@ -640,13 +657,20 @@
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label for="dcPower">DC Power</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.dcPower" name="dcPower">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.dcPower"
+                         name="dcPower"
+                         autocomplete="off">
                 </div>
               </div>
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label for="esdPower">ESD Power</label>
-                  <input type="text" class="form-control" [(ngModel)]="controllerItem.esdPower" name="esdPower">
+                  <input type="text"
+                         class="form-control"
+                         [(ngModel)]="controllerItem.esdPower"
+                         name="esdPower">
                 </div>
               </div>
             </div>
@@ -672,14 +696,12 @@
                       id="selectedIOTag"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedIOTag.name"
-                      name="selectedIOTag"
-                    >
+                      name="selectedIOTag">
                       <option
                         *ngFor="let currentIOTag of changeIOtagAfterChangeEquipmentElementTypeAndEquipmentModel" 
                         [ngValue]="currentIOTag.name"
-                        [selected]="currentIOTag.name == controllerItem.selectedIOTag.name"
-                      >
-                        {{currentIOTag.name}}
+                        [selected]="currentIOTag.name == controllerItem.selectedIOTag.name">
+                          {{currentIOTag.name}}
                       </option>
                     </select>
                     <button
@@ -688,8 +710,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="ioTagModal.showAddModal()"
-                    ></button>
+                      (click)="ioTagModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -697,8 +719,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="ioTagModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeIOtagAfterChangeEquipmentElementTypeAndEquipmentModel.length == 0"
-                    ></button>
+                      [disabled]="changeIOtagAfterChangeEquipmentElementTypeAndEquipmentModel.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -711,14 +733,12 @@
                       id="selectedIOType"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedIOType.name"
-                      name="selectedIOType"
-                    >
+                      name="selectedIOType">
                       <option
                         *ngFor="let currentIOTag of changeIOTypeAfterChangeEquipmentType" 
                         [ngValue]="currentIOTag.name"
-                        [selected]="currentIOTag.name == controllerItem.selectedIOType.name"
-                      >
-                        {{currentIOTag.name}}
+                        [selected]="currentIOTag.name == controllerItem.selectedIOType.name">
+                          {{currentIOTag.name}}
                       </option>
                     </select>
                     <button
@@ -727,8 +747,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="ioTypeModal.showAddModal()"
-                    ></button>
+                      (click)="ioTypeModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -736,8 +756,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="ioTypeModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeIOTypeAfterChangeEquipmentType.length == 0"
-                    ></button>
+                      [disabled]="changeIOTypeAfterChangeEquipmentType.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>          
@@ -752,13 +772,11 @@
                       id="selectedIODescription"
                       class="form-control selectForOpenModal"
                       [(ngModel)]="controllerItem.selectedIODescription.name"
-                      name="selectedIODescription"
-                    >
+                      name="selectedIODescription">
                       <option
                         *ngFor="let currentIODescription of changeIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType" 
                         [ngValue]="currentIODescription.name"
-                        [selected]="currentIODescription.name == controllerItem.selectedIODescription.name"
-                      >
+                        [selected]="currentIODescription.name == controllerItem.selectedIODescription.name">
                           {{currentIODescription.name}}
                       </option>
                     </select>
@@ -768,8 +786,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Add new item"
-                      (click)="IODescriptionModal.showAddModal()"
-                    ></button>
+                      (click)="IODescriptionModal.showAddModal()">
+                    </button>
                     <button
                       type="button"
                       class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -777,8 +795,8 @@
                       data-placement="top"
                       title="Drop selected item"
                       (click)="IODescriptionModal.showDropModal(dropElementFlag)"
-                      [disabled]="changeIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
-                    ></button>
+                      [disabled]="changeIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0">
+                    </button>
                   </div>
                 </div>
               </div>
@@ -795,14 +813,12 @@
                         id="selectedRelayIODescription"
                         class="form-control selectForOpenModal"
                         [(ngModel)]="controllerItem.selectedRelayIODescription.name"
-                        name="selectedRelayIODescription"
-                      >
+                        name="selectedRelayIODescription">
                         <option
                           *ngFor="let currentRelayIODescription of changeRelayIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType" 
                           [ngValue]="currentRelayIODescription.name"
-                          [selected]="currentRelayIODescription.name==controllerItem.selectedRelayIODescription.name"
-                        >
-                          {{currentRelayIODescription.name}}
+                          [selected]="currentRelayIODescription.name==controllerItem.selectedRelayIODescription.name">
+                            {{currentRelayIODescription.name}}
                         </option>
                       </select>
                       <button
@@ -811,8 +827,8 @@
                         data-toggle="tooltip"
                         data-placement="top"
                         title="Add new item"
-                        (click)="RelayIODescriptionModal.showAddModal()"
-                      ></button>
+                        (click)="RelayIODescriptionModal.showAddModal()">
+                      </button>
                       <button
                         type="button"
                         class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -820,8 +836,8 @@
                         data-placement="top"
                         title="Drop selected item"
                         (click)="RelayIODescriptionModal.showDropModal(dropElementFlag)"
-                        [disabled]="changeRelayIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
-                      ></button>
+                        [disabled]="changeRelayIODescriptionAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0">
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -834,14 +850,12 @@
                         id="selectedRelayIOType"
                         class="form-control selectForOpenModal"
                         [(ngModel)]="controllerItem.selectedRelayIOType.name"
-                        name="selectedRelayIOType"
-                      >
+                        name="selectedRelayIOType">
                         <option
                           *ngFor="let currentRelayIOType of changeRelayIOTypeAfterChangeEquimpentTypeAndCloneEquipmentType" 
                           [ngValue]="currentRelayIOType.name"
-                          [selected]="currentRelayIOType.name == controllerItem.selectedRelayIOType.name"
-                        >
-                          {{currentRelayIOType.name}}
+                          [selected]="currentRelayIOType.name == controllerItem.selectedRelayIOType.name">
+                            {{currentRelayIOType.name}}
                         </option>
                       </select>
                       <button
@@ -850,8 +864,8 @@
                         data-toggle="tooltip"
                         data-placement="top"
                         title="Add new item"
-                        (click)="relayIOTypeModal.showAddModal()"
-                      ></button>
+                        (click)="relayIOTypeModal.showAddModal()">
+                      </button>
                       <button
                         type="button"
                         class="btn btn-outline-secondary btnMinus fa fa-minus"
@@ -859,8 +873,8 @@
                         data-placement="top"
                         title="Drop selected item"
                         (click)="relayIOTypeModal.showDropModal(dropElementFlag)"
-                        [disabled]="changeRelayIOTypeAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
-                      ></button>
+                        [disabled]="changeRelayIOTypeAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0">
+                      </button>
                     </div>
                   </div>
                 </div>    
@@ -875,33 +889,29 @@
                         id="selectedIODescriptionRelay"
                         class="form-control selectForOpenModal"
                         [(ngModel)]="controllerItem.selectedIODescriptionRelay.name"
-                        name="selectedIODescriptionRelay"
-                      >
+                        name="selectedIODescriptionRelay">
                         <option
                           *ngFor="let currentRelayIODescription of changeIODescriptionRelayAfterChangeEquimpentTypeAndCloneEquipmentType" 
                           [ngValue]="currentRelayIODescription.name"
-                          [selected]="currentRelayIODescription.name == controllerItem.selectedIODescriptionRelay.name"
-                        >
+                          [selected]="currentRelayIODescription.name == controllerItem.selectedIODescriptionRelay.name">
                             {{currentRelayIODescription.name}}
                         </option>
                       </select>
-                      <button
-                        type="button"
-                        class="btn btn-outline-secondary btnPlus fa fa-plus"
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        title="Add new item"
-                        (click)="relayIODescriptionModal.showAddModal()"
-                      ></button>
-                      <button
-                        type="button"
-                        class="btn btn-outline-secondary btnMinus fa fa-minus"
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        title="Drop selected item"
-                        (click)="relayIODescriptionModal.showDropModal(dropElementFlag)"
-                        [disabled]="changeIODescriptionRelayAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0"
-                      ></button>
+                      <button type="button"
+                              class="btn btn-outline-secondary btnPlus fa fa-plus"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title="Add new item"
+                              (click)="relayIODescriptionModal.showAddModal()">
+                      </button>
+                      <button type="button"
+                              class="btn btn-outline-secondary btnMinus fa fa-minus"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title="Drop selected item"
+                              (click)="relayIODescriptionModal.showDropModal(dropElementFlag)"
+                              [disabled]="changeIODescriptionRelayAfterChangeEquimpentTypeAndCloneEquipmentType.length == 0">
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -919,13 +929,11 @@
             <div class="form-group">
               <label for="selectedControllerTag">Controller Tag</label>
               <div class="d-flex flex-row">
-                <select 
-                  disabled
-                  id="selectedControllerTag"
-                  class="form-control selectForOpenModal"
-                  [(ngModel)]="controllerItem.selectedControllerTag"
-                  name="selectedControllerTag"
-                >
+                <select id="selectedControllerTag"
+                        class="form-control selectForOpenModal"
+                        [(ngModel)]="controllerItem.selectedControllerTag"
+                        name="selectedControllerTag"
+                        disabled>
                   <option
                     *ngFor="let currentControllerTag of controllerItem.controllerTag" 
                     [ngValue]="currentControllerTag"
